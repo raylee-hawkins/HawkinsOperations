@@ -75,16 +75,20 @@ Expected artifacts:
 
 ---
 
-## Repository map
+## Repo Map
 
 | Area | What it contains | Why it exists |
 |---|---|---|
+| `lab/` | live infra docs, VM notes, lab runbooks | operational context for the home lab |
 | `PROOF_PACK/` | curated artifacts + evidence lane | reviewable proof path for interviews |
 | `detection-rules/` | Sigma/Splunk/Wazuh + mappings | multi-platform detection engineering |
 | `incident-response/` | playbooks + templates + index | consistent IR execution model |
 | `threat-hunting/` | hunt matrices + hypothesis notes | structured hunting practice |
+| `tools/` | helper utilities and migration tooling | repeatable maintenance and packaging support |
 | `scripts/` | verification + bundle builders | reproducibility + deployable artifacts |
-| `projects/` | project subtrees + entrypoints | proof trails for larger workstreams |
+| `docs/` | execution notes and supporting documentation | implementation decisions and reviewer context |
+| `site/` | static portfolio site source | published recruiter-facing web content |
+| `projects/` | reference/archive project subtrees | non-canonical, time-boxed, or legacy workstreams |
 
 ---
 
@@ -108,7 +112,7 @@ This maps to the documented Wazuh deployment flow: modules -> bundle -> `/var/os
 - Security policy: [`SECURITY.md`](SECURITY.md)
 - Sanitization checklist: [`PROOF_PACK/EVIDENCE_CHECKLIST.md`](PROOF_PACK/EVIDENCE_CHECKLIST.md)
 
-Repo standard: no real credentials/tokens, no real internal IPs/hostnames, no accidental identity leakage.
+Repo standard: no real credentials/tokens, no internal IPs, and no accidental identity leakage. Use `[REDACTED_INTERNAL]` for sensitive internal details.
 
 ---
 
