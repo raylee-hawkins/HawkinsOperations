@@ -7,6 +7,7 @@ Curated reviewer lane for this repository.
 - `PROOF_PACK/VERIFIED_COUNTS.md`
 - `PROOF_PACK/ARCHITECTURE.md`
 - `PROOF_PACK/EVIDENCE_CHECKLIST.md`
+- `PROOF_PACK/REDACTION_RULES.md`
 - `PROOF_PACK/SAMPLES/`
 - `PROOF_PACK/EVIDENCE/`
 
@@ -21,3 +22,4 @@ Curated reviewer lane for this repository.
 ## Additional Evidence Sets
 
 - `PROOF_PACK/EVIDENCE/openclaw_docker_vm102_2026-02-11/`
+- `PROOF_PACK/features/phase6a-infra-validation-doc/`
