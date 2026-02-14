@@ -29,3 +29,4 @@ Expected:
 
 - This repository is evidence-first: claims are backed by reproducible commands.
 - `PROOF_PACK/` is the curated review lane; raw imports and legacy material are not part of the front-door proof path.
+- Phase execution notes: `docs/execution/PHASE_1_COUNT_RECON.md`, `docs/execution/PHASE4_RESUME_ATS_TXT_ENDPOINT.md`, `docs/execution/PHASE_5_DEFERRED_EXTERNAL_PROFILE.md`
