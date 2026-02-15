@@ -133,6 +133,22 @@ IR playbooks ...  10</code></pre>
       <p class="sdesc">Verified counts, charted coverage, and proof artifacts are rendered from versioned manifests in this repository.</p>
     </div>
 
+    <div class="dashboard-shell" data-reveal>
+    <div class="dashboard-status-grid">
+      <div class="dashboard-status">
+        <strong>Host target</strong>
+        <span>Cloudflare Pages production path</span>
+      </div>
+      <div class="dashboard-status">
+        <strong>Safety gate</strong>
+        <span>Only <code>privacy_review === "ok"</code> assets render</span>
+      </div>
+      <div class="dashboard-status">
+        <strong>Reviewer path</strong>
+        <span>Proof, inventory, then implementation drill-down</span>
+      </div>
+    </div>
+
     <div class="dashboard-band">
       <article class="panel-glass" data-reveal>
         <h3 class="dash-title">KPI lane</h3>
@@ -206,6 +222,7 @@ IR playbooks ...  10</code></pre>
       <p class="lupd">Only safe assets are rendered. Screenshot/dashboard/diagram artifacts are prioritized; logos are shown as compact tool marks if no proof screenshots exist.</p>
       <div id="proof-gallery-strip" data-media-gallery data-tags="proof,dashboard,detection,diagram" data-limit="6"></div>
     </article>
+    </div>
   </div>
 </section>
 

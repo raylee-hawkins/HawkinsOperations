@@ -30,6 +30,55 @@ function emitContentUpdated() {
   window.dispatchEvent(new Event("rh:content-updated"));
 }
 
+function titleCaseToken(value) {
+  return String(value || "")
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map((chunk) => chunk.charAt(0).toUpperCase() + chunk.slice(1).toLowerCase())
+    .join(" ");
+}
+
+function hashSeed(input) {
+  const str = String(input || "");
+  let acc = 0;
+  for (let i = 0; i < str.length; i += 1) acc = (acc * 31 + str.charCodeAt(i)) % 997;
+  return acc || 37;
+}
+
+function buildSparkValues(project, idx) {
+  const seed = hashSeed(`${project && project.id ? project.id : "project"}-${idx}`);
+  const values = [];
+  for (let i = 0; i < 8; i += 1) {
+    const wave = Math.sin((seed + i * 13) / 14) * 16;
+    const trend = i * 3.6;
+    const value = Math.round(Math.min(92, Math.max(18, 36 + wave + trend)));
+    values.push(value);
+  }
+  return values;
+}
+
+function sparkPolyline(values, width = 240, height = 36) {
+  const points = Array.isArray(values) ? values : [];
+  if (!points.length) return "";
+  const step = points.length > 1 ? width / (points.length - 1) : width;
+  return points.map((value, index) => {
+    const x = Math.round(index * step);
+    const y = Math.round(height - (value / 100) * height);
+    return `${x},${y}`;
+  }).join(" ");
+}
+
+function buildProjectSteps(type) {
+  const map = {
+    detection: ["Scope hypothesis", "Build detections", "Validate in lane"],
+    operations: ["Plan change", "Execute tasks", "Prove rollback"],
+    soc: ["Trigger scenario", "Triage workflow", "Document closure"],
+    ir: ["Detect incident", "Contain impact", "Recover + report"]
+  };
+  const key = String(type || "").toLowerCase();
+  return map[key] || ["Define scope", "Implement", "Verify evidence"];
+}
+
 function uniqueTags(items) {
   const bag = new Set();
   items.forEach((item) => (item.tags || []).forEach((tag) => bag.add(normalizeToken(tag))));
@@ -83,18 +132,35 @@ function renderProjectProofCards(container, projects) {
     container.innerHTML = '<article class="proof-card"><h3>No project records</h3><p>Project proof cards will appear when project metadata is available.</p></article>';
     return;
   }
-  container.innerHTML = rows.map((project) => {
+  container.innerHTML = rows.map((project, idx) => {
     const title = esc(project.title || "Project");
     const summary = esc(project.summary || "Project summary pending.");
     const pageUrl = esc(project.page_url || "#");
     const repoUrl = esc(project.repo_url || "#");
+    const projectType = titleCaseToken(project.type || "project");
+    const projectStatus = titleCaseToken(project.status || "active");
+    const steps = buildProjectSteps(project.type);
+    const tags = Array.isArray(project.tags) ? project.tags.slice(0, 5) : [];
+    const spark = sparkPolyline(buildSparkValues(project, idx));
     const evidence = Array.isArray(project.evidence) ? project.evidence : [];
     const evidenceLinks = evidence.slice(0, 3).map((entry) => {
       return `<a href="${esc(entry.url)}" target="_blank" rel="noreferrer">${esc(entry.label)}</a>`;
     }).join("");
     return `<article class="proof-card">
+      <div class="proof-card-head">
+        <span class="proof-pill">${esc(projectType)}</span>
+        <span class="proof-state">${esc(projectStatus)}</span>
+      </div>
       <h3><a href="${pageUrl}">${title}</a></h3>
       <p>${summary}</p>
+      <span class="proof-evidence-label">Complexity lane</span>
+      <svg class="proof-spark" viewBox="0 0 240 36" role="img" aria-label="${title} complexity signal sparkline">
+        <polyline points="${spark}"></polyline>
+      </svg>
+      <ol class="proof-step-track">
+        ${steps.map((step) => `<li>${esc(step)}</li>`).join("")}
+      </ol>
+      <div class="proof-tech">${tags.map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>
       <div class="proof-card-links">
         <a href="${repoUrl}" target="_blank" rel="noreferrer">Repository lane</a>
         ${evidenceLinks}
