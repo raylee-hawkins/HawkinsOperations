@@ -192,4 +192,91 @@
       });
     }
   });
+
+  // Load verified counts generated from PROOF_PACK/VERIFIED_COUNTS.md
+  async function loadVerifiedCounts() {
+    try {
+      const response = await fetch('assets/verified-counts.json', { cache: 'no-store' });
+      if (!response.ok) return;
+      const data = await response.json();
+      const counts = data && data.counts ? data.counts : null;
+      if (!counts) return;
+
+      const map = [
+        ['count-detections', counts.detections],
+        ['count-sigma', counts.sigma],
+        ['count-wazuh', counts.wazuh],
+        ['count-splunk', counts.splunk],
+        ['count-ir', counts.ir]
+      ];
+      map.forEach(([id, value]) => {
+        const el = document.getElementById(id);
+        if (el && typeof value === 'number') {
+          el.textContent = String(value);
+          el.setAttribute("data-count-target", String(value));
+          el.textContent = "0";
+        }
+      });
+
+      const dateEl = document.getElementById('verified-date');
+      if (dateEl && data.verified_on) {
+        dateEl.textContent = data.verified_on;
+      }
+
+      const sourceEl = document.getElementById('verified-source');
+      if (sourceEl && data.source_url) {
+        sourceEl.href = data.source_url;
+      }
+      wireCountUp();
+    } catch {
+      // Keep static fallback values in the HTML.
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadVerifiedCounts);
+  } else {
+    loadVerifiedCounts();
+  }
+
+  function animateCount(el, target) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = String(target);
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    const from = 0;
+    function tick(now) {
+      const progress = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = Math.round(from + (target - from) * eased);
+      el.textContent = String(val);
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function wireCountUp() {
+    const countEls = $$(".met-v[data-count-target]");
+    if (!countEls.length) return;
+    const seen = new WeakSet();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (seen.has(el)) return;
+        const target = Number(el.getAttribute("data-count-target") || "0");
+        if (Number.isFinite(target) && target >= 0) animateCount(el, target);
+        seen.add(el);
+      });
+    }, { threshold: 0.35 });
+    countEls.forEach((el) => io.observe(el));
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wireCountUp);
+  } else {
+    wireCountUp();
+  }
 })();

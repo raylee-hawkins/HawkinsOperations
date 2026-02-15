@@ -1,0 +1,76 @@
+{
+  "detections": [
+    {
+      "id": "sigma",
+      "platform": "Sigma",
+      "count": 105,
+      "format": "YAML",
+      "location": "detection-rules/sigma/",
+      "tags": ["detection", "portable", "mitre"],
+      "evidence": [
+        {
+          "label": "Sigma Folder",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules/sigma"
+        },
+        {
+          "label": "Verification Source",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+        }
+      ]
+    },
+    {
+      "id": "wazuh",
+      "platform": "Wazuh",
+      "count": 29,
+      "format": "XML rule blocks",
+      "location": "detection-rules/wazuh/rules/",
+      "tags": ["siem", "xml", "deployment"],
+      "evidence": [
+        {
+          "label": "Wazuh Rules Folder",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
+        },
+        {
+          "label": "Bundle Script",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1"
+        }
+      ]
+    },
+    {
+      "id": "splunk",
+      "platform": "Splunk",
+      "count": 8,
+      "format": "SPL",
+      "location": "detection-rules/splunk/",
+      "tags": ["search", "spl", "hunting"],
+      "evidence": [
+        {
+          "label": "Splunk Detections",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules/splunk"
+        },
+        {
+          "label": "Coverage Mapping",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md"
+        }
+      ]
+    },
+    {
+      "id": "ir-playbooks",
+      "platform": "IR Playbooks",
+      "count": 10,
+      "format": "Markdown",
+      "location": "incident-response/playbooks/",
+      "tags": ["response", "soc", "process"],
+      "evidence": [
+        {
+          "label": "Playbooks Folder",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/incident-response/playbooks"
+        },
+        {
+          "label": "IR Quick Reference",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md"
+        }
+      ]
+    }
+  ]
+}

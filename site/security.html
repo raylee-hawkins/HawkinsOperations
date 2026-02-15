@@ -29,9 +29,11 @@
     })();
   </script>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/design-system.css">
 
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
   <div class="nav-i">
     <a class="logo" href="index.html"><b>Hawkins</b>Ops</a>
@@ -58,271 +60,49 @@
   <a href="resume.html">Resume</a>
 </div>
 
-<section style="padding-top:110px">
+<main id="main-content">
+<section style="padding-top:110px" class="fluid-section" data-detections-root>
   <div class="ctr">
-    <div class="slbl">Detections</div>
-    <h1 class="stitle">Interactive, expandable content (like it should’ve been)</h1>
-    <p class="sdesc">
-      The repo ships multi-platform detection content and IR playbooks with reproducible counts.
-      All numbers below are <b>Verified (reproducible today)</b>; no inflated "total library" number is shown.
-    </p>
-    <div class="lupd" style="margin-bottom:14px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
-
-    <div class="g3">
-      <button class="card" type="button" data-modal="tSigma" data-modal-title="Sigma detections">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Sigma</div>
-        <div class="card-sub">105 YAML rules organized by MITRE ATT&CK tactics.</div>
-        <div class="card-meta"><span class="tag">Verified 105</span><span class="tag">detection-rules/sigma/</span><span class="tag">YAML</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="tWazuh" data-modal-title="Wazuh detections">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Wazuh</div>
-        <div class="card-sub">29 rule blocks (25 XML files) ready for deployment.</div>
-        <div class="card-meta"><span class="tag">Verified 29 blocks</span><span class="tag">detection-rules/wazuh/rules/</span><span class="tag">XML</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="tSplunk" data-modal-title="Splunk detections">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Splunk</div>
-        <div class="card-sub">8 SPL detections for Enterprise Security workflows.</div>
-        <div class="card-meta"><span class="tag">Verified 8</span><span class="tag">detection-rules/splunk/</span><span class="tag">SPL</span></div>
-      </button>
+    <div class="section-intro">
+      <div class="kicker">Detections</div>
+      <h1 class="stitle">Detection and response inventory</h1>
+      <p class="sdesc">
+        Content-driven listing sourced from repository data, with filterable tags and direct evidence links.
+      </p>
+      <div class="lupd">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></div>
     </div>
-
-    <div style="height:14px"></div>
-
-    <div class="g2">
-      <button class="card" type="button" data-modal="tPlaybooks" data-modal-title="Incident response playbooks">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">IR Playbooks</div>
-        <div class="card-sub">10 structured playbooks with clear execution flow.</div>
-        <div class="card-meta"><span class="tag">Verified 10</span><span class="tag">incident-response/playbooks/</span><span class="tag">Markdown</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="tVerify" data-modal-title="Verification workflow">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Verify (counts + artifacts)</div>
-        <div class="card-sub">CI validates counts; local scripts reproduce them.</div>
-        <div class="card-meta"><span class="tag">scripts/verify/verify-counts.ps1</span><span class="tag">PROOF_PACK/VERIFIED_COUNTS.md</span></div>
-      </button>
-    </div>
-
-    <div style="height:14px"></div>
-    <a class="btn btn-g" href="case-study.html">Read case study: 29 Wazuh rule blocks</a>
+    <input class="filter-search" type="search" data-search placeholder="Search platform, format, or tactic..." aria-label="Search detections">
+    <div class="filter-bar" data-chips aria-label="Detection tag filters"></div>
+    <section class="listing" data-listing aria-live="polite"></section>
   </div>
 </section>
 
-<section>
+<section class="fluid-section">
   <div class="ctr">
-    <div class="slbl">MITRE ATT&CK</div>
-    <h2 class="stitle">Mapped by tactic (representative)</h2>
-    <p class="sdesc">
-      Sigma rules are organized by tactic. Tiles expand with examples and pivots. Full mapping lives in the repo.
-    </p>
-
-    <div class="g-auto">
-      <button class="card" type="button" data-modal="tTacticIA" data-modal-title="Initial Access"> <div class="card-click">Expand →</div><div class="card-ttl">Initial Access</div><div class="card-sub">Execution chains that start the party.</div></button>
-      <button class="card" type="button" data-modal="tTacticExec" data-modal-title="Execution"> <div class="card-click">Expand →</div><div class="card-ttl">Execution</div><div class="card-sub">PowerShell, LOLBins, scripting.</div></button>
-      <button class="card" type="button" data-modal="tTacticPers" data-modal-title="Persistence"> <div class="card-click">Expand →</div><div class="card-ttl">Persistence</div><div class="card-sub">Registry, services, scheduled tasks.</div></button>
-      <button class="card" type="button" data-modal="tTacticPriv" data-modal-title="Privilege Escalation"> <div class="card-click">Expand →</div><div class="card-ttl">Priv Esc</div><div class="card-sub">Token abuse, misconfig, escalation.</div></button>
-      <button class="card" type="button" data-modal="tTacticDE" data-modal-title="Defense Evasion"> <div class="card-click">Expand →</div><div class="card-ttl">Defense Evasion</div><div class="card-sub">Tamper, obfuscation, bypasses.</div></button>
-      <button class="card" type="button" data-modal="tTacticCred" data-modal-title="Credential Access"> <div class="card-click">Expand →</div><div class="card-ttl">Credential Access</div><div class="card-sub">Dumping, theft, injection.</div></button>
-      <button class="card" type="button" data-modal="tTacticDisc" data-modal-title="Discovery"> <div class="card-click">Expand →</div><div class="card-ttl">Discovery</div><div class="card-sub">Environment, users, shares.</div></button>
-      <button class="card" type="button" data-modal="tTacticLM" data-modal-title="Lateral Movement"> <div class="card-click">Expand →</div><div class="card-ttl">Lateral Movement</div><div class="card-sub">Remote exec and credential reuse.</div></button>
-      <button class="card" type="button" data-modal="tTacticC2" data-modal-title="Command and Control"> <div class="card-click">Expand →</div><div class="card-ttl">C2</div><div class="card-sub">Beaconing patterns + tooling.</div></button>
-      <button class="card" type="button" data-modal="tTacticExf" data-modal-title="Exfiltration"> <div class="card-click">Expand →</div><div class="card-ttl">Exfiltration</div><div class="card-sub">Staging and outbound movement.</div></button>
-      <button class="card" type="button" data-modal="tTacticImp" data-modal-title="Impact"> <div class="card-click">Expand →</div><div class="card-ttl">Impact</div><div class="card-sub">Encryption, wiping, disruption.</div></button>
+    <div class="section-intro">
+      <div class="kicker">Coverage</div>
+      <h2 class="stitle">Detection distribution snapshot</h2>
+      <p class="sdesc">Lightweight SVG chart rendered from the same detections JSON used by the listing.</p>
+    </div>
+    <div class="panel-glass">
+      <div id="detectionsChart"></div>
+      <p id="detectionsChartSummary" class="lupd"></p>
     </div>
   </div>
 </section>
 
-<!-- Templates -->
-<template id="tSigma">
-  <h3>Sigma (105 rules)</h3>
-  <p><b>Where:</b> <code>detection-rules/sigma/</code> • <b>Format:</b> YAML • Organized by MITRE tactics.</p>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Count Sigma rules (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cSigmaPS">Copy</button></div>
+<section class="fluid-section">
+  <div class="ctr">
+    <div class="section-intro">
+      <div class="kicker">Proof gallery</div>
+      <h2 class="stitle">Detection and dashboard artifacts</h2>
+      <p class="sdesc">Only safe assets are surfaced by default. Review-required media is excluded.</p>
     </div>
-    <pre id="cSigmaPS" class="term-b"># from repo root
-(Get-ChildItem -Recurse .\detection-rules\sigma -Filter *.yml).Count</pre>
+    <div data-media-gallery data-tags="dashboard,detection,proof" data-limit="8"></div>
   </div>
-  <p><b>Repo proof:</b> Counts are generated and published in <code>PROOF_PACK/VERIFIED_COUNTS.md</code> via verification scripts.</p>
-</template>
+</section>
+</main>
 
-<template id="tWazuh">
-  <h3>Wazuh (29 rule blocks, 25 XML files)</h3>
-  <p><b>Where:</b> <code>detection-rules/wazuh/rules/</code> • <b>Deployment:</b> bundle to <code>local_rules.xml</code>.</p>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Build bundle (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cWazuhBuildPS">Copy</button></div>
-    </div>
-    <pre id="cWazuhBuildPS" class="term-b"># from repo root
-pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
-  </div>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Count rule blocks (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cWazuhBlocksPS">Copy</button></div>
-    </div>
-    <pre id="cWazuhBlocksPS" class="term-b"># XML files
-(Get-ChildItem .\detection-rules\wazuh\rules -Filter *.xml).Count
-
-# rule blocks (simple regex count)
-Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=' | Measure-Object | % Count</pre>
-  </div>
-</template>
-
-<template id="tSplunk">
-  <h3>Splunk (8 SPL queries)</h3>
-  <p><b>Where:</b> <code>detection-rules/splunk/</code> • <b>Format:</b> SPL.</p>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Count Splunk .spl files (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cSplunkPS">Copy</button></div>
-    </div>
-    <pre id="cSplunkPS" class="term-b">(Get-ChildItem .\detection-rules\splunk -Filter *.spl).Count</pre>
-  </div>
-</template>
-
-<template id="tPlaybooks">
-  <h3>Incident Response Playbooks (10)</h3>
-  <p><b>Where:</b> <code>incident-response/playbooks/</code> • <b>Format:</b> Markdown.</p>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Count playbooks (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cIRPS">Copy</button></div>
-    </div>
-    <pre id="cIRPS" class="term-b">(Get-ChildItem .\incident-response\playbooks -Filter *.md).Count</pre>
-  </div>
-</template>
-
-<template id="tVerify">
-  <h3>Verification workflow</h3>
-  <p><b>Why:</b> credibility. The CI pipeline validates counts on commits and generates a verification report.</p>
-  <ul>
-    <li><code>scripts/verify/verify-counts.ps1</code> reproduces counts locally.</li>
-    <li><code>PROOF_PACK/VERIFIED_COUNTS.md</code> is auto-generated by CI.</li>
-    <li>Release notes document the exact locations and totals.</li>
-  </ul>
-  <div class="term">
-    <div class="term-h">
-      <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-      <div class="term-t">Run verification (PowerShell)</div>
-      <div class="term-actions"><button class="tbtn" type="button" data-copy="cVerifyPS">Copy</button></div>
-    </div>
-    <pre id="cVerifyPS" class="term-b">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
-  </div>
-</template>
-
-<template id="tTacticIA">
-  <h3>Initial Access</h3>
-  <p>Rules grouped under the tactic folder in Sigma. Use these to spot the start of a compromise chain.</p>
-  <ul>
-    <li>Malicious macro execution patterns</li>
-    <li>Suspicious attachment and script launch indicators</li>
-    <li>Initial payload staging behaviors</li>
-  </ul>
-</template>
-<template id="tTacticExec">
-  <h3>Execution</h3>
-  <ul>
-    <li>PowerShell encoded/obfuscated execution</li>
-    <li>LOLBin abuse (signed binaries doing unspeakable things)</li>
-    <li>Script host anomalies</li>
-  </ul>
-</template>
-<template id="tTacticPers">
-  <h3>Persistence</h3>
-  <ul>
-    <li>Scheduled task creation and tampering</li>
-    <li>Registry Run key abuse</li>
-    <li>Service installation anomalies</li>
-  </ul>
-</template>
-<template id="tTacticPriv">
-  <h3>Privilege Escalation</h3>
-  <ul>
-    <li>Token manipulation</li>
-    <li>Abnormal admin group changes</li>
-    <li>Exploitation indicators in logs</li>
-  </ul>
-</template>
-<template id="tTacticDE">
-  <h3>Defense Evasion</h3>
-  <ul>
-    <li>Log clearing and disabling security tooling</li>
-    <li>Obfuscation and masquerading signals</li>
-    <li>Suspicious config changes</li>
-  </ul>
-</template>
-<template id="tTacticCred">
-  <h3>Credential Access</h3>
-  <ul>
-    <li>Credential dumping indicators</li>
-    <li>LSASS access patterns</li>
-    <li>Password store abuse</li>
-  </ul>
-</template>
-<template id="tTacticDisc">
-  <h3>Discovery</h3>
-  <ul>
-    <li>Host and domain reconnaissance commands</li>
-    <li>Share enumeration</li>
-    <li>Process/service inventory patterns</li>
-  </ul>
-</template>
-<template id="tTacticLM">
-  <h3>Lateral Movement</h3>
-  <ul>
-    <li>Remote service execution</li>
-    <li>WMI/WinRM patterns</li>
-    <li>Credential reuse artifacts</li>
-  </ul>
-</template>
-<template id="tTacticC2">
-  <h3>Command and Control</h3>
-  <ul>
-    <li>Suspicious outbound connections and beaconing</li>
-    <li>Known tooling patterns</li>
-    <li>DNS/HTTP anomalies</li>
-  </ul>
-</template>
-<template id="tTacticExf">
-  <h3>Exfiltration</h3>
-  <ul>
-    <li>Unusual outbound volume and staging signals</li>
-    <li>Archive and transfer indicators</li>
-    <li>Cloud storage upload patterns</li>
-  </ul>
-</template>
-<template id="tTacticImp">
-  <h3>Impact</h3>
-  <ul>
-    <li>Ransomware and encryption patterns</li>
-    <li>Wiping/destructive actions</li>
-    <li>Service disruption indicators</li>
-  </ul>
-</template>
-
-<div id="modalBg" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-h">
-      <div id="modalTitle" class="modal-ttl">DETAILS</div>
-      <button id="modalClose" class="modal-x" type="button">Close</button>
-    </div>
-    <div id="modalBody" class="modal-b"></div>
-  </div>
-</div>
 <footer>
   <div class="ctr">
     <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
@@ -334,8 +114,7 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
   </div>
 </footer>
 <script src="assets/app.js" defer></script>
+<script type="module" src="assets/portfolio-data.js"></script>
 </body>
 </html>
-
-
 

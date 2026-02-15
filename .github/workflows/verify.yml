@@ -15,6 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+
+      - name: Generate site data artifacts
+        shell: pwsh
+        run: |
+          node .\scripts\generate-site-data.js
+          node .\scripts\generate-site-content.js
+          node .\scripts\generate-media-manifest.js
+
+      - name: Hosting consistency check
+        shell: pwsh
+        run: |
+          node .\scripts\verify\no-netlify.js
+
       - name: Generate verified counts markdown
         shell: pwsh
         run: |

@@ -33,8 +33,8 @@ AS_OF: 2026-02-14
   - Evidence: `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/route_clicktest_status_02-14-2026.txt`
 
 ## 4) Hosting guardrails (static checks)
-- `[x]` `netlify.toml` keeps `publish = "site"`.
-  - Evidence: `netlify.toml`
+- `[x]` Cloudflare Pages publish directory is `site`.
+  - Evidence: `docs/hosting/CLOUDFLARE_PAGES.md`
 - `[x]` Pretty redirect file exists.
   - Evidence: `site/_redirects`
 - `[x]` Security headers file exists.

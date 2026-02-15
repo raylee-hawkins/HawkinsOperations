@@ -29,9 +29,11 @@
     })();
   </script>
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/design-system.css">
 
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
   <div class="nav-i">
     <a class="logo" href="index.html"><b>Hawkins</b>Ops</a>
@@ -58,147 +60,34 @@
   <a href="resume.html">Resume</a>
 </div>
 
-<section style="padding-top:110px">
+<main id="main-content">
+<section style="padding-top:110px" class="fluid-section" data-projects-root>
   <div class="ctr">
-    <div class="slbl">Projects</div>
-    <h1 class="stitle">Portfolio projects (the “proof” kind, not the “trust me” kind)</h1>
-    <p class="sdesc">
-      The homepage stays lean. This page is where the receipts live.
-      Cards are expandable and link to the repos.
-    </p>
-    <div class="lupd" style="margin-bottom:14px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
-
-    <div class="g3">
-      <a class="card" href="https://github.com/raylee-ops/HawkinsOperations/tree/main/projects" target="_blank" rel="noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Migration Project Folder</div>
-        <div class="card-sub">RH_MIGRATION_2026_V2 artifacts and runbooks inside this repo.</div>
-        <div class="card-meta"><span class="tag">projects/</span><span class="tag">Subfolder CTA</span></div>
-      </a>
-      <a class="card" href="https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules" target="_blank" rel="noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Detection Rules Folder</div>
-        <div class="card-sub">Sigma, Wazuh, and Splunk content mapped for review.</div>
-        <div class="card-meta"><span class="tag">detection-rules/</span><span class="tag">Subfolder CTA</span></div>
-      </a>
-      <a class="card" href="https://github.com/raylee-ops/HawkinsOperations/tree/main/incident-response/playbooks" target="_blank" rel="noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">IR Playbooks Folder</div>
-        <div class="card-sub">Playbook library with clear steps for responders.</div>
-        <div class="card-meta"><span class="tag">incident-response/playbooks/</span><span class="tag">Subfolder CTA</span></div>
-      </a>
+    <div class="section-intro">
+      <div class="kicker">Projects</div>
+      <h1 class="stitle">Project evidence index</h1>
+      <p class="sdesc">
+        Structured portfolio data with direct evidence links, searchable tags, and lightweight scanning for reviewers.
+      </p>
+      <div class="lupd">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></div>
     </div>
-
-    <div style="height:14px"></div>
-
-    <div class="g3">
-      <button class="card" type="button" data-modal="pMigration" data-modal-title="RH_MIGRATION_2026_V2">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">RH_MIGRATION_2026_V2</div>
-        <div class="card-sub">Migration proof trail and runbooks.</div>
-        <div class="card-meta"><span class="tag">Runbooks</span><span class="tag">Artifacts</span><span class="tag">Evidence</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="pExperiments" data-modal-title="Experiments / AI evaluation">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Experiments</div>
-        <div class="card-sub">AI evaluation + structured testing (security-adjacent, repeatable).</div>
-        <div class="card-meta"><span class="tag">Test harness</span><span class="tag">Repro</span><span class="tag">Notes</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="pFilesystem" data-modal-title="File system project">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">File System Project</div>
-        <div class="card-sub">A sane folder/ops framework for repeatable work.</div>
-        <div class="card-meta"><span class="tag">Framework</span><span class="tag">Templates</span><span class="tag">Process</span></div>
-      </button>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <div class="g2">
-      <button class="card" type="button" data-modal="pHawkinsOps" data-modal-title="HawkinsOperations">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">HawkinsOperations</div>
-        <div class="card-sub">Main repo: detections + playbooks + proof pack.</div>
-        <div class="card-meta"><span class="tag">Verified counts</span><span class="tag">CI checks</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="pFramework" data-modal-title="HawkinsOps Framework">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Automation Framework</div>
-        <div class="card-sub">Cross-platform ops and automation scaffolding.</div>
-        <div class="card-meta"><span class="tag">Cross-platform</span><span class="tag">Automation</span></div>
-      </button>
-    </div>
-
-    <div style="height:14px"></div>
-    <div class="writing-grid">
-      <a class="card" href="case-study.html" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Mini case study</div>
-        <div class="card-sub">How I built + validated 29 Wazuh rule blocks (method, evidence, and gaps).</div>
-      </a>
-      <a class="card" href="blog-python2-to-python3.html" style="text-decoration:none">
-        <div class="card-click">Read →</div>
-        <div class="card-ttl">Python 2 to Python 3 migration write-up</div>
-        <div class="card-sub">Practical migration path for legacy detection content in real environments.</div>
-      </a>
-    </div>
+    <input class="filter-search" type="search" data-search placeholder="Search projects, tools, outcomes..." aria-label="Search projects">
+    <div class="filter-bar" data-chips aria-label="Project tag filters"></div>
+    <section class="listing" data-listing aria-live="polite"></section>
   </div>
 </section>
 
-<template id="pMigration">
-  <h3>RH_MIGRATION_2026_V2</h3>
-  <p>Migration work packaged as a proof trail: runbooks, checklists, and artifacts that show methodical execution.</p>
-  <ul>
-    <li>Target: recruiter-readable change record and technical evidence.</li>
-    <li>Structure is kept in the HawkinsOperations repo under <code>projects/</code>.</li>
-  </ul>
-  <p><a href="https://github.com/raylee-ops/HawkinsOperations/tree/main/projects" target="_blank" rel="noreferrer">Open projects folder on GitHub</a></p>
-</template>
-
-<template id="pExperiments">
-  <h3>Experiments / AI evaluation</h3>
-  <p>Structured experiments for repeatable validation. This is where “I tested it” becomes “you can reproduce it.”</p>
-  <ul>
-    <li>Use-case: evaluation harness patterns that transfer directly to detection validation.</li>
-    <li>Repository references live in the HawkinsOps framework workspace.</li>
-  </ul>
-  <p><a href="https://github.com/raylee-ops/hawkinsops-framework" target="_blank" rel="noreferrer">Open hawkinsops-framework</a></p>
-</template>
-
-<template id="pFilesystem">
-  <h3>File system project</h3>
-  <p>Folder taxonomy + workflow scaffolding for doing work that survives ADHD and entropy.</p>
-  <ul>
-    <li>Table-of-contents repo describing the system layout (system/vault/workspace).</li>
-    <li>Pairs with the automation framework repo for cross-platform workflows.</li>
-  </ul>
-  <p><a href="https://github.com/raylee-ops/hawkins_ops" target="_blank" rel="noreferrer">Open hawkins_ops</a></p>
-</template>
-
-<template id="pHawkinsOps">
-  <h3>HawkinsOperations (main repo)</h3>
-  <p>Production-ready SOC content plus a proof pack that makes the numbers verifiable.</p>
-  <p><a href="https://github.com/raylee-ops/HawkinsOperations" target="_blank" rel="noreferrer">Open HawkinsOperations</a></p>
-</template>
-
-<template id="pFramework">
-  <h3>HawkinsOps Framework</h3>
-  <p>Cross-platform automation scaffolding intended to turn “one-off scripts” into repeatable workflows.</p>
-  <p><a href="https://github.com/raylee-ops/hawkinsops-framework" target="_blank" rel="noreferrer">Open hawkinsops-framework</a></p>
-</template>
-
-<div id="modalBg" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-h">
-      <div id="modalTitle" class="modal-ttl">DETAILS</div>
-      <button id="modalClose" class="modal-x" type="button">Close</button>
+<section class="fluid-section">
+  <div class="ctr">
+    <div class="section-intro">
+      <div class="kicker">Project visuals</div>
+      <h2 class="stitle">Runbooks and environment proof</h2>
+      <p class="sdesc">Gallery is sourced from `content/media.json` and only displays assets marked safe.</p>
     </div>
-    <div id="modalBody" class="modal-b"></div>
+    <div data-media-gallery data-tags="proof,lab,triage" data-limit="6"></div>
   </div>
-</div>
+</section>
+</main>
 <footer>
   <div class="ctr">
     <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
@@ -210,6 +99,6 @@
   </div>
 </footer>
 <script src="assets/app.js" defer></script>
+<script type="module" src="assets/portfolio-data.js"></script>
 </body>
 </html>
-

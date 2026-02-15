@@ -1,0 +1,12 @@
+{
+  "verified_on": "2026-02-15",
+  "counts": {
+    "detections": 142,
+    "sigma": 105,
+    "splunk": 8,
+    "wazuh": 29,
+    "ir": 10
+  },
+  "source_path": "PROOF_PACK/VERIFIED_COUNTS.md",
+  "source_url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+}

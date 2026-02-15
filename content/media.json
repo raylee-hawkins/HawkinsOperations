@@ -1,0 +1,964 @@
+{
+  "generated_on": "2026-02-15",
+  "total_assets": 58,
+  "safe_assets": 11,
+  "review_required_assets": 47,
+  "media": [
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/01_wazuh_overview_dashboard.png",
+      "type": "dashboard",
+      "tags": [
+        "wazuh",
+        "dashboard",
+        "incident",
+        "proof"
+      ],
+      "caption": "01 wazuh overview dashboard",
+      "alt": "dashboard artifact: 01 wazuh overview dashboard",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/01_wazuh_overview_dashboard.png",
+      "width": 1739,
+      "height": 1035,
+      "bytes": 229913,
+      "suggested_placement": "security page proof gallery"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/02_threat_hunting_level12_filter.png",
+      "type": "screenshot",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "02 threat hunting level12 filter",
+      "alt": "screenshot artifact: 02 threat hunting level12 filter",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/02_threat_hunting_level12_filter.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 130716,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/03_threat_hunting_howe01_agent.png",
+      "type": "screenshot",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "03 threat hunting howe01 agent",
+      "alt": "screenshot artifact: 03 threat hunting howe01 agent",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/03_threat_hunting_howe01_agent.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 145440,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/04_events_table_rule100052.png",
+      "type": "table",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "04 events table rule100052",
+      "alt": "table artifact: 04 events table rule100052",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/04_events_table_rule100052.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 134860,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/05_powershell_validation_hosts_ics_content.png",
+      "type": "screenshot",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "05 powershell validation hosts ics content",
+      "alt": "screenshot artifact: 05 powershell validation hosts ics content",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/05_powershell_validation_hosts_ics_content.png",
+      "width": 860,
+      "height": 1392,
+      "bytes": 77050,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/06_event_detail_json_full.png",
+      "type": "screenshot",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "06 event detail json full",
+      "alt": "screenshot artifact: 06 event detail json full",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/06_event_detail_json_full.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 503893,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/07_events_table_duplicate.png",
+      "type": "table",
+      "tags": [
+        "incident",
+        "proof"
+      ],
+      "caption": "07 events table duplicate",
+      "alt": "table artifact: 07 events table duplicate",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/07_events_table_duplicate.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 139601,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "incident-response-incidents-2026-2026-01-25__howe01__rule100052__hosts-ics-modif",
+      "path": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/08_threat_hunting_dashboard_alternate.png",
+      "type": "dashboard",
+      "tags": [
+        "dashboard",
+        "incident",
+        "proof"
+      ],
+      "caption": "08 threat hunting dashboard alternate",
+      "alt": "dashboard artifact: 08 threat hunting dashboard alternate",
+      "privacy_review": "required",
+      "source": "incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/08_threat_hunting_dashboard_alternate.png",
+      "width": 1920,
+      "height": 1032,
+      "bytes": 129460,
+      "suggested_placement": "security page proof gallery"
+    },
+    {
+      "id": "proof_pack-features-resume-ats-txt-endpoint-run_02-14-2026_000051-evidence-scree",
+      "path": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/screenshots/resume_txt_render_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume txt render 02 14 2026",
+      "alt": "screenshot artifact: resume txt render 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/screenshots/resume_txt_render_02-14-2026.png",
+      "width": 1200,
+      "height": 900,
+      "bytes": 52902,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-features-resume-ats-txt-endpoint-run_02-14-2026_000051-evidence-scree",
+      "path": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/screenshots/resume_with_ats_link_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume with ats link 02 14 2026",
+      "alt": "screenshot artifact: resume with ats link 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/screenshots/resume_with_ats_link_02-14-2026.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 36363,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194119.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194119",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194119",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194119.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 251234,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194139.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194139",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194139",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194139.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 362992,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194201.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194201",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194201",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194201.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 367992,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194614.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194614",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194614",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194614.png",
+      "width": 911,
+      "height": 1160,
+      "bytes": 94868,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194621.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194621",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194621",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194621.png",
+      "width": 911,
+      "height": 1160,
+      "bytes": 67086,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194803.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194803",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194803",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194803.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 167348,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194910.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194910",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194910",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194910.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 231444,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194944.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 194944",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 194944",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194944.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 244880,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195047.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 195047",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 195047",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195047.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 237383,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195258.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 195258",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 195258",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195258.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 384062,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195506.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 195506",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 195506",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195506.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 102746,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195813.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 195813",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 195813",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195813.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 375658,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195832.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 195832",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 195832",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195832.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 321802,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200027.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200027",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200027",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200027.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 369018,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200128.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200128",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200128",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200128.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 301862,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200153.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200153",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200153",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200153.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 316453,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200225.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200225",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200225",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200225.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 338189,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200338.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200338",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200338",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200338.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 572869,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200347.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200347",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200347",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200347.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 459242,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200410.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200410",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200410",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200410.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 445955,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200543.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200543",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200543",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200543.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 271797,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200657.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 200657",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 200657",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200657.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 316848,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 201111.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 201111",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 201111",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 201111.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 274805,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_191244-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 201133.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "Screenshot 2026 02 13 201133",
+      "alt": "screenshot artifact: Screenshot 2026 02 13 201133",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 201133.png",
+      "width": 3440,
+      "height": 1392,
+      "bytes": 99851,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_232415-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_desktop_prod_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume desktop prod 02 14 2026",
+      "alt": "screenshot artifact: resume desktop prod 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_desktop_prod_02-14-2026.png",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 152860,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_232415-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_mobile_ios_ua_prod_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume mobile ios ua prod 02 14 2026",
+      "alt": "screenshot artifact: resume mobile ios ua prod 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_mobile_ios_ua_prod_02-14-2026.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 50553,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_232415-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_pdf_mobile_ios_ua_prod_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume pdf mobile ios ua prod 02 14 2026",
+      "alt": "screenshot artifact: resume pdf mobile ios ua prod 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_pdf_mobile_ios_ua_prod_02-14-2026.png",
+      "width": 390,
+      "height": 844,
+      "bytes": 2851,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_232415-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_pdf_open_prod_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume pdf open prod 02 14 2026",
+      "alt": "screenshot artifact: resume pdf open prod 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_pdf_open_prod_02-14-2026.png",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 6989,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-13-2026_232415-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_print_preview_prod_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume print preview prod 02 14 2026",
+      "alt": "screenshot artifact: resume print preview prod 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/evidence/screenshots/resume_print_preview_prod_02-14-2026.png",
+      "width": 1400,
+      "height": 1000,
+      "bytes": 28403,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/404_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "404 02 14 2026",
+      "alt": "screenshot artifact: 404 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/404_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 214102,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/home_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "home 02 14 2026",
+      "alt": "screenshot artifact: home 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/home_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 147302,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/lab_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "lab"
+      ],
+      "caption": "lab 02 14 2026",
+      "alt": "screenshot artifact: lab 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/lab_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 149781,
+      "suggested_placement": "projects page gallery"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/projects_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "projects 02 14 2026",
+      "alt": "screenshot artifact: projects 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/projects_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 155922,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/proof_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "proof 02 14 2026",
+      "alt": "screenshot artifact: proof 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/proof_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 138937,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/resume_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "resume"
+      ],
+      "caption": "resume 02 14 2026",
+      "alt": "screenshot artifact: resume 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/resume_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 95844,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/security_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "security"
+      ],
+      "caption": "security 02 14 2026",
+      "alt": "screenshot artifact: security 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/security_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 137339,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "proof_pack-hosting_transfer_cloudflare-run_02-14-2026_031137-evidence-screenshot",
+      "path": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/triage_02-14-2026.png",
+      "type": "screenshot",
+      "tags": [
+        "proof",
+        "triage"
+      ],
+      "caption": "triage 02 14 2026",
+      "alt": "screenshot artifact: triage 02 14 2026",
+      "privacy_review": "required",
+      "source": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/screenshots/triage_02-14-2026.png",
+      "width": 1280,
+      "height": 720,
+      "bytes": 126017,
+      "suggested_placement": "projects page gallery"
+    },
+    {
+      "id": "site-assets-badges-automation",
+      "path": "assets/media/site-assets-badges-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-sigma",
+      "path": "assets/media/site-assets-badges-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-splunk",
+      "path": "assets/media/site-assets-badges-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-wazuh",
+      "path": "assets/media/site-assets-badges-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-favicon",
+      "path": "assets/media/site-assets-favicon.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "favicon",
+      "alt": "logo artifact: favicon",
+      "privacy_review": "ok",
+      "source": "site/assets/favicon.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 289,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-icon-192",
+      "path": "assets/media/site-assets-icon-192.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "icon 192",
+      "alt": "screenshot artifact: icon 192",
+      "privacy_review": "ok",
+      "source": "site/assets/icon-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 1466,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "site-assets-logos-automation",
+      "path": "assets/media/site-assets-logos-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-sigma",
+      "path": "assets/media/site-assets-logos-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-splunk",
+      "path": "assets/media/site-assets-logos-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-wazuh",
+      "path": "assets/media/site-assets-logos-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-og",
+      "path": "assets/media/site-assets-og.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "og",
+      "alt": "screenshot artifact: og",
+      "privacy_review": "ok",
+      "source": "site/assets/og.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 63868,
+      "suggested_placement": "home proof strip"
+    }
+  ]
+}

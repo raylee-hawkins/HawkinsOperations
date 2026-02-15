@@ -64,5 +64,12 @@ __pycache__/
 **/vault/
 
 
-# Local Netlify folder
-.netlify
+
+# Lab safety artifacts
+
+**/raw_unredacted_do_not_commit/**
+*.qcow2
+*.vma*
+*.zst
+*.iso
+*.tar.gz
