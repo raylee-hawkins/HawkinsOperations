@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const root = process.cwd();
 const contentOut = path.join(root, "content", "media.json");
@@ -168,14 +169,27 @@ function privacyReview(rel) {
   return clearlySafe(rel) ? "ok" : "required";
 }
 
-function toId(rel) {
-  return rel
+function slug(input) {
+  return String(input || "")
     .toLowerCase()
-    .replaceAll("\\", "/")
-    .replace(/[^a-z0-9/._-]+/g, "-")
-    .replaceAll("/", "-")
-    .replace(/\.[a-z0-9]+$/, "")
-    .slice(0, 80);
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-+/g, "-");
+}
+
+function toId(rel) {
+  const normalized = rel.replaceAll("\\", "/").toLowerCase();
+  const parts = normalized.split("/").filter(Boolean);
+  const base = parts.pop() || "asset";
+  const stem = base.replace(/\.[a-z0-9]+$/i, "");
+
+  // Prefer a stable human-readable fragment from the last 2-3 path segments.
+  const tail = parts.slice(-2);
+  const fragmentParts = [...tail, stem].filter(Boolean);
+  const fragment = slug(fragmentParts.join("-")).slice(0, 72) || "asset";
+
+  const hash = crypto.createHash("sha1").update(normalized).digest("hex").slice(0, 10);
+  return `${fragment}-${hash}`;
 }
 
 function captionFromName(file) {
@@ -208,9 +222,10 @@ const entries = files.map((file) => {
   const tags = inferTags(rel);
   const type = inferType(rel);
   const review = privacyReview(rel);
+  const id = toId(rel);
   return {
-    id: toId(rel),
-    path: review === "ok" ? `assets/media/${toId(rel)}${ext}` : rel,
+    id,
+    path: review === "ok" ? `assets/media/${id}${ext}` : rel,
     type,
     tags,
     caption: captionFromName(rel),
@@ -223,6 +238,20 @@ const entries = files.map((file) => {
     suggested_placement: placement(type, tags)
   };
 });
+
+// Regression guard: IDs must be unique across the manifest.
+{
+  const byId = new Map();
+  for (const e of entries) {
+    if (!byId.has(e.id)) byId.set(e.id, []);
+    byId.get(e.id).push(e.source);
+  }
+  const collisions = Array.from(byId.entries()).filter(([, sources]) => sources.length > 1);
+  if (collisions.length) {
+    const lines = collisions.map(([id, sources]) => `- ${id}: ${sources.join(" | ")}`);
+    throw new Error(`Media ID collision(s) detected:\n${lines.join("\n")}`);
+  }
+}
 
 const safe = entries.filter((e) => e.privacy_review === "ok");
 const needs = entries.filter((e) => e.privacy_review === "required");

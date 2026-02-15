@@ -2,8 +2,8 @@
   "generated_on": "2026-02-15",
   "media": [
     {
-      "id": "site-assets-badges-automation",
-      "path": "assets/media/site-assets-badges-automation.svg",
+      "id": "assets-badges-automation-36aa2147ed",
+      "path": "assets/media/assets-badges-automation-36aa2147ed.svg",
       "type": "logo",
       "tags": [
         "proof"
@@ -18,8 +18,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-badges-sigma",
-      "path": "assets/media/site-assets-badges-sigma.svg",
+      "id": "assets-badges-sigma-a00fcaf8d4",
+      "path": "assets/media/assets-badges-sigma-a00fcaf8d4.svg",
       "type": "logo",
       "tags": [
         "sigma",
@@ -35,8 +35,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-badges-splunk",
-      "path": "assets/media/site-assets-badges-splunk.svg",
+      "id": "assets-badges-splunk-3040c8f48f",
+      "path": "assets/media/assets-badges-splunk-3040c8f48f.svg",
       "type": "logo",
       "tags": [
         "splunk",
@@ -52,8 +52,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-badges-wazuh",
-      "path": "assets/media/site-assets-badges-wazuh.svg",
+      "id": "assets-badges-wazuh-a9baecedc0",
+      "path": "assets/media/assets-badges-wazuh-a9baecedc0.svg",
       "type": "logo",
       "tags": [
         "wazuh",
@@ -69,8 +69,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-favicon",
-      "path": "assets/media/site-assets-favicon.svg",
+      "id": "site-assets-favicon-2641013eae",
+      "path": "assets/media/site-assets-favicon-2641013eae.svg",
       "type": "logo",
       "tags": [
         "proof"
@@ -85,8 +85,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-icon-192",
-      "path": "assets/media/site-assets-icon-192.png",
+      "id": "site-assets-icon-192-2dd33d303d",
+      "path": "assets/media/site-assets-icon-192-2dd33d303d.png",
       "type": "screenshot",
       "tags": [
         "proof"
@@ -101,8 +101,8 @@
       "suggested_placement": "home proof strip"
     },
     {
-      "id": "site-assets-logos-automation",
-      "path": "assets/media/site-assets-logos-automation.svg",
+      "id": "assets-logos-automation-85a1e87692",
+      "path": "assets/media/assets-logos-automation-85a1e87692.svg",
       "type": "logo",
       "tags": [
         "proof"
@@ -117,8 +117,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-logos-sigma",
-      "path": "assets/media/site-assets-logos-sigma.svg",
+      "id": "assets-logos-sigma-7b3d17f300",
+      "path": "assets/media/assets-logos-sigma-7b3d17f300.svg",
       "type": "logo",
       "tags": [
         "sigma",
@@ -134,8 +134,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-logos-splunk",
-      "path": "assets/media/site-assets-logos-splunk.svg",
+      "id": "assets-logos-splunk-1df11b14bf",
+      "path": "assets/media/assets-logos-splunk-1df11b14bf.svg",
       "type": "logo",
       "tags": [
         "splunk",
@@ -151,8 +151,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-logos-wazuh",
-      "path": "assets/media/site-assets-logos-wazuh.svg",
+      "id": "assets-logos-wazuh-11e7cf3bd9",
+      "path": "assets/media/assets-logos-wazuh-11e7cf3bd9.svg",
       "type": "logo",
       "tags": [
         "wazuh",
@@ -168,8 +168,8 @@
       "suggested_placement": "global identity strip"
     },
     {
-      "id": "site-assets-og",
-      "path": "assets/media/site-assets-og.png",
+      "id": "site-assets-og-84f412f582",
+      "path": "assets/media/site-assets-og-84f412f582.png",
       "type": "screenshot",
       "tags": [
         "proof"

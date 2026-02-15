@@ -12,6 +12,13 @@ function hasTag(item, tags) {
   return tags.some((tag) => itemTags.includes(tag));
 }
 
+function normalizeSafeItems(items) {
+  return (Array.isArray(items) ? items : []).filter((item) => {
+    if (!item || !item.path) return false;
+    return String(item.privacy_review || "").toLowerCase() === "ok";
+  });
+}
+
 function ensureLightbox() {
   let lb = document.getElementById("mediaLightbox");
   if (lb) return lb;
@@ -31,13 +38,15 @@ function ensureLightbox() {
   return lb;
 }
 
-function renderGallery(root, items) {
+export function renderMediaGallery(root, items) {
+  if (!root) return;
   const tags = (root.getAttribute("data-tags") || "")
     .split(",")
     .map((t) => t.trim().toLowerCase())
     .filter(Boolean);
-  const limit = Number(root.getAttribute("data-limit") || "6");
-  const selected = items.filter((m) => hasTag(m, tags)).slice(0, limit);
+  const requestedLimit = Number(root.getAttribute("data-limit") || "6");
+  const limit = Number.isFinite(requestedLimit) && requestedLimit > 0 ? requestedLimit : 6;
+  const selected = normalizeSafeItems(items).filter((m) => hasTag(m, tags)).slice(0, limit);
   if (!selected.length) {
     root.innerHTML = '<p class="lupd">No safe media assets matched this gallery yet.</p>';
     return;
@@ -64,12 +73,15 @@ function renderGallery(root, items) {
   });
 }
 
-export async function initMediaGalleries() {
+export async function initMediaGalleries(preloadedItems) {
   const roots = Array.from(document.querySelectorAll("[data-media-gallery]"));
   if (!roots.length) return;
-  const res = await fetch("assets/data/media.json", { cache: "no-store" });
-  if (!res.ok) return;
-  const payload = await res.json();
-  const items = Array.isArray(payload.media) ? payload.media : [];
-  roots.forEach((root) => renderGallery(root, items));
+  let items = normalizeSafeItems(preloadedItems);
+  if (!items.length) {
+    const res = await fetch("assets/data/media.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const payload = await res.json();
+    items = normalizeSafeItems(payload.media);
+  }
+  roots.forEach((root) => renderMediaGallery(root, items));
 }

@@ -1,11 +1,17 @@
 import { applyFilter, normalizeToken } from "./components/ui/filters.js";
 import { renderListing } from "./components/sections/listing-renderer.js";
 import { initMediaGalleries } from "./components/sections/media-gallery.js";
+import { renderCoverageChart, renderDetectionsByTagChart } from "./components/sections/svg-charts.js";
+
+const jsonCache = new Map();
 
 async function loadJson(path) {
+  if (jsonCache.has(path)) return jsonCache.get(path);
   const res = await fetch(path, { cache: "no-store" });
   if (!res.ok) throw new Error(`Failed to fetch ${path}`);
-  return res.json();
+  const payload = await res.json();
+  jsonCache.set(path, payload);
+  return payload;
 }
 
 function uniqueTags(items) {
@@ -26,9 +32,11 @@ function renderTagButtons(container, tags, active) {
 }
 
 function bindFilters({ sourceItems, listingNode, chipsNode, searchNode, kind }) {
-  let active = "all";
+  const tagParam = new URLSearchParams(window.location.search).get("tag");
+  let active = normalizeToken(tagParam || "all") || "all";
   let query = "";
   const tags = uniqueTags(sourceItems);
+  if (!tags.includes(active)) active = "all";
 
   const redraw = () => {
     renderTagButtons(chipsNode, tags, active);
@@ -77,47 +85,36 @@ async function initDetectionsPage() {
   });
 
   const chartRoot = document.getElementById("detectionsChart");
-  const chartSummary = document.getElementById("detectionsChartSummary");
   const detections = data.detections || [];
-  if (chartRoot && detections.length) {
-    const width = 620;
-    const height = 220;
-    const max = Math.max(...detections.map((d) => Number(d.count || 0)), 1);
-    const barW = Math.floor(width / detections.length) - 20;
-    const bars = detections
-      .map((d, i) => {
-        const count = Number(d.count || 0);
-        const h = Math.max(8, Math.round((count / max) * 150));
-        const x = 18 + i * (barW + 20);
-        const y = 168 - h;
-        const label = String(d.platform || "item");
-        return `<g>
-  <rect x="${x}" y="${y}" width="${barW}" height="${h}" rx="8" fill="url(#detGrad)"></rect>
-  <text x="${x + barW / 2}" y="188" text-anchor="middle" font-size="11" fill="currentColor">${label}</text>
-  <text x="${x + barW / 2}" y="${y - 8}" text-anchor="middle" font-size="11" fill="currentColor">${count}</text>
-</g>`;
-      })
-      .join("");
-    chartRoot.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Detections by platform">
-  <defs>
-    <linearGradient id="detGrad" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#6cd7ff"></stop>
-      <stop offset="100%" stop-color="#7a88ff"></stop>
-    </linearGradient>
-  </defs>
-  <line x1="10" y1="170" x2="${width - 10}" y2="170" stroke="rgba(255,255,255,.3)" />
-  ${bars}
-</svg>`;
-    if (chartSummary) {
-      const summary = detections.map((d) => `${d.platform}: ${d.count}`).join(" | ");
-      chartSummary.textContent = `Chart summary: ${summary}`;
-    }
-  }
+  if (chartRoot) renderDetectionsByTagChart(chartRoot, detections, { limit: 8, idPrefix: "security-tag" });
+}
+
+async function initHomeDashboard() {
+  const coverageRoot = document.getElementById("coverage-chart");
+  const tagRoot = document.getElementById("detections-tag-chart");
+  const galleryRoot = document.getElementById("proof-gallery-strip");
+  if (!coverageRoot && !tagRoot && !galleryRoot) return null;
+
+  const [verified, detectionsData, mediaData] = await Promise.all([
+    loadJson("assets/verified-counts.json"),
+    loadJson("assets/data/detections.json"),
+    loadJson("assets/data/media.json")
+  ]);
+
+  if (coverageRoot) renderCoverageChart(coverageRoot, verified);
+  if (tagRoot) renderDetectionsByTagChart(tagRoot, detectionsData.detections || [], { limit: 10, idPrefix: "home-tag" });
+
+  return Array.isArray(mediaData.media) ? mediaData.media : [];
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    await Promise.all([initProjectsPage(), initDetectionsPage(), initMediaGalleries()]);
+    const homeMedia = await initHomeDashboard();
+    await Promise.all([
+      initProjectsPage(),
+      initDetectionsPage(),
+      initMediaGalleries(homeMedia)
+    ]);
   } catch (err) {
     console.error(err);
   }

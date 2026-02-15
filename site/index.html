@@ -129,44 +129,71 @@ IR playbooks ...  10</code></pre>
   </div>
 </header>
 
-<section style="padding-top:0">
-  <div class="ctr">
-    <div class="mstrip">
-      <div class="met">
-        <div id="count-detections" class="met-v" data-count-target="142">142</div>
-        <div class="met-l">Verified detections (today)</div>
-      </div>
-      <div class="met">
-        <div id="count-sigma" class="met-v" data-count-target="105">105</div>
-        <div class="met-l">Verified Sigma rules</div>
-      </div>
-      <div class="met">
-        <div id="count-wazuh" class="met-v" data-count-target="29">29</div>
-        <div class="met-l">Verified Wazuh blocks</div>
-      </div>
-      <div class="met">
-        <div id="count-splunk" class="met-v" data-count-target="8">8</div>
-        <div class="met-l">Verified Splunk queries</div>
-      </div>
-      <div class="met">
-        <div id="count-ir" class="met-v" data-count-target="10">10</div>
-        <div class="met-l">Verified IR playbooks</div>
-      </div>
-    </div>
-    <div class="lupd" style="margin-top:8px">Only verified counts are shown. "Total library" is intentionally omitted.</div>
-    <div class="lupd" style="margin-top:8px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
-    <div class="lupd" style="margin-top:8px">Verified on: <b id="verified-date">2026-02-15</b> • Source: <a id="verified-source" href="https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">VERIFIED_COUNTS.md</a>.</div>
-  </div>
-</section>
-
-<section class="fluid-section">
+<section class="fluid-section proof-dashboard-wrap" style="padding-top:0">
   <div class="ctr">
     <div class="section-intro">
-      <div class="kicker">Proof Gallery</div>
-      <h2 class="stitle">Proof in action</h2>
-      <p class="sdesc">Safe-to-publish artifacts are rendered from the media manifest. Sensitive captures stay hidden until reviewed.</p>
+      <div class="kicker">Proof dashboard</div>
+      <h2 class="stitle">Coverage and artifact lanes at a glance</h2>
+      <p class="sdesc">Verified counters, data-driven SVG charts, and a safe-only media strip sourced from repository manifests.</p>
     </div>
-    <div data-media-gallery data-tags="proof,security,detection" data-limit="6"></div>
+    <div class="proof-dashboard">
+      <div class="panel-glass">
+        <h3 class="dash-title">Verified counts</h3>
+        <div class="mstrip">
+          <div class="met">
+            <div id="count-detections" class="met-v" data-count-target="142">142</div>
+            <div class="met-l">Verified detections (today)</div>
+          </div>
+          <div class="met">
+            <div id="count-sigma" class="met-v" data-count-target="105">105</div>
+            <div class="met-l">Verified Sigma rules</div>
+          </div>
+          <div class="met">
+            <div id="count-wazuh" class="met-v" data-count-target="29">29</div>
+            <div class="met-l">Verified Wazuh blocks</div>
+          </div>
+          <div class="met">
+            <div id="count-splunk" class="met-v" data-count-target="8">8</div>
+            <div class="met-l">Verified Splunk queries</div>
+          </div>
+          <div class="met">
+            <div id="count-ir" class="met-v" data-count-target="10">10</div>
+            <div class="met-l">Verified IR playbooks</div>
+          </div>
+        </div>
+        <div class="lupd" style="margin-top:8px">Only verified counts are shown. "Total library" is intentionally omitted.</div>
+        <div class="lupd" style="margin-top:8px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
+        <div class="lupd" style="margin-top:8px">Verified on: <b id="verified-date">2026-02-15</b> • Source: <a id="verified-source" href="https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">VERIFIED_COUNTS.md</a>.</div>
+      </div>
+
+      <div class="panel-glass chart-panel">
+        <h3 class="dash-title">Coverage Overview</h3>
+        <div id="coverage-chart" class="chart-shell">
+          <ul class="chart-fallback-list">
+            <li><span>Detections</span><strong>142</strong></li>
+            <li><span>Sigma Rules</span><strong>105</strong></li>
+            <li><span>Wazuh Blocks</span><strong>29</strong></li>
+            <li><span>Splunk Queries</span><strong>8</strong></li>
+            <li><span>Playbooks</span><strong>10</strong></li>
+          </ul>
+        </div>
+        <p class="lupd" style="margin-top:8px">Data source: <a href="/assets/verified-counts.json">/assets/verified-counts.json</a></p>
+      </div>
+
+      <div class="panel-glass chart-panel">
+        <h3 class="dash-title">Detections by Tag</h3>
+        <div id="detections-tag-chart" class="chart-shell">
+          <p class="lupd">Loading tag coverage from detections manifest...</p>
+        </div>
+        <p class="lupd" style="margin-top:8px">Data source: <a href="/assets/data/detections.json">/assets/data/detections.json</a></p>
+      </div>
+
+      <div class="panel-glass">
+        <h3 class="dash-title">Proof in action</h3>
+        <p class="lupd">Safe-to-publish artifacts are rendered from the media manifest. Sensitive captures stay hidden until reviewed.</p>
+        <div id="proof-gallery-strip" data-media-gallery data-tags="proof,security,detection" data-limit="6"></div>
+      </div>
+    </div>
   </div>
 </section>
 
