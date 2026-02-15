@@ -1,7 +1,7 @@
 import { applyFilter, normalizeToken } from "./components/ui/filters.js";
 import { renderListing } from "./components/sections/listing-renderer.js";
 import { initMediaGalleries } from "./components/sections/media-gallery.js";
-import { renderCoverageChart, renderDetectionsByTagChart } from "./components/sections/svg-charts.js";
+import { renderCoverageChart, renderDetectionsByTagChart, renderDetectionsByTagMiniChart } from "./components/sections/svg-charts.js";
 
 const jsonCache = new Map();
 
@@ -12,6 +12,22 @@ async function loadJson(path) {
   const payload = await res.json();
   jsonCache.set(path, payload);
   return payload;
+}
+
+function esc(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function isSafeMedia(item) {
+  return String(item && item.privacy_review ? item.privacy_review : "").toLowerCase() === "ok";
+}
+
+function emitContentUpdated() {
+  window.dispatchEvent(new Event("rh:content-updated"));
 }
 
 function uniqueTags(items) {
@@ -42,6 +58,7 @@ function bindFilters({ sourceItems, listingNode, chipsNode, searchNode, kind }) 
     renderTagButtons(chipsNode, tags, active);
     const filtered = applyFilter(sourceItems, active, query);
     renderListing(listingNode, filtered, kind);
+    emitContentUpdated();
   };
 
   chipsNode.addEventListener("click", (event) => {
@@ -59,25 +76,115 @@ function bindFilters({ sourceItems, listingNode, chipsNode, searchNode, kind }) 
   redraw();
 }
 
+function renderProjectProofCards(container, projects) {
+  if (!container) return;
+  const rows = Array.isArray(projects) ? projects : [];
+  if (!rows.length) {
+    container.innerHTML = '<article class="proof-card"><h3>No project records</h3><p>Project proof cards will appear when project metadata is available.</p></article>';
+    return;
+  }
+  container.innerHTML = rows.map((project) => {
+    const title = esc(project.title || "Project");
+    const summary = esc(project.summary || "Project summary pending.");
+    const pageUrl = esc(project.page_url || "#");
+    const repoUrl = esc(project.repo_url || "#");
+    const evidence = Array.isArray(project.evidence) ? project.evidence : [];
+    const evidenceLinks = evidence.slice(0, 3).map((entry) => {
+      return `<a href="${esc(entry.url)}" target="_blank" rel="noreferrer">${esc(entry.label)}</a>`;
+    }).join("");
+    return `<article class="proof-card">
+      <h3><a href="${pageUrl}">${title}</a></h3>
+      <p>${summary}</p>
+      <div class="proof-card-links">
+        <a href="${repoUrl}" target="_blank" rel="noreferrer">Repository lane</a>
+        ${evidenceLinks}
+      </div>
+    </article>`;
+  }).join("");
+}
+
+function renderProjectToolMarks(container, mediaItems) {
+  if (!container) return;
+  const rows = (Array.isArray(mediaItems) ? mediaItems : [])
+    .filter((item) => isSafeMedia(item) && /logo|badge/i.test(String(item.type || "")));
+  if (!rows.length) {
+    container.innerHTML = '<p class="lupd">Tool marks will appear when approved logo assets are available.</p>';
+    return;
+  }
+
+  const seen = new Set();
+  const selected = rows.filter((item) => {
+    const key = String(item.caption || item.id || "").toLowerCase();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 10);
+
+  container.innerHTML = `<div class="tool-marks">${selected.map((item) => `
+    <span class="tool-mark">
+      <img src="${esc(item.path)}" alt="${esc(item.alt || item.caption || "tool mark")}" loading="lazy" width="${item.width || 64}" height="${item.height || 64}">
+      <span>${esc(item.caption || item.id || "tool")}</span>
+    </span>
+  `).join("")}</div>`;
+}
+
+function renderSecurityKpis(container, verified) {
+  if (!container || !verified || !verified.counts) return;
+  const counts = verified.counts;
+  const map = [
+    ["sec-count-detections", counts.detections],
+    ["sec-count-sigma", counts.sigma],
+    ["sec-count-wazuh", counts.wazuh],
+    ["sec-count-splunk", counts.splunk],
+    ["sec-count-ir", counts.ir]
+  ];
+  map.forEach(([id, value]) => {
+    const el = container.querySelector(`#${id}`);
+    if (!el || typeof value !== "number") return;
+    el.textContent = String(value);
+  });
+}
+
+function renderMitreCoverageStatus(container, detections) {
+  if (!container) return;
+  const rows = Array.isArray(detections) ? detections : [];
+  const withMitre = rows.filter((item) => item && (item.tactic || item.technique_id || item.technique_name));
+  if (!rows.length || !withMitre.length) {
+    container.innerHTML = 'Coverage not available yet. Add optional fields <code>tactic</code>, <code>technique_id</code>, and <code>technique_name</code> to detection entries to enable MITRE heatmap rendering.';
+    return;
+  }
+  container.innerHTML = `MITRE metadata is present on <b>${withMitre.length}</b> of <b>${rows.length}</b> records. Heatmap rendering is ready once tactic and technique coverage is complete.`;
+}
+
 async function initProjectsPage() {
   const root = document.querySelector("[data-projects-root]");
   if (!root) return;
-  const data = await loadJson("assets/data/projects.json");
+  const [data, mediaData] = await Promise.all([
+    loadJson("assets/data/projects.json"),
+    loadJson("assets/data/media.json")
+  ]);
+  const projects = data.projects || [];
   bindFilters({
-    sourceItems: data.projects || [],
+    sourceItems: projects,
     listingNode: root.querySelector("[data-listing]"),
     chipsNode: root.querySelector("[data-chips]"),
     searchNode: root.querySelector("[data-search]"),
     kind: "projects"
   });
+  renderProjectProofCards(root.querySelector("[data-project-proof]"), projects);
+  renderProjectToolMarks(root.querySelector("[data-project-tools]"), mediaData.media || []);
 }
 
 async function initDetectionsPage() {
   const root = document.querySelector("[data-detections-root]");
   if (!root) return;
-  const data = await loadJson("assets/data/detections.json");
+  const [data, verified] = await Promise.all([
+    loadJson("assets/data/detections.json"),
+    loadJson("assets/verified-counts.json").catch(() => null)
+  ]);
+  const detections = data.detections || [];
   bindFilters({
-    sourceItems: data.detections || [],
+    sourceItems: detections,
     listingNode: root.querySelector("[data-listing]"),
     chipsNode: root.querySelector("[data-chips]"),
     searchNode: root.querySelector("[data-search]"),
@@ -85,8 +192,11 @@ async function initDetectionsPage() {
   });
 
   const chartRoot = document.getElementById("detectionsChart");
-  const detections = data.detections || [];
   if (chartRoot) renderDetectionsByTagChart(chartRoot, detections, { limit: 8, idPrefix: "security-tag" });
+  const miniTagChart = document.getElementById("securityTagMiniChart");
+  if (miniTagChart) renderDetectionsByTagMiniChart(miniTagChart, detections, { limit: 5, idPrefix: "security-mini-tag", width: 560 });
+  renderSecurityKpis(root.querySelector("[data-security-kpis]"), verified);
+  renderMitreCoverageStatus(document.getElementById("mitre-coverage-status"), detections);
 }
 
 async function initHomeDashboard() {
@@ -115,6 +225,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       initDetectionsPage(),
       initMediaGalleries(homeMedia)
     ]);
+    emitContentUpdated();
   } catch (err) {
     console.error(err);
   }

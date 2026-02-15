@@ -71,6 +71,24 @@ function hideTooltip(tooltip) {
   tooltip.hidden = true;
 }
 
+function bindTooltipLinks(host, tooltip) {
+  const links = Array.from(host.querySelectorAll(".chart-bar-link"));
+  links.forEach((link) => {
+    const group = link.closest(".chart-bar-group");
+    if (!group) return;
+    const label = group.getAttribute("data-label") || "item";
+    const value = group.getAttribute("data-value") || "0";
+    link.addEventListener("mousemove", (evt) => showTooltip(tooltip, evt, label, value));
+    link.addEventListener("mouseenter", (evt) => showTooltip(tooltip, evt, label, value));
+    link.addEventListener("mouseleave", () => hideTooltip(tooltip));
+    link.addEventListener("focus", () => {
+      const rect = link.getBoundingClientRect();
+      showTooltip(tooltip, { clientX: rect.left + rect.width / 2, clientY: rect.top }, label, value);
+    });
+    link.addEventListener("blur", () => hideTooltip(tooltip));
+  });
+}
+
 function renderFallbackList(container, points, emptyMessage) {
   if (!points.length) {
     container.innerHTML = `<p class="lupd">${emptyMessage}</p>`;
@@ -139,22 +157,86 @@ function mountBarChart(container, points, config) {
 
   const tooltip = ensureTooltip(host);
   ensureSummary(host, config.summary);
+  bindTooltipLinks(host, tooltip);
+}
 
-  const links = Array.from(host.querySelectorAll(".chart-bar-link"));
-  links.forEach((link) => {
-    const group = link.closest(".chart-bar-group");
-    if (!group) return;
-    const label = group.getAttribute("data-label") || "item";
-    const value = group.getAttribute("data-value") || "0";
-    link.addEventListener("mousemove", (evt) => showTooltip(tooltip, evt, label, value));
-    link.addEventListener("mouseenter", (evt) => showTooltip(tooltip, evt, label, value));
-    link.addEventListener("mouseleave", () => hideTooltip(tooltip));
-    link.addEventListener("focus", () => {
-      const rect = link.getBoundingClientRect();
-      showTooltip(tooltip, { clientX: rect.left + rect.width / 2, clientY: rect.top }, label, value);
+function mountHorizontalBarChart(container, points, config) {
+  const host = container;
+  host.classList.add("chart-host", "chart-host-horizontal");
+  if (!points.length) {
+    renderFallbackList(host, [], config.emptyMessage);
+    return;
+  }
+
+  const width = clamp(config.width || 640, 360, 960);
+  const rowH = clamp(config.rowHeight || 22, 18, 30);
+  const gap = clamp(config.gap || 10, 6, 20);
+  const margin = { top: 16, right: 48, bottom: 12, left: 126 };
+  const chartW = Math.max(80, width - margin.left - margin.right);
+  const maxValue = Math.max(...points.map((p) => p.value), 1);
+  const height = margin.top + margin.bottom + points.length * rowH + Math.max(0, points.length - 1) * gap;
+  const gradId = `${config.idPrefix}-h-grad`;
+
+  const rows = points
+    .map((point, idx) => {
+      const y = Math.round(margin.top + idx * (rowH + gap));
+      const barW = clamp(Math.round((point.value / maxValue) * chartW), 8, chartW);
+      const navLabel = point.navLabel || "details";
+      const aria = `${point.label}: ${point.value}. Navigate to ${navLabel}.`;
+      const labelY = y + Math.round(rowH * 0.68);
+      const valueX = Math.min(width - 8, margin.left + barW + 8);
+      return `
+        <g class="chart-bar-group" data-label="${escAttr(point.label)}" data-value="${point.value}">
+          <a class="chart-bar-link" href="${escAttr(point.url)}" tabindex="0" aria-label="${escAttr(aria)}">
+            <text class="chart-label-left" x="10" y="${labelY}">${escAttr(compactLabel(point.label, 16))}</text>
+            <rect class="chart-bar chart-bar-horizontal" x="${margin.left}" y="${y}" width="${barW}" height="${rowH}" rx="8"></rect>
+            <text class="chart-value chart-value-right" x="${valueX}" y="${labelY}">${point.value}</text>
+          </a>
+        </g>
+      `;
+    })
+    .join("");
+
+  host.innerHTML = `
+    <svg class="chart-svg chart-svg-mini" viewBox="0 0 ${width} ${height}" role="img" aria-label="${config.ariaLabel}">
+      <defs>
+        <linearGradient id="${gradId}" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="var(--acc)"></stop>
+          <stop offset="100%" stop-color="var(--acc2)"></stop>
+        </linearGradient>
+      </defs>
+      <g style="fill:url(#${gradId})">${rows}</g>
+    </svg>
+  `;
+
+  const tooltip = ensureTooltip(host);
+  ensureSummary(host, config.summary);
+  bindTooltipLinks(host, tooltip);
+}
+
+function buildTagPoints(detections, options = {}) {
+  const rows = Array.isArray(detections) ? detections : [];
+  const counts = new Map();
+  rows.forEach((row) => {
+    const value = toInt(row && row.count);
+    const tags = Array.isArray(row && row.tags) ? row.tags : [];
+    tags.forEach((tag) => {
+      const key = slugTag(tag);
+      if (!key) return;
+      counts.set(key, (counts.get(key) || 0) + value);
     });
-    link.addEventListener("blur", () => hideTooltip(tooltip));
   });
+
+  return Array.from(counts.entries())
+    .map(([tag, value]) => ({
+      label: tag,
+      value: toInt(value),
+      url: `/security.html?tag=${encodeURIComponent(tag)}#detection-inventory`,
+      navLabel: "Detection Inventory"
+    }))
+    .filter((item) => item.value > 0)
+    .sort((a, b) => b.value - a.value)
+    .slice(0, clamp(options.limit || 10, 3, 12));
 }
 
 export function renderCoverageChart(container, verifiedCounts, options = {}) {
@@ -186,29 +268,7 @@ export function renderCoverageChart(container, verifiedCounts, options = {}) {
 
 export function renderDetectionsByTagChart(container, detections, options = {}) {
   if (!container) return;
-  const rows = Array.isArray(detections) ? detections : [];
-  const counts = new Map();
-  rows.forEach((row) => {
-    const value = toInt(row && row.count);
-    const tags = Array.isArray(row && row.tags) ? row.tags : [];
-    tags.forEach((tag) => {
-      const key = slugTag(tag);
-      if (!key) return;
-      counts.set(key, (counts.get(key) || 0) + value);
-    });
-  });
-
-  const points = Array.from(counts.entries())
-    .map(([tag, value]) => ({
-      label: tag,
-      value: toInt(value),
-      url: `/security.html?tag=${encodeURIComponent(tag)}#detection-inventory`,
-      navLabel: "Detection Inventory"
-    }))
-    .filter((item) => item.value > 0)
-    .sort((a, b) => b.value - a.value)
-    .slice(0, clamp(options.limit || 10, 3, 12));
-
+  const points = buildTagPoints(detections, { limit: options.limit || 10 });
   if (!points.length) {
     renderFallbackList(container, [], "Tags not available yet.");
     return;
@@ -220,5 +280,23 @@ export function renderDetectionsByTagChart(container, detections, options = {}) 
     ariaLabel: "Detections by tag chart",
     summary,
     emptyMessage: "Tags not available yet."
+  });
+}
+
+export function renderDetectionsByTagMiniChart(container, detections, options = {}) {
+  if (!container) return;
+  const points = buildTagPoints(detections, { limit: options.limit || 5 });
+  if (!points.length) {
+    renderFallbackList(container, [], "Tag coverage data is not available yet.");
+    return;
+  }
+
+  const summary = `Compact detection tag view: ${points.map((p) => `${p.label} ${p.value}`).join(", ")}.`;
+  mountHorizontalBarChart(container, points, {
+    idPrefix: options.idPrefix || "tag-mini",
+    ariaLabel: "Compact detections by tag chart",
+    summary,
+    emptyMessage: "Tag coverage data is not available yet.",
+    width: options.width || 640
   });
 }

@@ -18,25 +18,21 @@
 <meta name="twitter:image" content="https://hawkinsops.com/assets/og.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-    (function () {
-      var saved = localStorage.getItem('rh-theme');
-      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-    })();
-  </script>
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/design-system.css">
-
+<script>
+  (function () {
+    var saved = localStorage.getItem('rh-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/design-system.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
   <div class="nav-i">
-    <a class="logo" href="index.html"><b>Hawkins</b>Ops</a>
+    <a class="logo" href="index.html"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="index.html">Home</a></li>
@@ -63,42 +59,81 @@
 <main id="main-content">
 <section id="detection-inventory" style="padding-top:110px" class="fluid-section" data-detections-root>
   <div class="ctr">
-    <div class="section-intro">
-      <div class="kicker">Detections</div>
+    <div class="section-intro" data-reveal>
+      <div class="kicker">Security inventory</div>
       <h1 class="stitle">Detection and response inventory</h1>
       <p class="sdesc">
-        Content-driven listing sourced from repository data, with filterable tags and direct evidence links.
+        Evidence-backed detection content with filterable records, direct repository links, and charted tag coverage.
       </p>
       <div class="lupd">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></div>
     </div>
-    <input class="filter-search" type="search" data-search placeholder="Search platform, format, or tactic..." aria-label="Search detections">
-    <div class="filter-bar" data-chips aria-label="Detection tag filters"></div>
+
+    <div class="security-dashboard-row">
+      <article class="panel-glass" data-security-kpis data-reveal>
+        <h2 class="dash-title">Inventory KPIs</h2>
+        <div class="kpi-mini-grid">
+          <div class="kpi-mini"><strong id="sec-count-detections">142</strong><span>Detections</span></div>
+          <div class="kpi-mini"><strong id="sec-count-sigma">105</strong><span>Sigma</span></div>
+          <div class="kpi-mini"><strong id="sec-count-wazuh">29</strong><span>Wazuh</span></div>
+          <div class="kpi-mini"><strong id="sec-count-splunk">8</strong><span>Splunk</span></div>
+          <div class="kpi-mini"><strong id="sec-count-ir">10</strong><span>Playbooks</span></div>
+        </div>
+      </article>
+
+      <article class="panel-glass chart-panel" data-reveal data-reveal-delay="80ms">
+        <h2 class="dash-title">Top tags (compact)</h2>
+        <div id="securityTagMiniChart" class="chart-shell chart-shell-mini">
+          <p class="lupd">Loading tag summary...</p>
+        </div>
+        <p class="chart-data-source">Data source: <a href="/assets/data/detections.json">/assets/data/detections.json</a></p>
+      </article>
+    </div>
+
+    <div class="filter-shell" data-reveal>
+      <input class="filter-search" type="search" data-search placeholder="Search platform, format, or tactic..." aria-label="Search detections">
+      <div class="filter-bar" data-chips aria-label="Detection tag filters"></div>
+    </div>
+
     <section class="listing" data-listing aria-live="polite"></section>
   </div>
 </section>
 
 <section class="fluid-section">
   <div class="ctr">
-    <div class="section-intro">
+    <div class="section-intro" data-reveal>
       <div class="kicker">Coverage</div>
       <h2 class="stitle">Detection distribution snapshot</h2>
-      <p class="sdesc">Lightweight SVG chart rendered from the same detections JSON used by the listing.</p>
+      <p class="sdesc">SVG chart rendered from the same detections JSON used by the listing view and filters.</p>
     </div>
-    <div class="panel-glass">
+    <div class="panel-glass" data-reveal>
       <div id="detectionsChart"></div>
       <p id="detectionsChartSummary" class="lupd"></p>
+      <p class="chart-data-source">Data source: <a href="/assets/data/detections.json">/assets/data/detections.json</a> and <a href="/assets/verified-counts.json">/assets/verified-counts.json</a></p>
     </div>
   </div>
 </section>
 
 <section class="fluid-section">
   <div class="ctr">
-    <div class="section-intro">
+    <div class="section-intro" data-reveal>
+      <div class="kicker">MITRE coverage</div>
+      <h2 class="stitle">Heatmap readiness</h2>
+      <p class="sdesc">This block checks whether tactic/technique metadata is present in detections data before a heatmap is enabled.</p>
+    </div>
+    <article class="panel-glass mitre-placeholder" data-reveal>
+      <p id="mitre-coverage-status" class="lupd">Coverage not available yet.</p>
+    </article>
+  </div>
+</section>
+
+<section class="fluid-section">
+  <div class="ctr">
+    <div class="section-intro" data-reveal>
       <div class="kicker">Proof gallery</div>
       <h2 class="stitle">Detection and dashboard artifacts</h2>
       <p class="sdesc">Only safe assets are surfaced by default. Review-required media is excluded.</p>
     </div>
-    <div data-media-gallery data-tags="dashboard,detection,proof" data-limit="8"></div>
+    <div data-media-gallery data-tags="dashboard,detection,proof,diagram" data-limit="6"></div>
   </div>
 </section>
 </main>
