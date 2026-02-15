@@ -68,6 +68,22 @@
       <div class="lupd">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></div>
     </div>
 
+    <div class="dashboard-shell" data-reveal>
+    <div class="dashboard-status-grid">
+      <div class="dashboard-status">
+        <strong>Inventory mode</strong>
+        <span>Live JSON-backed detection index</span>
+      </div>
+      <div class="dashboard-status">
+        <strong>Tag analysis</strong>
+        <span>Compact + full chart views are linked to filters</span>
+      </div>
+      <div class="dashboard-status">
+        <strong>MITRE status</strong>
+        <span>Heatmap enabled only when metadata is present</span>
+      </div>
+    </div>
+
     <div class="security-dashboard-row">
       <article class="panel-glass" data-security-kpis data-reveal>
         <h2 class="dash-title">Inventory KPIs</h2>
@@ -92,6 +108,7 @@
     <div class="filter-shell" data-reveal>
       <input class="filter-search" type="search" data-search placeholder="Search platform, format, or tactic..." aria-label="Search detections">
       <div class="filter-bar" data-chips aria-label="Detection tag filters"></div>
+    </div>
     </div>
 
     <section class="listing" data-listing aria-live="polite"></section>
