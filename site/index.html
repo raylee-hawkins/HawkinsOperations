@@ -18,19 +18,15 @@
 <meta name="twitter:image" content="https://hawkinsops.com/assets/og.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-    (function () {
-      var saved = localStorage.getItem('rh-theme');
-      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-    })();
-  </script>
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/design-system.css">
-
+<script>
+  (function () {
+    var saved = localStorage.getItem('rh-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/design-system.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -66,51 +62,51 @@
   <div class="ctr">
     <div class="hero-layout">
       <div class="hero-c">
-        <div class="hero-panel">
-        <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
-        <h1 class="htitle">Detection content that’s <span class="hl">tested</span>, mapped, and deployable.</h1>
-        <p class="hsub">
-          Sigma, Wazuh, and Splunk detections plus IR playbooks and a triage simulator.
-          Everything is auditable in GitHub.
-        </p>
+        <div class="hero-panel" data-reveal>
+          <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
+          <h1 class="htitle">Detection content that is <span class="hl">tested</span>, mapped, and deployable.</h1>
+          <p class="hsub">
+            Sigma, Wazuh, and Splunk detections plus IR playbooks and a triage simulator.
+            Everything is auditable in GitHub.
+          </p>
 
-        <div class="hproof">
-          <b>Proof</b> over vibes:
-          <br>• Clone the repo
-          <br>• Run the verify commands
-          <br>• Match the counts
-        </div>
-        <div class="hero-icons" aria-label="Proof highlights">
-          <span class="ico-chip">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
-            Verified artifacts
-          </span>
-          <span class="ico-chip">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
-            Reproducible commands
-          </span>
-        </div>
+          <div class="hproof">
+            <b>Proof</b> over vibes:
+            <br>• Clone the repo
+            <br>• Run the verify commands
+            <br>• Match the counts
+          </div>
+          <div class="hero-icons" aria-label="Proof highlights">
+            <span class="ico-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
+              Verified artifacts
+            </span>
+            <span class="ico-chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
+              Reproducible commands
+            </span>
+          </div>
 
-        <div class="roles">
-          <span class="rtag on">Open to roles</span>
-          <span class="rtag">SOC Analyst (T1/T2)</span>
-          <span class="rtag">Detection Engineer</span>
-          <span class="rtag">Security Automation</span>
-          <span class="rtag">DFIR (Junior)</span>
-        </div>
+          <div class="roles">
+            <span class="rtag on">Open to roles</span>
+            <span class="rtag">SOC Analyst (T1/T2)</span>
+            <span class="rtag">Detection Engineer</span>
+            <span class="rtag">Security Automation</span>
+            <span class="rtag">DFIR (Junior)</span>
+          </div>
 
-        <div class="hctas">
-          <a class="btn btn-p" href="https://github.com/raylee-ops/HawkinsOperations" target="_blank" rel="noreferrer">Clone the repo</a>
-          <a class="btn btn-g" href="proof.html">See the proof pack</a>
-          <a class="btn btn-g" href="/assets/Raylee_Hawkins_Resume.pdf" target="_blank" rel="noreferrer">Download resume</a>
-        </div>
+          <div class="hctas">
+            <a class="btn btn-p" href="https://github.com/raylee-ops/HawkinsOperations" target="_blank" rel="noreferrer">Clone the repo</a>
+            <a class="btn btn-g" href="proof.html">See the proof pack</a>
+            <a class="btn btn-g" href="/assets/Raylee_Hawkins_Resume.pdf" target="_blank" rel="noreferrer">Download resume</a>
+          </div>
 
-        <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
-        <div class="lupd">Counts and links align to <code>raylee-ops/HawkinsOperations</code> (verified, reproducible today).</div>
+          <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
+          <div class="lupd">Counts and links align to <code>raylee-ops/HawkinsOperations</code> (verified, reproducible today).</div>
         </div>
       </div>
 
-      <aside class="hero-proof" aria-label="Proof pack visual preview">
+      <aside class="hero-proof" aria-label="Proof pack visual preview" data-reveal data-reveal-delay="60ms">
         <div class="hero-proof-label">Reproducible artifacts</div>
         <div class="hero-proof-shot">
           <div class="hero-proof-hd">
@@ -129,60 +125,103 @@ IR playbooks ...  10</code></pre>
   </div>
 </header>
 
-<section style="padding-top:0">
+<section class="fluid-section proof-dashboard-wrap">
   <div class="ctr">
-    <div class="mstrip">
-      <div class="met">
-        <div id="count-detections" class="met-v" data-count-target="142">142</div>
-        <div class="met-l">Verified detections (today)</div>
-      </div>
-      <div class="met">
-        <div id="count-sigma" class="met-v" data-count-target="105">105</div>
-        <div class="met-l">Verified Sigma rules</div>
-      </div>
-      <div class="met">
-        <div id="count-wazuh" class="met-v" data-count-target="29">29</div>
-        <div class="met-l">Verified Wazuh blocks</div>
-      </div>
-      <div class="met">
-        <div id="count-splunk" class="met-v" data-count-target="8">8</div>
-        <div class="met-l">Verified Splunk queries</div>
-      </div>
-      <div class="met">
-        <div id="count-ir" class="met-v" data-count-target="10">10</div>
-        <div class="met-l">Verified IR playbooks</div>
-      </div>
+    <div class="section-intro" data-reveal>
+      <div class="kicker">SOC dashboard landing</div>
+      <h2 class="stitle">Coverage and verification lanes at a glance</h2>
+      <p class="sdesc">Verified counts, charted coverage, and proof artifacts are rendered from versioned manifests in this repository.</p>
     </div>
-    <div class="lupd" style="margin-top:8px">Only verified counts are shown. "Total library" is intentionally omitted.</div>
-    <div class="lupd" style="margin-top:8px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
-    <div class="lupd" style="margin-top:8px">Verified on: <b id="verified-date">2026-02-15</b> • Source: <a id="verified-source" href="https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">VERIFIED_COUNTS.md</a>.</div>
-  </div>
-</section>
 
-<section class="fluid-section">
-  <div class="ctr">
-    <div class="section-intro">
-      <div class="kicker">Proof Gallery</div>
-      <h2 class="stitle">Proof in action</h2>
-      <p class="sdesc">Safe-to-publish artifacts are rendered from the media manifest. Sensitive captures stay hidden until reviewed.</p>
+    <div class="dashboard-band">
+      <article class="panel-glass" data-reveal>
+        <h3 class="dash-title">KPI lane</h3>
+        <div class="dashboard-kpi-grid">
+          <div class="kpi-badge">
+            <strong id="count-detections" class="met-v" data-count-target="142">142</strong>
+            <span>Verified detections</span>
+          </div>
+          <div class="kpi-badge">
+            <strong id="count-sigma" class="met-v" data-count-target="105">105</strong>
+            <span>Sigma rules</span>
+          </div>
+          <div class="kpi-badge">
+            <strong id="count-wazuh" class="met-v" data-count-target="29">29</strong>
+            <span>Wazuh blocks</span>
+          </div>
+          <div class="kpi-badge">
+            <strong id="count-splunk" class="met-v" data-count-target="8">8</strong>
+            <span>Splunk queries</span>
+          </div>
+          <div class="kpi-badge">
+            <strong id="count-ir" class="met-v" data-count-target="10">10</strong>
+            <span>IR playbooks</span>
+          </div>
+          <div class="kpi-badge">
+            <strong id="verified-date">2026-02-15</strong>
+            <span>Verified on date</span>
+          </div>
+        </div>
+        <p class="lupd" style="margin-top:0.75rem">Source: <a id="verified-source" href="https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">PROOF_PACK/VERIFIED_COUNTS.md</a>.</p>
+      </article>
+
+      <article class="panel-glass chart-panel" data-reveal data-reveal-delay="70ms">
+        <h3 class="dash-title">Coverage overview</h3>
+        <div id="coverage-chart" class="chart-shell">
+          <ul class="chart-fallback-list">
+            <li><span>Detections</span><strong>142</strong></li>
+            <li><span>Sigma Rules</span><strong>105</strong></li>
+            <li><span>Wazuh Blocks</span><strong>29</strong></li>
+            <li><span>Splunk Queries</span><strong>8</strong></li>
+            <li><span>Playbooks</span><strong>10</strong></li>
+          </ul>
+        </div>
+        <p class="chart-data-source">Data source: <a href="/assets/verified-counts.json">/assets/verified-counts.json</a></p>
+      </article>
     </div>
-    <div data-media-gallery data-tags="proof,security,detection" data-limit="6"></div>
+
+    <div class="dashboard-lower">
+      <article class="panel-glass chart-panel" data-reveal>
+        <h3 class="dash-title">Detections by tag</h3>
+        <div id="detections-tag-chart" class="chart-shell">
+          <p class="lupd">Loading tag coverage from detections manifest...</p>
+        </div>
+        <p class="chart-data-source">Data source: <a href="/assets/data/detections.json">/assets/data/detections.json</a></p>
+      </article>
+
+      <aside class="panel-glass" data-reveal data-reveal-delay="90ms">
+        <h3 class="dash-title">Inventory actions</h3>
+        <ul class="dashboard-cta-list">
+          <li>Inspect every detection record with platform and evidence links.</li>
+          <li>Filter by tag and map results to proof-ready artifacts.</li>
+          <li>Use command-level verify lanes before reviewing claims.</li>
+        </ul>
+        <a class="btn btn-p" href="security.html#detection-inventory">View inventory</a>
+        <p class="lupd" style="margin-top:0.75rem">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></p>
+      </aside>
+    </div>
+
+    <article class="panel-glass" data-reveal>
+      <h3 class="dash-title">Proof in action</h3>
+      <p class="lupd">Only safe assets are rendered. Screenshot/dashboard/diagram artifacts are prioritized; logos are shown as compact tool marks if no proof screenshots exist.</p>
+      <div id="proof-gallery-strip" data-media-gallery data-tags="proof,dashboard,detection,diagram" data-limit="6"></div>
+    </article>
   </div>
 </section>
 
 <section class="fluid-section">
   <div class="ctr narrative-split">
-    <div class="narrative-stack">
+    <div class="narrative-stack" data-reveal>
       <div class="kicker">Operating model</div>
       <h2 class="stitle">What this portfolio proves in under ten minutes</h2>
       <p class="sdesc">This site is built for fast technical review: verify inventory, inspect evidence, and validate commands without guesswork.</p>
       <ul class="signal-list">
         <li>Evidence is tied to repository paths and command-level reproducibility.</li>
-        <li>Counts match `PROOF_PACK/VERIFIED_COUNTS.md` and update via scripted generation.</li>
-        <li>Each major project includes direct “Evidence” lanes for screenshots, writeups, and source references.</li>
+        <li>Counts match <code>PROOF_PACK/VERIFIED_COUNTS.md</code> and update via scripted generation.</li>
+        <li>Each major project includes direct evidence lanes for screenshots, writeups, and source references.</li>
       </ul>
     </div>
-    <ol class="timeline" aria-label="Reviewer flow">
+    <ol class="timeline" aria-label="Reviewer flow" data-reveal data-reveal-delay="70ms">
       <li>
         <h3>1. Validate inventory</h3>
         <p>Run verify scripts and match counts to the proof source.</p>
@@ -201,22 +240,22 @@ IR playbooks ...  10</code></pre>
 
 <section class="fluid-section">
   <div class="ctr">
-    <div class="section-intro">
+    <div class="section-intro" data-reveal>
       <div class="kicker">Core lanes</div>
       <h2 class="stitle">Start from proof, then drill into execution</h2>
     </div>
     <div class="listing">
-      <article class="listing-item">
+      <article class="listing-item" data-reveal>
         <h3><a href="proof.html">Proof Pack</a></h3>
         <p>Canonical reviewer path: verification commands, artifact index, and controlled claims.</p>
         <div class="listing-meta"><span>start_here</span><span>verified_counts</span><span>evidence_index</span></div>
       </article>
-      <article class="listing-item">
+      <article class="listing-item" data-reveal>
         <h3><a href="security.html">Detections + Playbooks</a></h3>
         <p>Multi-platform detections with IR playbooks and tactic-level mappings.</p>
         <div class="listing-meta"><span>sigma</span><span>wazuh</span><span>splunk</span><span>ir</span></div>
       </article>
-      <article class="listing-item">
+      <article class="listing-item" data-reveal>
         <h3><a href="projects.html">Projects + Evidence</a></h3>
         <p>Project catalog with filters, direct repo links, and evidence references per entry.</p>
         <div class="listing-meta"><span>ops</span><span>soc</span><span>verification</span></div>

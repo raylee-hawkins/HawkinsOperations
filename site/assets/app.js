@@ -105,6 +105,82 @@
   }
   wireCopy();
 
+  // Scroll reveal utilities (disabled entirely when reduced motion is requested).
+  const reducedMotionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  let revealObserver = null;
+  const revealSelector = [
+    '[data-reveal]',
+    '.section-intro',
+    '.panel-glass',
+    '.listing-item',
+    '.media-item',
+    '.met',
+    '.card',
+    '.timeline li',
+    '.tool-mark',
+    '.proof-card',
+    '.hero-proof',
+    '.filter-shell'
+  ].join(',');
+
+  function prefersReducedMotion() {
+    return Boolean(reducedMotionQuery && reducedMotionQuery.matches);
+  }
+
+  function revealImmediately(el) {
+    if (!el) return;
+    el.classList.remove('reveal');
+    el.classList.add('is-visible');
+    el.style.removeProperty('--reveal-delay');
+  }
+
+  function ensureRevealObserver() {
+    if (revealObserver || prefersReducedMotion() || !('IntersectionObserver' in window)) return;
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('is-visible');
+        revealObserver.unobserve(el);
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+  }
+
+  function wireScrollReveal(root = document) {
+    const targets = $$(revealSelector, root).filter((el) => !el.closest('#modalBg'));
+    if (!targets.length) return;
+
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+      html.removeAttribute('data-reveal-active');
+      targets.forEach(revealImmediately);
+      return;
+    }
+
+    try {
+      ensureRevealObserver();
+      if (!revealObserver) throw new Error('reveal-observer-unavailable');
+      html.setAttribute('data-reveal-active', 'true');
+      targets.forEach((el, idx) => {
+        if (el.dataset.revealBound === 'true') return;
+        el.dataset.revealBound = 'true';
+        el.classList.add('reveal');
+        if (!el.style.getPropertyValue('--reveal-delay')) {
+          el.style.setProperty('--reveal-delay', `${Math.min((idx % 4) * 40, 120)}ms`);
+        }
+        // Fail-safe: if observer callbacks never fire, do not leave content hidden.
+        window.setTimeout(() => {
+          if (!el.classList.contains('is-visible')) {
+            el.classList.add('is-visible');
+          }
+        }, 1800 + Math.min(idx * 60, 420));
+        revealObserver.observe(el);
+      });
+    } catch {
+      html.removeAttribute('data-reveal-active');
+      targets.forEach(revealImmediately);
+    }
+  }
+
   // Modal
   const modalBg = $('#modalBg');
   const modalTitle = $('#modalTitle');
@@ -278,5 +354,19 @@
     document.addEventListener("DOMContentLoaded", wireCountUp);
   } else {
     wireCountUp();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => wireScrollReveal());
+  } else {
+    wireScrollReveal();
+  }
+
+  window.addEventListener('rh:content-updated', () => wireScrollReveal());
+
+  if (reducedMotionQuery && typeof reducedMotionQuery.addEventListener === 'function') {
+    reducedMotionQuery.addEventListener('change', () => {
+      if (prefersReducedMotion()) wireScrollReveal();
+    });
   }
 })();

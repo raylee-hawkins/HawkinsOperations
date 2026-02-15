@@ -12,6 +12,56 @@ function hasTag(item, tags) {
   return tags.some((tag) => itemTags.includes(tag));
 }
 
+const PROOF_TYPE_ORDER = ["screenshot", "dashboard", "diagram", "flowchart", "table"];
+const TOOL_MARK_TYPES = new Set(["logo", "badge", "brand", "toolmark"]);
+
+function normalizeType(item) {
+  return String(item && item.type ? item.type : "")
+    .trim()
+    .toLowerCase();
+}
+
+function isToolMark(item) {
+  const t = normalizeType(item);
+  return TOOL_MARK_TYPES.has(t) || t.includes("logo") || t.includes("badge");
+}
+
+function proofTypeRank(item) {
+  const t = normalizeType(item);
+  const idx = PROOF_TYPE_ORDER.indexOf(t);
+  return idx === -1 ? Number.MAX_SAFE_INTEGER : idx;
+}
+
+function normalizeSafeItems(items) {
+  return (Array.isArray(items) ? items : []).filter((item) => {
+    if (!item || !item.path) return false;
+    return String(item.privacy_review || "").toLowerCase() === "ok";
+  });
+}
+
+function dedupeToolMarks(items) {
+  const seen = new Set();
+  return items.filter((item) => {
+    const label = String(item.caption || item.alt || item.id || "").toLowerCase();
+    if (!label || seen.has(label)) return false;
+    seen.add(label);
+    return true;
+  });
+}
+
+function pickGalleryItems(items, limit) {
+  const sorted = [...items].sort((a, b) => {
+    const rankDelta = proofTypeRank(a) - proofTypeRank(b);
+    if (rankDelta !== 0) return rankDelta;
+    return String(a.caption || a.id || "").localeCompare(String(b.caption || b.id || ""));
+  });
+
+  const proofTiles = sorted.filter((item) => !isToolMark(item));
+  const tileItems = proofTiles.slice(0, limit);
+  const toolMarks = dedupeToolMarks(sorted.filter((item) => isToolMark(item))).slice(0, 12);
+  return { tileItems, toolMarks };
+}
+
 function ensureLightbox() {
   let lb = document.getElementById("mediaLightbox");
   if (lb) return lb;
@@ -31,25 +81,47 @@ function ensureLightbox() {
   return lb;
 }
 
-function renderGallery(root, items) {
+export function renderMediaGallery(root, items) {
+  if (!root) return;
   const tags = (root.getAttribute("data-tags") || "")
     .split(",")
     .map((t) => t.trim().toLowerCase())
     .filter(Boolean);
-  const limit = Number(root.getAttribute("data-limit") || "6");
-  const selected = items.filter((m) => hasTag(m, tags)).slice(0, limit);
-  if (!selected.length) {
+  const requestedLimit = Number(root.getAttribute("data-limit") || "6");
+  const limit = Number.isFinite(requestedLimit) && requestedLimit > 0 ? requestedLimit : 6;
+  const selected = normalizeSafeItems(items).filter((m) => hasTag(m, tags));
+  const { tileItems, toolMarks } = pickGalleryItems(selected, limit);
+  if (!tileItems.length && !toolMarks.length) {
     root.innerHTML = '<p class="lupd">No safe media assets matched this gallery yet.</p>';
     return;
   }
-  root.innerHTML = `<div class="media-grid">${selected.map((m) => `
+  if (!tileItems.length && toolMarks.length) {
+    root.innerHTML = `<div class="tool-marks" aria-label="Tool marks">${toolMarks.map((m) => `
+      <span class="tool-mark">
+        <img src="${esc(m.path)}" alt="${esc(m.alt || m.caption || "tool mark")}" loading="lazy" width="${m.width || 64}" height="${m.height || 64}">
+        <span>${esc(m.caption || m.id || "tool")}</span>
+      </span>
+    `).join("")}</div>`;
+    return;
+  }
+
+  const toolMarksHtml = toolMarks.length ? `<div class="tool-marks" aria-label="Tool marks" style="margin-top:0.7rem">${toolMarks.map((m) => `
+    <span class="tool-mark">
+      <img src="${esc(m.path)}" alt="${esc(m.alt || m.caption || "tool mark")}" loading="lazy" width="${m.width || 64}" height="${m.height || 64}">
+      <span>${esc(m.caption || m.id || "tool")}</span>
+    </span>
+  `).join("")}</div>` : "";
+
+  root.innerHTML = `<div class="media-grid">${tileItems.map((m) => `
     <figure class="media-item">
       <button type="button" class="media-btn" data-src="${esc(m.path)}" data-caption="${esc(m.caption)}">
-        <img src="${esc(m.path)}" alt="${esc(m.alt)}" loading="lazy" width="${m.width || 480}" height="${m.height || 320}">
+        <span class="media-thumb">
+          <img src="${esc(m.path)}" alt="${esc(m.alt)}" loading="lazy" width="${m.width || 480}" height="${m.height || 300}">
+        </span>
       </button>
       <figcaption>${esc(m.caption)}</figcaption>
     </figure>
-  `).join("")}</div>`;
+  `).join("")}</div>${toolMarksHtml}`;
 
   const lightbox = ensureLightbox();
   root.querySelectorAll(".media-btn").forEach((btn) => {
@@ -64,12 +136,15 @@ function renderGallery(root, items) {
   });
 }
 
-export async function initMediaGalleries() {
+export async function initMediaGalleries(preloadedItems) {
   const roots = Array.from(document.querySelectorAll("[data-media-gallery]"));
   if (!roots.length) return;
-  const res = await fetch("assets/data/media.json", { cache: "no-store" });
-  if (!res.ok) return;
-  const payload = await res.json();
-  const items = Array.isArray(payload.media) ? payload.media : [];
-  roots.forEach((root) => renderGallery(root, items));
+  let items = normalizeSafeItems(preloadedItems);
+  if (!items.length) {
+    const res = await fetch("assets/data/media.json", { cache: "no-store" });
+    if (!res.ok) return;
+    const payload = await res.json();
+    items = normalizeSafeItems(payload.media);
+  }
+  roots.forEach((root) => renderMediaGallery(root, items));
 }

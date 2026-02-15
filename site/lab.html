@@ -18,16 +18,21 @@
 <meta name="twitter:image" content="https://hawkinsops.com/assets/og.png">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = localStorage.getItem('rh-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="assets/styles.css">
-
+<link rel="stylesheet" href="assets/design-system.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
   <div class="nav-i">
-    <a class="logo" href="index.html"><b>Hawkins</b>Ops</a>
+    <a class="logo" href="index.html"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="index.html">Home</a></li>
@@ -38,6 +43,7 @@
       <li><a href="proof.html">Proof</a></li>
       <li><a href="resume.html">Resume</a></li>
     </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
@@ -50,80 +56,126 @@
   <a href="resume.html">Resume</a>
 </div>
 
-<section style="padding-top:110px">
+<main id="main-content">
+<section class="fluid-section" style="padding-top:110px">
   <div class="ctr">
-    <div class="slbl">Lab</div>
-    <h1 class="stitle">Home lab (built to break detections, not egos)</h1>
-    <p class="sdesc">
-      This is the environment used to test rules, generate logs, and validate playbooks.
-      If a detection can’t survive messy reality, it doesn’t belong in a repo.
-    </p>
-
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">Compute</div>
-        <div class="card-sub">Proxmox host: HO-SR-01 • ~72 CPUs • ~2 TiB RAM</div>
-        <div class="card-meta"><span class="tag">Virtualized</span><span class="tag">Snapshot driven</span><span class="tag">Evidence-first</span></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">Monitoring</div>
-        <div class="card-sub">Wazuh Manager + agented endpoints (Windows + Linux) feeding test data.</div>
-        <div class="card-meta"><span class="tag">Wazuh</span><span class="tag">Sysmon-ready</span><span class="tag">Alert tuning</span></div>
-      </div>
+    <div class="section-intro" data-reveal>
+      <div class="kicker">Lab architecture</div>
+      <h1 class="stitle">Home lab built for repeatable detection validation</h1>
+      <p class="sdesc">This environment exists to pressure-test detections and playbooks. If a rule fails noisy reality, it does not graduate into evidence.</p>
     </div>
 
-    <div style="height:14px"></div>
-
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">SIEM / Search</div>
-        <div class="card-sub">Splunk for SPL detections and investigation pivots.</div>
-        <div class="card-meta"><span class="tag">SPL</span><span class="tag">ES-style pivots</span></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">Network</div>
-        <div class="card-sub">Private lab subnet (192.168.8.0/24). Isolated, reproducible, boring in a good way.</div>
-        <div class="card-meta"><span class="tag">Isolated</span><span class="tag">Repeatable runs</span></div>
-      </div>
-    </div>
-
-    <details>
-      <summary>What to screenshot for proof <span>(redact anything sensitive)</span></summary>
-      <div class="details-body">
-        <ul>
-          <li>Wazuh alert showing a custom rule firing (rule ID + level visible, no hostnames if you don’t want them public).</li>
-          <li>Splunk search results with the SPL query name + hit count.</li>
-          <li>One screenshot of the lab topology (VM list) with internal IPs only.</li>
+    <div class="lab-system-grid">
+      <article class="panel-glass" data-reveal>
+        <h2 class="dash-title">Environment summary</h2>
+        <div class="kpi-mini-grid" style="margin-bottom:1rem">
+          <div class="kpi-mini"><strong>HO-SR-01</strong><span>Proxmox host</span></div>
+          <div class="kpi-mini"><strong>~72 CPUs</strong><span>Allocated cores</span></div>
+          <div class="kpi-mini"><strong>~2 TiB</strong><span>RAM pool</span></div>
+          <div class="kpi-mini"><strong>192.168.8.0/24</strong><span>Lab subnet</span></div>
+          <div class="kpi-mini"><strong>Snapshot</strong><span>Rollback model</span></div>
+        </div>
+        <ul class="signal-list">
+          <li>Virtualized endpoint mix across Windows and Linux test workloads.</li>
+          <li>Isolated network segment designed for deterministic reruns.</li>
+          <li>Compute allocation favors reproducible replay over max density.</li>
         </ul>
-        <p>
-          Drop images into <code>assets/screenshots/</code> and link them on this page.
-          Placeholders are included so you don’t forget.
-        </p>
-      </div>
-    </details>
+      </article>
 
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">Screenshot: detection firing (placeholder)</div>
-        <div class="card-sub">Add a redacted screenshot to: <code>assets/screenshots/detection_firing.png</code></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">Screenshot: splunk pivot (placeholder)</div>
-        <div class="card-sub">Add a redacted screenshot to: <code>assets/screenshots/splunk_pivot.png</code></div>
-      </div>
+      <article class="panel-glass" data-reveal data-reveal-delay="80ms">
+        <h2 class="dash-title">Monitoring and SIEM lane</h2>
+        <div class="listing-meta" style="margin-bottom:0.75rem">
+          <span>Wazuh manager</span>
+          <span>Agent telemetry</span>
+          <span>Splunk pivots</span>
+          <span>Rule tuning</span>
+        </div>
+        <ul class="signal-list">
+          <li>Wazuh receives endpoint events and validates custom rule behavior.</li>
+          <li>Splunk supports SPL hunts, pivot flows, and incident reconstruction.</li>
+          <li>Operational output feeds detections, playbooks, and proof artifacts.</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
 
-<div id="modalBg" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-h">
-      <div id="modalTitle" class="modal-ttl">DETAILS</div>
-      <button id="modalClose" class="modal-x" type="button">Close</button>
-    </div>
-    <div id="modalBody" class="modal-b"></div>
+<section class="fluid-section">
+  <div class="ctr">
+    <article class="panel-glass lab-topology" data-reveal>
+      <h2 class="dash-title">Lab topology mini-map</h2>
+      <p class="lupd">Abstract flow: Proxmox host orchestrates endpoints, Wazuh ingest, and Splunk analytics.</p>
+      <svg viewBox="0 0 920 300" role="img" aria-label="Lab topology map: Proxmox to Wazuh to endpoints to Splunk">
+        <defs>
+          <linearGradient id="nodeGrad" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="rgba(103,214,255,0.42)"></stop>
+            <stop offset="100%" stop-color="rgba(138,157,255,0.22)"></stop>
+          </linearGradient>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="rgba(103,214,255,0.8)"></path>
+          </marker>
+        </defs>
+        <rect x="42" y="104" width="170" height="92" rx="16" fill="url(#nodeGrad)" stroke="rgba(103,214,255,0.7)"></rect>
+        <text x="127" y="142" text-anchor="middle" class="chart-value">Proxmox</text>
+        <text x="127" y="166" text-anchor="middle" class="chart-label">Compute host</text>
+
+        <rect x="290" y="56" width="170" height="92" rx="16" fill="url(#nodeGrad)" stroke="rgba(103,214,255,0.7)"></rect>
+        <text x="375" y="94" text-anchor="middle" class="chart-value">Wazuh</text>
+        <text x="375" y="118" text-anchor="middle" class="chart-label">Manager + rules</text>
+
+        <rect x="290" y="176" width="170" height="92" rx="16" fill="url(#nodeGrad)" stroke="rgba(103,214,255,0.7)"></rect>
+        <text x="375" y="214" text-anchor="middle" class="chart-value">Endpoints</text>
+        <text x="375" y="238" text-anchor="middle" class="chart-label">Windows + Linux</text>
+
+        <rect x="542" y="104" width="170" height="92" rx="16" fill="url(#nodeGrad)" stroke="rgba(103,214,255,0.7)"></rect>
+        <text x="627" y="142" text-anchor="middle" class="chart-value">Splunk</text>
+        <text x="627" y="166" text-anchor="middle" class="chart-label">Search + pivots</text>
+
+        <rect x="740" y="104" width="140" height="92" rx="16" fill="rgba(16,34,59,0.64)" stroke="rgba(138,157,255,0.58)"></rect>
+        <text x="810" y="142" text-anchor="middle" class="chart-value">Evidence</text>
+        <text x="810" y="166" text-anchor="middle" class="chart-label">Proof pack</text>
+
+        <line x1="212" y1="150" x2="288" y2="102" stroke="rgba(103,214,255,0.8)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="212" y1="150" x2="288" y2="222" stroke="rgba(103,214,255,0.8)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="460" y1="102" x2="540" y2="150" stroke="rgba(103,214,255,0.8)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="460" y1="222" x2="540" y2="150" stroke="rgba(103,214,255,0.8)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="712" y1="150" x2="738" y2="150" stroke="rgba(103,214,255,0.8)" stroke-width="2" marker-end="url(#arrow)"></line>
+      </svg>
+    </article>
   </div>
-</div>
+</section>
+
+<section class="fluid-section">
+  <div class="ctr">
+    <div class="section-intro" data-reveal>
+      <div class="kicker">Run evidence</div>
+      <h2 class="stitle">Checklist for proof capture</h2>
+      <p class="sdesc">Capture only redacted, safe-to-publish artifacts. Do not include secrets, public IPs, or sensitive host identifiers.</p>
+    </div>
+
+    <article class="panel-glass" data-reveal>
+      <ul class="evidence-checklist">
+        <li>[ ] Wazuh alert view showing custom rule ID + level (redacted host data).</li>
+        <li>[ ] Splunk search view with SPL query label and result count.</li>
+        <li>[ ] Lab topology/VM inventory screenshot with internal-only addressing.</li>
+        <li>[ ] One command-output capture proving verification run completed.</li>
+      </ul>
+    </article>
+
+    <div class="project-proof-grid" style="margin-top:1.2rem">
+      <article class="proof-card" data-reveal>
+        <h3>Placeholder: detection firing screenshot</h3>
+        <p>Add redacted image path <code>assets/screenshots/detection_firing.png</code> after privacy review.</p>
+      </article>
+      <article class="proof-card" data-reveal>
+        <h3>Placeholder: Splunk pivot screenshot</h3>
+        <p>Add redacted image path <code>assets/screenshots/splunk_pivot.png</code> after privacy review.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
   <div class="ctr">
     <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
@@ -137,6 +189,3 @@
 <script src="assets/app.js" defer></script>
 </body>
 </html>
-
-
-
