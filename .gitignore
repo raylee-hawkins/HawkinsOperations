@@ -64,8 +64,6 @@ __pycache__/
 **/vault/
 
 
-# Local Netlify folder
-.netlify
 
 # Lab safety artifacts
 

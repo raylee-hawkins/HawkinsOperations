@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": "wazuh-validation",
+      "title": "Wazuh Detection Validation",
+      "summary": "Rule engineering and validation workflow with reproducible counts and deployable bundles.",
+      "type": "detection",
+      "status": "active",
+      "tags": ["wazuh", "sigma", "splunk", "verification"],
+      "repo_url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules",
+      "page_url": "/security.html",
+      "evidence": [
+        {
+          "label": "Verified Counts",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+        },
+        {
+          "label": "Wazuh Rules",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
+        }
+      ]
+    },
+    {
+      "id": "migration-proof",
+      "title": "RH Migration 2026 Proof Trail",
+      "summary": "Change-controlled migration evidence with runbooks, checkpoints, and rollback logic.",
+      "type": "operations",
+      "status": "active",
+      "tags": ["runbooks", "ops", "evidence"],
+      "repo_url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/projects/migration-rh",
+      "page_url": "/projects.html",
+      "evidence": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/projects/migration-rh/README.md"
+        },
+        {
+          "label": "Proof Pack",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK"
+        }
+      ]
+    },
+    {
+      "id": "triage-simulator",
+      "title": "SOC Triage Simulator",
+      "summary": "Scenario-driven triage flow emphasizing context pivots, escalation criteria, and closure notes.",
+      "type": "soc",
+      "status": "active",
+      "tags": ["soc", "triage", "workflow"],
+      "repo_url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/site/triage.html",
+      "page_url": "/triage.html",
+      "evidence": [
+        {
+          "label": "Triage Page",
+          "url": "https://hawkinsops.com/triage"
+        },
+        {
+          "label": "Incident Example",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/incident-response/incidents"
+        }
+      ]
+    },
+    {
+      "id": "ir-playbook-library",
+      "title": "IR Playbook Library",
+      "summary": "Ten structured IR playbooks aligned to common SOC incident patterns and handoff quality.",
+      "type": "ir",
+      "status": "active",
+      "tags": ["ir", "playbooks", "documentation"],
+      "repo_url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/incident-response/playbooks",
+      "page_url": "/security.html",
+      "evidence": [
+        {
+          "label": "Playbooks Folder",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/tree/main/incident-response/playbooks"
+        },
+        {
+          "label": "IR Index",
+          "url": "https://github.com/raylee-ops/HawkinsOperations/blob/main/incident-response/INDEX.md"
+        }
+      ]
+    }
+  ]
+}

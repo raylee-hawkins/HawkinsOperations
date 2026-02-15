@@ -1,0 +1,187 @@
+{
+  "generated_on": "2026-02-15",
+  "media": [
+    {
+      "id": "site-assets-badges-automation",
+      "path": "assets/media/site-assets-badges-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-sigma",
+      "path": "assets/media/site-assets-badges-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-splunk",
+      "path": "assets/media/site-assets-badges-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-badges-wazuh",
+      "path": "assets/media/site-assets-badges-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "ok",
+      "source": "site/assets/badges/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-favicon",
+      "path": "assets/media/site-assets-favicon.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "favicon",
+      "alt": "logo artifact: favicon",
+      "privacy_review": "ok",
+      "source": "site/assets/favicon.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 289,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-icon-192",
+      "path": "assets/media/site-assets-icon-192.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "icon 192",
+      "alt": "screenshot artifact: icon 192",
+      "privacy_review": "ok",
+      "source": "site/assets/icon-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 1466,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "site-assets-logos-automation",
+      "path": "assets/media/site-assets-logos-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-sigma",
+      "path": "assets/media/site-assets-logos-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-splunk",
+      "path": "assets/media/site-assets-logos-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-logos-wazuh",
+      "path": "assets/media/site-assets-logos-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "ok",
+      "source": "site/assets/logos/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-og",
+      "path": "assets/media/site-assets-og.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "og",
+      "alt": "screenshot artifact: og",
+      "privacy_review": "ok",
+      "source": "site/assets/og.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 63868,
+      "suggested_placement": "home proof strip"
+    }
+  ]
+}

@@ -67,6 +67,11 @@ Run from repo root (PowerShell):
 pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
 pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
+node .\scripts\generate-site-data.js
+node .\scripts\generate-site-content.js
+node .\scripts\generate-media-manifest.js
+node .\scripts\verify\no-netlify.js
+python -m http.server --directory site 8000
 ```
 
 Expected artifacts:
@@ -88,6 +93,8 @@ Expected artifacts:
 | `scripts/` | verification + bundle builders | reproducibility + deployable artifacts |
 | `docs/` | execution notes and supporting documentation | implementation decisions and reviewer context |
 | `site/` | static portfolio site source | published recruiter-facing web content |
+| `content/` | structured site content (JSON) | source-of-truth for content-driven listings |
+| `components/` | design-system contracts | UI/section architecture conventions |
 | `projects/` | reference/archive project subtrees | non-canonical, time-boxed, or legacy workstreams |
 
 ---
@@ -102,6 +109,10 @@ detection-rules/*                incident-response/*
       |-- generate-verified-counts.ps1  -> PROOF_PACK/VERIFIED_COUNTS.md
       |
       '-- build-wazuh-bundle.ps1        -> dist/wazuh/local_rules.xml
+
+content/projects.json + content/detections.json
+      |-- generate-site-content.js      -> site/assets/data/*.json
+      '-- portfolio-data.js             -> rendered listings + filters
 ```
 
 This maps to the documented Wazuh deployment flow: modules -> bundle -> `/var/ossec/etc/rules/local_rules.xml` -> restart manager.
@@ -120,6 +131,23 @@ Repo standard: no real credentials/tokens, no internal IPs, and no accidental id
 - Architecture + coverage: `PROOF_PACK/ARCHITECTURE.md`
 - Contribution workflow: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Proof lane index: [`PROOF_PACK/PROOF_INDEX.md`](PROOF_PACK/PROOF_INDEX.md)
+
+---
+
+## Site Architecture (Static + Content-driven)
+
+- Runtime remains static HTML/CSS/JS under `site/` (no framework lock-in).
+- Design tokens and fluid layout primitives: `site/assets/design-system.css`.
+- Content-driven pages:
+  - `site/projects.html` reads `site/assets/data/projects.json`.
+  - `site/security.html` reads `site/assets/data/detections.json`.
+- Source content files:
+  - `content/projects.json`
+  - `content/detections.json`
+- Build sync scripts:
+  - `scripts/generate-site-data.js` (verified counts)
+  - `scripts/generate-site-content.js` (content JSON publish step)
+  - `scripts/generate-media-manifest.js` (media manifest + triage report + safe media copy)
 
 ---
 
