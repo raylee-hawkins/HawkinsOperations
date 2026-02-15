@@ -27,8 +27,9 @@
 </script>
 <link rel="stylesheet" href="assets/styles.css">
 <link rel="stylesheet" href="assets/design-system.css">
+<link rel="stylesheet" href="assets/home.css">
 </head>
-<body>
+<body class="home-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <nav>
   <div class="nav-i">
@@ -57,7 +58,9 @@
 </div>
 
 <main id="main-content">
-<header class="hero">
+<header class="hero home-hero">
+  <div class="home-hero-cosmos" aria-hidden="true"></div>
+  <div class="home-hero-fog" aria-hidden="true"></div>
   <div class="hero-glow"></div>
   <div class="ctr">
     <div class="hero-layout">
@@ -134,7 +137,7 @@ IR playbooks ...  10</code></pre>
     </div>
 
     <div class="dashboard-band">
-      <article class="panel-glass" data-reveal>
+      <article class="panel-glass home-kpi-panel" data-reveal>
         <h3 class="dash-title">KPI lane</h3>
         <div class="dashboard-kpi-grid">
           <div class="kpi-badge">
@@ -165,15 +168,15 @@ IR playbooks ...  10</code></pre>
         <p class="lupd" style="margin-top:0.75rem">Source: <a id="verified-source" href="https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">PROOF_PACK/VERIFIED_COUNTS.md</a>.</p>
       </article>
 
-      <article class="panel-glass chart-panel" data-reveal data-reveal-delay="70ms">
+      <article class="panel-glass chart-panel home-coverage-panel" data-reveal data-reveal-delay="70ms">
         <h3 class="dash-title">Coverage overview</h3>
         <div id="coverage-chart" class="chart-shell">
           <ul class="chart-fallback-list">
-            <li><span>Detections</span><strong>142</strong></li>
-            <li><span>Sigma Rules</span><strong>105</strong></li>
-            <li><span>Wazuh Blocks</span><strong>29</strong></li>
-            <li><span>Splunk Queries</span><strong>8</strong></li>
-            <li><span>Playbooks</span><strong>10</strong></li>
+            <li><span>Detections</span><span class="fallback-sep" aria-hidden="true">-</span><strong>142</strong></li>
+            <li><span>Sigma Rules</span><span class="fallback-sep" aria-hidden="true">-</span><strong>105</strong></li>
+            <li><span>Wazuh Blocks</span><span class="fallback-sep" aria-hidden="true">-</span><strong>29</strong></li>
+            <li><span>Splunk Queries</span><span class="fallback-sep" aria-hidden="true">-</span><strong>8</strong></li>
+            <li><span>Playbooks</span><span class="fallback-sep" aria-hidden="true">-</span><strong>10</strong></li>
           </ul>
         </div>
         <p class="chart-data-source">Data source: <a href="/assets/verified-counts.json">/assets/verified-counts.json</a></p>
@@ -184,27 +187,35 @@ IR playbooks ...  10</code></pre>
       <article class="panel-glass chart-panel" data-reveal>
         <h3 class="dash-title">Detections by tag</h3>
         <div id="detections-tag-chart" class="chart-shell">
-          <p class="lupd">Loading tag coverage from detections manifest...</p>
+          <div class="tag-chart-skeleton" role="status" aria-live="polite">
+            <p class="lupd">Loading tag coverage from detections manifest...</p>
+            <div class="tag-skeleton-row"></div>
+            <div class="tag-skeleton-row"></div>
+            <div class="tag-skeleton-row"></div>
+          </div>
         </div>
         <p class="chart-data-source">Data source: <a href="/assets/data/detections.json">/assets/data/detections.json</a></p>
       </article>
 
-      <aside class="panel-glass" data-reveal data-reveal-delay="90ms">
+      <aside class="panel-glass home-actions-panel" data-reveal data-reveal-delay="90ms">
         <h3 class="dash-title">Inventory actions</h3>
         <ul class="dashboard-cta-list">
           <li>Inspect every detection record with platform and evidence links.</li>
           <li>Filter by tag and map results to proof-ready artifacts.</li>
           <li>Use command-level verify lanes before reviewing claims.</li>
         </ul>
-        <a class="btn btn-p" href="security.html#detection-inventory">View inventory</a>
+        <div class="home-action-row">
+          <a class="btn btn-p" href="security.html#detection-inventory">View inventory</a>
+          <a class="btn btn-g" href="proof.html#verified-lane">Open proof workflow</a>
+        </div>
         <p class="lupd" style="margin-top:0.75rem">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></p>
       </aside>
     </div>
 
-    <article class="panel-glass" data-reveal>
+    <article class="panel-glass home-proof-strip" data-reveal>
       <h3 class="dash-title">Proof in action</h3>
-      <p class="lupd">Only safe assets are rendered. Screenshot/dashboard/diagram artifacts are prioritized; logos are shown as compact tool marks if no proof screenshots exist.</p>
-      <div id="proof-gallery-strip" data-media-gallery data-tags="proof,dashboard,detection,diagram" data-limit="6"></div>
+      <p class="lupd">Only safe assets are rendered. Home keeps this lane compact with tool marks, never oversized logo tiles.</p>
+      <div id="proof-gallery-strip" data-media-gallery data-tags="sigma,wazuh,splunk,automation" data-limit="8"></div>
     </article>
   </div>
 </section>
