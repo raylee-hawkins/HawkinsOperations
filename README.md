@@ -149,6 +149,10 @@ Repo standard: no real credentials/tokens, no internal IPs, and no accidental id
   - `scripts/generate-site-content.js` (content JSON publish step)
   - `scripts/generate-media-manifest.js` (media manifest + triage report + safe media copy)
 
+Cloudflare Pages production build:
+- `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
+- Output directory: `site`
+
 ---
 
 ## License

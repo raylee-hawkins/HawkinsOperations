@@ -16,7 +16,7 @@ If you only upload `index.html`, the resume PDF and styling will 404 (because ho
 - Publish directory: `site/`
 - Recommended Node version pin: read from `.node-version`
 - Cloudflare Pages build command:
-  - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/verify/no-netlify.js`
+  - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
 
 ## Update counts and listing data
 Counts and structured listing data are generated from repo source files:

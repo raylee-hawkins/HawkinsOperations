@@ -31,3 +31,14 @@ All Phase 6A artifacts are sanitized and must follow:
 
 - `PROOF_PACK/REDACTION_RULES.md`
 - `PROOF_PACK/EVIDENCE_CHECKLIST.md`
+
+## Reviewer lane integration
+
+- Phase 6A remains **doc-only** and **redaction-first**.
+- Public proof lane references:
+  - `START_HERE.md`
+  - `PROOF_PACK/PROOF_INDEX.md`
+  - `docs/execution/PHASE_6A_INFRA_VALIDATION.md`
+- Media pipeline guardrail:
+  - Assets are `privacy_review="required"` by default.
+  - Phase 6A/incident evidence is **not auto-published** to gallery surfaces unless explicitly reclassified as safe.

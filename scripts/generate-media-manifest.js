@@ -143,11 +143,29 @@ function inferTags(rel) {
   return Array.from(new Set(tags));
 }
 
+function clearlySafe(rel) {
+  const l = rel.toLowerCase();
+  const safeSiteAsset =
+    l === "site/assets/og.png" ||
+    l === "site/assets/icon-192.png" ||
+    l === "site/assets/favicon.svg" ||
+    l.startsWith("site/assets/logos/") ||
+    l.startsWith("site/assets/badges/");
+  return safeSiteAsset;
+}
+
 function privacyReview(rel) {
   const l = rel.toLowerCase();
-  const riskyPath = l.includes("incident-response/incidents") || l.includes("resume") || l.includes("export") || l.includes("proof_pack/features");
-  const riskyName = /(token|secret|key|email|host|ip|personal|profile|agent|full)/i.test(l);
-  return (riskyPath || riskyName) ? "required" : "ok";
+  const riskyPath =
+    l.includes("incident-response/") ||
+    l.includes("proof_pack/") ||
+    l.includes("resume") ||
+    l.includes("export") ||
+    l.includes("screenshots") ||
+    l.includes("evidence");
+  const riskyName = /(token|secret|key|email|host|ip|personal|profile|agent|full|user)/i.test(l);
+  if (riskyPath || riskyName) return "required";
+  return clearlySafe(rel) ? "ok" : "required";
 }
 
 function toId(rel) {

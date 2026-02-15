@@ -240,6 +240,10 @@
   }
 
   function animateCount(el, target) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.textContent = String(target);
+      return;
+    }
     const duration = 900;
     const start = performance.now();
     const from = 0;

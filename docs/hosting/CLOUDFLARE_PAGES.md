@@ -10,7 +10,7 @@ This repository is a static site deployment from `site/`.
 - Project name: `<your-pages-project-name>`
 - Production branch: `main`
 - Framework preset: `None`
-- Build command: `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/verify/no-netlify.js`
+- Build command: `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
 - Build output directory: `site`
 - Root directory: `/`
 - Node.js version: read from `.node-version`

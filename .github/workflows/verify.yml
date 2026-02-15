@@ -25,6 +25,7 @@ jobs:
         run: |
           node .\scripts\generate-site-data.js
           node .\scripts\generate-site-content.js
+          node .\scripts\generate-media-manifest.js
 
       - name: Hosting consistency check
         shell: pwsh
