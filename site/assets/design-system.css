@@ -456,7 +456,9 @@
 
 .chart-bar-link .chart-bar,
 .chart-bar-link .chart-value,
-.chart-bar-link .chart-label {
+.chart-bar-link .chart-label,
+.chart-bar-link .chart-label-left,
+.chart-bar-link .chart-value-right {
   pointer-events: none;
 }
 
