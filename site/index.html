@@ -67,17 +67,19 @@
       <div class="hero-c">
         <div class="hero-panel" data-reveal>
           <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
-          <h1 class="htitle">Detection content that is <span class="hl">tested</span>, mapped, and deployable.</h1>
+          <h1 class="htitle">Detection content that <span class="hl">survives verification</span>, mapping, and deployment.</h1>
           <p class="hsub">
-            Sigma, Wazuh, and Splunk detections plus IR playbooks and a triage simulator.
-            Everything is auditable in GitHub.
+            Sigma, Wazuh, and Splunk detections plus IR playbooks and triage flows.
+            Every claim is traceable to a public artifact.
           </p>
 
-          <div class="hproof">
-            <b>Proof</b> over vibes:
-            <br>• Clone the repo
-            <br>• Run the verify commands
-            <br>• Match the counts
+          <div class="hproof" aria-label="Verification steps">
+            <p><b>Proof path</b></p>
+            <ol class="hproof-steps">
+              <li>Clone the repository lane.</li>
+              <li>Run verification commands.</li>
+              <li>Match public counts and artifacts.</li>
+            </ol>
           </div>
           <div class="hero-icons" aria-label="Proof highlights">
             <span class="ico-chip">
@@ -110,7 +112,7 @@
       </div>
 
       <aside class="hero-proof" aria-label="Proof pack visual preview" data-reveal data-reveal-delay="60ms">
-        <div class="hero-proof-label">Reproducible artifacts</div>
+        <div class="hero-proof-label">Verification console</div>
         <div class="hero-proof-shot">
           <div class="hero-proof-hd">
             <span></span><span></span><span></span>
@@ -172,11 +174,11 @@ IR playbooks ...  10</code></pre>
         <h3 class="dash-title">Coverage overview</h3>
         <div id="coverage-chart" class="chart-shell">
           <ul class="chart-fallback-list">
-            <li><span>Detections</span><span class="fallback-sep" aria-hidden="true">-</span><strong>142</strong></li>
-            <li><span>Sigma Rules</span><span class="fallback-sep" aria-hidden="true">-</span><strong>105</strong></li>
-            <li><span>Wazuh Blocks</span><span class="fallback-sep" aria-hidden="true">-</span><strong>29</strong></li>
-            <li><span>Splunk Queries</span><span class="fallback-sep" aria-hidden="true">-</span><strong>8</strong></li>
-            <li><span>Playbooks</span><span class="fallback-sep" aria-hidden="true">-</span><strong>10</strong></li>
+            <li><span>Detections</span><span class="fallback-sep" aria-hidden="true">&mdash;</span><strong>142</strong></li>
+            <li><span>Sigma Rules</span><span class="fallback-sep" aria-hidden="true">&mdash;</span><strong>105</strong></li>
+            <li><span>Wazuh Blocks</span><span class="fallback-sep" aria-hidden="true">&mdash;</span><strong>29</strong></li>
+            <li><span>Splunk Queries</span><span class="fallback-sep" aria-hidden="true">&mdash;</span><strong>8</strong></li>
+            <li><span>Playbooks</span><span class="fallback-sep" aria-hidden="true">&mdash;</span><strong>10</strong></li>
           </ul>
         </div>
         <p class="chart-data-source">Data source: <a href="/assets/verified-counts.json">/assets/verified-counts.json</a></p>
@@ -188,7 +190,7 @@ IR playbooks ...  10</code></pre>
         <h3 class="dash-title">Detections by tag</h3>
         <div id="detections-tag-chart" class="chart-shell">
           <div class="tag-chart-skeleton" role="status" aria-live="polite">
-            <p class="lupd">Loading tag coverage from detections manifest...</p>
+            <p class="lupd">Loading tag coverage from detection manifests...</p>
             <div class="tag-skeleton-row"></div>
             <div class="tag-skeleton-row"></div>
             <div class="tag-skeleton-row"></div>
@@ -215,7 +217,7 @@ IR playbooks ...  10</code></pre>
     <article class="panel-glass home-proof-strip" data-reveal>
       <h3 class="dash-title">Proof in action</h3>
       <p class="lupd">Only safe assets are rendered. Home keeps this lane compact with tool marks, never oversized logo tiles.</p>
-      <div id="proof-gallery-strip" data-media-gallery data-tags="sigma,wazuh,splunk,automation" data-limit="8"></div>
+      <div id="proof-gallery-strip" class="home-gallery-compact" data-home-gallery="compact" data-media-gallery data-tags="sigma,wazuh,splunk,automation" data-limit="6"></div>
     </article>
   </div>
 </section>
