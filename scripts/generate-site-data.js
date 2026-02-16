@@ -52,7 +52,7 @@ const payload = {
     ir
   },
   source_path: "PROOF_PACK/VERIFIED_COUNTS.md",
-  source_url: "https://github.com/raylee-ops/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+  source_url: "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
 };
 
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
