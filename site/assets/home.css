@@ -250,6 +250,8 @@ html[data-theme="light"] .home-page .listing-item {
 
 .home-page .hero-proof {
   padding: 0.95rem;
+  display: grid;
+  gap: 0.6rem;
 }
 
 .home-page .hero-proof-label,
@@ -278,8 +280,19 @@ html[data-theme="light"] .home-page .hero-proof-hd span {
 }
 
 .home-page .hero-proof-shot {
+  position: relative;
   border-color: var(--border);
   background: linear-gradient(180deg, rgba(12, 9, 16, 0.95), rgba(9, 7, 13, 0.98));
+  overflow: hidden;
+}
+
+.home-page .hero-proof-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 3px);
+  opacity: 0.22;
 }
 
 html[data-theme="light"] .home-page .hero-proof-shot {
@@ -292,6 +305,43 @@ html[data-theme="light"] .home-page .hero-proof-shot {
 
 html[data-theme="light"] .home-page .hero-proof pre {
   color: #2e2231;
+}
+
+.home-page .console-lane {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.34rem;
+}
+
+.home-page .console-lane li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  color: var(--muted);
+  border-bottom: 1px dashed color-mix(in srgb, var(--accent), transparent 72%);
+  padding-bottom: 0.28rem;
+}
+
+.home-page .console-lane li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.home-page .console-lane span {
+  color: color-mix(in srgb, var(--text), var(--muted) 70%);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.home-page .console-lane strong {
+  color: color-mix(in srgb, var(--text), var(--accent) 18%);
+  font-weight: 600;
+  text-align: right;
 }
 
 .home-page .htitle {
