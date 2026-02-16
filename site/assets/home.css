@@ -1,6 +1,16 @@
 /* Home-only operator-console theme. Loaded only by site/index.html */
 body.home-page,
 html[data-theme="dark"] body.home-page {
+  --home-bg: #060409;
+  --home-panel: #120d18;
+  --home-panel-2: #17101f;
+  --home-border: rgba(255, 223, 238, 0.18);
+  --home-border-2: rgba(255, 198, 224, 0.3);
+  --home-text: #f7f3fa;
+  --home-muted: #c3b8cb;
+  --home-accent: #e873ac;
+  --home-accent-2: #c95f90;
+  --home-danger: #d35f89;
   --bg0: #060409;
   --bg1: #0d0913;
   --bg2: #18101f;
@@ -43,6 +53,16 @@ html[data-theme="dark"] body.home-page {
 }
 
 html[data-theme="light"] body.home-page {
+  --home-bg: #f7f4f7;
+  --home-panel: #fffdfd;
+  --home-panel-2: #f1eaf0;
+  --home-border: rgba(53, 34, 48, 0.18);
+  --home-border-2: rgba(155, 63, 108, 0.28);
+  --home-text: #18131a;
+  --home-muted: #574d59;
+  --home-accent: #ba4e81;
+  --home-accent-2: #9b3f6c;
+  --home-danger: #a93c68;
   --bg0: #f7f4f7;
   --bg1: #fefbfc;
   --bg2: #f1eaf0;
@@ -86,9 +106,16 @@ html[data-theme="light"] body.home-page {
 body.home-page::before {
   content: "";
   background:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 56px 56px;
+    repeating-linear-gradient(112deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 12px),
+    repeating-linear-gradient(112deg, rgba(255, 255, 255, 0.012) 0 1px, transparent 1px 28px);
+  opacity: 0.2;
+}
+
+html[data-theme="light"] body.home-page::before {
+  background:
+    repeating-linear-gradient(112deg, rgba(40, 24, 36, 0.03) 0 1px, transparent 1px 12px),
+    repeating-linear-gradient(112deg, rgba(40, 24, 36, 0.018) 0 1px, transparent 1px 28px);
+  opacity: 0.28;
 }
 
 body.home-page::after {
@@ -134,6 +161,7 @@ body.home-page .skip-link {
   background: var(--accent);
   color: #231821;
   box-shadow: 0 0 0 1px rgba(255, 213, 235, 0.26);
+  border-radius: 4px;
 }
 
 .home-page .logo b {
@@ -143,6 +171,7 @@ body.home-page .skip-link {
 .home-page .nav-l a {
   color: var(--muted);
   border-color: transparent;
+  border-radius: 4px;
 }
 
 .home-page .nav-l a:hover {
@@ -163,6 +192,7 @@ body.home-page .skip-link {
   background: color-mix(in srgb, var(--bg2), transparent 8%);
   color: var(--text);
   border-color: var(--border);
+  border-radius: 4px;
 }
 
 .home-page .mob-menu {
@@ -258,7 +288,7 @@ html[data-theme="light"] .home-page .home-hero-fog {
 .home-page .hero-proof,
 .home-page .panel-glass {
   border: 1px solid var(--border);
-  border-radius: 0.96rem;
+  border-radius: 4px;
   background: var(--glass);
   box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
@@ -275,7 +305,7 @@ html[data-theme="light"] .home-page .home-hero-fog {
 .home-page .timeline li,
 .home-page .listing-item {
   border: 1px solid var(--border);
-  border-radius: 1.05rem;
+  border-radius: 4px;
   background: linear-gradient(160deg, rgba(16, 10, 24, 0.74), rgba(19, 12, 29, 0.76));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
@@ -428,7 +458,7 @@ html[data-theme="light"] .home-page .hero-proof pre {
   margin-bottom: 0.85rem;
   padding: 0.6rem 0.7rem 0.68rem;
   border: 1px solid rgba(255, 212, 233, 0.24);
-  border-radius: 0.7rem;
+  border-radius: 4px;
   background: rgba(232, 115, 172, 0.08);
 }
 
@@ -468,6 +498,7 @@ html[data-theme="light"] .home-page .hproof {
 .home-page .rtag {
   border-color: rgba(255, 207, 232, 0.2);
   background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
 
 .home-page .rtag.on {
@@ -482,6 +513,10 @@ html[data-theme="light"] .home-page .rtag.on {
 
 .home-page .hctas {
   margin-bottom: 0.9rem;
+}
+
+.home-page .btn {
+  border-radius: 4px;
 }
 
 .home-page .btn,
@@ -514,6 +549,7 @@ html[data-theme="light"] .home-page .rtag.on {
   color: #fff;
   background: linear-gradient(128deg, #e873ac 0%, #cc5b8f 100%);
   box-shadow: 0 10px 22px rgba(99, 27, 62, 0.38);
+  border-radius: 4px;
 }
 
 .home-page .btn-p:hover {
@@ -525,6 +561,7 @@ html[data-theme="light"] .home-page .rtag.on {
   border-color: var(--border);
   color: var(--text);
   background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
 
 .home-page .btn-g:hover {
@@ -576,7 +613,7 @@ html[data-theme="light"] .home-page .sbadge {
 .home-page .kpi-badge {
   border-color: rgba(255, 217, 237, 0.2);
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 0.78rem;
+  border-radius: 4px;
 }
 
 .home-page .kpi-badge:hover {
@@ -605,7 +642,7 @@ html[data-theme="light"] .home-page .kpi-badge strong {
 }
 
 .home-page .chart-shell {
-  border-radius: 0.9rem;
+  border-radius: 4px;
   border: 1px solid color-mix(in srgb, var(--accent), transparent 72%);
   background: color-mix(in srgb, var(--bg1), transparent 4%);
   padding: 0.6rem;
@@ -697,7 +734,7 @@ html[data-theme="light"] .home-page .chart-fallback-list strong {
 .home-page .tag-skeleton-row {
   position: relative;
   height: 0.72rem;
-  border-radius: 999px;
+  border-radius: 4px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.07);
 }
@@ -737,7 +774,7 @@ html[data-theme="light"] .home-page .tag-skeleton-row::before {
 
 .home-page .home-proof-strip .media-item {
   border-color: rgba(255, 217, 237, 0.24);
-  border-radius: 0.62rem;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.025);
 }
 
@@ -786,6 +823,7 @@ html[data-theme="light"] .home-page .home-proof-strip .media-thumb {
   background: rgba(255, 255, 255, 0.03);
   padding: 0.28rem 0.5rem;
   font-size: 0.61rem;
+  border-radius: 4px;
 }
 
 .home-page .home-proof-strip .tool-mark:focus-within,
