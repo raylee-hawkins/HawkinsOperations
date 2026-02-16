@@ -7,12 +7,12 @@
   --ds-space-6: 2rem;
   --ds-space-7: 3rem;
   --ds-space-8: 4.5rem;
-  --ds-radius-sm: 0.6rem;
-  --ds-radius-md: 1rem;
-  --ds-radius-lg: 1.4rem;
+  --ds-radius-sm: 0.375rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.625rem;
   --ds-border-subtle: 1px solid color-mix(in srgb, var(--bdr2), transparent 28%);
-  --ds-shadow-soft: 0 12px 34px rgba(2, 11, 25, 0.28);
-  --ds-shadow-focus: 0 0 0 3px rgba(103, 214, 255, 0.24);
+  --ds-shadow-soft: 0 12px 34px rgba(4, 0, 8, 0.28);
+  --ds-shadow-focus: 0 0 0 3px rgba(232, 115, 172, 0.24);
   --ease-out: cubic-bezier(0.2, 0.82, 0.3, 1);
   --ease-smooth: cubic-bezier(0.3, 0, 0.12, 1);
   --dur-fast: 140ms;
@@ -62,7 +62,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(920px 360px at 12% -20%, rgba(92, 213, 232, 0.11), transparent 72%);
+  background: radial-gradient(920px 360px at 12% -20%, rgba(232, 115, 172, 0.11), transparent 72%);
 }
 
 .fluid-section::after {
@@ -70,7 +70,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(1300px 500px at 100% 110%, rgba(107, 186, 255, 0.09), transparent 72%);
+  background: radial-gradient(1240px 500px at 96% 108%, rgba(139, 84, 132, 0.1), transparent 72%);
 }
 
 .section-intro {
@@ -147,7 +147,7 @@
   border: var(--ds-border-subtle);
   background: transparent;
   color: var(--dim);
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.44rem 0.85rem;
   font-family: var(--mono);
   font-size: 0.68rem;
@@ -210,7 +210,7 @@
 
 .listing-meta span {
   border: var(--ds-border-subtle);
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.26rem 0.62rem;
   font-size: 0.65rem;
   font-family: var(--mono);
@@ -250,11 +250,11 @@
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(180deg, rgba(145, 210, 255, 0.07), transparent 26%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%);
 }
 
 .proof-dashboard-wrap::before {
-  background: radial-gradient(920px 340px at 10% -12%, rgba(92, 213, 232, 0.14), transparent 72%);
+  background: radial-gradient(960px 320px at 8% -10%, rgba(232, 115, 172, 0.15), transparent 72%);
 }
 
 .proof-dashboard {
@@ -375,7 +375,7 @@
   cursor: pointer;
   stroke: color-mix(in srgb, var(--acc), transparent 70%);
   stroke-width: 1;
-  filter: drop-shadow(0 8px 16px rgba(12, 58, 98, 0.3));
+  filter: drop-shadow(0 8px 16px rgba(90, 27, 59, 0.3));
 }
 
 .chart-label-left {
@@ -446,7 +446,7 @@
 
 .chart-fallback-list strong {
   font-family: var(--mono);
-  color: var(--acc);
+  color: color-mix(in srgb, var(--acc), white 22%);
 }
 
 .sr-only {
@@ -559,7 +559,7 @@
   align-items: center;
   gap: 0.44rem;
   border: var(--ds-border-subtle);
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 0.3rem 0.56rem;
   background: color-mix(in srgb, var(--bg2), transparent 12%);
   font-family: var(--mono);
@@ -792,7 +792,7 @@ html[data-reveal-active="true"] .reveal.is-visible {
   .chart-bar:hover,
   .chart-bar-link:focus-visible .chart-bar {
     transform: translateY(-2px);
-    filter: drop-shadow(0 10px 18px rgba(18, 88, 148, 0.34));
+    filter: drop-shadow(0 10px 18px rgba(90, 27, 59, 0.36));
   }
 
   .proof-card:hover,
