@@ -68,12 +68,35 @@
       <div class="lupd">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></div>
     </div>
 
-    <div class="filter-shell" data-reveal>
-      <input class="filter-search" type="search" data-search placeholder="Search projects, tools, outcomes..." aria-label="Search projects">
-      <div class="filter-bar" data-chips aria-label="Project tag filters"></div>
+    <div class="project-ops-rail">
+      <div class="ops-step-grid">
+        <article class="ops-step" data-reveal>
+          <strong>1. Scope</strong>
+          <p>Define objective, success criteria, and evidence checkpoints.</p>
+        </article>
+        <article class="ops-step" data-reveal>
+          <strong>2. Build</strong>
+          <p>Implement detections or workflows with reproducible artifacts.</p>
+        </article>
+        <article class="ops-step" data-reveal>
+          <strong>3. Validate</strong>
+          <p>Run verify scripts and align claims to source-of-truth counts.</p>
+        </article>
+        <article class="ops-step" data-reveal>
+          <strong>4. Publish</strong>
+          <p>Ship with reviewer-ready links, evidence chips, and rollback context.</p>
+        </article>
+      </div>
     </div>
 
-    <section class="listing" data-listing aria-live="polite"></section>
+    <div class="dashboard-shell" data-reveal>
+      <div class="filter-shell" data-reveal>
+        <input class="filter-search" type="search" data-search placeholder="Search projects, tools, outcomes..." aria-label="Search projects">
+        <div class="filter-bar" data-chips aria-label="Project tag filters"></div>
+      </div>
+
+      <section class="listing" data-listing aria-live="polite"></section>
+    </div>
 
     <div class="section-intro" style="margin-top:2rem" data-reveal>
       <div class="kicker">Project proof</div>

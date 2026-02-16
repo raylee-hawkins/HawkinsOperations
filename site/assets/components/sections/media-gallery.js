@@ -119,7 +119,7 @@ export function renderMediaGallery(root, items) {
           <img src="${esc(m.path)}" alt="${esc(m.alt)}" loading="lazy" width="${m.width || 480}" height="${m.height || 300}">
         </span>
       </button>
-      <figcaption>${esc(m.caption)}</figcaption>
+      <figcaption><span class="media-type-badge">${esc(normalizeType(m) || "proof")}</span>${esc(m.caption)}</figcaption>
     </figure>
   `).join("")}</div>${toolMarksHtml}`;
 
