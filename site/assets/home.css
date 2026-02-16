@@ -110,6 +110,12 @@ body.home-page::after {
   box-shadow: 0 0 0 3px rgba(232, 115, 172, 0.2);
 }
 
+.home-page .logo-monogram {
+  background: var(--accent);
+  color: #231821;
+  box-shadow: 0 0 0 1px rgba(255, 213, 235, 0.26);
+}
+
 .home-page .mob-menu {
   background: rgba(11, 8, 14, 0.95);
   border-bottom-color: var(--border);
@@ -532,8 +538,10 @@ html[data-theme="light"] .home-page .chart-axis {
   filter: drop-shadow(0 8px 14px rgba(90, 27, 59, 0.3));
 }
 
+.home-page .chart-bar:hover,
 .home-page .chart-bar-link:focus-visible .chart-bar {
   stroke: var(--accent);
+  filter: drop-shadow(0 10px 18px rgba(90, 27, 59, 0.36));
 }
 
 .home-page .chart-tooltip {
@@ -544,6 +552,16 @@ html[data-theme="light"] .home-page .chart-axis {
 html[data-theme="light"] .home-page .chart-tooltip {
   background: linear-gradient(160deg, rgba(253, 249, 252, 0.95), rgba(244, 235, 241, 0.96));
   color: var(--text);
+}
+
+.home-page .chart-data-source a,
+.home-page .listing a {
+  color: color-mix(in srgb, var(--accent), white 22%);
+}
+
+.home-page .chart-data-source a:hover,
+.home-page .listing a:hover {
+  color: var(--link-hover);
 }
 
 .home-page .chart-fallback-list {
