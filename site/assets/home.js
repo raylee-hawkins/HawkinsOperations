@@ -145,20 +145,9 @@
     });
   }
 
-  function withTimeout(url, timeoutMs) {
-    var controller = new AbortController();
-    var timer = window.setTimeout(function () {
-      controller.abort();
-    }, timeoutMs);
-
-    return fetch(url, { cache: "no-store", signal: controller.signal })
-      .then(function (response) {
-        if (!response.ok) throw new Error("HTTP " + response.status + " for " + url);
-        return response.json();
-      })
-      .finally(function () {
-        clearTimeout(timer);
-      });
+  function fetchJsonWithTimeout(url, timeoutMs) {
+    if (typeof window.fetchJsonWithTimeout !== "function") return Promise.resolve(null);
+    return window.fetchJsonWithTimeout(url, { timeoutMs: timeoutMs });
   }
 
   function toNumber(value, fallback) {
@@ -190,8 +179,11 @@
   }
 
   function loadKpis() {
-    return withTimeout("/assets/verified-counts.json", KPI_TIMEOUT_MS)
+    return fetchJsonWithTimeout("/assets/verified-counts.json", KPI_TIMEOUT_MS)
       .then(function (payload) {
+        if (!payload || typeof payload !== "object") {
+          throw new Error("Missing verified counts payload");
+        }
         var counts = payload && payload.counts && typeof payload.counts === "object" ? payload.counts : {};
         var verifiedOn = payload && typeof payload.verified_on === "string" ? payload.verified_on : FALLBACK_COUNTS.verified_on;
         renderKpis(counts, verifiedOn);
@@ -296,8 +288,11 @@
   }
 
   function loadTagCoverage() {
-    withTimeout("/assets/data/detections.json", TAG_TIMEOUT_MS)
+    fetchJsonWithTimeout("/assets/data/detections.json", TAG_TIMEOUT_MS)
       .then(function (payload) {
+        if (!payload || typeof payload !== "object") {
+          throw new Error("Missing detections payload");
+        }
         var stats = collectTagStats(payload);
         if (!stats.length) {
           renderTagFallback("No tag data found in payload");

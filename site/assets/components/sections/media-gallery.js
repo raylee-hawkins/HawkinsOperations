@@ -140,11 +140,9 @@ export async function initMediaGalleries(preloadedItems) {
   const roots = Array.from(document.querySelectorAll("[data-media-gallery]"));
   if (!roots.length) return;
   let items = normalizeSafeItems(preloadedItems);
-  if (!items.length) {
-    const res = await fetch("assets/data/media.json", { cache: "no-store" });
-    if (!res.ok) return;
-    const payload = await res.json();
-    items = normalizeSafeItems(payload.media);
+  if (!items.length && typeof window.fetchJsonWithTimeout === "function") {
+    const payload = await window.fetchJsonWithTimeout("/assets/data/media.json", { timeoutMs: 1500 });
+    items = normalizeSafeItems(payload && payload.media);
   }
   roots.forEach((root) => renderMediaGallery(root, items));
 }

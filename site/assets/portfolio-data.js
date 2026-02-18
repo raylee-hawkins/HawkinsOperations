@@ -4,12 +4,13 @@ import { initMediaGalleries } from "./components/sections/media-gallery.js";
 import { renderCoverageChart, renderDetectionsByTagChart, renderDetectionsByTagMiniChart } from "./components/sections/svg-charts.js";
 
 const jsonCache = new Map();
+const JSON_TIMEOUT_MS = 1500;
 
 async function loadJson(path) {
   if (jsonCache.has(path)) return jsonCache.get(path);
-  const res = await fetch(path, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to fetch ${path}`);
-  const payload = await res.json();
+  if (typeof window.fetchJsonWithTimeout !== "function") return null;
+  const payload = await window.fetchJsonWithTimeout(path, { timeoutMs: JSON_TIMEOUT_MS });
+  if (!payload || typeof payload !== "object") return null;
   jsonCache.set(path, payload);
   return payload;
 }
@@ -226,10 +227,10 @@ async function initProjectsPage() {
   const root = document.querySelector("[data-projects-root]");
   if (!root) return;
   const [data, mediaData] = await Promise.all([
-    loadJson("assets/data/projects.json"),
-    loadJson("assets/data/media.json")
+    loadJson("/assets/data/projects.json"),
+    loadJson("/assets/data/media.json")
   ]);
-  const projects = data.projects || [];
+  const projects = Array.isArray(data && data.projects) ? data.projects : [];
   bindFilters({
     sourceItems: projects,
     listingNode: root.querySelector("[data-listing]"),
@@ -238,17 +239,20 @@ async function initProjectsPage() {
     kind: "projects"
   });
   renderProjectProofCards(root.querySelector("[data-project-proof]"), projects);
-  renderProjectToolMarks(root.querySelector("[data-project-tools]"), mediaData.media || []);
+  renderProjectToolMarks(
+    root.querySelector("[data-project-tools]"),
+    Array.isArray(mediaData && mediaData.media) ? mediaData.media : []
+  );
 }
 
 async function initDetectionsPage() {
   const root = document.querySelector("[data-detections-root]");
   if (!root) return;
   const [data, verified] = await Promise.all([
-    loadJson("assets/data/detections.json"),
-    loadJson("assets/verified-counts.json").catch(() => null)
+    loadJson("/assets/data/detections.json"),
+    loadJson("/assets/verified-counts.json")
   ]);
-  const detections = data.detections || [];
+  const detections = Array.isArray(data && data.detections) ? data.detections : [];
   bindFilters({
     sourceItems: detections,
     listingNode: root.querySelector("[data-listing]"),
@@ -272,15 +276,21 @@ async function initHomeDashboard() {
   if (!coverageRoot && !tagRoot && !galleryRoot) return null;
 
   const [verified, detectionsData, mediaData] = await Promise.all([
-    loadJson("assets/verified-counts.json"),
-    loadJson("assets/data/detections.json"),
-    loadJson("assets/data/media.json")
+    loadJson("/assets/verified-counts.json"),
+    loadJson("/assets/data/detections.json"),
+    loadJson("/assets/data/media.json")
   ]);
 
-  if (coverageRoot) renderCoverageChart(coverageRoot, verified);
-  if (tagRoot) renderDetectionsByTagChart(tagRoot, detectionsData.detections || [], { limit: 10, idPrefix: "home-tag" });
+  if (coverageRoot) renderCoverageChart(coverageRoot, verified || {});
+  if (tagRoot) {
+    renderDetectionsByTagChart(
+      tagRoot,
+      Array.isArray(detectionsData && detectionsData.detections) ? detectionsData.detections : [],
+      { limit: 10, idPrefix: "home-tag" }
+    );
+  }
 
-  return Array.isArray(mediaData.media) ? mediaData.media : [];
+  return Array.isArray(mediaData && mediaData.media) ? mediaData.media : [];
 }
 
 document.addEventListener("DOMContentLoaded", async () => {

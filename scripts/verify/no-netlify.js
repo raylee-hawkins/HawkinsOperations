@@ -28,14 +28,26 @@ const textExt = new Set([
 const historicalAllowPrefixes = [
   path.join("PROOF_PACK", "hosting_transfer_cloudflare", "run_")
 ];
+const diagnosticAllowPrefixes = [
+  path.join("docs", "diagnosis")
+];
 const selfAllowFiles = new Set([
   path.join("scripts", "verify", "no-netlify.js").replaceAll("\\", "/"),
-  path.join("scripts", "verify", "README.md").replaceAll("\\", "/")
+  path.join("scripts", "verify", "README.md").replaceAll("\\", "/"),
+  path.join("scripts", "diagnose-site.js").replaceAll("\\", "/"),
+  path.join("scripts", "diagnose-site.ps1").replaceAll("\\", "/")
 ]);
 
 function isHistoricalAllowed(relPath) {
   const normalized = relPath.replaceAll("\\", "/");
   return historicalAllowPrefixes.some((prefix) =>
+    normalized.startsWith(prefix.replaceAll("\\", "/"))
+  );
+}
+
+function isDiagnosticAllowed(relPath) {
+  const normalized = relPath.replaceAll("\\", "/");
+  return diagnosticAllowPrefixes.some((prefix) =>
     normalized.startsWith(prefix.replaceAll("\\", "/"))
   );
 }
@@ -86,6 +98,7 @@ for (const relTracked of tracked) {
   const relNorm = relTracked.replaceAll("\\", "/");
   if (selfAllowFiles.has(relNorm)) continue;
   if (isHistoricalAllowed(relTracked)) continue;
+  if (isDiagnosticAllowed(relTracked)) continue;
 
   let content = "";
   try {

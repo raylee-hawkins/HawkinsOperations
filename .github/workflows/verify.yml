@@ -32,6 +32,11 @@ jobs:
         run: |
           node .\scripts\verify\no-netlify.js
 
+      - name: Static site diagnosis gate
+        shell: pwsh
+        run: |
+          node .\scripts\diagnose-site.js --fail-on-issues
+
       - name: Generate verified counts markdown
         shell: pwsh
         run: |
