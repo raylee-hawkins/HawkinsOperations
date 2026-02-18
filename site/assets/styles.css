@@ -157,6 +157,8 @@
         .writing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
         .writing-grid .card{display:block;position:relative;overflow:hidden}
         .card:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 10px 26px rgba(var(--acc-rgb),.14)}
+        .card-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+        .tag{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid var(--bdr);border-radius:999px;background:var(--bg1);font-family:var(--mono);font-size:.62rem;color:var(--dim);line-height:1}
         .card-click{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:.6rem;color:var(--faint);opacity:0;transition:opacity .2s}
         .card:hover .card-click{opacity:1}
         .tools-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
@@ -215,6 +217,7 @@
         .ls{background:var(--bg);border:1px solid var(--bdr);padding:11px}
         .ls-v{font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--acc)}
         .ls-l{font-size:.68rem;color:var(--dim);margin-top:1px}
+        .screenshot-img{width:100%;height:auto;border-radius:10px;border:1px solid var(--bdr);margin-top:10px;display:block}
 
         /* SKILLS */
         .skr{display:flex;align-items:center;gap:12px;margin-bottom:12px}
@@ -263,8 +266,9 @@
 
         footer{padding:44px 0;border-top:1px solid var(--bdr);text-align:center}
         footer p{font-size:.75rem;color:var(--faint)}
-        .fl{display:flex;justify-content:center;gap:20px;margin-top:10px}
-        .fl a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none}
+        .fl{display:flex;justify-content:center;align-items:center;gap:0;margin-top:10px;flex-wrap:wrap}
+        .fl a{font-family:var(--mono);font-size:.7rem;color:var(--dim);text-decoration:none;position:relative;padding:0 10px}
+        .fl a+a::before{content:'•';position:absolute;left:0;color:var(--faint)}
         .fl a:hover{color:var(--acc)}
 
         .validate-box{background:var(--bg2);border:1px solid var(--bdr);padding:20px;margin-bottom:20px;color:var(--txt)}

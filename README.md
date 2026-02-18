@@ -2,7 +2,7 @@
 
 > Evidence-first SOC portfolio: detection engineering + incident response + reproducible proof artifacts.
 
-[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-ops/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-ops/HawkinsOperations/actions/workflows/verify.yml)
+[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -66,16 +66,19 @@ Run from repo root (PowerShell):
 ```powershell
 pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
+python .\scripts\drift_scan.py --refresh
 pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
 node .\scripts\generate-site-data.js
 node .\scripts\generate-site-content.js
 node .\scripts\generate-media-manifest.js
-node .\scripts\verify\no-netlify.js
+node .\scripts\verify\hosting-cloudflare-only.js
 python -m http.server --directory site 8000
 ```
 
 Expected artifacts:
 - `PROOF_PACK/VERIFIED_COUNTS.md`
+- `PROOF_PACK/verified_counts.json`
+- `site/assets/verified-counts.json`
 - `dist/wazuh/local_rules.xml`
 
 ---
@@ -113,6 +116,10 @@ detection-rules/*                incident-response/*
 content/projects.json + content/detections.json
       |-- generate-site-content.js      -> site/assets/data/*.json
       '-- portfolio-data.js             -> rendered listings + filters
+
+PROOF_PACK/VERIFIED_COUNTS.md
+      |-- generate-site-data.js         -> PROOF_PACK/verified_counts.json + site/assets/verified-counts.json
+      '-- drift_scan.py                 -> fail on markdown/json/site drift
 ```
 
 This maps to the documented Wazuh deployment flow: modules -> bundle -> `/var/ossec/etc/rules/local_rules.xml` -> restart manager.
@@ -145,15 +152,17 @@ Repo standard: no real credentials/tokens, no internal IPs, and no accidental id
   - `content/projects.json`
   - `content/detections.json`
 - Build sync scripts:
-  - `scripts/generate-site-data.js` (verified counts)
+  - `scripts/generate-site-data.js` (verified counts JSON generation + detections count sync)
+  - `scripts/drift_scan.py` (drift gate: markdown -> json -> site claim surfaces)
   - `scripts/generate-site-content.js` (content JSON publish step)
   - `scripts/generate-media-manifest.js` (media manifest + triage report + safe media copy)
 
 Cloudflare Pages production build:
-- `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
+- `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/hosting-cloudflare-only.js`
 - Output directory: `site`
 
 ---
 
 ## License
 MIT. See [LICENSE](LICENSE).
+

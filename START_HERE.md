@@ -17,12 +17,14 @@ Run from repository root:
 ```powershell
 pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
+python .\scripts\drift_scan.py --refresh
 pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
 ```
 
 Expected:
 
 - `PROOF_PACK/VERIFIED_COUNTS.md` updates with current counts.
+- `PROOF_PACK/verified_counts.json` and `site/assets/verified-counts.json` stay in sync with verified counts.
 - `dist/wazuh/local_rules.xml` is generated.
 
 ## Reviewer Notes

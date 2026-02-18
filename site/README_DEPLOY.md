@@ -20,4 +20,6 @@ Counts are sourced from your repo releases / verification artifacts:
 - `raylee-hawkins/HawkinsOperations`
 - Local verification script: `scripts/verify/verify-counts.ps1`
 
-When counts change, update the numbers on `index.html`, `security.html`, and `proof.html` (search for the digits).
+When counts change, regenerate verified artifacts from source of truth:
+- `python scripts/generate_verified_counts.py`
+- `python scripts/drift_scan.py --refresh`

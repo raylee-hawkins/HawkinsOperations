@@ -99,7 +99,7 @@
     </div>
 
     <div class="hctas">
-      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noreferrer">Clone the repo</a>
+      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Clone the repo</a>
       <a class="btn btn-g" href="proof.html">See the proof pack</a>
       <a class="btn btn-g" href="mailto:raylee@hawkinsops.com">Email me</a>
     </div>
@@ -113,23 +113,23 @@
   <div class="ctr">
     <div class="mstrip">
       <div class="met">
-        <div class="met-v">142</div>
+        <div class="met-v" data-verified="detections">--</div>
         <div class="met-l">Verified detections (today)</div>
       </div>
       <div class="met">
-        <div class="met-v">105</div>
+        <div class="met-v" data-verified="sigma">--</div>
         <div class="met-l">Verified Sigma rules</div>
       </div>
       <div class="met">
-        <div class="met-v">29</div>
+        <div class="met-v" data-verified="wazuh">--</div>
         <div class="met-l">Verified Wazuh blocks</div>
       </div>
       <div class="met">
-        <div class="met-v">8</div>
+        <div class="met-v" data-verified="splunk">--</div>
         <div class="met-l">Verified Splunk queries</div>
       </div>
       <div class="met">
-        <div class="met-v">10</div>
+        <div class="met-v" data-verified="ir">--</div>
         <div class="met-l">Verified IR playbooks</div>
       </div>
     </div>
@@ -157,8 +157,8 @@
     <h2 class="stitle">Who I am and what this portfolio proves</h2>
     <div class="about-box">
       <p>I am targeting Huntsville-area security roles and I built this portfolio to make recruiter and technical screening fast.</p>
-      <p>My current base is Gadsden, Alabama, about an hour from Huntsville, and I can commute now while I interview.</p>
-      <p>I am relocating soon, and my lease is flexible month-to-month after May, so location logistics are already planned.</p>
+      <p>My current base is Gadsden, Alabama, about an hour from Huntsville, and I can commute during interviews.</p>
+      <p>Relocating to Huntsville; timeline flexible.</p>
       <p>My focus is SOC Analyst (T1/T2), Junior Detection Engineering, and Security Automation where I can contribute quickly.</p>
       <p>Every claim here is tied to reproducible commands and repository artifacts, so teams can validate fit without guesswork.</p>
     </div>
@@ -186,7 +186,7 @@
         <div class="card-ttl">Detections Library</div>
         <div class="card-sub">Sigma + Wazuh + Splunk detections, mapped and organized.</div>
         <div class="card-meta">
-          <span class="tag">Sigma 105</span><span class="tag">Wazuh 29</span><span class="tag">Splunk 8</span>
+          <span class="tag">Sigma <span data-verified="sigma">--</span></span><span class="tag">Wazuh <span data-verified="wazuh">--</span></span><span class="tag">Splunk <span data-verified="splunk">--</span></span>
         </div>
       </a>
 
@@ -202,7 +202,7 @@
       <a class="card" href="case-study.html" style="text-decoration:none">
         <div class="card-click">Click →</div>
         <div class="card-ttl">Mini Case Study</div>
-        <div class="card-sub">How I built + validated 29 Wazuh rule blocks in a reproducible workflow.</div>
+        <div class="card-sub">How I built + validated <span data-verified="wazuh">--</span> Wazuh rule blocks in a reproducible workflow.</div>
         <div class="card-meta">
           <span class="tag">Case study</span><span class="tag">Wazuh</span><span class="tag">Verification</span>
         </div>
@@ -272,9 +272,9 @@
   <div class="ctr">
     <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
     <div class="fl">
-      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="mailto:raylee@hawkinsops.com">raylee@hawkinsops.com</a>
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
     </div>
   </div>
 </footer>
@@ -282,3 +282,4 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
+

@@ -7,6 +7,7 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
   const html = document.documentElement;
+  const VERIFIED_TIMEOUT_MS = 1500;
 
   // Theme toggle (saved preference, otherwise system preference)
   const themeToggle = $('#themeToggle');
@@ -74,6 +75,58 @@
       a.removeAttribute('aria-current');
     }
   });
+
+  async function loadVerifiedCounts() {
+    if (typeof window.fetchJsonWithTimeout !== 'function') return;
+    try {
+      const payload = await window.fetchJsonWithTimeout('/assets/verified-counts.json', {
+        timeoutMs: VERIFIED_TIMEOUT_MS
+      });
+      if (!payload || typeof payload !== 'object' || typeof payload.counts !== 'object') return;
+      const counts = payload.counts;
+      $$('[data-verified]').forEach((node) => {
+        const key = node.getAttribute('data-verified');
+        const value = key ? counts[key] : null;
+        if (typeof value === 'number' && Number.isFinite(value)) {
+          node.textContent = String(value);
+        }
+      });
+      $$('[data-verified-date]').forEach((node) => {
+        if (typeof payload.generated_at_utc === 'string') {
+          node.textContent = payload.generated_at_utc;
+        }
+      });
+    } catch {
+      // leave placeholders in place if the payload is unavailable
+    }
+  }
+
+  async function imageExists(src) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = src;
+    });
+  }
+
+  async function hydrateLabScreenshots() {
+    const cards = $$('[data-screenshot-card]');
+    if (!cards.length) return;
+    let shown = 0;
+    for (const card of cards) {
+      const src = card.getAttribute('data-src');
+      if (!src) continue;
+      const ok = await imageExists(src);
+      if (!ok) continue;
+      const img = $('[data-screenshot-img]', card);
+      if (img) img.setAttribute('src', src);
+      card.hidden = false;
+      shown += 1;
+    }
+    const fallback = $('[data-screenshot-fallback]');
+    if (fallback) fallback.hidden = shown > 0;
+  }
 
   // Copy wiring (supports dynamically injected modal content too)
   function wireCopy(root=document) {
@@ -192,4 +245,7 @@
       });
     }
   });
+
+  loadVerifiedCounts();
+  hydrateLabScreenshots();
 })();

@@ -20,6 +20,12 @@ jobs:
         with:
           node-version-file: ".node-version"
 
+      - name: Generate verified counts markdown
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
+          pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
+
       - name: Generate site data artifacts
         shell: pwsh
         run: |
@@ -30,18 +36,12 @@ jobs:
       - name: Hosting consistency check
         shell: pwsh
         run: |
-          node .\scripts\verify\no-netlify.js
+          node .\scripts\verify\hosting-cloudflare-only.js
 
       - name: Static site diagnosis gate
         shell: pwsh
         run: |
           node .\scripts\diagnose-site.js --fail-on-issues
-
-      - name: Generate verified counts markdown
-        shell: pwsh
-        run: |
-          pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
-          pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 
       - name: Build Wazuh bundle
         shell: pwsh
@@ -65,3 +65,4 @@ jobs:
           name: wazuh-rules-bundle
           path: dist/wazuh/local_rules.xml
           retention-days: 30
+

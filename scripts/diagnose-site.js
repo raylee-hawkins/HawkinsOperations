@@ -11,7 +11,7 @@ const jsonOut = path.join(docsDir, "STATIC_SITE_DIAGNOSIS_REPORT.json");
 const failOnIssues = process.argv.includes("--fail-on-issues");
 
 const CURRENT_GITHUB_OWNER = "raylee-hawkins";
-const OLD_OWNER_PATTERNS = ["raylee-ops", "raylee_ops", "rayleeops"];
+const OLD_OWNER_PATTERNS = ["raylee-hawkins", "raylee_ops", "rayleeops"];
 const GENERATED_ARTIFACTS_EXPECTED = [
   "site/assets/verified-counts.json",
   "site/assets/data/detections.json",
@@ -608,10 +608,10 @@ function buildTopRootCauses(input) {
     evidence: {
       legacyOwnerHits: input.legacyOwnerHits.length,
       rawGithubHits: input.rawGithubHits.length,
-      netlifyHits: input.netlifyHits.length
+      legacyHostingHits: input.legacyHostingHits.length
     },
     howToConfirm:
-      "Search deployed source for raylee-ops and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
+      "Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
     minimalFix:
       "Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs."
   });
@@ -943,7 +943,7 @@ function analyze() {
   }
 
   const rawGithubHits = searchTextHits(/raw\.githubusercontent\.com/i);
-  const netlifyHits = searchTextHits(/netlify/i);
+  const legacyHostingHits = searchTextHits(/legacy-hosting/i);
 
   const githubOwnerRegex = /github\.com\/([A-Za-z0-9_.-]+)\//ig;
   const githubOwnerHits = [];
@@ -1031,7 +1031,7 @@ function analyze() {
     cloudflareEvidence,
     legacyOwnerHits,
     rawGithubHits,
-    netlifyHits
+    legacyHostingHits
   });
 
   const canonicalizationIntent = inferCanonicalIntent(canonicalKinds);
@@ -1081,7 +1081,7 @@ function analyze() {
         legacyOwnerTokens: OLD_OWNER_PATTERNS,
         legacyOwnerHits,
         rawGithubHits,
-        netlifyHits,
+        legacyHostingHits,
         legacyOwnersDetected
       },
       domMounts: {
@@ -1124,7 +1124,7 @@ function buildMarkdownReport(summary) {
   sections.push(`- Static-host URL resolution simulation for local assets`);
   sections.push(`- JS fetch/XHR URL audit`);
   sections.push(`- Generated data artifact and hosting build expectations`);
-  sections.push(`- Rename regression checks (\`raylee-ops\`, \`netlify\`, raw GitHub URLs)`);
+  sections.push(`- Rename regression checks (\`raylee-hawkins\`, \`legacy-hosting\`, raw GitHub URLs)`);
   sections.push(`- DOM mount contract checks (JS selectors vs page IDs)`);
   sections.push("");
 
@@ -1136,7 +1136,7 @@ function buildMarkdownReport(summary) {
   sections.push(`Trailing-slash hazards: ${checks.canonicalization.trailingSlashHazards.length}`);
   sections.push(`Missing local asset resolutions: ${checks.localResolver.localAssetMissingReferences.length}`);
   sections.push(`Legacy owner hits: ${checks.renameRegression.legacyOwnerHits.length}`);
-  sections.push(`Netlify hits: ${checks.renameRegression.netlifyHits.length}`);
+  sections.push(`Legacy hosting hits: ${checks.renameRegression.legacyHostingHits.length}`);
   sections.push("```");
   sections.push("");
 
@@ -1234,7 +1234,7 @@ function buildMarkdownReport(summary) {
   sections.push(`Current owner baseline: \`${checks.renameRegression.currentOwner}\``);
   sections.push(`Legacy owners detected: ${checks.renameRegression.legacyOwnersDetected.length ? checks.renameRegression.legacyOwnersDetected.map((owner) => `\`${owner}\``).join(", ") : "(none)"}`);
   sections.push(``);
-  sections.push(`raylee-ops/old owner hits:`);
+  sections.push(`raylee-hawkins/old owner hits:`);
   for (const hit of checks.renameRegression.legacyOwnerHits.slice(0, 160)) {
     sections.push(`- ${formatPathLine(hit.file, hit.line)} [${hit.token}] ${escapePipes(hit.text)}`);
   }
@@ -1242,8 +1242,8 @@ function buildMarkdownReport(summary) {
   for (const hit of checks.renameRegression.rawGithubHits.slice(0, 160)) {
     sections.push(`- ${formatPathLine(hit.file, hit.line)} ${escapePipes(hit.text)}`);
   }
-  sections.push(`netlify hits:`);
-  for (const hit of checks.renameRegression.netlifyHits.slice(0, 160)) {
+  sections.push(`legacy-hosting hits:`);
+  for (const hit of checks.renameRegression.legacyHostingHits.slice(0, 160)) {
     sections.push(`- ${formatPathLine(hit.file, hit.line)} ${escapePipes(hit.text)}`);
   }
   sections.push("");
@@ -1345,3 +1345,4 @@ function main() {
 }
 
 main();
+
