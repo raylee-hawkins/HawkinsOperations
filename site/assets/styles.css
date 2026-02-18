@@ -1,17 +1,17 @@
 
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
         :root{
-            --bg:#090b13;--bg1:#151a2b;--bg2:#1b2236;--bg3:#24304a;
-            --bdr:#344262;--bdr2:#4a5e89;
-            --txt:#f7f9ff;--dim:#d7e0f4;--faint:#acbbdc;
-            --acc:#7ab8ff;--acc2:#b8e3ff;--vio:#b89cff;--acc-rgb:122,184,255;--acc2-rgb:184,227,255;--vio-rgb:184,156,255;--acc-d:rgba(var(--acc-rgb),.14);--acc-g:rgba(var(--acc-rgb),.24);
+            --bg:#000000;--bg1:#0b111d;--bg2:#121a2a;--bg3:#1a2740;
+            --bdr:#243856;--bdr2:#35537a;
+            --txt:#f7f9ff;--dim:#d7e0f4;--faint:#9eb4d8;
+            --acc:#7ab8ff;--acc2:#5fb3ff;--acc-rgb:122,184,255;--acc2-rgb:95,179,255;--acc-d:rgba(var(--acc-rgb),.14);--acc-g:rgba(var(--acc-rgb),.24);
             --red:#ff3b5c;--red-d:rgba(255,59,92,.1);
             --amb:#ffb020;--amb-d:rgba(255,176,32,.1);
-            --blu:#7ab8ff;--pur:#b89cff;
+            --blu:#7ab8ff;--pur:#7ab8ff;
             --mono:'JetBrains Mono','IBM Plex Mono','Consolas',monospace;
             --sans:'Space Grotesk','Segoe UI',sans-serif;
-            --page-bg:radial-gradient(980px 440px at 90% -10%,rgba(var(--acc-rgb),.14),transparent 72%),radial-gradient(840px 420px at -20% 115%,rgba(var(--vio-rgb),.10),transparent 72%),linear-gradient(180deg,#070a12 0%, #090f1f 50%, #0a1326 100%);
-            --grid-line:rgba(255,255,255,.012);
+            --page-bg:radial-gradient(1100px 520px at 84% -10%,rgba(var(--acc-rgb),.13),transparent 70%),radial-gradient(900px 500px at -18% 110%,rgba(var(--acc2-rgb),.11),transparent 72%),linear-gradient(180deg,#000000 0%, #050a13 58%, #091321 100%);
+            --grid-line:rgba(255,255,255,.0);
             --link:var(--acc2);--link-hover:var(--acc);
             --nav-bg:rgba(8,12,20,.88);
             --nav-hover-bg:rgba(var(--acc-rgb),.08);
@@ -24,12 +24,12 @@
             --term-bg:#0a0e14;--term-head:#0f1319;--term-txt:#e1e7f4;
             --overlay-bg:rgba(6,8,12,.92);
             --hero-mark:rgba(240,246,255,.28);
-            --hero-mark-opacity:.5;--stars-o:.46;
+            --hero-mark-opacity:.5;--stars-o:.18;
         }
         html[data-theme="dark"]{
-            --bg:#090b13;--bg1:#151a2b;--bg2:#1b2236;--bg3:#24304a;
-            --bdr:#344262;--bdr2:#4a5e89;
-            --txt:#f7f9ff;--dim:#d7e0f4;--faint:#acbbdc;
+            --bg:#000000;--bg1:#0b111d;--bg2:#121a2a;--bg3:#1a2740;
+            --bdr:#243856;--bdr2:#35537a;
+            --txt:#f7f9ff;--dim:#d7e0f4;--faint:#9eb4d8;
             --link:var(--acc2);--link-hover:var(--acc);
             --nav-bg:rgba(8,12,20,.88);
             --heading:var(--acc);
@@ -69,29 +69,16 @@
             inset:0;
             pointer-events:none;
             z-index:0;
-            opacity:var(--stars-o, .42);
+            opacity:var(--stars-o, .18);
             background:
-              radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px) 0 0/260px 260px,
-              radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 40px 60px/340px 340px,
-              radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px) 20px 80px/480px 480px,
-              radial-gradient(1100px 520px at 18% 22%, rgba(var(--acc-rgb), .10), transparent 70%),
-              radial-gradient(900px 520px at 92% 12%, rgba(var(--vio-rgb), .08), transparent 72%),
-              linear-gradient(180deg, rgba(255,255,255,.06) 0%, transparent 28%, rgba(255,255,255,.03) 62%, transparent 100%);
-            mix-blend-mode:screen;
+              radial-gradient(1150px 560px at 16% 22%, rgba(var(--acc-rgb), .10), transparent 72%),
+              radial-gradient(960px 560px at 88% 16%, rgba(var(--acc2-rgb), .09), transparent 72%),
+              linear-gradient(180deg, rgba(255,255,255,.03) 0%, transparent 34%, rgba(255,255,255,.02) 66%, transparent 100%);
+            mix-blend-mode:normal;
         }
 
         .ctr{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-        .ctr::before,.ctr::after{
-            content:'';
-            position:absolute;
-            top:0;bottom:0;
-            width:1px;
-            pointer-events:none;
-            opacity:.55;
-            background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.06) 12%,rgba(255,255,255,.06) 88%,transparent 100%);
-        }
-        .ctr::before{left:12px}
-        .ctr::after{right:12px}
+        .ctr::before,.ctr::after{content:none}
 
         a{color:var(--link);text-underline-offset:3px;text-decoration-thickness:1px}
         a:hover{color:var(--link-hover)}

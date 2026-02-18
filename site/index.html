@@ -23,7 +23,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script>
     (function () {
-      var saved = localStorage.getItem('rh-theme');
+      var saved = null;
+      try {
+        saved = localStorage.getItem('rh-theme');
+      } catch (err) {
+        saved = null;
+      }
       var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
     })();
