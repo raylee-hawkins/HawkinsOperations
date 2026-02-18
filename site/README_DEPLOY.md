@@ -13,13 +13,11 @@ If you only upload `index.html`, the resume PDF and styling will 404 (because ho
 
 ## Hosting strategy
 - Primary production hosting: **Cloudflare Pages**
-- Rollback hosting: **Netlify** (rollback-only, previews disabled to reduce credit burn)
-- Publish directory for both hosts: `site/`
+- Publish directory: `site/`
 
 ## Update counts
 Counts are sourced from your repo releases / verification artifacts:
-- `raylee-ops/HawkinsOperations`
+- `raylee-hawkins/HawkinsOperations`
 - Local verification script: `scripts/verify/verify-counts.ps1`
 
 When counts change, update the numbers on `index.html`, `security.html`, and `proof.html` (search for the digits).
-
