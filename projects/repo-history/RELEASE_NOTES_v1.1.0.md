@@ -182,7 +182,7 @@ This portfolio demonstrates:
 
 **Author:** Ray Lee (HawkinsOps)
 **License:** MIT
-**Repository:** https://github.com/raylee-ops/HawkinsOperations
+**Repository:** https://github.com/raylee-hawkins/HawkinsOperations
 
 ---
 
@@ -195,3 +195,4 @@ This portfolio demonstrates:
 ---
 
 **Thank you for checking out HawkinsOps SOC Content Library!** 🛡️
+

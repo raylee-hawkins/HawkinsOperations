@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-18T00:25:33.941Z",
+  "generatedAt": "2026-02-18T14:12:42.316Z",
   "environment": {
     "cwd": "C:\\RH\\OPS\\PUBLISH\\GITHUB\\repos\\HawkinsOperations",
     "siteDir": "site"
@@ -12,7 +12,7 @@
   "checks": {
     "assetPathAudit": {
       "siteConvention": "absolute_root",
-      "absoluteTotal": 53,
+      "absoluteTotal": 48,
       "relativeTotal": 0,
       "homepageAbsoluteInnerRelativePattern": false,
       "pagesDifferingFromConvention": [],
@@ -52,7 +52,7 @@
           "canonicalHref": "https://hawkinsops.com/",
           "localAbsoluteCount": 5,
           "localRelativeCount": 0,
-          "externalCount": 1,
+          "externalCount": 4,
           "specialCount": 0,
           "mixedLocalAssetStrategy": false,
           "duplicateIds": []
@@ -60,9 +60,9 @@
         {
           "page": "site/lab.html",
           "canonicalHref": "https://hawkinsops.com/lab",
-          "localAbsoluteCount": 6,
+          "localAbsoluteCount": 5,
           "localRelativeCount": 0,
-          "externalCount": 1,
+          "externalCount": 4,
           "specialCount": 0,
           "mixedLocalAssetStrategy": false,
           "duplicateIds": []
@@ -70,9 +70,9 @@
         {
           "page": "site/projects.html",
           "canonicalHref": "https://hawkinsops.com/projects",
-          "localAbsoluteCount": 7,
+          "localAbsoluteCount": 5,
           "localRelativeCount": 0,
-          "externalCount": 1,
+          "externalCount": 4,
           "specialCount": 0,
           "mixedLocalAssetStrategy": false,
           "duplicateIds": []
@@ -100,9 +100,9 @@
         {
           "page": "site/security.html",
           "canonicalHref": "https://hawkinsops.com/security",
-          "localAbsoluteCount": 7,
+          "localAbsoluteCount": 5,
           "localRelativeCount": 0,
-          "externalCount": 1,
+          "externalCount": 4,
           "specialCount": 0,
           "mixedLocalAssetStrategy": false,
           "duplicateIds": []
@@ -125,10 +125,6 @@
       "redirectsPreview": [
         "# Cloudflare Pages serves extensionless routes for matching .html files.",
         "# Keep this file for canonical file-path redirects only.",
-        "/security/ /security 301",
-        "/projects/ /projects 301",
-        "/lab/ /lab 301",
-        "/proof/ /proof 301",
         "/Raylee_Hawkins_Resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301",
         "/assets/raylee_hawkins_resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301",
         ""
@@ -212,8 +208,8 @@
         },
         {
           "file": "scripts/generate-site-data.js",
-          "line": 8,
-          "text": "const outPath = path.join(root, \"site\", \"assets\", \"verified-counts.json\");"
+          "line": 9,
+          "text": "const siteOutPath = path.join(root, \"site\", \"assets\", \"verified-counts.json\");"
         },
         {
           "file": "scripts/smoke-production.js",
@@ -279,38 +275,53 @@
       "cloudflareOutputEvidence": [
         {
           "file": "README.md",
-          "line": 95,
+          "line": 81,
+          "text": "- `site/assets/verified-counts.json`"
+        },
+        {
+          "file": "README.md",
+          "line": 98,
           "text": "| `site/` | static portfolio site source | published recruiter-facing web content |"
         },
         {
           "file": "README.md",
-          "line": 114,
+          "line": 117,
           "text": "      |-- generate-site-content.js      -> site/assets/data/*.json"
         },
         {
           "file": "README.md",
-          "line": 139,
+          "line": 121,
+          "text": "      |-- generate-site-data.js         -> PROOF_PACK/verified_counts.json + site/assets/verified-counts.json"
+        },
+        {
+          "file": "README.md",
+          "line": 146,
           "text": "- Runtime remains static HTML/CSS/JS under `site/` (no framework lock-in)."
         },
         {
           "file": "README.md",
-          "line": 140,
+          "line": 147,
           "text": "- Design tokens and fluid layout primitives: `site/assets/design-system.css`."
         },
         {
           "file": "README.md",
-          "line": 142,
+          "line": 149,
           "text": "  - `site/projects.html` reads `site/assets/data/projects.json`."
         },
         {
           "file": "README.md",
-          "line": 143,
+          "line": 150,
           "text": "  - `site/security.html` reads `site/assets/data/detections.json`."
         },
         {
           "file": "README.md",
-          "line": 152,
+          "line": 160,
           "text": "Cloudflare Pages production build:"
+        },
+        {
+          "file": "START_HERE.md",
+          "line": 27,
+          "text": "- `PROOF_PACK/verified_counts.json` and `site/assets/verified-counts.json` stay in sync with verified counts."
         },
         {
           "file": "site/README_DEPLOY.md",
@@ -321,26 +332,6 @@
           "file": "site/README_DEPLOY.md",
           "line": 16,
           "text": "- Publish directory: `site/`"
-        },
-        {
-          "file": "site/README_DEPLOY.md",
-          "line": 18,
-          "text": "- Cloudflare Pages build command:"
-        },
-        {
-          "file": "site/README_DEPLOY.md",
-          "line": 35,
-          "text": "- `site/assets/verified-counts.json`"
-        },
-        {
-          "file": "site/README_DEPLOY.md",
-          "line": 36,
-          "text": "- `site/assets/data/projects.json`"
-        },
-        {
-          "file": "site/README_DEPLOY.md",
-          "line": 37,
-          "text": "- `site/assets/data/detections.json`"
         },
         {
           "file": "docs/hosting/CLOUDFLARE_PAGES.md",
@@ -397,335 +388,3020 @@
     "renameRegression": {
       "currentOwner": "raylee-hawkins",
       "legacyOwnerTokens": [
-        "raylee-ops",
+        "raylee-hawkins",
         "raylee_ops",
         "rayleeops"
       ],
       "legacyOwnerHits": [
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": ".github/ISSUE_TEMPLATE/config.yml",
           "line": 4,
-          "text": "    url: https://github.com/raylee-ops/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md"
+          "text": "    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": ".github/ISSUE_TEMPLATE/config.yml",
           "line": 7,
-          "text": "    url: https://github.com/raylee-ops/HawkinsOperations/blob/main/SECURITY.md"
+          "text": "    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/SECURITY.md"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 13,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 17,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 31,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 49,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 53,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 67,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/detections.json",
+          "line": 71,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 10,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 15,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 19,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 30,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 39,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 50,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 59,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 70,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 75,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "content/projects.json",
+          "line": 79,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "CONTRIBUTING.md",
+          "line": 80,
+          "text": "git remote add upstream https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
           "line": 7,
-          "text": "- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+          "text": "- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
           "line": 8,
-          "text": "- Standalone source repository: [`raylee-ops/RH_MIGRATION_2026_V2`](https://github.com/raylee-ops/RH_MIGRATION_2026_V2)"
+          "text": "- Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/PROOF_PACK/VERIFICATION.md",
           "line": 19,
-          "text": "- https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
+          "text": "- https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/README.md",
           "line": 20,
-          "text": "- Repo: `raylee-ops/RH_MIGRATION_2026_V2`"
+          "text": "- Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/README.md",
           "line": 21,
-          "text": "- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+          "text": "- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/migration-rh/SRC/reference/imports/README.md",
           "line": 16,
-          "text": "**Source:** raylee-ops/RH_MIGRATION_2026_V2 (private, active project)"
+          "text": "**Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 5,
-          "text": "**PR:** https://github.com/raylee-ops/HawkinsOperations/pull/2"
+          "text": "**PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 22,
-          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-framework"
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-framework"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 29,
-          "text": "- **URL:** https://github.com/raylee-ops/hawkins_ops"
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkins_ops"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 36,
-          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-site"
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-site"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 43,
-          "text": "- **URL:** https://github.com/raylee-ops/RH_MIGRATION_2026_V2 (private)"
+          "text": "- **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 50,
-          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-soc-content (already archived)"
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 191,
-          "text": "gh repo archive raylee-ops/hawkinsops-framework --yes"
+          "text": "gh repo archive raylee-hawkins/hawkinsops-framework --yes"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 192,
-          "text": "gh repo archive raylee-ops/hawkins_ops --yes"
+          "text": "gh repo archive raylee-hawkins/hawkins_ops --yes"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 193,
-          "text": "gh repo archive raylee-ops/hawkinsops-site --yes"
+          "text": "gh repo archive raylee-hawkins/hawkinsops-site --yes"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 194,
-          "text": "gh repo archive raylee-ops/RH_MIGRATION_2026_V2 --yes"
+          "text": "gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/CONSOLIDATION_MAP.md",
           "line": 250,
-          "text": "- **Pull Request:** https://github.com/raylee-ops/HawkinsOperations/pull/2"
+          "text": "- **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 30,
-          "text": "git clone https://github.com/raylee-ops/hawkinsops-framework.git"
+          "text": "git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 37,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 52,
-          "text": "git clone https://github.com/raylee-ops/hawkins_ops.git"
+          "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 59,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 74,
-          "text": "git clone https://github.com/raylee-ops/hawkinsops-site.git"
+          "text": "git clone https://github.com/raylee-hawkins/hawkinsops-site.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 81,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 95,
-          "text": "git clone https://github.com/raylee-ops/RH_MIGRATION_2026_V2.git  # Private repo"
+          "text": "git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 102,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 141,
-          "text": "    run: git clone https://github.com/raylee-ops/hawkinsops-framework.git"
+          "text": "    run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 144,
-          "text": "    run: git clone https://github.com/raylee-ops/hawkins_ops.git"
+          "text": "    run: git clone https://github.com/raylee-hawkins/hawkins_ops.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 151,
-          "text": "    run: git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "    run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 168,
-          "text": "See [hawkinsops-framework](https://github.com/raylee-ops/hawkinsops-framework)"
+          "text": "See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 171,
-          "text": "See [HawkinsOperations/tools](https://github.com/raylee-ops/HawkinsOperations/tree/main/tools)"
+          "text": "See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 177,
-          "text": "git clone https://github.com/raylee-ops/hawkins_ops.git"
+          "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 180,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 190,
-          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
           "line": 229,
-          "text": "- **Issues:** Report at https://github.com/raylee-ops/HawkinsOperations/issues"
+          "text": "- **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "projects/repo-history/RELEASE_NOTES_v1.1.0.md",
           "line": 185,
-          "text": "**Repository:** https://github.com/raylee-ops/HawkinsOperations"
+          "text": "**Repository:** https://github.com/raylee-hawkins/HawkinsOperations"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
           "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
           "line": 94,
-          "text": "          <a href=\"https://github.com/raylee-ops\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
+          "text": "          <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
+          "line": 96,
+          "text": "          <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
           "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
           "line": 173,
-          "text": "      <a href=\"https://github.com/raylee-ops/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
+          "line": 174,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
           "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt",
           "line": 13,
-          "text": "GitHub: https://github.com/raylee-ops"
+          "text": "GitHub: https://github.com/raylee-hawkins"
         },
         {
-          "token": "raylee-ops",
+          "token": "raylee-hawkins",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt",
+          "line": 15,
+          "text": "LinkedIn: https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt",
+          "line": 13,
+          "text": "GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt",
+          "line": 15,
+          "text": "LinkedIn: https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
           "file": "README.md",
           "line": 5,
-          "text": "[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-ops/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-ops/HawkinsOperations/actions/workflows/verify.yml)"
+          "text": "[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 13,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 17,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 31,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 49,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 53,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 67,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/detections.json",
+          "line": 71,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 10,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 15,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 19,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 30,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 39,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 50,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 59,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 70,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 75,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/content/projects.json",
+          "line": 79,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/CONTRIBUTING.md",
+          "line": 80,
+          "text": "git remote add upstream https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 398,
+          "text": "      \"currentOwner\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 400,
+          "text": "        \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 406,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 409,
+          "text": "          \"text\": \"    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 412,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 415,
+          "text": "          \"text\": \"    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/SECURITY.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 418,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 421,
+          "text": "          \"text\": \"- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 424,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 427,
+          "text": "          \"text\": \"- Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 430,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 433,
+          "text": "          \"text\": \"- https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 436,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 439,
+          "text": "          \"text\": \"- Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 442,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 445,
+          "text": "          \"text\": \"- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 448,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 451,
+          "text": "          \"text\": \"**Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 454,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 457,
+          "text": "          \"text\": \"**PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 460,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 463,
+          "text": "          \"text\": \"- **URL:** https://github.com/raylee-hawkins/hawkinsops-framework\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 466,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 469,
+          "text": "          \"text\": \"- **URL:** https://github.com/raylee-hawkins/hawkins_ops\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 472,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 475,
+          "text": "          \"text\": \"- **URL:** https://github.com/raylee-hawkins/hawkinsops-site\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 478,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 481,
+          "text": "          \"text\": \"- **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 484,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 487,
+          "text": "          \"text\": \"- **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 490,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 493,
+          "text": "          \"text\": \"gh repo archive raylee-hawkins/hawkinsops-framework --yes\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 496,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 499,
+          "text": "          \"text\": \"gh repo archive raylee-hawkins/hawkins_ops --yes\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 502,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 505,
+          "text": "          \"text\": \"gh repo archive raylee-hawkins/hawkinsops-site --yes\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 508,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 511,
+          "text": "          \"text\": \"gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 514,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 517,
+          "text": "          \"text\": \"- **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 520,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 523,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/hawkinsops-framework.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 526,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 529,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 532,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 535,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/hawkins_ops.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 538,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 541,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 544,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 547,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/hawkinsops-site.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 550,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 553,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 556,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 559,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 562,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 565,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 568,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 571,
+          "text": "          \"text\": \"    run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 574,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 577,
+          "text": "          \"text\": \"    run: git clone https://github.com/raylee-hawkins/hawkins_ops.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 580,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 583,
+          "text": "          \"text\": \"    run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 586,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 589,
+          "text": "          \"text\": \"See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 592,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 595,
+          "text": "          \"text\": \"See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 598,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 601,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/hawkins_ops.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 604,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 607,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 610,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 613,
+          "text": "          \"text\": \"git clone https://github.com/raylee-hawkins/HawkinsOperations.git\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 616,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 619,
+          "text": "          \"text\": \"- **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 622,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 625,
+          "text": "          \"text\": \"**Repository:** https://github.com/raylee-hawkins/HawkinsOperations\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 628,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 631,
+          "text": "          \"text\": \"          <a href=\\\"https://github.com/raylee-hawkins\\\" target=\\\"_blank\\\" rel=\\\"noreferrer\\\">GitHub</a> |\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 634,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 637,
+          "text": "          \"text\": \"      <a href=\\\"https://github.com/raylee-hawkins/HawkinsOperations\\\" target=\\\"_blank\\\" rel=\\\"noreferrer\\\">GitHub</a>\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 640,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 643,
+          "text": "          \"text\": \"GitHub: https://github.com/raylee-hawkins\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 646,
+          "text": "          \"token\": \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 649,
+          "text": "          \"text\": \"[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 728,
+          "text": "        \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 1096,
+          "text": "        \"howToConfirm\": \"Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 1097,
+          "text": "        \"minimalFix\": \"Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs.\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 13,
+          "text": "- Rename regression checks (`raylee-hawkins`, `legacy-hosting`, raw GitHub URLs)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 116,
+          "text": "Current owner baseline: `raylee-hawkins`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 117,
+          "text": "Legacy owners detected: `alessandroz`, `gentilkiwi`, `raylee-hawkins`, `sigmahq`, `swiftonsecurity`, `your-username`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 119,
+          "text": "raylee-hawkins/old owner hits:"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 120,
+          "text": "- `.github/ISSUE_TEMPLATE/config.yml:4` [raylee-hawkins] url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 121,
+          "text": "- `.github/ISSUE_TEMPLATE/config.yml:7` [raylee-hawkins] url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/SECURITY.md"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 122,
+          "text": "- `projects/migration-rh/PROOF_PACK/PROOF_INDEX.md:7` [raylee-hawkins] - Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 123,
+          "text": "- `projects/migration-rh/PROOF_PACK/PROOF_INDEX.md:8` [raylee-hawkins] - Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 124,
+          "text": "- `projects/migration-rh/PROOF_PACK/VERIFICATION.md:19` [raylee-hawkins] - https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 125,
+          "text": "- `projects/migration-rh/README.md:20` [raylee-hawkins] - Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 126,
+          "text": "- `projects/migration-rh/README.md:21` [raylee-hawkins] - Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 127,
+          "text": "- `projects/migration-rh/SRC/reference/imports/README.md:16` [raylee-hawkins] **Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 128,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:5` [raylee-hawkins] **PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 129,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:22` [raylee-hawkins] - **URL:** https://github.com/raylee-hawkins/hawkinsops-framework"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 130,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:29` [raylee-hawkins] - **URL:** https://github.com/raylee-hawkins/hawkins_ops"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 131,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:36` [raylee-hawkins] - **URL:** https://github.com/raylee-hawkins/hawkinsops-site"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 132,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:43` [raylee-hawkins] - **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 133,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:50` [raylee-hawkins] - **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 134,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:191` [raylee-hawkins] gh repo archive raylee-hawkins/hawkinsops-framework --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 135,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:192` [raylee-hawkins] gh repo archive raylee-hawkins/hawkins_ops --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 136,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:193` [raylee-hawkins] gh repo archive raylee-hawkins/hawkinsops-site --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 137,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:194` [raylee-hawkins] gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 138,
+          "text": "- `projects/repo-history/CONSOLIDATION_MAP.md:250` [raylee-hawkins] - **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 139,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:30` [raylee-hawkins] git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 140,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:37` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 141,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:52` [raylee-hawkins] git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 142,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:59` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 143,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:74` [raylee-hawkins] git clone https://github.com/raylee-hawkins/hawkinsops-site.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 144,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:81` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 145,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:95` [raylee-hawkins] git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 146,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:102` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 147,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:141` [raylee-hawkins] run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 148,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:144` [raylee-hawkins] run: git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 149,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:151` [raylee-hawkins] run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 150,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:168` [raylee-hawkins] See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 151,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:171` [raylee-hawkins] See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 152,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:177` [raylee-hawkins] git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 153,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:180` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 154,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:190` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 155,
+          "text": "- `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:229` [raylee-hawkins] - **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 156,
+          "text": "- `projects/repo-history/RELEASE_NOTES_v1.1.0.md:185` [raylee-hawkins] **Repository:** https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 157,
+          "text": "- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:94` [raylee-hawkins] <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> \\|"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 158,
+          "text": "- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:173` [raylee-hawkins] <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 159,
+          "text": "- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt:13` [raylee-hawkins] GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 160,
+          "text": "- `README.md:5` [raylee-hawkins] [![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 234,
+          "text": "- How to confirm: Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s."
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 235,
+          "text": "- Minimal fix: Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs."
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/git_last5.txt",
+          "line": 2,
+          "text": "4b9c8be Merge pull request #38 from raylee-hawkins/fix/home-ux-hotfix-v38"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/git_last5.txt",
+          "line": 4,
+          "text": "4c13ac6 Merge pull request #37 from raylee-hawkins/fix/static-site-stability-smoke-gate"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/git_remote.txt",
+          "line": 1,
+          "text": "origin\thttps://github.com/raylee-hawkins/HawkinsOperations.git (fetch)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/git_remote.txt",
+          "line": 2,
+          "text": "origin\thttps://github.com/raylee-hawkins/HawkinsOperations.git (push)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
+          "line": 7,
+          "text": "- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
+          "line": 8,
+          "text": "- Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/PROOF_PACK/VERIFICATION.md",
+          "line": 19,
+          "text": "- https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/README.md",
+          "line": 20,
+          "text": "- Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/README.md",
+          "line": 21,
+          "text": "- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/migration-rh/SRC/reference/imports/README.md",
+          "line": 16,
+          "text": "**Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 5,
+          "text": "**PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 22,
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-framework"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 29,
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkins_ops"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 36,
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-site"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 43,
+          "text": "- **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 50,
+          "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 191,
+          "text": "gh repo archive raylee-hawkins/hawkinsops-framework --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 192,
+          "text": "gh repo archive raylee-hawkins/hawkins_ops --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 193,
+          "text": "gh repo archive raylee-hawkins/hawkinsops-site --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 194,
+          "text": "gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 250,
+          "text": "- **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 30,
+          "text": "git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 37,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 52,
+          "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 59,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 74,
+          "text": "git clone https://github.com/raylee-hawkins/hawkinsops-site.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 81,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 95,
+          "text": "git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 102,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 141,
+          "text": "    run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 144,
+          "text": "    run: git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 151,
+          "text": "    run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 168,
+          "text": "See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 171,
+          "text": "See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 177,
+          "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 180,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 190,
+          "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 229,
+          "text": "- **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/projects/repo-history/RELEASE_NOTES_v1.1.0.md",
+          "line": 185,
+          "text": "**Repository:** https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/README.md",
+          "line": 5,
+          "text": "[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 37,
+          "text": "+        ? `https://github.com/raylee-hawkins/HawkinsOperations/tree/main/${esc(item.location || \"\")}`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 561,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 565,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 579,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 583,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 597,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 601,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 615,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 619,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 833,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 838,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 842,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 853,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 858,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 862,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 873,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 882,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 893,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 898,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 902,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 2939,
+          "text": "+    username: \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_195804/site-diff.txt",
+          "line": 3942,
+          "text": "+  \"source_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 9,
+          "text": "-- `raylee-hawkins/HawkinsOperations`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 10,
+          "text": "+- `raylee-hawkins/HawkinsOperations`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 22,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 23,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 24,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 35,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 36,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 37,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 48,
+          "text": "-      <a class=\"btn btn-p\" href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Clone the repo</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 49,
+          "text": "+      <a class=\"btn btn-p\" href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Clone the repo</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 55,
+          "text": "-    <div class=\"lupd\">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 56,
+          "text": "+    <div class=\"lupd\">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 64,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 65,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 66,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 77,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 78,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 79,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 90,
+          "text": "-      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 91,
+          "text": "+      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 97,
+          "text": "-      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 98,
+          "text": "+      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 104,
+          "text": "-      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 105,
+          "text": "+      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 113,
+          "text": "-  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\">Open projects folder on GitHub</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 114,
+          "text": "+  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\">Open projects folder on GitHub</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 122,
+          "text": "-  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 123,
+          "text": "+  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 131,
+          "text": "-  <p><a href=\"https://github.com/raylee-hawkins/hawkins_ops\" target=\"_blank\" rel=\"noreferrer\">Open hawkins_ops</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 132,
+          "text": "+  <p><a href=\"https://github.com/raylee-hawkins/hawkins_ops\" target=\"_blank\" rel=\"noreferrer\">Open hawkins_ops</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 138,
+          "text": "-  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Open HawkinsOperations</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 139,
+          "text": "+  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Open HawkinsOperations</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 145,
+          "text": "-  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 146,
+          "text": "+  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 154,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 155,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 156,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 167,
+          "text": "-        <div class=\"card-sub\"><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">raylee-hawkins/HawkinsOperations</a></div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 168,
+          "text": "+        <div class=\"card-sub\"><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">raylee-hawkins/HawkinsOperations</a></div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 176,
+          "text": "-      <pre id=\"cProofPS\" class=\"term-b\">git clone https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 177,
+          "text": "+      <pre id=\"cProofPS\" class=\"term-b\">git clone https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 185,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 186,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 187,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 197,
+          "text": "-raylee@hawkinsops.com | https://github.com/raylee-hawkins | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 198,
+          "text": "+raylee@hawkinsops.com | https://github.com/raylee-hawkins | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 210,
+          "text": "-          <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 211,
+          "text": "+          <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 213,
+          "text": "           <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 219,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 220,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 221,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 232,
+          "text": "-GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 233,
+          "text": "+GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 235,
+          "text": " LinkedIn: https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 245,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 246,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 247,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 258,
+          "text": "-      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 259,
+          "text": "+      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_diff.txt",
+          "line": 260,
+          "text": "       <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_last5.txt",
+          "line": 2,
+          "text": "4b9c8be Merge pull request #38 from raylee-hawkins/fix/home-ux-hotfix-v38"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_last5.txt",
+          "line": 4,
+          "text": "4c13ac6 Merge pull request #37 from raylee-hawkins/fix/static-site-stability-smoke-gate"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_remote.txt",
+          "line": 1,
+          "text": "origin\thttps://github.com/raylee-hawkins/HawkinsOperations.git (fetch)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/git_remote.txt",
+          "line": 2,
+          "text": "origin\thttps://github.com/raylee-hawkins/HawkinsOperations.git (push)"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/components/sections/listing-renderer.js",
+          "line": 31,
+          "text": "        ? `https://github.com/raylee-hawkins/HawkinsOperations/tree/main/${esc(item.location || \"\")}`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 13,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 17,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 31,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 49,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 53,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 67,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/detections.json",
+          "line": 71,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 10,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 15,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 19,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 30,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 39,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 50,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 59,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 70,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 75,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/data/projects.json",
+          "line": 79,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/home.js",
+          "line": 3,
+          "text": "    username: \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/assets/verified-counts.json",
+          "line": 11,
+          "text": "  \"source_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/blog-python2-to-python3.html",
+          "line": 112,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/blog-python2-to-python3.html",
+          "line": 113,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/case-study.html",
+          "line": 118,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/case-study.html",
+          "line": 119,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/index.html",
+          "line": 97,
+          "text": "      <a class=\"btn btn-p\" href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Clone the repo</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/index.html",
+          "line": 103,
+          "text": "    <div class=\"lupd\">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/index.html",
+          "line": 270,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/index.html",
+          "line": 271,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/lab.html",
+          "line": 131,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/lab.html",
+          "line": 132,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 72,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 78,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 84,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\" target=\"_blank\" rel=\"noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 158,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noreferrer\">Open projects folder on GitHub</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 168,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 178,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkins_ops\" target=\"_blank\" rel=\"noreferrer\">Open hawkins_ops</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 184,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">Open HawkinsOperations</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 190,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 206,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/projects.html",
+          "line": 207,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/proof.html",
+          "line": 66,
+          "text": "        <div class=\"card-sub\"><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">raylee-hawkins/HawkinsOperations</a></div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/proof.html",
+          "line": 91,
+          "text": "      <pre id=\"cProofPS\" class=\"term-b\">git clone https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/proof.html",
+          "line": 147,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/proof.html",
+          "line": 148,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/README_DEPLOY.md",
+          "line": 21,
+          "text": "- `raylee-hawkins/HawkinsOperations`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume-content.md",
+          "line": 3,
+          "text": "raylee@hawkinsops.com | https://github.com/raylee-hawkins | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.html",
+          "line": 87,
+          "text": "          <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.html",
+          "line": 89,
+          "text": "          <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.html",
+          "line": 166,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.html",
+          "line": 167,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.txt",
+          "line": 6,
+          "text": "GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/resume.txt",
+          "line": 8,
+          "text": "LinkedIn: https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/security.html",
+          "line": 330,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/security.html",
+          "line": 331,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/triage.html",
+          "line": 185,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "run_02-17-2026_201152/site/triage.html",
+          "line": 186,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noreferrer\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/components/sections/listing-renderer.js",
+          "line": 31,
+          "text": "        ? `https://github.com/raylee-hawkins/HawkinsOperations/tree/main/${esc(item.location || \"\")}`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 13,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 17,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 31,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 49,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 53,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 67,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/detections.json",
+          "line": 71,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 10,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 15,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 19,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 30,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 35,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 39,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 50,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 59,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 70,
+          "text": "      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 75,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/data/projects.json",
+          "line": 79,
+          "text": "          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/assets/home.js",
+          "line": 3,
+          "text": "    username: \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/blog-python2-to-python3.html",
+          "line": 112,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/blog-python2-to-python3.html",
+          "line": 113,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/case-study.html",
+          "line": 118,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/case-study.html",
+          "line": 119,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/index.html",
+          "line": 102,
+          "text": "      <a class=\"btn btn-p\" href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\">Clone the repo</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/index.html",
+          "line": 108,
+          "text": "    <div class=\"lupd\">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/index.html",
+          "line": 275,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/index.html",
+          "line": 276,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/lab.html",
+          "line": 133,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/lab.html",
+          "line": 134,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 72,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 78,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 84,
+          "text": "      <a class=\"card\" href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration:none\">"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 158,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects\" target=\"_blank\" rel=\"noopener noreferrer\">Open projects folder on GitHub</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 168,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noopener noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 178,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkins_ops\" target=\"_blank\" rel=\"noopener noreferrer\">Open hawkins_ops</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 184,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\">Open HawkinsOperations</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 190,
+          "text": "  <p><a href=\"https://github.com/raylee-hawkins/hawkinsops-framework\" target=\"_blank\" rel=\"noopener noreferrer\">Open hawkinsops-framework</a></p>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 206,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/projects.html",
+          "line": 207,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/proof.html",
+          "line": 66,
+          "text": "        <div class=\"card-sub\"><a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\">raylee-hawkins/HawkinsOperations</a></div>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/proof.html",
+          "line": 91,
+          "text": "      <pre id=\"cProofPS\" class=\"term-b\">git clone https://github.com/raylee-hawkins/HawkinsOperations"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/proof.html",
+          "line": 147,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/proof.html",
+          "line": 148,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/README_DEPLOY.md",
+          "line": 20,
+          "text": "- `raylee-hawkins/HawkinsOperations`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume-content.md",
+          "line": 3,
+          "text": "raylee@hawkinsops.com | https://github.com/raylee-hawkins | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.html",
+          "line": 87,
+          "text": "          <a href=\"https://github.com/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> |"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.html",
+          "line": 89,
+          "text": "          <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.html",
+          "line": 166,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.html",
+          "line": 167,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.txt",
+          "line": 6,
+          "text": "GitHub: https://github.com/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/resume.txt",
+          "line": 8,
+          "text": "LinkedIn: https://linkedin.com/in/raylee-hawkins"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/security.html",
+          "line": 330,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/security.html",
+          "line": 331,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/triage.html",
+          "line": 185,
+          "text": "      <a href=\"https://github.com/raylee-hawkins/HawkinsOperations\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"GitHub repository (opens in a new tab)\">GitHub</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site/triage.html",
+          "line": 186,
+          "text": "      <a href=\"https://linkedin.com/in/raylee-hawkins\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"LinkedIn profile (opens in a new tab)\">LinkedIn</a>"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 37,
+          "text": "+        ? `https://github.com/raylee-hawkins/HawkinsOperations/tree/main/${esc(item.location || \"\")}`"
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 561,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 565,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 579,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 583,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 597,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 601,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 615,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 619,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 833,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 838,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 842,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 853,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 858,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 862,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 873,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 882,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 893,
+          "text": "+      \"repo_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 898,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 902,
+          "text": "+          \"url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md\""
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 2939,
+          "text": "+    username: \"raylee-hawkins\","
+        },
+        {
+          "token": "raylee-hawkins",
+          "file": "site-diff.txt",
+          "line": 3942,
+          "text": "+  \"source_url\": \"https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md\""
+        },
+        {
+          "token": "raylee_ops",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 401,
+          "text": "        \"raylee_ops\","
+        },
+        {
+          "token": "rayleeops",
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 402,
+          "text": "        \"rayleeops\""
         }
       ],
-      "rawGithubHits": [],
-      "netlifyHits": [
+      "rawGithubHits": [
         {
-          "file": ".github/workflows/verify.yml",
-          "line": 33,
-          "text": "          node .\\scripts\\verify\\no-netlify.js"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 1096,
+          "text": "        \"howToConfirm\": \"Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.\","
         },
         {
-          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
-          "line": 13,
-          "text": "- Build command: `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 161,
+          "text": "raw.githubusercontent.com hits:"
         },
         {
-          "file": "docs/ui/REFRACTOR_PR_PLAN.md",
-          "line": 7,
-          "text": "- Add `scripts/verify/no-netlify.js` and wire it into verification workflow."
-        },
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 234,
+          "text": "- How to confirm: Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s."
+        }
+      ],
+      "legacyHostingHits": [
         {
           "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
           "line": 2,
-          "text": "Legacy provider target reference (Netlify hostname): hawkinsoperations.netlify.app"
+          "text": "Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app"
         },
         {
           "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
           "line": 4,
-          "text": "=== nslookup hawkinsoperations.netlify.app 8.8.8.8 ==="
+          "text": "=== nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ==="
         },
         {
           "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
           "line": 8,
-          "text": "Name:    hawkinsoperations.netlify.app"
+          "text": "Name:    hawkinsoperations.legacy-hosting.app"
         },
         {
-          "file": "README.md",
-          "line": 73,
-          "text": "node .\\scripts\\verify\\no-netlify.js"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 653,
+          "text": "      \"legacy-hostingHits\": ["
         },
         {
-          "file": "README.md",
-          "line": 153,
-          "text": "- `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 672,
+          "text": "          \"text\": \"Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app\""
         },
         {
-          "file": "scripts/verify/no-netlify.js",
-          "line": 35,
-          "text": "  path.join(\"scripts\", \"verify\", \"no-netlify.js\").replaceAll(\"\\\\\", \"/\"),"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 677,
+          "text": "          \"text\": \"=== nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ===\""
         },
         {
-          "file": "scripts/verify/no-netlify.js",
-          "line": 69,
-          "text": "    .replaceAll(\"scripts/verify/no-netlify.js\", \"scripts/verify/no-hosting-check.js\")"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 682,
+          "text": "          \"text\": \"Name:    hawkinsoperations.legacy-hosting.app\""
         },
         {
-          "file": "scripts/verify/no-netlify.js",
-          "line": 70,
-          "text": "    .replaceAll(\".\\\\scripts\\\\verify\\\\no-netlify.js\", \".\\\\scripts\\\\verify\\\\no-hosting-check.js\");"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json",
+          "line": 1094,
+          "text": "          \"legacy-hostingHits\": 14"
         },
         {
-          "file": "scripts/verify/README.md",
-          "line": 5,
-          "text": "- `no-netlify.js` enforces Cloudflare-only hosting consistency."
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 13,
+          "text": "- Rename regression checks (`raylee-hawkins`, `legacy-hosting`, raw GitHub URLs)"
         },
         {
-          "file": "scripts/verify/README.md",
-          "line": 18,
-          "text": "node .\\scripts\\verify\\no-netlify.js"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 162,
+          "text": "legacy-hosting hits:"
         },
         {
-          "file": "site/README_DEPLOY.md",
-          "line": 19,
-          "text": "  - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 166,
+          "text": "- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:2` Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app"
+        },
+        {
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 167,
+          "text": "- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:4` === nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ==="
+        },
+        {
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 168,
+          "text": "- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:8` Name:    hawkinsoperations.legacy-hosting.app"
+        },
+        {
+          "file": "run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md",
+          "line": 236,
+          "text": "- Evidence: `{\"legacyOwnerHits\":41,\"rawGithubHits\":0,\"legacy-hostingHits\":14}`"
         }
       ],
       "legacyOwnersDetected": [
         "alessandroz",
         "gentilkiwi",
-        "raylee-ops",
         "sigmahq",
         "swiftonsecurity",
         "your-username"
@@ -734,40 +3410,6 @@
     "domMounts": {
       "duplicateIds": [],
       "scriptMountReferences": [
-        {
-          "script": "site/assets/app.js",
-          "id": "verified-date",
-          "line": 303,
-          "col": 31,
-          "loadedByPages": [
-            "site/blog-python2-to-python3.html",
-            "site/case-study.html",
-            "site/lab.html",
-            "site/projects.html",
-            "site/proof.html",
-            "site/resume.html",
-            "site/security.html",
-            "site/triage.html"
-          ],
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "id": "verified-source",
-          "line": 308,
-          "col": 33,
-          "loadedByPages": [
-            "site/blog-python2-to-python3.html",
-            "site/case-study.html",
-            "site/lab.html",
-            "site/projects.html",
-            "site/proof.html",
-            "site/resume.html",
-            "site/security.html",
-            "site/triage.html"
-          ],
-          "guarded": true
-        },
         {
           "script": "site/assets/components/sections/media-gallery.js",
           "id": "mediaLightbox",
@@ -781,10 +3423,7 @@
           "id": "detectionsChart",
           "line": 264,
           "col": 30,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": true
         },
         {
@@ -792,10 +3431,7 @@
           "id": "securityTagMiniChart",
           "line": 266,
           "col": 33,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": true
         },
         {
@@ -803,10 +3439,7 @@
           "id": "mitre-coverage-status",
           "line": 269,
           "col": 38,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": false
         },
         {
@@ -814,10 +3447,7 @@
           "id": "coverage-chart",
           "line": 273,
           "col": 33,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": true
         },
         {
@@ -825,10 +3455,7 @@
           "id": "detections-tag-chart",
           "line": 274,
           "col": 28,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": true
         },
         {
@@ -836,190 +3463,11 @@
           "id": "proof-gallery-strip",
           "line": 275,
           "col": 32,
-          "loadedByPages": [
-            "site/projects.html",
-            "site/security.html"
-          ],
+          "loadedByPages": [],
           "guarded": false
         }
       ],
-      "missingMountsByPage": [
-        {
-          "script": "site/assets/app.js",
-          "page": "site/blog-python2-to-python3.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/case-study.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/lab.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/projects.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/proof.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/resume.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/security.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/triage.html",
-          "id": "verified-date",
-          "scriptLine": 303,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/blog-python2-to-python3.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/case-study.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/lab.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/projects.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/proof.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/resume.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/security.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/app.js",
-          "page": "site/triage.html",
-          "id": "verified-source",
-          "scriptLine": 308,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "detectionsChart",
-          "scriptLine": 264,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "securityTagMiniChart",
-          "scriptLine": 266,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "mitre-coverage-status",
-          "scriptLine": 269,
-          "guarded": false
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "coverage-chart",
-          "scriptLine": 273,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/security.html",
-          "id": "coverage-chart",
-          "scriptLine": 273,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "detections-tag-chart",
-          "scriptLine": 274,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/security.html",
-          "id": "detections-tag-chart",
-          "scriptLine": 274,
-          "guarded": true
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/projects.html",
-          "id": "proof-gallery-strip",
-          "scriptLine": 275,
-          "guarded": false
-        },
-        {
-          "script": "site/assets/portfolio-data.js",
-          "page": "site/security.html",
-          "id": "proof-gallery-strip",
-          "scriptLine": 275,
-          "guarded": false
-        }
-      ]
+      "missingMountsByPage": []
     },
     "rootCauseRanking": [
       {
@@ -1079,7 +3527,7 @@
         "title": "Edge/browser cache mixing old HTML with newer JS/CSS payloads",
         "whyIntermittent": "A stale HTML shell can reference outdated script paths or mount contracts while newer assets are cached separately, causing progressive inconsistent behavior.",
         "evidence": {
-          "cloudflareEvidenceCount": 23
+          "cloudflareEvidenceCount": 22
         },
         "howToConfirm": "Hard refresh + cache-disabled devtools test. Compare response headers and ETags for HTML vs JS assets across affected and unaffected sessions.",
         "minimalFix": "Set short cache for HTML and immutable cache strategy for fingerprinted assets; purge cache on critical routing/path changes."
@@ -1089,11 +3537,11 @@
         "title": "Repository/owner rename leftovers and external raw URL dependencies",
         "whyIntermittent": "Old owner URLs may redirect unpredictably across mirrors/caches; raw.githubusercontent dependencies are sensitive to owner/repo/path changes.",
         "evidence": {
-          "legacyOwnerHits": 41,
-          "rawGithubHits": 0,
-          "netlifyHits": 14
+          "legacyOwnerHits": 486,
+          "rawGithubHits": 3,
+          "legacyHostingHits": 14
         },
-        "howToConfirm": "Search deployed source for raylee-ops and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
+        "howToConfirm": "Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
         "minimalFix": "Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs."
       }
     ]

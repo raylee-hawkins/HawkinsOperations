@@ -1,0 +1,44 @@
+171:Feb 11 08:07:09 [REDACTED_HOST] kernel: Calibrating delay loop (skipped) preset value.. 4589.75 BogoMIPS (lpj=9179504)
+190:Feb 11 08:07:09 [REDACTED_HOST] kernel: pid_max: default: 32768 minimum: 301
+286:Feb 11 08:07:09 [REDACTED_HOST] kernel: acpi PNP0A08:00: _OSC: platform does not support [PCIeHotplug LTR DPC]
+287:Feb 11 08:07:09 [REDACTED_HOST] kernel: acpi PNP0A08:00: _OSC: OS now controls [SHPCHotplug PME AER PCIeCapability]
+585:Feb 11 08:07:09 [REDACTED_HOST] kernel: iommu: Default domain type: Translated 
+586:Feb 11 08:07:09 [REDACTED_HOST] kernel: iommu: DMA domain TLB invalidation policy: lazy mode 
+605:Feb 11 08:07:09 [REDACTED_HOST] kernel: NetLabel:  unlabeled traffic allowed by default
+720:Feb 11 08:07:09 [REDACTED_HOST] kernel: PCI: CLS 32 bytes, default 64
+736:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.0: PME: Signaling with IRQ 24
+737:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.0: AER: enabled with IRQ 24
+738:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.1: PME: Signaling with IRQ 25
+739:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.1: AER: enabled with IRQ 25
+740:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.2: PME: Signaling with IRQ 26
+741:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.2: AER: enabled with IRQ 26
+742:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.3: PME: Signaling with IRQ 27
+743:Feb 11 08:07:09 [REDACTED_HOST] kernel: pcieport 0000:00:1c.3: AER: enabled with IRQ 27
+746:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:01.0: pci_hp_register failed with error -16
+747:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:01.0: Slot initialization failed
+750:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:02.0: pci_hp_register failed with error -16
+751:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:02.0: Slot initialization failed
+754:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:03.0: pci_hp_register failed with error -16
+755:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:03.0: Slot initialization failed
+758:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:04.0: pci_hp_register failed with error -16
+759:Feb 11 08:07:09 [REDACTED_HOST] kernel: shpchp 0000:05:04.0: Slot initialization failed
+769:Feb 11 08:07:09 [REDACTED_HOST] kernel: VFIO - User Level meta-driver version: 0.3
+942:Feb 11 08:07:09 [REDACTED_HOST] kernel: RAS: Correctable Errors collector initialized.
+984:Feb 11 08:07:09 [REDACTED_HOST] kernel: sd 0:0:0:0: Power-on or device reset occurred
+1025:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia: loading out-of-tree module taints kernel.
+1026:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia: module license 'NVIDIA' taints kernel.
+1028:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia: module verification failed: signature and/or required key missing - tainting kernel
+1029:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia-nvlink: Nvlink Core is being initialized, major device number 236
+1030:Feb 11 08:07:09 [REDACTED_HOST] kernel: NVRM: loading NVIDIA UNIX x86_64 Kernel Module  535.288.01  Tue Nov 18 18:26:41 UTC 2025
+1031:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia-modeset: Loading NVIDIA Kernel Mode Setting Driver for UNIX platforms  535.288.01  Tue Nov 18 18:19:41 UTC 2025
+1032:Feb 11 08:07:09 [REDACTED_HOST] kernel: [drm] [nvidia-drm] [GPU ID 0x00000100] Loading driver
+1033:Feb 11 08:07:09 [REDACTED_HOST] kernel: [drm] Initialized nvidia-drm 0.0.0 20160202 for 0000:01:00.0 on minor 1
+1054:Feb 11 08:07:09 agent systemd[1]: systemd 255.4-1ubuntu8.8 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+1060:Feb 11 08:07:09 agent systemd[1]: Queued start job for default target graphical.target.
+1136:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia_uvm: module uses symbols from proprietary module nvidia, inheriting taint.
+1137:Feb 11 08:07:09 [REDACTED_HOST] kernel: nvidia-uvm: Loaded the UVM driver, major device number 234.
+1169:Feb 11 08:07:16 [REDACTED_HOST] kernel: bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+1182:Feb 11 08:16:00 [REDACTED_HOST] kernel: NVRM: Persistence mode is deprecated and will be removed in a future release. Please use nvidia-persistenced instead.
+1505:Feb 11 10:49:24 [REDACTED_HOST] kernel: audit: type=1400 audit(1770806964.844:151): apparmor="DENIED" operation="mknod" profile="ubuntu_pro_esm_cache" name="/usr/lib/python3/dist-packages/uaclient/__pycache__/defaults.cpython-312.pyc.140472643606576" pid=30176 comm="python3" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+1535:Feb 11 10:52:00 agent systemd[1]: systemd 255.4-1ubuntu8.12 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+

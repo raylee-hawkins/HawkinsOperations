@@ -9,12 +9,12 @@
   var TAG_TIMEOUT_MS = 1500;
 
   var FALLBACK_COUNTS = {
-    detections: 142,
-    sigma: 105,
-    wazuh: 29,
-    splunk: 8,
-    ir: 10,
-    verified_on: "2026-02-15"
+    detections: 0,
+    sigma: 0,
+    wazuh: 0,
+    splunk: 0,
+    ir: 0,
+    verified_on: "unavailable"
   };
 
   var FALLBACK_TAGS = ["detection", "mitre", "response", "automation", "triage", "validation"];

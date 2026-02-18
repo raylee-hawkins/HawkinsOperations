@@ -17,8 +17,8 @@ This repository intentionally uses **link mode** (Option B): it does not copy th
 
 ## Canonical Source
 
-- Repo: `raylee-ops/RH_MIGRATION_2026_V2`
-- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)
+- Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`
+- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)
 
 ## Verification Commands
 
@@ -37,3 +37,4 @@ Expected: phases `00` through `08` report `COMPLETE`.
 - `PROOF_PACK/` curated project proof links and verification notes
 - `reference/imports/` raw imported reference snapshots
 - `reference/migration-patterns/` migration documentation patterns used during integration
+

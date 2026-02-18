@@ -1,0 +1,28 @@
+name: drift-scan
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  drift-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate verified count artifacts
+        run: python scripts/generate_verified_counts.py
+
+      - name: Run drift scan
+        run: python scripts/drift_scan.py

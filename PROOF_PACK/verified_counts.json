@@ -1,0 +1,44 @@
+{
+  "generated_at_utc": "2026-02-18T14:18:58+00:00",
+  "source_path": "PROOF_PACK/VERIFIED_COUNTS.md",
+  "counts": {
+    "sigma": 105,
+    "splunk": 8,
+    "wazuh_xml_files": 25,
+    "wazuh": 29,
+    "ir": 10,
+    "detections": 142
+  },
+  "source_refs": {
+    "sigma": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 11,
+      "heading": "Detection Rules"
+    },
+    "splunk": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 12,
+      "heading": "Detection Rules"
+    },
+    "wazuh_xml_files": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 13,
+      "heading": "Detection Rules"
+    },
+    "wazuh": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 13,
+      "heading": "Detection Rules"
+    },
+    "ir": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 19,
+      "heading": "Incident Response"
+    },
+    "detections": {
+      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "line": 13,
+      "heading": "Detection Rules"
+    }
+  }
+}

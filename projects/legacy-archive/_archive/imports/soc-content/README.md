@@ -1,5 +1,7 @@
 # HawkinsOps SOC Content Library
 
+> Archived historical import. Count claims in this document are legacy and superseded by `PROOF_PACK/VERIFIED_COUNTS.md`.
+
 **Version:** 1.0
 **Release Date:** 2025-01-15
 **Author:** HawkinsOps Security Operations Center
@@ -15,7 +17,7 @@ Comprehensive security operations content library containing production-ready de
 
 ## Contents
 
-### 📊 Detection Rules (200+ rules)
+### 📊 Detection Rules (historical snapshot)
 
 #### **Sigma Rules** (104 rules)
 - **Format:** Platform-agnostic YAML

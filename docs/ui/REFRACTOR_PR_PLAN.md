@@ -4,7 +4,7 @@
 
 - Remove legacy hosting artifacts and references from active files.
 - Add `.node-version` for deterministic Cloudflare builds.
-- Add `scripts/verify/no-netlify.js` and wire it into verification workflow.
+- Add `scripts/verify/hosting-cloudflare-only.js` and wire it into verification workflow.
 - Update deploy docs with Cloudflare build command and output directory (`site`).
 
 ## PR2: Design tokens + starry background + layout primitives
@@ -25,3 +25,4 @@
 - Verify reduced-motion handling for animated background.
 - Run data generation + counts verification + hosting consistency checks.
 - Final docs pass: architecture overview and local verifier commands.
+

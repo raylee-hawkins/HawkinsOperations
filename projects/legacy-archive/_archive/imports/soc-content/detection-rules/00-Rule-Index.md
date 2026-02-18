@@ -1,8 +1,10 @@
 # HawkinsOps Detection Rule Library Index
 
+> Archived historical import. This index is not canonical for current portfolio counts. Use `PROOF_PACK/VERIFIED_COUNTS.md`.
+
 **Version:** 1.0
 **Last Updated:** 2025-01-15
-**Total Rules:** 200+
+**Total Rules:** Historical snapshot (superseded)
 **Author:** HawkinsOps SOC Team
 
 ---

@@ -13,7 +13,7 @@ This directory contains **raw imports** from the active RH_MIGRATION_2026_V2 rep
 ## Source Repository
 
 ### RH_MIGRATION_2026_V2/
-**Source:** raylee-ops/RH_MIGRATION_2026_V2 (private, active project)
+**Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)
 **Imported:** 2026-02-09
 **Content:**
 - *.md - Migration project documentation (AGENTS_PROJECT, PROJECT_SUMMARY, etc.)
@@ -32,3 +32,4 @@ This directory contains **raw imports** from the active RH_MIGRATION_2026_V2 rep
 Previous imports from deleted repositories (hawkinsops-framework, hawkins_ops, hawkinsops-site) have been removed to reduce cognitive noise and maintain focus on active SOC content.
 
 See git history for details on previous consolidation.
+

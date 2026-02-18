@@ -1,8 +1,8 @@
 {
-  "generated_on": "2026-02-15",
-  "total_assets": 58,
+  "generated_on": "2026-02-18",
+  "total_assets": 91,
   "safe_assets": 11,
-  "review_required_assets": 47,
+  "review_required_assets": 80,
   "media": [
     {
       "id": "2026-01-25-howe01-rule100052-hosts-ics-modified-benign-evidence-01-wazuh-1286fe4dd5",
@@ -777,6 +777,552 @@
       "height": 720,
       "bytes": 126017,
       "suggested_placement": "projects page gallery"
+    },
+    {
+      "id": "assets-badges-automation-52a1415b8a",
+      "path": "run_02-17-2026_201152/site/assets/badges/automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/badges/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-badges-sigma-987645a732",
+      "path": "run_02-17-2026_201152/site/assets/badges/sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/badges/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-badges-splunk-3d25f4c0a4",
+      "path": "run_02-17-2026_201152/site/assets/badges/splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/badges/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-badges-wazuh-de0834eb3c",
+      "path": "run_02-17-2026_201152/site/assets/badges/wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/badges/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-favicon-93f1eb3750",
+      "path": "run_02-17-2026_201152/site/assets/favicon.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "favicon",
+      "alt": "logo artifact: favicon",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/favicon.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 289,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "site-assets-icon-192-cc94e745b8",
+      "path": "run_02-17-2026_201152/site/assets/icon-192.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "icon 192",
+      "alt": "screenshot artifact: icon 192",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/icon-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 1466,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "assets-logos-automation-75c05bc908",
+      "path": "run_02-17-2026_201152/site/assets/logos/automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "automation",
+      "alt": "logo artifact: automation",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/logos/automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-logos-sigma-e0c3ebd2f8",
+      "path": "run_02-17-2026_201152/site/assets/logos/sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "sigma",
+      "alt": "logo artifact: sigma",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/logos/sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-logos-splunk-3071fd163d",
+      "path": "run_02-17-2026_201152/site/assets/logos/splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "splunk",
+      "alt": "logo artifact: splunk",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/logos/splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-logos-wazuh-58de8344c1",
+      "path": "run_02-17-2026_201152/site/assets/logos/wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "wazuh",
+      "alt": "logo artifact: wazuh",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/logos/wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-badges-automation-36aa2147ed-0b7771ef28",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-badges-automation-36aa2147ed.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "assets badges automation 36aa2147ed",
+      "alt": "logo artifact: assets badges automation 36aa2147ed",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-badges-automation-36aa2147ed.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-badges-sigma-a00fcaf8d4-33b8ecd9b1",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-badges-sigma-a00fcaf8d4.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "assets badges sigma a00fcaf8d4",
+      "alt": "logo artifact: assets badges sigma a00fcaf8d4",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-badges-sigma-a00fcaf8d4.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-badges-splunk-3040c8f48f-2df8ca7021",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-badges-splunk-3040c8f48f.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "assets badges splunk 3040c8f48f",
+      "alt": "logo artifact: assets badges splunk 3040c8f48f",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-badges-splunk-3040c8f48f.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-badges-wazuh-a9baecedc0-d7be3e29b9",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-badges-wazuh-a9baecedc0.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "assets badges wazuh a9baecedc0",
+      "alt": "logo artifact: assets badges wazuh a9baecedc0",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-badges-wazuh-a9baecedc0.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-logos-automation-85a1e87692-b7f9e87089",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-logos-automation-85a1e87692.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "assets logos automation 85a1e87692",
+      "alt": "logo artifact: assets logos automation 85a1e87692",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-logos-automation-85a1e87692.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-logos-sigma-7b3d17f300-8284807f17",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-logos-sigma-7b3d17f300.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "assets logos sigma 7b3d17f300",
+      "alt": "logo artifact: assets logos sigma 7b3d17f300",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-logos-sigma-7b3d17f300.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-logos-splunk-1df11b14bf-cb653cee3e",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-logos-splunk-1df11b14bf.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "assets logos splunk 1df11b14bf",
+      "alt": "logo artifact: assets logos splunk 1df11b14bf",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-logos-splunk-1df11b14bf.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-assets-logos-wazuh-11e7cf3bd9-1b4255f90a",
+      "path": "run_02-17-2026_201152/site/assets/media/assets-logos-wazuh-11e7cf3bd9.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "assets logos wazuh 11e7cf3bd9",
+      "alt": "logo artifact: assets logos wazuh 11e7cf3bd9",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/assets-logos-wazuh-11e7cf3bd9.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-badges-automation-25a851a2bd",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-badges-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets badges automation",
+      "alt": "logo artifact: site assets badges automation",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-badges-automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-badges-sigma-35512a97c2",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-badges-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "site assets badges sigma",
+      "alt": "logo artifact: site assets badges sigma",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-badges-sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-badges-splunk-1a037f643c",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-badges-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "site assets badges splunk",
+      "alt": "logo artifact: site assets badges splunk",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-badges-splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-badges-wazuh-4dc2d1af59",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-badges-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "site assets badges wazuh",
+      "alt": "logo artifact: site assets badges wazuh",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-badges-wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-favicon-2641013eae-10a4727858",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-favicon-2641013eae.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets favicon 2641013eae",
+      "alt": "logo artifact: site assets favicon 2641013eae",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-favicon-2641013eae.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 289,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-favicon-9174670eca",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-favicon.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets favicon",
+      "alt": "logo artifact: site assets favicon",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-favicon.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 289,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-icon-192-2dd33d303d-5999ed7a48",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-icon-192-2dd33d303d.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets icon 192 2dd33d303d",
+      "alt": "screenshot artifact: site assets icon 192 2dd33d303d",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-icon-192-2dd33d303d.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 1466,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "assets-media-site-assets-icon-192-d31f1b3996",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-icon-192.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets icon 192",
+      "alt": "screenshot artifact: site assets icon 192",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-icon-192.png",
+      "width": 192,
+      "height": 192,
+      "bytes": 1466,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "assets-media-site-assets-logos-automation-2db90e78c8",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-logos-automation.svg",
+      "type": "logo",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets logos automation",
+      "alt": "logo artifact: site assets logos automation",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-logos-automation.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 413,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-logos-sigma-6e5fd465a9",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-logos-sigma.svg",
+      "type": "logo",
+      "tags": [
+        "sigma",
+        "proof"
+      ],
+      "caption": "site assets logos sigma",
+      "alt": "logo artifact: site assets logos sigma",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-logos-sigma.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 243,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-logos-splunk-7a2916790f",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-logos-splunk.svg",
+      "type": "logo",
+      "tags": [
+        "splunk",
+        "proof"
+      ],
+      "caption": "site assets logos splunk",
+      "alt": "logo artifact: site assets logos splunk",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-logos-splunk.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 266,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-logos-wazuh-7dd0042eeb",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-logos-wazuh.svg",
+      "type": "logo",
+      "tags": [
+        "wazuh",
+        "proof"
+      ],
+      "caption": "site assets logos wazuh",
+      "alt": "logo artifact: site assets logos wazuh",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-logos-wazuh.svg",
+      "width": 64,
+      "height": 64,
+      "bytes": 273,
+      "suggested_placement": "global identity strip"
+    },
+    {
+      "id": "assets-media-site-assets-og-84f412f582-e180c6e934",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-og-84f412f582.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets og 84f412f582",
+      "alt": "screenshot artifact: site assets og 84f412f582",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-og-84f412f582.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 63868,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "assets-media-site-assets-og-054b0e022b",
+      "path": "run_02-17-2026_201152/site/assets/media/site-assets-og.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "site assets og",
+      "alt": "screenshot artifact: site assets og",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/media/site-assets-og.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 63868,
+      "suggested_placement": "home proof strip"
+    },
+    {
+      "id": "site-assets-og-ad76e477b5",
+      "path": "run_02-17-2026_201152/site/assets/og.png",
+      "type": "screenshot",
+      "tags": [
+        "proof"
+      ],
+      "caption": "og",
+      "alt": "screenshot artifact: og",
+      "privacy_review": "required",
+      "source": "run_02-17-2026_201152/site/assets/og.png",
+      "width": 1200,
+      "height": 630,
+      "bytes": 63868,
+      "suggested_placement": "home proof strip"
     },
     {
       "id": "assets-badges-automation-36aa2147ed",

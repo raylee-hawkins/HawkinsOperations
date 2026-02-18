@@ -2,7 +2,7 @@
 
 **Date:** 2026-02-09
 **Branch:** fix/single-source-truth
-**PR:** https://github.com/raylee-ops/HawkinsOperations/pull/2
+**PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2
 
 This document maps the consolidation of 4 GitHub repositories into HawkinsOperations as the single source of truth.
 
@@ -19,35 +19,35 @@ This document maps the consolidation of 4 GitHub repositories into HawkinsOperat
 ## Source Repositories
 
 ### 1. hawkinsops-framework
-- **URL:** https://github.com/raylee-ops/hawkinsops-framework
+- **URL:** https://github.com/raylee-hawkins/hawkinsops-framework
 - **Language:** Shell
 - **Stars:** 2
 - **Purpose:** Cross-platform automation framework
 - **Status after merge:** Archive recommended
 
 ### 2. hawkins_ops
-- **URL:** https://github.com/raylee-ops/hawkins_ops
+- **URL:** https://github.com/raylee-hawkins/hawkins_ops
 - **Language:** PowerShell
 - **Stars:** 1
 - **Purpose:** Windows navigation hub and operator index
 - **Status after merge:** Archive recommended
 
 ### 3. hawkinsops-site
-- **URL:** https://github.com/raylee-ops/hawkinsops-site
+- **URL:** https://github.com/raylee-hawkins/hawkinsops-site
 - **Language:** HTML
 - **Stars:** 0
 - **Purpose:** Public website
 - **Status after merge:** Archive recommended
 
 ### 4. RH_MIGRATION_2026_V2
-- **URL:** https://github.com/raylee-ops/RH_MIGRATION_2026_V2 (private)
+- **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)
 - **Language:** PowerShell
 - **Stars:** 0
 - **Purpose:** Filesystem migration project
 - **Status after merge:** Archive recommended
 
 ### 5. hawkinsops-soc-content
-- **URL:** https://github.com/raylee-ops/hawkinsops-soc-content (already archived)
+- **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)
 - **Status:** Already consolidated previously, no action needed
 
 ---
@@ -188,10 +188,10 @@ echo "test" > OUTPUTS/test/file.txt
 After merging this PR, archive the source repositories:
 
 ```bash
-gh repo archive raylee-ops/hawkinsops-framework --yes
-gh repo archive raylee-ops/hawkins_ops --yes
-gh repo archive raylee-ops/hawkinsops-site --yes
-gh repo archive raylee-ops/RH_MIGRATION_2026_V2 --yes
+gh repo archive raylee-hawkins/hawkinsops-framework --yes
+gh repo archive raylee-hawkins/hawkins_ops --yes
+gh repo archive raylee-hawkins/hawkinsops-site --yes
+gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes
 ```
 
 This makes them read-only while preserving URLs and history.
@@ -247,7 +247,8 @@ HawkinsOperations/                     ← SINGLE SOURCE OF TRUTH
 
 ## References
 
-- **Pull Request:** https://github.com/raylee-ops/HawkinsOperations/pull/2
+- **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2
 - **Branch:** fix/single-source-truth
 - **Implementation Date:** 2026-02-09
 - **Method:** Copy-import (no history merge)
+

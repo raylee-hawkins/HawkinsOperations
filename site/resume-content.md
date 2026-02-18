@@ -17,7 +17,7 @@ SOC Analyst (T1/T2) candidate focused on detection engineering and security auto
 
 ## Projects
 ### HawkinsOperations (Primary Portfolio Repo)
-- Built and maintain a detection and response library with verified inventory: 105 Sigma rules, 29 Wazuh rule blocks (25 XML files), 8 Splunk detections, and 10 IR playbooks.
+- Built and maintain a detection and response library with verified inventory sourced from `PROOF_PACK/VERIFIED_COUNTS.md` via generated site data.
 - Implemented proof-first validation workflow (scripts + documentation + CI alignment) so reviewers can reproduce claims directly from repo artifacts.
 
 ### SOC Triage Simulator

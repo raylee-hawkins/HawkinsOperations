@@ -27,14 +27,14 @@ The following repositories have been consolidated into **HawkinsOperations**:
 
 **Old Location:**
 ```bash
-git clone https://github.com/raylee-ops/hawkinsops-framework.git
+git clone https://github.com/raylee-hawkins/hawkinsops-framework.git
 source hawkinsops-framework/System/Config/hawkins_aliases.sh
 ./hawkinsops-framework/System/Scripts/auto_report
 ```
 
 **New Location:**
 ```bash
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 source HawkinsOperations/tools/framework-scripts/hawkins_aliases.sh
 ./HawkinsOperations/tools/framework-scripts/auto_report
 ```
@@ -49,14 +49,14 @@ source HawkinsOperations/tools/framework-scripts/hawkins_aliases.sh
 
 **Old Location:**
 ```powershell
-git clone https://github.com/raylee-ops/hawkins_ops.git
+git clone https://github.com/raylee-hawkins/hawkins_ops.git
 .\hawkins_ops\system\scripts\autosync.ps1
 Get-Content .\hawkins_ops\blueprints\rebuild_pack\02_rebuild_master_runbook.md
 ```
 
 **New Location:**
 ```powershell
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 .\HawkinsOperations\tools\windows-automation\autosync.ps1
 Get-Content .\HawkinsOperations\docs\blueprints\rebuild_pack\02_rebuild_master_runbook.md
 ```
@@ -71,14 +71,14 @@ Get-Content .\HawkinsOperations\docs\blueprints\rebuild_pack\02_rebuild_master_r
 
 **Old Location:**
 ```bash
-git clone https://github.com/raylee-ops/hawkinsops-site.git
+git clone https://github.com/raylee-hawkins/hawkinsops-site.git
 cd hawkinsops-site/hawkinsops-v2
 python3 -m http.server
 ```
 
 **New Location:**
 ```bash
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 cd HawkinsOperations/content/website/hawkinsops-v2
 python3 -m http.server
 ```
@@ -92,14 +92,14 @@ python3 -m http.server
 
 **Old Location:**
 ```powershell
-git clone https://github.com/raylee-ops/RH_MIGRATION_2026_V2.git  # Private repo
+git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo
 Get-Content .\RH_MIGRATION_2026_V2\AGENTS_PROJECT.md
 .\RH_MIGRATION_2026_V2\tools\validate_config.ps1 -ConfigPath config.json
 ```
 
 **New Location:**
 ```powershell
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 Get-Content .\HawkinsOperations\docs\migration-patterns\AGENTS_PROJECT.md
 .\HawkinsOperations\tools\migration-tools\validate_config.ps1 -ConfigPath config.json
 ```
@@ -138,17 +138,17 @@ If you have CI/CD pipelines or scripts that clone the old repositories:
 ```yaml
 steps:
   - name: Clone framework
-    run: git clone https://github.com/raylee-ops/hawkinsops-framework.git
+    run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git
 
   - name: Clone ops tools
-    run: git clone https://github.com/raylee-ops/hawkins_ops.git
+    run: git clone https://github.com/raylee-hawkins/hawkins_ops.git
 ```
 
 ### After (Single Repo)
 ```yaml
 steps:
   - name: Clone HawkinsOperations
-    run: git clone https://github.com/raylee-ops/HawkinsOperations.git
+    run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 
   - name: Use consolidated tools
     run: |
@@ -165,19 +165,19 @@ If you have documentation that links to the old repositories:
 **Update GitHub URLs:**
 ```markdown
 <!-- OLD -->
-See [hawkinsops-framework](https://github.com/raylee-ops/hawkinsops-framework)
+See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)
 
 <!-- NEW -->
-See [HawkinsOperations/tools](https://github.com/raylee-ops/HawkinsOperations/tree/main/tools)
+See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)
 ```
 
 **Update Clone Commands:**
 ```markdown
 <!-- OLD -->
-git clone https://github.com/raylee-ops/hawkins_ops.git
+git clone https://github.com/raylee-hawkins/hawkins_ops.git
 
 <!-- NEW -->
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 ```
 
 ---
@@ -187,7 +187,7 @@ git clone https://github.com/raylee-ops/HawkinsOperations.git
 If you need to see the original directory structure as it was imported:
 
 ```bash
-git clone https://github.com/raylee-ops/HawkinsOperations.git
+git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 cd HawkinsOperations/imports/
 
 # View original framework structure
@@ -226,7 +226,7 @@ ls -R RH_MIGRATION_2026_V2/
   - Content: [content/README.md](content/README.md)
   - Imports: [imports/README.md](imports/README.md)
 
-- **Issues:** Report at https://github.com/raylee-ops/HawkinsOperations/issues
+- **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues
 
 ---
 
@@ -238,3 +238,4 @@ ls -R RH_MIGRATION_2026_V2/
 3. ✅ Simplified discovery - everything in one place
 4. ✅ Cleaner GitHub org - one canonical repo
 5. ✅ Portfolio ready - professional presentation
+

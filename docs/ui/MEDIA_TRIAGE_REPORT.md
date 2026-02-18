@@ -1,10 +1,10 @@
 # MEDIA TRIAGE REPORT
 
-Generated: `2026-02-15`
+Generated: `2026-02-18`
 
-- Total discovered assets: **58**
+- Total discovered assets: **91**
 - Safe to publish: **11**
-- Needs privacy review: **47**
+- Needs privacy review: **80**
 
 ## Top 10 safe to publish
 

@@ -20,8 +20,8 @@ SKILLS
 EXPERIENCE / PROJECTS
 - HawkinsOperations (Primary Portfolio Repo)
   - Built and maintain a detection and response library with verified inventory:
-    105 Sigma rules, 29 Wazuh rule blocks (25 XML files), 8 Splunk detections,
-    and 10 IR playbooks.
+    platform counts are sourced from PROOF_PACK/VERIFIED_COUNTS.md and rendered
+    from generated verified-counts data.
   - Implemented proof-first validation workflow so reviewers can reproduce claims
     directly from repository artifacts.
 
