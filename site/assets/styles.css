@@ -62,7 +62,7 @@
         }
         html{scroll-behavior:smooth}
         body{font-family:var(--sans);background:var(--page-bg);color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-        body::before{content:'';position:fixed;inset:0;background:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+        body::before{content:none}
         body::after{
             content:'';
             position:fixed;

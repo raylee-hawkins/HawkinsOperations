@@ -357,7 +357,7 @@
 
     function drawFrame(staticOnly) {
       var rgb = themeRgb();
-      var edge = 158;
+      var edge = 112;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -381,7 +381,8 @@
           var dy = na.y - nb.y;
           var dist = Math.sqrt(dx * dx + dy * dy);
           if (dist > edge) continue;
-          var alpha = (1 - dist / edge) * 0.16;
+          if ((a + b) % 5 !== 0) continue;
+          var alpha = (1 - dist / edge) * 0.045;
           ctx.strokeStyle = "rgba(" + rgb + ", " + alpha.toFixed(3) + ")";
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -393,7 +394,7 @@
 
       for (var j = 0; j < nodes.length; j += 1) {
         var node = nodes[j];
-        ctx.fillStyle = "rgba(" + rgb + ", 0.44)";
+        ctx.fillStyle = "rgba(" + rgb + ", 0.22)";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
         ctx.fill();
