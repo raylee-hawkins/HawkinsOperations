@@ -1,6 +1,6 @@
 # Static Site Diagnosis Report
 
-Generated: `2026-02-18T00:17:53.397Z`
+Generated: `2026-02-18T00:25:33.941Z`
 Root: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 Site directory: `site`
 
@@ -168,9 +168,9 @@ netlify hits:
 - `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:8` Name:    hawkinsoperations.netlify.app
 - `README.md:73` node .\scripts\verify\no-netlify.js
 - `README.md:153` - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
-- `scripts/verify/no-netlify.js:32` path.join("scripts", "verify", "no-netlify.js").replaceAll("\\", "/"),
-- `scripts/verify/no-netlify.js:57` .replaceAll("scripts/verify/no-netlify.js", "scripts/verify/no-hosting-check.js")
-- `scripts/verify/no-netlify.js:58` .replaceAll(".\\scripts\\verify\\no-netlify.js", ".\\scripts\\verify\\no-hosting-check.js");
+- `scripts/verify/no-netlify.js:35` path.join("scripts", "verify", "no-netlify.js").replaceAll("\\", "/"),
+- `scripts/verify/no-netlify.js:69` .replaceAll("scripts/verify/no-netlify.js", "scripts/verify/no-hosting-check.js")
+- `scripts/verify/no-netlify.js:70` .replaceAll(".\\scripts\\verify\\no-netlify.js", ".\\scripts\\verify\\no-hosting-check.js");
 - `scripts/verify/README.md:5` - `no-netlify.js` enforces Cloudflare-only hosting consistency.
 - `scripts/verify/README.md:18` node .\scripts\verify\no-netlify.js
 - `site/README_DEPLOY.md:19` - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`

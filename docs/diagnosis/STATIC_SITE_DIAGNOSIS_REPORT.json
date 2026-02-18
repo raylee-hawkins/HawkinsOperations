@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-18T00:17:53.397Z",
+  "generatedAt": "2026-02-18T00:25:33.941Z",
   "environment": {
     "cwd": "C:\\RH\\OPS\\PUBLISH\\GITHUB\\repos\\HawkinsOperations",
     "siteDir": "site"
@@ -693,17 +693,17 @@
         },
         {
           "file": "scripts/verify/no-netlify.js",
-          "line": 32,
+          "line": 35,
           "text": "  path.join(\"scripts\", \"verify\", \"no-netlify.js\").replaceAll(\"\\\\\", \"/\"),"
         },
         {
           "file": "scripts/verify/no-netlify.js",
-          "line": 57,
+          "line": 69,
           "text": "    .replaceAll(\"scripts/verify/no-netlify.js\", \"scripts/verify/no-hosting-check.js\")"
         },
         {
           "file": "scripts/verify/no-netlify.js",
-          "line": 58,
+          "line": 70,
           "text": "    .replaceAll(\".\\\\scripts\\\\verify\\\\no-netlify.js\", \".\\\\scripts\\\\verify\\\\no-hosting-check.js\");"
         },
         {
