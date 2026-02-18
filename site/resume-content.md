@@ -1,6 +1,6 @@
 # Raylee Hawkins
 North Alabama (Huntsville-adjacent)
-raylee@hawkinsops.com | https://github.com/raylee-hawkins | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins
+raylee@hawkinsops.com | https://github.com/raylee-ops | https://hawkinsops.com | https://linkedin.com/in/raylee-hawkins
 
 ## Headline
 SOC Analyst (T1/T2) candidate focused on detection engineering and security automation.
