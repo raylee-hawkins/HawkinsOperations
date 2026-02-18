@@ -7,10 +7,24 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
   const html = document.documentElement;
+  function readThemePreference() {
+    try {
+      return localStorage.getItem('rh-theme');
+    } catch {
+      return null;
+    }
+  }
+  function writeThemePreference(value) {
+    try {
+      localStorage.setItem('rh-theme', value);
+    } catch {
+      // ignore persistence errors in locked-down browser modes
+    }
+  }
 
   // Theme toggle (saved preference, otherwise system preference)
   const themeToggle = $('#themeToggle');
-  const savedTheme = localStorage.getItem('rh-theme');
+  const savedTheme = readThemePreference();
   const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   const startTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
   html.setAttribute('data-theme', startTheme);
@@ -27,7 +41,7 @@
       const current = html.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
-      localStorage.setItem('rh-theme', next);
+      writeThemePreference(next);
       updateThemeButton(next);
     });
   }
