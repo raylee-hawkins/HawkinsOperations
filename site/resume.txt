@@ -3,7 +3,7 @@ SOC Analyst (T1/T2) candidate focused on detection engineering and security auto
 
 Location: North Alabama (Huntsville-adjacent)
 Email: raylee@hawkinsops.com
-GitHub: https://github.com/raylee-hawkins
+GitHub: https://github.com/raylee-ops
 Portfolio: https://hawkinsops.com
 LinkedIn: https://linkedin.com/in/raylee-hawkins
 

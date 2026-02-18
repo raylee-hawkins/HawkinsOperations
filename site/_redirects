@@ -1,8 +1,4 @@
 # Cloudflare Pages serves extensionless routes for matching .html files.
 # Keep this file for canonical file-path redirects only.
-/security/ /security 301
-/projects/ /projects 301
-/lab/ /lab 301
-/proof/ /proof 301
 /Raylee_Hawkins_Resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301
 /assets/raylee_hawkins_resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301

@@ -13,25 +13,13 @@ If you only upload `index.html`, the resume PDF and styling will 404 (because ho
 
 ## Hosting strategy
 - Primary production hosting: **Cloudflare Pages**
-- Publish directory: `site/`
-- Recommended Node version pin: read from `.node-version`
-- Cloudflare Pages build command:
-  - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`
+- Rollback hosting: **Netlify** (rollback-only, previews disabled to reduce credit burn)
+- Publish directory for both hosts: `site/`
 
-## Update counts and listing data
-Counts and structured listing data are generated from repo source files:
-- Verified counts source: `PROOF_PACK/VERIFIED_COUNTS.md`
-- Listing content source: `content/projects.json` and `content/detections.json`
+## Update counts
+Counts are sourced from your repo releases / verification artifacts:
+- `raylee-ops/HawkinsOperations`
+- Local verification script: `scripts/verify/verify-counts.ps1`
 
-Generate publish artifacts:
+When counts change, update the numbers on `index.html`, `security.html`, and `proof.html` (search for the digits).
 
-```powershell
-node .\scripts\generate-site-data.js
-node .\scripts\generate-site-content.js
-node .\scripts\generate-media-manifest.js
-```
-
-Generated files:
-- `site/assets/verified-counts.json`
-- `site/assets/data/projects.json`
-- `site/assets/data/detections.json`

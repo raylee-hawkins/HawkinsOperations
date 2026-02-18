@@ -1,266 +1,278 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | Evidence-First SOC Portfolio</title>
+<title>HawkinsOps | Raylee Hawkins | Home</title>
+<meta name="description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Evidence-first SOC portfolio with reproducible proof, verified counts, and practical detection engineering artifacts.">
-<meta name="theme-color" content="#05060a">
+<meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HawkinsOps | Evidence-First SOC Portfolio">
-<meta property="og:description" content="Evidence-first SOC portfolio with reproducible proof, verified counts, and practical detection engineering artifacts.">
+<meta property="og:title" content="HawkinsOps | Raylee Hawkins | Home">
+<meta property="og:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
 <meta property="og:url" content="https://hawkinsops.com/">
 <meta property="og:image" content="https://hawkinsops.com/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HawkinsOps | Evidence-First SOC Portfolio">
-<meta name="twitter:description" content="Evidence-first SOC portfolio with reproducible proof, verified counts, and practical detection engineering artifacts.">
+<meta name="twitter:title" content="HawkinsOps | Raylee Hawkins | Home">
+<meta name="twitter:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/og.png">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
-<script>
-  (function () {
-    try {
-      var stored = localStorage.getItem("rh-theme");
-      var theme = stored === "light" || stored === "dark" ? stored : "dark";
-      document.documentElement.setAttribute("data-theme", theme);
-    } catch (err) {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  })();
-</script>
-<link rel="stylesheet" href="/assets/home.css">
-</head>
-<body class="home-page">
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<canvas id="neuralBg" class="neural-bg" aria-hidden="true"></canvas>
-<div class="bg-vignette" aria-hidden="true"></div>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('rh-theme');
+      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
 
-<header id="siteHeader" class="site-header">
-  <div class="nav-shell">
-    <a class="brand" href="/" aria-label="HawkinsOps home">
-      <span class="brand-mark" aria-hidden="true">RH</span>
-      <span class="brand-text">HawkinsOps</span>
-    </a>
-    <button id="menuToggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
-    <nav id="siteNav" class="site-nav" aria-label="Primary">
-      <a class="nav-link is-active" href="/" aria-current="page">Home</a>
-      <a class="nav-link" href="/projects.html">Projects</a>
-      <a class="nav-link" href="/security.html">Security</a>
-      <a class="nav-link" href="/lab.html">Lab</a>
-      <a class="nav-link" href="/triage.html">Triage</a>
-      <a class="nav-link" href="/proof.html">Proof</a>
-      <a class="nav-link" href="/resume.html">Resume</a>
-    </nav>
-    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to light mode">Light mode</button>
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="index.html"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="security.html">Security</a></li>
+      <li><a href="lab.html">Lab</a></li>
+      <li><a href="triage.html">Triage</a></li>
+      <li><a href="proof.html">Proof</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="security.html">Security</a>
+  <a href="lab.html">Lab</a>
+  <a href="triage.html">Triage</a>
+  <a href="proof.html">Proof</a>
+  <a href="resume.html">Resume</a>
+</div>
+
+<header class="hero">
+  <div class="hero-glow"></div>
+  <div class="ctr">
+    <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
+    <h1 class="htitle">Detection content that’s <span class="hl">tested</span>, mapped, and deployable.</h1>
+    <p class="hsub">
+      Sigma, Wazuh, and Splunk detections plus IR playbooks and a triage simulator.
+      Everything is auditable in GitHub.
+    </p>
+
+    <div class="hproof">
+      <b>Proof</b> over vibes:
+      <br>• Clone the repo
+      <br>• Run the verify commands
+      <br>• Match the counts
+    </div>
+    <div class="hero-icons" aria-label="Proof highlights">
+      <span class="ico-chip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
+        Verified artifacts
+      </span>
+      <span class="ico-chip">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
+        Reproducible commands
+      </span>
+    </div>
+
+    <div class="roles">
+      <span class="rtag on">Open to roles</span>
+      <span class="rtag">SOC Analyst (T1/T2)</span>
+      <span class="rtag">Detection Engineer</span>
+      <span class="rtag">Security Automation</span>
+      <span class="rtag">DFIR (Junior)</span>
+    </div>
+
+    <div class="hctas">
+      <a class="btn btn-p" href="https://github.com/raylee-ops/HawkinsOperations" target="_blank" rel="noreferrer">Clone the repo</a>
+      <a class="btn btn-g" href="proof.html">See the proof pack</a>
+      <a class="btn btn-g" href="mailto:raylee@hawkinsops.com">Email me</a>
+    </div>
+
+    <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
+    <div class="lupd">Counts and links align to <code>raylee-ops/HawkinsOperations</code> (verified, reproducible today).</div>
   </div>
 </header>
 
-<main id="main-content">
-  <section class="section-shell hero-section" aria-labelledby="hero-title">
-    <div class="hero-grid">
-      <div class="hero-copy glass">
-        <p class="eyebrow">Evidence-First SOC Portfolio</p>
-        <h1 id="hero-title">Detection engineering you can reproduce, validate, and verify.</h1>
-        <p class="hero-subhead">
-          Built for technical review: reproducible proof paths, verified counts, and practical tooling across Sigma, Wazuh, Splunk, and incident response lanes.
-        </p>
-        <p class="clearance-line">Eligible to obtain clearance; willing to pursue sponsorship.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="/proof.html">View Proof Pack</a>
-          <a class="btn btn-secondary" href="#" data-gh-url="" target="_blank" rel="noreferrer">Clone + Verify</a>
+<section style="padding-top:0">
+  <div class="ctr">
+    <div class="mstrip">
+      <div class="met">
+        <div class="met-v">142</div>
+        <div class="met-l">Verified detections (today)</div>
+      </div>
+      <div class="met">
+        <div class="met-v">105</div>
+        <div class="met-l">Verified Sigma rules</div>
+      </div>
+      <div class="met">
+        <div class="met-v">29</div>
+        <div class="met-l">Verified Wazuh blocks</div>
+      </div>
+      <div class="met">
+        <div class="met-v">8</div>
+        <div class="met-l">Verified Splunk queries</div>
+      </div>
+      <div class="met">
+        <div class="met-v">10</div>
+        <div class="met-l">Verified IR playbooks</div>
+      </div>
+    </div>
+    <div class="lupd" style="margin-top:8px">Only verified counts are shown. "Total library" is intentionally omitted.</div>
+    <div class="lupd" style="margin-top:8px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
+  </div>
+</section>
+
+<section style="padding-top:24px">
+  <div class="ctr">
+    <div class="slbl">Tools</div>
+    <h2 class="stitle">Platform fluency at a glance</h2>
+    <div class="tools-grid">
+      <div class="tool-badge"><span class="tool-glyph" aria-hidden="true">W</span><div><b>Wazuh</b><span>Rule blocks + validation</span></div></div>
+      <div class="tool-badge"><span class="tool-glyph" aria-hidden="true">S</span><div><b>Splunk</b><span>SPL detections and pivots</span></div></div>
+      <div class="tool-badge"><span class="tool-glyph" aria-hidden="true">Sg</span><div><b>Sigma</b><span>Portable detection rules</span></div></div>
+      <div class="tool-badge"><span class="tool-glyph" aria-hidden="true">A</span><div><b>Automation</b><span>Tines/Torq-ready workflow mindset</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">About</div>
+    <h2 class="stitle">Who I am and what this portfolio proves</h2>
+    <div class="about-box">
+      <p>I am targeting Huntsville-area security roles and I built this portfolio to make recruiter and technical screening fast.</p>
+      <p>My current base is Gadsden, Alabama, about an hour from Huntsville, and I can commute now while I interview.</p>
+      <p>I am relocating soon, and my lease is flexible month-to-month after May, so location logistics are already planned.</p>
+      <p>My focus is SOC Analyst (T1/T2), Junior Detection Engineering, and Security Automation where I can contribute quickly.</p>
+      <p>Every claim here is tied to reproducible commands and repository artifacts, so teams can validate fit without guesswork.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Featured projects</div>
+    <h2 class="stitle">Three things recruiters can verify fast</h2>
+    <p class="sdesc">Homepage stays lean. Details live on the dedicated pages.</p>
+
+    <div class="g3">
+      <a class="card" href="proof.html" style="text-decoration:none">
+        <div class="card-click">Click →</div>
+        <div class="card-ttl">Proof Pack (90-sec path)</div>
+        <div class="card-sub">Start here, run counts, validate structure, move on.</div>
+        <div class="card-meta">
+          <span class="tag">START_HERE.md</span><span class="tag">VERIFIED_COUNTS.md</span><span class="tag">No hand-waving</span>
         </div>
-        <ul class="cred-bar" aria-label="Tooling and credibility highlights">
-          <li>Sigma</li>
-          <li>Wazuh</li>
-          <li>MITRE ATT&amp;CK</li>
-          <li>Reproducible Proof</li>
-          <li>Automation / Detection Engineering</li>
-        </ul>
-      </div>
-      <aside class="hero-proof glass" aria-label="Verification workflow">
-        <h2>How reviewers verify this portfolio</h2>
-        <ol>
-          <li>Clone the repository and inspect the artifact inventory.</li>
-          <li>Run the validation script to confirm published counts.</li>
-          <li>Cross-check detections and proof records in the source tree.</li>
-        </ol>
-        <pre aria-label="Verification commands"><code><span data-gh-clone>git clone &lt;repo-url&gt;</span>
-cd <span data-gh-repo>repo-folder</span>
-pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code></pre>
-        <p class="proof-links">
-          <a href="#" data-gh-url="blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">Source of truth</a>
-          <span aria-hidden="true">|</span>
-          <a href="/assets/Raylee_Hawkins_Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
-        </p>
-      </aside>
-    </div>
-  </section>
+      </a>
 
-  <section class="section-shell" aria-labelledby="kpi-title">
-    <div class="section-head">
-      <p class="eyebrow">Impact Dashboard</p>
-      <h2 id="kpi-title">Verified portfolio metrics</h2>
-      <p>Numbers are loaded from the verification artifact with safe fallback values for reliability.</p>
-    </div>
-    <div class="kpi-grid" id="kpiGrid">
-      <article class="kpi-card glass" data-kpi="detections" style="--p:100">
-        <header>
-          <h3 id="kpi-detections">142</h3>
-          <svg class="kpi-ring" viewBox="0 0 44 44" aria-hidden="true">
-            <circle class="kpi-ring-bg" cx="22" cy="22" r="19"></circle>
-            <circle class="kpi-ring-fill" cx="22" cy="22" r="19"></circle>
-          </svg>
-        </header>
-        <p>Verified detections</p>
-      </article>
-      <article class="kpi-card glass" data-kpi="sigma" style="--p:74">
-        <header>
-          <h3 id="kpi-sigma">105</h3>
-          <svg class="kpi-ring" viewBox="0 0 44 44" aria-hidden="true">
-            <circle class="kpi-ring-bg" cx="22" cy="22" r="19"></circle>
-            <circle class="kpi-ring-fill" cx="22" cy="22" r="19"></circle>
-          </svg>
-        </header>
-        <p>Sigma rules</p>
-      </article>
-      <article class="kpi-card glass" data-kpi="wazuh" style="--p:20">
-        <header>
-          <h3 id="kpi-wazuh">29</h3>
-          <svg class="kpi-ring" viewBox="0 0 44 44" aria-hidden="true">
-            <circle class="kpi-ring-bg" cx="22" cy="22" r="19"></circle>
-            <circle class="kpi-ring-fill" cx="22" cy="22" r="19"></circle>
-          </svg>
-        </header>
-        <p>Wazuh rule blocks</p>
-      </article>
-      <article class="kpi-card glass" data-kpi="splunk" style="--p:8">
-        <header>
-          <h3 id="kpi-splunk">8</h3>
-          <svg class="kpi-ring" viewBox="0 0 44 44" aria-hidden="true">
-            <circle class="kpi-ring-bg" cx="22" cy="22" r="19"></circle>
-            <circle class="kpi-ring-fill" cx="22" cy="22" r="19"></circle>
-          </svg>
-        </header>
-        <p>Splunk detections</p>
-      </article>
-      <article class="kpi-card glass" data-kpi="ir" style="--p:10">
-        <header>
-          <h3 id="kpi-ir">10</h3>
-          <svg class="kpi-ring" viewBox="0 0 44 44" aria-hidden="true">
-            <circle class="kpi-ring-bg" cx="22" cy="22" r="19"></circle>
-            <circle class="kpi-ring-fill" cx="22" cy="22" r="19"></circle>
-          </svg>
-        </header>
-        <p>IR playbooks</p>
-      </article>
-      <article class="kpi-card glass kpi-date-card">
-        <header>
-          <h3 id="verifiedOn">2026-02-15</h3>
-        </header>
-        <p>Verified on</p>
-      </article>
-    </div>
-    <p class="meta-note">
-      Source: <a href="#" data-gh-url="blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noreferrer">PROOF_PACK/VERIFIED_COUNTS.md</a>
-    </p>
-  </section>
+      <a class="card" href="security.html" style="text-decoration:none">
+        <div class="card-click">Click →</div>
+        <div class="card-ttl">Detections Library</div>
+        <div class="card-sub">Sigma + Wazuh + Splunk detections, mapped and organized.</div>
+        <div class="card-meta">
+          <span class="tag">Sigma 105</span><span class="tag">Wazuh 29</span><span class="tag">Splunk 8</span>
+        </div>
+      </a>
 
-  <section class="section-shell" aria-labelledby="featured-title">
-    <div class="section-head">
-      <p class="eyebrow">Featured Proof</p>
-      <h2 id="featured-title">What the evidence demonstrates</h2>
-    </div>
-    <div class="feature-grid">
-      <article class="feature-card glass">
-        <h3>Detection Engineering</h3>
-        <p>Sigma and custom logic tuned for practical SOC triage and mapping quality.</p>
-        <p class="proof-detail">Proof detail: <strong>105 Sigma rules</strong> in versioned inventory.</p>
-        <a href="#" data-gh-url="tree/main/detection-rules/sigma" target="_blank" rel="noreferrer">View</a>
-      </article>
-      <article class="feature-card glass">
-        <h3>IR Playbooks</h3>
-        <p>Actionable response playbooks aligned to triage and escalation workflows.</p>
-        <p class="proof-detail">Proof detail: <strong>10 playbooks</strong> under incident response controls.</p>
-        <a href="#" data-gh-url="tree/main/incident-response/playbooks" target="_blank" rel="noreferrer">View</a>
-      </article>
-      <article class="feature-card glass">
-        <h3>Lab Validation</h3>
-        <p>Attack simulation outputs tied to evidence capture and reproducible checks.</p>
-        <p class="proof-detail">Proof detail: validation lane with Cloudflare Pages production path.</p>
-        <a href="/proof.html#verified-lane">View</a>
-      </article>
-    </div>
-  </section>
+      <a class="card" href="projects.html" style="text-decoration:none">
+        <div class="card-click">Click →</div>
+        <div class="card-ttl">RH_MIGRATION_2026_V2</div>
+        <div class="card-sub">Migration proof trail and execution artifacts (portfolio-grade).</div>
+        <div class="card-meta">
+          <span class="tag">Runbooks</span><span class="tag">Evidence</span><span class="tag">Change control</span>
+        </div>
+      </a>
 
-  <section class="section-shell" aria-labelledby="tags-title">
-    <div class="section-head">
-      <p class="eyebrow">Detection Coverage</p>
-      <h2 id="tags-title">Detections by tag</h2>
-      <p id="tagCoverageStatus">Loading current tag coverage...</p>
+      <a class="card" href="case-study.html" style="text-decoration:none">
+        <div class="card-click">Click →</div>
+        <div class="card-ttl">Mini Case Study</div>
+        <div class="card-sub">How I built + validated 29 Wazuh rule blocks in a reproducible workflow.</div>
+        <div class="card-meta">
+          <span class="tag">Case study</span><span class="tag">Wazuh</span><span class="tag">Verification</span>
+        </div>
+      </a>
     </div>
-    <div class="glass tag-shell" id="tagCoverage" role="status" aria-live="polite" aria-busy="true">
-      <div class="tag-loading">
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-shell" aria-labelledby="workflow-title">
-    <div class="section-head">
-      <p class="eyebrow">Workflow</p>
-      <h2 id="workflow-title">Detection-to-verification pipeline</h2>
+<section>
+  <div class="ctr">
+    <div class="slbl">Writing</div>
+    <h2 class="stitle">Technical write-up</h2>
+    <div class="writing-grid">
+      <a class="card" href="blog-python2-to-python3.html" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Migrating Legacy Detection Rules from Python 2 to Python 3</div>
+        <div class="card-sub">A practical migration path for legacy-heavy environments and SOC engineering teams.</div>
+      </a>
     </div>
-    <div class="glass workflow-shell">
-      <ol class="workflow-list" aria-label="SOC pipeline">
-        <li>Telemetry</li>
-        <li>Ingest</li>
-        <li>Normalize</li>
-        <li>Detect</li>
-        <li>Alert</li>
-        <li>Triage</li>
-        <li>Validate</li>
-        <li>Report</li>
-      </ol>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-shell" aria-labelledby="verify-title">
-    <div class="section-head">
-      <p class="eyebrow">Trust Anchor</p>
-      <h2 id="verify-title">How to verify my work</h2>
-    </div>
-    <ol class="verify-grid">
-      <li class="glass">
-        <h3>Clone repo</h3>
-        <p>Pull the exact artifacts and paths referenced on this homepage.</p>
-      </li>
-      <li class="glass">
-        <h3>Run validation script</h3>
-        <p>Execute <code>scripts/verify/verify-counts.ps1</code> and compare outputs.</p>
-      </li>
-      <li class="glass">
-        <h3>Reproduce alerts + evidence</h3>
-        <p>Match detection inventory to proof links and verification artifacts.</p>
-      </li>
-    </ol>
-  </section>
-</main>
+<section>
+  <div class="ctr">
+    <div class="slbl">Featured work</div>
+    <h2 class="stitle">Pick a lane, then drill down</h2>
+    <p class="sdesc">These tiles are interactive and expandable on their pages. No dead squares.</p>
 
-<footer class="site-footer">
-  <div class="footer-shell">
-    <p><strong>HawkinsOps</strong> • Cloudflare Pages production • North Alabama</p>
-    <div class="footer-links">
-      <a href="#" data-gh-url="" target="_blank" rel="noreferrer">GitHub</a>
+    <div class="g2">
+      <a class="card" href="security.html" style="text-decoration:none">
+        <div class="card-click">Open →</div>
+        <div class="card-ttl">Security & Playbooks</div>
+        <div class="card-sub">Deployable rules, IR playbooks, and validation commands.</div>
+      </a>
+
+      <a class="card" href="lab.html" style="text-decoration:none">
+        <div class="card-click">Open →</div>
+        <div class="card-ttl">Home Lab</div>
+        <div class="card-sub">Proxmox + Wazuh + Splunk testbed. Redacted screenshots supported.</div>
+      </a>
+
+      <a class="card" href="triage.html" style="text-decoration:none">
+        <div class="card-click">Open →</div>
+        <div class="card-ttl">Triage Simulator</div>
+        <div class="card-sub">SOC workflow practice: context, pivots, and evidence checklist.</div>
+      </a>
+
+      <a class="card" href="resume.html" style="text-decoration:none">
+        <div class="card-click">Open →</div>
+        <div class="card-ttl">Resume</div>
+        <div class="card-sub">Project-heavy resume + downloadable PDF.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-ops/HawkinsOperations" target="_blank" rel="noreferrer">GitHub</a>
       <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
       <a href="mailto:raylee@hawkinsops.com">raylee@hawkinsops.com</a>
     </div>
-    <p class="copyright">© <span id="yearNow">2026</span> Raylee Hawkins</p>
   </div>
 </footer>
-<script src="/assets/fetch-utils.js" defer></script>
-<script src="/assets/home.js" defer></script>
+<script src="assets/app.js" defer></script>
 </body>
 </html>
