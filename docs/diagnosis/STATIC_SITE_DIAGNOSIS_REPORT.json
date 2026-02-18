@@ -1,0 +1,1122 @@
+{
+  "generatedAt": "2026-02-18T00:17:53.397Z",
+  "environment": {
+    "cwd": "C:\\RH\\OPS\\PUBLISH\\GITHUB\\repos\\HawkinsOperations",
+    "siteDir": "site"
+  },
+  "coverage": {
+    "htmlFilesScanned": 10,
+    "jsFilesScanned": 8,
+    "fetchCallsFound": 0
+  },
+  "checks": {
+    "assetPathAudit": {
+      "siteConvention": "absolute_root",
+      "absoluteTotal": 53,
+      "relativeTotal": 0,
+      "homepageAbsoluteInnerRelativePattern": false,
+      "pagesDifferingFromConvention": [],
+      "perPage": [
+        {
+          "page": "site/404.html",
+          "canonicalHref": "https://hawkinsops.com/404",
+          "localAbsoluteCount": 3,
+          "localRelativeCount": 0,
+          "externalCount": 1,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/blog-python2-to-python3.html",
+          "canonicalHref": "https://hawkinsops.com/blog-python2-to-python3",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 4,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/case-study.html",
+          "canonicalHref": "https://hawkinsops.com/case-study",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 4,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/index.html",
+          "canonicalHref": "https://hawkinsops.com/",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 1,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/lab.html",
+          "canonicalHref": "https://hawkinsops.com/lab",
+          "localAbsoluteCount": 6,
+          "localRelativeCount": 0,
+          "externalCount": 1,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/projects.html",
+          "canonicalHref": "https://hawkinsops.com/projects",
+          "localAbsoluteCount": 7,
+          "localRelativeCount": 0,
+          "externalCount": 1,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/proof.html",
+          "canonicalHref": "https://hawkinsops.com/proof",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 4,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/resume.html",
+          "canonicalHref": "https://hawkinsops.com/resume",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 4,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/security.html",
+          "canonicalHref": "https://hawkinsops.com/security",
+          "localAbsoluteCount": 7,
+          "localRelativeCount": 0,
+          "externalCount": 1,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        },
+        {
+          "page": "site/triage.html",
+          "canonicalHref": "https://hawkinsops.com/triage",
+          "localAbsoluteCount": 5,
+          "localRelativeCount": 0,
+          "externalCount": 4,
+          "specialCount": 0,
+          "mixedLocalAssetStrategy": false,
+          "duplicateIds": []
+        }
+      ]
+    },
+    "canonicalization": {
+      "redirectsFilePresent": true,
+      "headersFilePresent": true,
+      "redirectsPreview": [
+        "# Cloudflare Pages serves extensionless routes for matching .html files.",
+        "# Keep this file for canonical file-path redirects only.",
+        "/security/ /security 301",
+        "/projects/ /projects 301",
+        "/lab/ /lab 301",
+        "/proof/ /proof 301",
+        "/Raylee_Hawkins_Resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301",
+        "/assets/raylee_hawkins_resume.pdf /assets/Raylee_Hawkins_Resume.pdf 301",
+        ""
+      ],
+      "headersPreview": [
+        "/*",
+        "  X-Content-Type-Options: nosniff",
+        "  Referrer-Policy: strict-origin-when-cross-origin",
+        "  X-Frame-Options: DENY",
+        "  Permissions-Policy: camera=(), microphone=(), geolocation=()",
+        "  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
+        "",
+        "/resume.txt",
+        "  Content-Type: text/plain; charset=utf-8",
+        ""
+      ],
+      "canonicalKinds": {
+        "file": 0,
+        "pretty_no_slash": 9,
+        "pretty_with_slash": 0,
+        "root": 1,
+        "other": 0
+      },
+      "canonicalizationIntent": "pretty_no_slash",
+      "trailingSlashHazards": []
+    },
+    "localResolver": {
+      "localAssetMissingReferences": []
+    },
+    "fetchAudit": {
+      "inconsistentLocalFetchStrategies": false,
+      "timeoutRiskFiles": [],
+      "fetchEntries": [],
+      "suspiciousFetches": []
+    },
+    "dataArtifacts": {
+      "expectedArtifacts": [
+        {
+          "file": "site/assets/verified-counts.json",
+          "exists": true
+        },
+        {
+          "file": "site/assets/data/detections.json",
+          "exists": true
+        },
+        {
+          "file": "site/assets/data/media.json",
+          "exists": true
+        },
+        {
+          "file": "site/assets/data/projects.json",
+          "exists": true
+        }
+      ],
+      "referencedJsonUrls": [],
+      "generatorScriptEvidence": [
+        {
+          "file": "scripts/diagnose-site.js",
+          "line": 16,
+          "text": "  \"site/assets/verified-counts.json\","
+        },
+        {
+          "file": "scripts/diagnose-site.js",
+          "line": 17,
+          "text": "  \"site/assets/data/detections.json\","
+        },
+        {
+          "file": "scripts/diagnose-site.js",
+          "line": 18,
+          "text": "  \"site/assets/data/media.json\","
+        },
+        {
+          "file": "scripts/diagnose-site.js",
+          "line": 19,
+          "text": "  \"site/assets/data/projects.json\""
+        },
+        {
+          "file": "scripts/diagnose-site.js",
+          "line": 586,
+          "text": "      \"Check Cloudflare build logs for generation script execution and verify deployed files under /assets/data and /assets/verified-counts.json.\","
+        },
+        {
+          "file": "scripts/generate-site-data.js",
+          "line": 8,
+          "text": "const outPath = path.join(root, \"site\", \"assets\", \"verified-counts.json\");"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 9,
+          "text": "  `${baseUrl}/assets/data/detections.json`,"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 10,
+          "text": "  `${baseUrl}/assets/data/media.json`,"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 11,
+          "text": "  `${baseUrl}/assets/verified-counts.json`"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 15,
+          "text": "  `${baseUrl}/assets/data/detections.json`,"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 16,
+          "text": "  `${baseUrl}/assets/data/media.json`,"
+        },
+        {
+          "file": "scripts/smoke-production.js",
+          "line": 17,
+          "text": "  `${baseUrl}/assets/verified-counts.json`"
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 106,
+          "text": "  \"$BaseUrl/assets/data/detections.json\","
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 107,
+          "text": "  \"$BaseUrl/assets/data/media.json\","
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 108,
+          "text": "  \"$BaseUrl/assets/verified-counts.json\""
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 122,
+          "text": "  \"$BaseUrl/assets/data/detections.json\","
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 123,
+          "text": "  \"$BaseUrl/assets/data/media.json\","
+        },
+        {
+          "file": "scripts/smoke-production.ps1",
+          "line": 124,
+          "text": "  \"$BaseUrl/assets/verified-counts.json\""
+        }
+      ],
+      "cloudflareOutputEvidence": [
+        {
+          "file": "README.md",
+          "line": 95,
+          "text": "| `site/` | static portfolio site source | published recruiter-facing web content |"
+        },
+        {
+          "file": "README.md",
+          "line": 114,
+          "text": "      |-- generate-site-content.js      -> site/assets/data/*.json"
+        },
+        {
+          "file": "README.md",
+          "line": 139,
+          "text": "- Runtime remains static HTML/CSS/JS under `site/` (no framework lock-in)."
+        },
+        {
+          "file": "README.md",
+          "line": 140,
+          "text": "- Design tokens and fluid layout primitives: `site/assets/design-system.css`."
+        },
+        {
+          "file": "README.md",
+          "line": 142,
+          "text": "  - `site/projects.html` reads `site/assets/data/projects.json`."
+        },
+        {
+          "file": "README.md",
+          "line": 143,
+          "text": "  - `site/security.html` reads `site/assets/data/detections.json`."
+        },
+        {
+          "file": "README.md",
+          "line": 152,
+          "text": "Cloudflare Pages production build:"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 15,
+          "text": "- Primary production hosting: **Cloudflare Pages**"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 16,
+          "text": "- Publish directory: `site/`"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 18,
+          "text": "- Cloudflare Pages build command:"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 35,
+          "text": "- `site/assets/verified-counts.json`"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 36,
+          "text": "- `site/assets/data/projects.json`"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 37,
+          "text": "- `site/assets/data/detections.json`"
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 1,
+          "text": "# Cloudflare Pages Production Settings"
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 3,
+          "text": "This repository is a static site deployment from `site/`."
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 7,
+          "text": "- Why: pages are static HTML/CSS/JS in `site/`, and data artifacts are generated by Node scripts before publish."
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 9,
+          "text": "## Exact Cloudflare Pages UI settings"
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 14,
+          "text": "- Build output directory: `site`"
+        },
+        {
+          "file": "docs/execution/HOSTING_TRANSFER_PROOF_PACK.md",
+          "line": 4,
+          "text": "Docs-only execution checklist for Cloudflare Pages hosting validation."
+        },
+        {
+          "file": "docs/execution/HOSTING_TRANSFER_PROOF_PACK.md",
+          "line": 7,
+          "text": "- Cloudflare Pages = production primary"
+        },
+        {
+          "file": "docs/execution/HOSTING_TRANSFER_PROOF_PACK.md",
+          "line": 15,
+          "text": "   - build command, publish directory (`site/`), branch mapping, environment notes"
+        },
+        {
+          "file": "docs/execution/HOSTING_TRANSFER_PROOF_PACK.md",
+          "line": 33,
+          "text": "- [ ] Cloudflare Pages production deploy screenshot/log link."
+        },
+        {
+          "file": "docs/execution/HOSTING_TRANSFER_PROOF_PACK.md",
+          "line": 34,
+          "text": "- [ ] Cloudflare Pages preview deploy screenshot/log link."
+        }
+      ]
+    },
+    "renameRegression": {
+      "currentOwner": "raylee-hawkins",
+      "legacyOwnerTokens": [
+        "raylee-ops",
+        "raylee_ops",
+        "rayleeops"
+      ],
+      "legacyOwnerHits": [
+        {
+          "token": "raylee-ops",
+          "file": ".github/ISSUE_TEMPLATE/config.yml",
+          "line": 4,
+          "text": "    url: https://github.com/raylee-ops/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md"
+        },
+        {
+          "token": "raylee-ops",
+          "file": ".github/ISSUE_TEMPLATE/config.yml",
+          "line": 7,
+          "text": "    url: https://github.com/raylee-ops/HawkinsOperations/blob/main/SECURITY.md"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
+          "line": 7,
+          "text": "- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/PROOF_PACK/PROOF_INDEX.md",
+          "line": 8,
+          "text": "- Standalone source repository: [`raylee-ops/RH_MIGRATION_2026_V2`](https://github.com/raylee-ops/RH_MIGRATION_2026_V2)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/PROOF_PACK/VERIFICATION.md",
+          "line": 19,
+          "text": "- https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/README.md",
+          "line": 20,
+          "text": "- Repo: `raylee-ops/RH_MIGRATION_2026_V2`"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/README.md",
+          "line": 21,
+          "text": "- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-ops/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/migration-rh/SRC/reference/imports/README.md",
+          "line": 16,
+          "text": "**Source:** raylee-ops/RH_MIGRATION_2026_V2 (private, active project)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 5,
+          "text": "**PR:** https://github.com/raylee-ops/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 22,
+          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-framework"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 29,
+          "text": "- **URL:** https://github.com/raylee-ops/hawkins_ops"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 36,
+          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-site"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 43,
+          "text": "- **URL:** https://github.com/raylee-ops/RH_MIGRATION_2026_V2 (private)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 50,
+          "text": "- **URL:** https://github.com/raylee-ops/hawkinsops-soc-content (already archived)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 191,
+          "text": "gh repo archive raylee-ops/hawkinsops-framework --yes"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 192,
+          "text": "gh repo archive raylee-ops/hawkins_ops --yes"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 193,
+          "text": "gh repo archive raylee-ops/hawkinsops-site --yes"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 194,
+          "text": "gh repo archive raylee-ops/RH_MIGRATION_2026_V2 --yes"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/CONSOLIDATION_MAP.md",
+          "line": 250,
+          "text": "- **Pull Request:** https://github.com/raylee-ops/HawkinsOperations/pull/2"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 30,
+          "text": "git clone https://github.com/raylee-ops/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 37,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 52,
+          "text": "git clone https://github.com/raylee-ops/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 59,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 74,
+          "text": "git clone https://github.com/raylee-ops/hawkinsops-site.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 81,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 95,
+          "text": "git clone https://github.com/raylee-ops/RH_MIGRATION_2026_V2.git  # Private repo"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 102,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 141,
+          "text": "    run: git clone https://github.com/raylee-ops/hawkinsops-framework.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 144,
+          "text": "    run: git clone https://github.com/raylee-ops/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 151,
+          "text": "    run: git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 168,
+          "text": "See [hawkinsops-framework](https://github.com/raylee-ops/hawkinsops-framework)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 171,
+          "text": "See [HawkinsOperations/tools](https://github.com/raylee-ops/HawkinsOperations/tree/main/tools)"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 177,
+          "text": "git clone https://github.com/raylee-ops/hawkins_ops.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 180,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 190,
+          "text": "git clone https://github.com/raylee-ops/HawkinsOperations.git"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md",
+          "line": 229,
+          "text": "- **Issues:** Report at https://github.com/raylee-ops/HawkinsOperations/issues"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "projects/repo-history/RELEASE_NOTES_v1.1.0.md",
+          "line": 185,
+          "text": "**Repository:** https://github.com/raylee-ops/HawkinsOperations"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
+          "line": 94,
+          "text": "          <a href=\"https://github.com/raylee-ops\" target=\"_blank\" rel=\"noreferrer\">GitHub</a> |"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt",
+          "line": 173,
+          "text": "      <a href=\"https://github.com/raylee-ops/HawkinsOperations\" target=\"_blank\" rel=\"noreferrer\">GitHub</a>"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt",
+          "line": 13,
+          "text": "GitHub: https://github.com/raylee-ops"
+        },
+        {
+          "token": "raylee-ops",
+          "file": "README.md",
+          "line": 5,
+          "text": "[![Verification](https://img.shields.io/github/actions/workflow/status/raylee-ops/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-ops/HawkinsOperations/actions/workflows/verify.yml)"
+        }
+      ],
+      "rawGithubHits": [],
+      "netlifyHits": [
+        {
+          "file": ".github/workflows/verify.yml",
+          "line": 33,
+          "text": "          node .\\scripts\\verify\\no-netlify.js"
+        },
+        {
+          "file": "docs/hosting/CLOUDFLARE_PAGES.md",
+          "line": 13,
+          "text": "- Build command: `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+        },
+        {
+          "file": "docs/ui/REFRACTOR_PR_PLAN.md",
+          "line": 7,
+          "text": "- Add `scripts/verify/no-netlify.js` and wire it into verification workflow."
+        },
+        {
+          "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
+          "line": 2,
+          "text": "Legacy provider target reference (Netlify hostname): hawkinsoperations.netlify.app"
+        },
+        {
+          "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
+          "line": 4,
+          "text": "=== nslookup hawkinsoperations.netlify.app 8.8.8.8 ==="
+        },
+        {
+          "file": "PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt",
+          "line": 8,
+          "text": "Name:    hawkinsoperations.netlify.app"
+        },
+        {
+          "file": "README.md",
+          "line": 73,
+          "text": "node .\\scripts\\verify\\no-netlify.js"
+        },
+        {
+          "file": "README.md",
+          "line": 153,
+          "text": "- `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+        },
+        {
+          "file": "scripts/verify/no-netlify.js",
+          "line": 32,
+          "text": "  path.join(\"scripts\", \"verify\", \"no-netlify.js\").replaceAll(\"\\\\\", \"/\"),"
+        },
+        {
+          "file": "scripts/verify/no-netlify.js",
+          "line": 57,
+          "text": "    .replaceAll(\"scripts/verify/no-netlify.js\", \"scripts/verify/no-hosting-check.js\")"
+        },
+        {
+          "file": "scripts/verify/no-netlify.js",
+          "line": 58,
+          "text": "    .replaceAll(\".\\\\scripts\\\\verify\\\\no-netlify.js\", \".\\\\scripts\\\\verify\\\\no-hosting-check.js\");"
+        },
+        {
+          "file": "scripts/verify/README.md",
+          "line": 5,
+          "text": "- `no-netlify.js` enforces Cloudflare-only hosting consistency."
+        },
+        {
+          "file": "scripts/verify/README.md",
+          "line": 18,
+          "text": "node .\\scripts\\verify\\no-netlify.js"
+        },
+        {
+          "file": "site/README_DEPLOY.md",
+          "line": 19,
+          "text": "  - `node scripts/generate-site-data.js && node scripts/generate-site-content.js && node scripts/generate-media-manifest.js && node scripts/verify/no-netlify.js`"
+        }
+      ],
+      "legacyOwnersDetected": [
+        "alessandroz",
+        "gentilkiwi",
+        "raylee-ops",
+        "sigmahq",
+        "swiftonsecurity",
+        "your-username"
+      ]
+    },
+    "domMounts": {
+      "duplicateIds": [],
+      "scriptMountReferences": [
+        {
+          "script": "site/assets/app.js",
+          "id": "verified-date",
+          "line": 303,
+          "col": 31,
+          "loadedByPages": [
+            "site/blog-python2-to-python3.html",
+            "site/case-study.html",
+            "site/lab.html",
+            "site/projects.html",
+            "site/proof.html",
+            "site/resume.html",
+            "site/security.html",
+            "site/triage.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "id": "verified-source",
+          "line": 308,
+          "col": 33,
+          "loadedByPages": [
+            "site/blog-python2-to-python3.html",
+            "site/case-study.html",
+            "site/lab.html",
+            "site/projects.html",
+            "site/proof.html",
+            "site/resume.html",
+            "site/security.html",
+            "site/triage.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/components/sections/media-gallery.js",
+          "id": "mediaLightbox",
+          "line": 66,
+          "col": 21,
+          "loadedByPages": [],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "detectionsChart",
+          "line": 264,
+          "col": 30,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "securityTagMiniChart",
+          "line": 266,
+          "col": 33,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "mitre-coverage-status",
+          "line": 269,
+          "col": 38,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": false
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "coverage-chart",
+          "line": 273,
+          "col": 33,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "detections-tag-chart",
+          "line": 274,
+          "col": 28,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "id": "proof-gallery-strip",
+          "line": 275,
+          "col": 32,
+          "loadedByPages": [
+            "site/projects.html",
+            "site/security.html"
+          ],
+          "guarded": false
+        }
+      ],
+      "missingMountsByPage": [
+        {
+          "script": "site/assets/app.js",
+          "page": "site/blog-python2-to-python3.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/case-study.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/lab.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/projects.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/proof.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/resume.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/security.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/triage.html",
+          "id": "verified-date",
+          "scriptLine": 303,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/blog-python2-to-python3.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/case-study.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/lab.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/projects.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/proof.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/resume.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/security.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/app.js",
+          "page": "site/triage.html",
+          "id": "verified-source",
+          "scriptLine": 308,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "detectionsChart",
+          "scriptLine": 264,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "securityTagMiniChart",
+          "scriptLine": 266,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "mitre-coverage-status",
+          "scriptLine": 269,
+          "guarded": false
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "coverage-chart",
+          "scriptLine": 273,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/security.html",
+          "id": "coverage-chart",
+          "scriptLine": 273,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "detections-tag-chart",
+          "scriptLine": 274,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/security.html",
+          "id": "detections-tag-chart",
+          "scriptLine": 274,
+          "guarded": true
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/projects.html",
+          "id": "proof-gallery-strip",
+          "scriptLine": 275,
+          "guarded": false
+        },
+        {
+          "script": "site/assets/portfolio-data.js",
+          "page": "site/security.html",
+          "id": "proof-gallery-strip",
+          "scriptLine": 275,
+          "guarded": false
+        }
+      ]
+    },
+    "rootCauseRanking": [
+      {
+        "rank": 1,
+        "title": "Mixed local asset path strategies + trailing slash route variance",
+        "whyIntermittent": "Relative asset URLs can resolve differently for /page versus /page/, so different canonicalization outcomes produce different asset paths per deploy and cache state.",
+        "evidence": {
+          "siteConvention": "absolute_root",
+          "homepageAbsoluteInnerRelativePattern": false,
+          "trailingHazardCount": 0,
+          "missingAssetCount": 0
+        },
+        "howToConfirm": "In DevTools Network, compare requests for /security and /security/. Look for /security/assets/... 404s versus /assets/... 200s.",
+        "minimalFix": "Standardize local asset references to root-absolute paths (/assets/...) across all HTML pages."
+      },
+      {
+        "rank": 2,
+        "title": "Fetch URL inconsistency and missing timeout/fallback behavior",
+        "whyIntermittent": "Relative fetch URLs are document-URL dependent and can fail under slash variants; fetches without timeout/fallback can leave permanent loading placeholders.",
+        "evidence": {
+          "inconsistentStrategies": false,
+          "timeoutRiskFiles": [],
+          "suspiciousFetches": 0
+        },
+        "howToConfirm": "Use DevTools Network + Console on live pages and force slow/offline mode. Failed JSON requests without UI fallback indicate hanging lanes.",
+        "minimalFix": "Use root-absolute fetch URLs (/assets/data/...) and enforce a 1.5-2.0s timeout with fallback rendering."
+      },
+      {
+        "rank": 3,
+        "title": "Generated artifacts can drift from deployment inputs",
+        "whyIntermittent": "If generated JSON artifacts are not consistently present (or generated from stale content), deploy output can differ even when source HTML appears unchanged.",
+        "evidence": {
+          "artifacts": [
+            {
+              "file": "site/assets/verified-counts.json",
+              "exists": true
+            },
+            {
+              "file": "site/assets/data/detections.json",
+              "exists": true
+            },
+            {
+              "file": "site/assets/data/media.json",
+              "exists": true
+            },
+            {
+              "file": "site/assets/data/projects.json",
+              "exists": true
+            }
+          ]
+        },
+        "howToConfirm": "Check Cloudflare build logs for generation script execution and verify deployed files under /assets/data and /assets/verified-counts.json.",
+        "minimalFix": "Guarantee generation step in build command and add CI assertion that required artifacts exist before deploy."
+      },
+      {
+        "rank": 4,
+        "title": "Edge/browser cache mixing old HTML with newer JS/CSS payloads",
+        "whyIntermittent": "A stale HTML shell can reference outdated script paths or mount contracts while newer assets are cached separately, causing progressive inconsistent behavior.",
+        "evidence": {
+          "cloudflareEvidenceCount": 23
+        },
+        "howToConfirm": "Hard refresh + cache-disabled devtools test. Compare response headers and ETags for HTML vs JS assets across affected and unaffected sessions.",
+        "minimalFix": "Set short cache for HTML and immutable cache strategy for fingerprinted assets; purge cache on critical routing/path changes."
+      },
+      {
+        "rank": 5,
+        "title": "Repository/owner rename leftovers and external raw URL dependencies",
+        "whyIntermittent": "Old owner URLs may redirect unpredictably across mirrors/caches; raw.githubusercontent dependencies are sensitive to owner/repo/path changes.",
+        "evidence": {
+          "legacyOwnerHits": 41,
+          "rawGithubHits": 0,
+          "netlifyHits": 14
+        },
+        "howToConfirm": "Search deployed source for raylee-ops and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
+        "minimalFix": "Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs."
+      }
+    ]
+  },
+  "fixPlan": {
+    "recommendedConvention": "Use root-absolute local asset URLs: /assets/...",
+    "recommendedPatchSections": {
+      "htmlAssetPathRewrites": [],
+      "jsFetchPathRewrites": [],
+      "redirectsCanonicalSuggestions": [],
+      "ciSanityCheckSuggestion": {
+        "command": "node scripts/diagnose-site.js --fail-on-issues",
+        "description": "Fail CI if relative local asset references, slash-hazard paths, or unresolved local assets are detected."
+      }
+    }
+  },
+  "runInstructions": {
+    "node": "node scripts/diagnose-site.js",
+    "nodeFailOnIssues": "node scripts/diagnose-site.js --fail-on-issues",
+    "localServer": [
+      "python -m http.server --directory site 8000",
+      "Open http://127.0.0.1:8000/ in a browser.",
+      "Test both /security and /security/ to validate relative-path behavior."
+    ]
+  }
+}

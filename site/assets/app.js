@@ -105,6 +105,13 @@
   }
   wireCopy();
 
+  function fetchJsonWithTimeout(url, options) {
+    if (typeof window.fetchJsonWithTimeout === 'function') {
+      return window.fetchJsonWithTimeout(url, options);
+    }
+    return Promise.resolve(null);
+  }
+
   // Scroll reveal utilities (disabled entirely when reduced motion is requested).
   const reducedMotionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   let revealObserver = null;
@@ -272,9 +279,8 @@
   // Load verified counts generated from PROOF_PACK/VERIFIED_COUNTS.md
   async function loadVerifiedCounts() {
     try {
-      const response = await fetch('assets/verified-counts.json', { cache: 'no-store' });
-      if (!response.ok) return;
-      const data = await response.json();
+      const data = await fetchJsonWithTimeout('/assets/verified-counts.json', { timeoutMs: 1500 });
+      if (!data || typeof data !== 'object') return;
       const counts = data && data.counts ? data.counts : null;
       if (!counts) return;
 
