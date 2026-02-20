@@ -12,11 +12,16 @@ Evidence-first SOC integration project documenting:
 - `evidence/PUBLIC_PROOF_INDEX.md`
 - `evidence/public_images/` (public-safe redacted screenshots)
 - `evidence/PUBLIC_MANIFEST_SHA256.csv`
-- `context/` (transition context files from prior post and next-phase planning)
+- `context/README.md` (context index; heavy assets are linked, not duplicated)
 
 ## Public vs Private Evidence
 - This repo contains publish-safe evidence only.
 - Private/raw exports (snapshots, jsonl, internal host context) are retained in local proof-pack storage outside this repo.
+
+## Asset Source Of Truth
+- Canonical visual context assets are stored at `site/assets/pp_soc_integration/`.
+- Project docs link to those canonical assets to avoid duplicate binary drift.
+- Large transition PDFs are published as release assets instead of tracked binaries in this repository.
 
 ## Date Reference
 Primary evidence window: February 18-19, 2026.

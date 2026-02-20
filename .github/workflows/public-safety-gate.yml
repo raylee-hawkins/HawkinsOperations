@@ -1,0 +1,38 @@
+name: public-safety-gate
+
+on:
+  pull_request:
+    paths:
+      - "site/**"
+      - "projects/lab/PP_SOC_Integration/**"
+      - "README.md"
+      - "projects/README.md"
+      - "projects/lab/README.md"
+      - "scripts/verify/public-safety-scan.ps1"
+      - ".github/workflows/public-safety-gate.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "site/**"
+      - "projects/lab/PP_SOC_Integration/**"
+      - "README.md"
+      - "projects/README.md"
+      - "projects/lab/README.md"
+      - "scripts/verify/public-safety-scan.ps1"
+      - ".github/workflows/public-safety-gate.yml"
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run public safety scan
+        shell: pwsh
+        run: |
+          pwsh -NoProfile -File ".\scripts\verify\public-safety-scan.ps1"

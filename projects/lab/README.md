@@ -53,7 +53,7 @@ Use this structure for evidence and runbooks. Keep all identifiers redacted.
   - `[REDACTED_INTERNAL]`
   - `[REDACTED]`
   - `example.local`
-  - `10.0.0.0/24` only when clearly synthetic
+  - `RFC1918_SUBNET_EXAMPLE` only when clearly synthetic
 
 ## What Exists in Phase 6A
 

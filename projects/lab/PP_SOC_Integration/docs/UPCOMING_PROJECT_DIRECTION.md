@@ -24,10 +24,10 @@ The value is in execution quality:
 4. Gap documentation and remediation tracking in the same proof lane.
 
 ## Context artifacts from prior post and transition planning
-- `../context/t5-proxmox-redacted.png`
-- `../context/t5-infrastructure-map.png`
-- `../context/t3-workflow.png`
-- `../context/LinkedIn Post.pdf`
+- `../../../site/assets/pp_soc_integration/t5-proxmox-redacted.png`
+- `../../../site/assets/pp_soc_integration/t5-infrastructure-map.png`
+- `../../../site/assets/pp_soc_integration/t3-workflow.png`
+- LinkedIn transition PDF archived offline (not stored in this repository)
 
 ## Narrative anchor
 This is not "lab-only" security theater.  
