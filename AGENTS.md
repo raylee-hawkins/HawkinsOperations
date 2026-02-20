@@ -12,6 +12,7 @@ CONTEXT_FILE: C:\RH\OPS\BUILD\agents\codex\codex_context_latest.txt
 - When giving commands:
   - Prefer PowerShell (`pwsh`) for verification scripts and Windows workflows
   - Use fish-compatible syntax on Linux (avoid bashisms)
+- Always use `MM-DD-YYYY` date format in filenames, logs, and documentation.
 - Deployment primary: Cloudflare Pages (production)
 - Deployment: Cloudflare Pages only (production + rollback path)
 - Site publish directory is `site/` (static HTML/CSS/JS, no framework)
