@@ -1,0 +1,10 @@
+{
+  "srcip": "198.51.100.25",
+  "event_type": "authentication_failed",
+  "rule": {
+    "groups": [
+      "authentication_failed"
+    ]
+  }
+}
+

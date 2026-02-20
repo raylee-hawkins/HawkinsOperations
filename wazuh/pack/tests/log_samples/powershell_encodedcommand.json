@@ -1,0 +1,14 @@
+{
+  "win": {
+    "eventdata": {
+      "commandLine": "powershell.exe -NoP -EncodedCommand SQBtACcAbQAgAHQAZQBzAHQAIgA="
+    }
+  },
+  "rule": {
+    "groups": [
+      "windows",
+      "sysmon"
+    ]
+  }
+}
+

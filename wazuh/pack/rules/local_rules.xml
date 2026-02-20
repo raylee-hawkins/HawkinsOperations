@@ -1,0 +1,12 @@
+<group name="local,">
+  <rule id="100201" level="8">
+    <if_group>windows,sysmon,</if_group>
+    <field name="win.eventdata.commandLine">(?i).*encodedcommand.*</field>
+    <description>Potential encoded PowerShell execution detected</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+    <group>execution,powershell,</group>
+  </rule>
+</group>
+

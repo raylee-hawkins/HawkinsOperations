@@ -1,0 +1,3 @@
+# Populate with SHA256 hashes that are explicitly approved.
+# One hash per line.
+
