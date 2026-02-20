@@ -68,3 +68,9 @@ Use this structure for evidence and runbooks. Keep all identifiers redacted.
 - No Terraform apply/destroy
 - No endpoint enrollment changes
 - No external system configuration changes
+
+## Added Public Proof Package
+
+- `PP_SOC_Integration/`
+  - Public-safe SOC integration evidence pack
+  - Includes redacted screenshots, proof index, IR patch report, and integration rationale
