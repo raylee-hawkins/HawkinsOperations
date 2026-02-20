@@ -8,9 +8,11 @@ Evidence-first SOC integration project documenting:
 ## Project Artifacts
 - `reports/IR_PATCH_REPORT_02-19-2026.md`
 - `docs/WHY_WAZUH_AND_FULL_INTEGRATION.md`
+- `docs/UPCOMING_PROJECT_DIRECTION.md`
 - `evidence/PUBLIC_PROOF_INDEX.md`
 - `evidence/public_images/` (public-safe redacted screenshots)
 - `evidence/PUBLIC_MANIFEST_SHA256.csv`
+- `context/` (transition context files from prior post and next-phase planning)
 
 ## Public vs Private Evidence
 - This repo contains publish-safe evidence only.
