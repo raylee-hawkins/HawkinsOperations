@@ -31,6 +31,7 @@ If a claim cannot be verified, it does not belong here.
 | Incident Responder | [`incident-response/INDEX.md`](incident-response/INDEX.md) | Playbook catalog + consistent framework |
 | Portfolio Reviewer | [`PROOF_PACK/PROOF_INDEX.md`](PROOF_PACK/PROOF_INDEX.md) | Curated reviewer lane |
 | Migration proof trail | [`projects/migration-rh/README.md`](projects/migration-rh/README.md) | Linked proof + verification commands |
+| SOC integration direction | [`projects/lab/PP_SOC_Integration/README.md`](projects/lab/PP_SOC_Integration/README.md) | Rules verified, now running in production-sim workflow |
 
 ---
 
