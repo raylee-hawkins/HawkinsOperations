@@ -247,6 +247,28 @@
     }
   });
 
+  // Inline "See all work" toggle on homepage documented work section.
+  const workExpandBtn = $('#workExpandBtn');
+  const workMore = $('#workMore');
+  if (workExpandBtn && workMore) {
+    workMore.hidden = false;
+    workMore.style.maxHeight = '0px';
+    workMore.style.opacity = '0';
+    workExpandBtn.addEventListener('click', () => {
+      const expanded = workExpandBtn.getAttribute('aria-expanded') === 'true';
+      workExpandBtn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if (expanded) {
+        workMore.style.maxHeight = '0px';
+        workMore.style.opacity = '0';
+      } else {
+        workMore.style.maxHeight = `${workMore.scrollHeight}px`;
+        workMore.style.opacity = '1';
+      }
+      const label = workExpandBtn.querySelector('span');
+      if (label) label.textContent = expanded ? 'See all work' : 'Show less';
+    });
+  }
+
   loadVerifiedCounts();
   hydrateLabScreenshots();
 
