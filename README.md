@@ -69,6 +69,7 @@ pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
 python .\scripts\drift_scan.py --refresh
 pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
+node .\scripts\build-site-includes.js
 node .\scripts\generate-site-data.js
 node .\scripts\generate-site-content.js
 node .\scripts\generate-media-manifest.js

@@ -1,0 +1,15 @@
+{
+  "navItems": [
+    { "id": "home", "label": "Home", "href": "/" },
+    { "id": "soc_lab", "label": "SOC/Lab", "href": "/lab" },
+    { "id": "detections", "label": "Detections", "href": "/security" },
+    { "id": "proof_pack", "label": "Proof Pack", "href": "/proof" },
+    { "id": "projects", "label": "Projects", "href": "/projects" },
+    { "id": "wildcard", "label": "Wildcard", "href": "/triage" },
+    { "id": "resume", "label": "Resume", "href": "/resume" }
+  ],
+  "cta": {
+    "label": "View Proof Pack",
+    "href": "/proof"
+  }
+}
