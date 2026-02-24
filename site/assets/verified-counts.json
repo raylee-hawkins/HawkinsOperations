@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": "2026-02-18T14:18:58+00:00",
+  "generated_at_utc": "2026-02-24T07:42:35Z",
   "source_path": "PROOF_PACK/VERIFIED_COUNTS.md",
   "counts": {
-    "sigma": 105,
-    "splunk": 8,
-    "wazuh_xml_files": 25,
-    "wazuh": 29,
+    "sigma": 103,
+    "splunk": 7,
+    "wazuh_xml_files": 24,
+    "wazuh": 28,
     "ir": 10,
-    "detections": 142
+    "detections": 138
   },
   "source_refs": {
     "sigma": {

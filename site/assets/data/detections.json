@@ -3,10 +3,14 @@
     {
       "id": "sigma",
       "platform": "Sigma",
-      "count": 105,
+      "count": 103,
       "format": "YAML",
       "location": "detection-rules/sigma/",
-      "tags": ["detection", "portable", "mitre"],
+      "tags": [
+        "detection",
+        "portable",
+        "mitre"
+      ],
       "evidence": [
         {
           "label": "Sigma Folder",
@@ -21,10 +25,14 @@
     {
       "id": "wazuh",
       "platform": "Wazuh",
-      "count": 29,
+      "count": 28,
       "format": "XML rule blocks",
       "location": "detection-rules/wazuh/rules/",
-      "tags": ["siem", "xml", "deployment"],
+      "tags": [
+        "siem",
+        "xml",
+        "deployment"
+      ],
       "evidence": [
         {
           "label": "Wazuh Rules Folder",
@@ -39,10 +47,14 @@
     {
       "id": "splunk",
       "platform": "Splunk",
-      "count": 8,
+      "count": 7,
       "format": "SPL",
       "location": "detection-rules/splunk/",
-      "tags": ["search", "spl", "hunting"],
+      "tags": [
+        "search",
+        "spl",
+        "hunting"
+      ],
       "evidence": [
         {
           "label": "Splunk Detections",
@@ -60,7 +72,11 @@
       "count": 10,
       "format": "Markdown",
       "location": "incident-response/playbooks/",
-      "tags": ["response", "soc", "process"],
+      "tags": [
+        "response",
+        "soc",
+        "process"
+      ],
       "evidence": [
         {
           "label": "Playbooks Folder",
