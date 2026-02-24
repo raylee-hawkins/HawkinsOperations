@@ -3,9 +3,9 @@
     { "id": "home", "label": "Home", "href": "/" },
     { "id": "soc_lab", "label": "SOC/Lab", "href": "/soc-lab" },
     { "id": "detections", "label": "Detections", "href": "/detections" },
-    { "id": "proof_pack", "label": "Proof Pack", "href": "/proof" },
+    { "id": "proof_pack", "label": "Proof", "href": "/proof" },
     { "id": "projects", "label": "Projects", "href": "/projects" },
-    { "id": "wildcard", "label": "Wildcard", "href": "/wildcard" },
+    { "id": "wildcard", "label": "Extras", "href": "/wildcard" },
     { "id": "resume", "label": "Resume", "href": "/resume" }
   ],
   "cta": {

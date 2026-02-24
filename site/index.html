@@ -11,11 +11,11 @@
 <meta property="og:title" content="HawkinsOps | Raylee Hawkins | Home">
 <meta property="og:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
 <meta property="og:url" content="https://hawkinsops.com/">
-<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-24-2026-1">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HawkinsOps | Raylee Hawkins | Home">
 <meta name="twitter:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
-<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-24-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,12 +46,12 @@
       <li><a href="/">Home</a></li>
       <li><a href="/soc-lab">SOC/Lab</a></li>
       <li><a href="/detections">Detections</a></li>
-      <li><a href="/proof">Proof Pack</a></li>
+      <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">Wildcard</a></li>
+      <li><a href="/wildcard">Extras</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
-    <a class="btn btn-p" href="/proof">View Proof Pack</a>
+    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
@@ -59,9 +59,9 @@
   <a href="/">Home</a>
   <a href="/soc-lab">SOC/Lab</a>
   <a href="/detections">Detections</a>
-  <a href="/proof">Proof Pack</a>
+  <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">Wildcard</a>
+  <a href="/wildcard">Extras</a>
   <a href="/resume">Resume</a>
 </div>
 
@@ -79,9 +79,13 @@
 
     <div class="hproof">
       <b>Proof</b> over vibes:
-      <br>• Clone the repo
-      <br>• Run the verify commands
-      <br>• Match the counts
+      <br>• Open Proof Pack
+      <br>• Run verify commands
+      <br>• Match generated counts
+    </div>
+    <div class="verify-panel" aria-label="90-second verification">
+      <div class="verify-panel-h"><span>90-second verification</span><a href="/proof">Open Proof Pack</a></div>
+      <pre id="homeVerifyCmd" class="verify-code">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
     </div>
     <div class="hero-icons" aria-label="Proof highlights">
       <span class="ico-chip">
@@ -103,8 +107,8 @@
     </div>
 
     <div class="hctas">
-      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Clone the repo</a>
-      <a class="btn btn-g" href="/proof">See the proof pack</a>
+      <a class="btn btn-p" href="/proof">See the proof pack</a>
+      <a class="btn btn-g" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Clone the repo</a>
       <a class="btn btn-g" href="mailto:raylee@hawkinsops.com">Email me</a>
     </div>
 
@@ -158,17 +162,20 @@
         <span class="tag">Windows 11 Enterprise</span><span class="tag">Proxmox systems</span><span class="tag">Running SOC workflow</span>
       </div>
       <div style="margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--stroke)">
-        <img src="/assets/pp_soc_integration/t5-proxmox-redacted.png" alt="SOC infrastructure map showing collect detect triage investigate respond improve workflow across Proxmox and endpoint systems" style="display:block;width:100%;height:auto">
+        <img src="/assets/pp_soc_integration/t5-infrastructure-map.png" alt="SOC infrastructure map showing collect detect triage investigate respond improve workflow across Proxmox and endpoint systems" style="display:block;width:100%;height:auto">
+      </div>
+      <div class="card-meta" style="margin-top:10px">
+        <span class="redaction-pill">Hardware identifiers intentionally redacted</span>
       </div>
     </a>
 
     <div class="hproof" style="margin-top:14px">
       <b>Completed</b>
-      <br>• Wazuh agent coverage active — CVE-2025-55130 detected and remediated, 15,052 alerts observed in 24h
+      <br>• Wazuh agent coverage active — <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-55130" target="_blank" rel="noopener noreferrer">CVE-2025-55130</a> detected and remediated, 15,052 alerts observed in 24h
       <br>• IR case study published: live Level 12 FIM alert, triage to BENIGN verdict in 35 minutes, 9 evidence artifacts
       <br>• Sigma library case study published: <span data-verified="sigma">103</span> platform-agnostic rules across 10 ATT&amp;CK tactics, false positive discipline documented
       <br>• IR playbook library case study published: <span data-verified="ir">10</span> structured playbooks, 7-section template, escalation logic
-      <br>• CVE-2025-55130 patch response case study published: detect → triage → patch → verify workflow with evidence
+      <br>• CVE patch response published: detect → triage → patch → verify (<a href="https://nodejs.org/en/blog/vulnerability" target="_blank" rel="noopener noreferrer">Node.js advisory feed</a>)
       <br>• Splunk credential access detections added: <span data-verified="splunk">8</span> SPL detection files now verified
     </div>
 
@@ -204,7 +211,15 @@
       </div>
     </div>
     <div class="lupd" style="margin-top:8px">Only verified counts are shown. "Total library" is intentionally omitted.</div>
-    <div class="lupd" style="margin-top:8px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
+    <div class="lupd verify-date">Last verified: <span data-verified-date>02-24-2026</span></div>
+    <div class="verify-panel" style="margin-top:8px">
+      <div class="verify-panel-h">
+        <span>Verify commands</span>
+        <button class="copy-btn" type="button" data-copy="homeVerifyCmdLong" aria-label="Copy verification commands">Copy</button>
+      </div>
+      <pre id="homeVerifyCmdLong" class="verify-code">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1
+pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</pre>
+    </div>
   </div>
 </section>
 
@@ -366,8 +381,8 @@
 
       <a class="card" href="/wildcard" style="text-decoration:none">
         <div class="card-click">Open →</div>
-        <div class="card-ttl">Triage Simulator</div>
-        <div class="card-sub">SOC workflow practice: context, pivots, and evidence checklist.</div>
+        <div class="card-ttl">Extras</div>
+        <div class="card-sub">Triage simulator and experimental SOC workflow drills.</div>
       </a>
 
       <a class="card" href="/resume" style="text-decoration:none">
@@ -405,5 +420,4 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
 

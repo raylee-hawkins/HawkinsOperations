@@ -8,6 +8,7 @@
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
   const html = document.documentElement;
   const VERIFIED_TIMEOUT_MS = 1500;
+  const isLocalDebugHost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
 
   // Theme toggle (saved preference, otherwise system preference)
   const themeToggle = $('#themeToggle');
@@ -93,7 +94,7 @@
       });
       $$('[data-verified-date]').forEach((node) => {
         if (typeof payload.generated_at_utc === 'string') {
-          node.textContent = payload.generated_at_utc;
+          node.textContent = formatMmDdYyyy(payload.generated_at_utc) || payload.generated_at_utc;
         }
       });
     } catch {
@@ -248,4 +249,28 @@
 
   loadVerifiedCounts();
   hydrateLabScreenshots();
+
+  // DEV-only overflow detector: local hosts only.
+  if (isLocalDebugHost) {
+    const scanOverflow = () => {
+      const viewport = Math.ceil(window.innerWidth);
+      const offenders = $$("body *").filter((el) => {
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && (Math.ceil(rect.right) > viewport + 1 || Math.floor(rect.left) < -1);
+      });
+      if (offenders.length) {
+        console.warn("[overflow-debug] possible offenders:", offenders.slice(0, 20));
+      }
+    };
+    window.addEventListener("load", scanOverflow, { once: true });
+    window.addEventListener("resize", scanOverflow);
+  }
 })();
+  function formatMmDdYyyy(iso) {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const dd = String(d.getUTCDate()).padStart(2, "0");
+    const yyyy = String(d.getUTCFullYear());
+    return `${mm}-${dd}-${yyyy}`;
+  }
