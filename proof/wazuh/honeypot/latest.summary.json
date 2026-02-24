@@ -1,0 +1,47 @@
+{
+  "generated_utc": "2026-02-24T13:34:35Z",
+  "source_artifact": "latest.json",
+  "source_count": 28,
+  "top_rules": [
+    {
+      "rule_id": "5501",
+      "desc": "PAM: Login session opened.",
+      "count": 5
+    },
+    {
+      "rule_id": "5502",
+      "desc": "PAM: Login session closed.",
+      "count": 4
+    },
+    {
+      "rule_id": "5503",
+      "desc": "PAM: User login failed.",
+      "count": 4
+    },
+    {
+      "rule_id": "5404",
+      "desc": "Three failed attempts to run sudo",
+      "count": 3
+    },
+    {
+      "rule_id": "5715",
+      "desc": "sshd: authentication success.",
+      "count": 2
+    },
+    {
+      "rule_id": "5760",
+      "desc": "sshd: authentication failed.",
+      "count": 2
+    },
+    {
+      "rule_id": "100110",
+      "desc": "Honeypot deterministic demo alert (HONEY_DEMO).",
+      "count": 1
+    },
+    {
+      "rule_id": "503",
+      "desc": "Wazuh agent started.",
+      "count": 1
+    }
+  ]
+}
