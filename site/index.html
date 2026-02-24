@@ -33,7 +33,7 @@
       document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
     })();
   </script>
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css?v=02-24-2026-3">
 
 </head>
 <body>
@@ -69,93 +69,122 @@
 
 <header class="hero">
   <div class="hero-glow"></div>
-  <div class="ctr">
-    <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
-    <h1 class="htitle">Automation-first SOC portfolio, <span class="hl">repo-backed</span> and verifiable.</h1>
-    <p class="hsub">
-      I build deployable detections and response workflows with repeatable validation and measurable outcomes,
-      because that's where modern security operations is heading.
-    </p>
-
-    <div class="review-path" aria-label="How to review this portfolio">
-      <span class="rp-chip"><b>1</b> Open Proof Pack</span>
-      <span class="rp-chip"><b>2</b> Run verify</span>
-      <span class="rp-chip"><b>3</b> Match outputs</span>
+  <div class="ctr hero-split-ctr">
+    <div class="hero-panel">
+      <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
+      <h1 class="htitle">Automation-first SOC portfolio, <span class="hl">repo-backed</span> and verifiable.</h1>
+      <p class="hsub">
+        I build deployable detections and response workflows with repeatable validation and measurable outcomes,
+        because that's where modern security operations is heading.
+      </p>
+      <p class="review-note">Review path: open Proof Pack, run verify, match published outputs.</p>
+      <div class="hctas">
+        <a class="btn btn-p" href="/proof">View Proof Pack</a>
+        <a class="btn btn-g" href="/projects">Read documented work</a>
+        <a class="btn btn-g" href="/resume">Open resume</a>
+      </div>
+      <div class="hero-verify-row">
+        <span class="hero-verify-label">$ verify:</span>
+        <code class="hero-verify-cmd" id="heroVerifyShort">pwsh -File .\scripts\verify\verify-counts.ps1</code>
+        <button class="copy-btn" type="button" data-copy="heroVerifyShort" aria-label="Copy verify command">Copy</button>
+      </div>
+      <div class="hero-icons" aria-label="Proof highlights">
+        <span class="ico-chip">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
+          Verified artifacts
+        </span>
+        <span class="ico-chip">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
+          Reproducible commands
+        </span>
+      </div>
+      <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
+      <div class="lupd">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>
     </div>
-    <div class="verify-panel" aria-label="90-second verification">
-      <div class="verify-panel-h"><span>How to review (90 seconds)</span><a href="/proof">Open Proof Pack</a></div>
-      <pre id="homeVerifyCmd" class="verify-code">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
+    <div class="hero-visual">
+      <div class="hero-visual-frame">
+        <img src="/assets/pp_soc_integration/t5-infrastructure-map.png" alt="SOC lab: Windows 11 endpoint and Proxmox systems wired into a detection-to-response loop">
+      </div>
+      <div class="hero-visual-foot">
+        <span class="redaction-pill">Hardware identifiers intentionally redacted</span>
+        <a class="lane-cta" href="/soc-lab" style="text-decoration:none">View SOC/Lab <span>-></span></a>
+      </div>
     </div>
-    <div class="hero-icons" aria-label="Proof highlights">
-      <span class="ico-chip">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
-        Verified artifacts
-      </span>
-      <span class="ico-chip">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
-        Reproducible commands
-      </span>
-    </div>
-
-    <div class="hctas">
-      <a class="btn btn-p" href="/proof">View Proof Pack</a>
-      <a class="btn btn-g" href="/projects">Read documented work</a>
-      <a class="btn btn-g" href="/resume">Open resume</a>
-    </div>
-
-    <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
-    <div class="lupd">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>
   </div>
 </header>
 
-<section style="padding-top:24px">
-  <div class="ctr">
+<section class="section-tight">
+  <div class="ctr home-shell">
     <div class="slbl">Review Packs</div>
     <h2 class="stitle">Choose your verification lane</h2>
     <p class="sdesc">Pick the reviewer path you need. Every lane ends with reproducible artifacts.</p>
     <div class="g2 lane-grid">
-      <a class="card lane-card" href="/proof" style="text-decoration:none">
+      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="fastest">
         <span class="lane-tag">FASTEST</span>
         <div class="card-ttl">Proof Pack</div>
         <div class="card-sub">Fastest path for technical reviewers: scripts, published outputs, and reproducible counts.</div>
-        <div class="card-meta"><span class="tag">Open</span></div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="/resume" style="text-decoration:none">
+      <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="nontech">
         <span class="lane-tag">NON-TECH</span>
         <div class="card-ttl">Recruiter/HR Summary</div>
         <div class="card-sub">Role alignment, resume formats, and clear evidence links without deep repo digging.</div>
-        <div class="card-meta"><span class="tag">Open</span></div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="/case-study-soc-integration" style="text-decoration:none">
+      <a class="card lane-card" href="/case-study-soc-integration" style="text-decoration:none" data-lane="systems">
         <span class="lane-tag">SYSTEMS</span>
         <div class="card-ttl">Technical Summary</div>
         <div class="card-sub">SOC integration write-up with telemetry, triage flow, and closed-loop remediation results.</div>
-        <div class="card-meta"><span class="tag">Open</span></div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+      <a class="card lane-card" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" style="text-decoration:none" data-lane="source">
         <span class="lane-tag">SOURCE</span>
         <div class="card-ttl">Repository</div>
         <div class="card-sub">Raw structure, commit history, and implementation detail for full-source review.</div>
-        <div class="card-meta"><span class="tag">Open</span></div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="ctr">
+  <div class="ctr home-shell">
     <div class="slbl">Who I Am</div>
-    <h2 class="stitle">North Alabama-based, Huntsville-focused</h2>
-    <div class="about-box">
-      <p>My name is Raylee Hawkins. I'm North Alabama-based and Huntsville-focused.</p>
-      <p>I'm self-taught and relentlessly documentation-driven.</p>
-      <p>I chose the automation side of security because that's where modern security operations is heading. Welcome to my portfolio: HawkinsOps.</p>
+    <h2 class="stitle">Self-taught. No degree. Everything verified.</h2>
+    <div class="about-split">
+      <div>
+        <p class="about-lead">Self-taught North Alabama security engineer. Every count on this site is reproducible with a single command against a public repo—because claims without proof aren't claims at all.</p>
+        <p class="about-body">I chose the automation side of security because that's where modern SOC operations is heading. The goal isn't just detection—it's detection you can reproduce, explain, and hand off.</p>
+        <div class="sbadge" style="margin-top:14px"><span class="sdot"></span>Open to SOC Analyst / Detection Engineer roles — Huntsville, AL</div>
+      </div>
+      <div>
+        <div class="tl">
+          <div class="tli on">
+            <div class="tld"></div>
+            <div class="tl-dt">2024 – Present</div>
+            <div class="tl-tt">HawkinsOps: self-directed SOC portfolio</div>
+            <div class="tl-ds">Wazuh SIEM, Proxmox lab, <span data-verified="detections">139</span> verified detections across Sigma / Wazuh / Splunk, <span data-verified="ir">10</span> IR playbooks.</div>
+          </div>
+          <div class="tli">
+            <div class="tld"></div>
+            <div class="tl-dt">Ongoing</div>
+            <div class="tl-tt">CVE triage and patch verification</div>
+            <div class="tl-ds">Documented detect → triage → patch → verify workflow. CVE-2025-55130 cross-referenced with the Node.js security advisory.</div>
+          </div>
+          <div class="tli">
+            <div class="tld"></div>
+            <div class="tl-dt">Target</div>
+            <div class="tl-tt">Huntsville / MSFC contractor ecosystem</div>
+            <div class="tl-ds">Defense-adjacent environment. Documentation-first approach aligns with clearance-track role requirements.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:24px">
-  <div class="ctr">
+<section class="section-tight">
+  <div class="ctr home-shell">
     <div class="slbl">What This Is</div>
     <h2 class="stitle">A workflow-shaped SOC portfolio</h2>
     <p class="sdesc">HawkinsOps is a security operations portfolio built like a real workflow: collect telemetry, detect, triage, respond, investigate, and improve.</p>
@@ -176,11 +205,11 @@
     </a>
 
     <div class="mstrip" style="margin-top:18px">
-      <div class="met"><div class="met-v" data-verified="detections">139</div><div class="met-l">Verified detections</div></div>
-      <div class="met"><div class="met-v" data-verified="sigma">103</div><div class="met-l">Sigma rules</div></div>
-      <div class="met"><div class="met-v" data-verified="wazuh">28</div><div class="met-l">Wazuh rule blocks</div></div>
-      <div class="met"><div class="met-v" data-verified="splunk">8</div><div class="met-l">Splunk queries</div></div>
-      <div class="met"><div class="met-v" data-verified="ir">10</div><div class="met-l">IR playbooks</div></div>
+      <div class="met"><div class="met-icon mi-det">DET</div><div class="met-v" data-verified="detections">139</div><div class="met-l">Verified detections</div><a class="met-link" href="/detections">→ browse</a></div>
+      <div class="met"><div class="met-icon mi-sig">Σ</div><div class="met-v" data-verified="sigma">103</div><div class="met-l">Sigma rules</div><a class="met-link" href="/detections">→ browse</a></div>
+      <div class="met"><div class="met-icon mi-waz">WAZ</div><div class="met-v" data-verified="wazuh">28</div><div class="met-l">Wazuh rule blocks</div><a class="met-link" href="/detections">→ browse</a></div>
+      <div class="met"><div class="met-icon mi-spl">SPL</div><div class="met-v" data-verified="splunk">8</div><div class="met-l">Splunk queries</div><a class="met-link" href="/detections">→ browse</a></div>
+      <div class="met"><div class="met-icon mi-ir">IR</div><div class="met-v" data-verified="ir">10</div><div class="met-l">IR playbooks</div><a class="met-link" href="/case-study-ir-playbooks">→ view</a></div>
     </div>
     <div class="lupd verify-date">Last verified: <span data-verified-date>02-24-2026</span></div>
     <div class="verify-panel" style="margin-top:8px">
@@ -195,7 +224,7 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
 </section>
 
 <section>
-  <div class="ctr">
+  <div class="ctr home-shell">
     <div class="slbl">Documented Work</div>
     <h2 class="stitle">Report-first, repo-last</h2>
     <p class="sdesc">Short case studies, lab briefs, and detection reports. Each section explains what the rule/workflow does, the purpose it serves, and ends with artifacts plus a verification path.</p>
@@ -228,15 +257,6 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
   </div>
 </section>
 
-<section style="padding-top:24px">
-  <div class="ctr">
-    <div class="hctas">
-      <a class="btn btn-p" href="/proof">Open Proof Pack</a>
-      <a class="btn btn-g" href="/projects">Read documented work</a>
-      <a class="btn btn-g" href="/resume">Open resume</a>
-    </div>
-  </div>
-</section>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">
@@ -249,11 +269,32 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
 <!-- @include:footer:start -->
 <footer>
   <div class="ctr">
-    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
-    <div class="fl">
-      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
-      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
-      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><b>HawkinsOps</b> — Raylee Hawkins</div>
+        <p class="footer-tagline">Evidence-first SOC portfolio. All counts verifiable against the public repo with a single command.</p>
+        <div class="fl" style="justify-content:flex-start;margin-top:10px">
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+          <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+          <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+        </div>
+        <div class="footer-avail"><span class="footer-dot"></span>Open to opportunities — Huntsville, AL area</div>
+      </div>
+      <div class="footer-nav-group">
+        <div class="footer-nav-col">
+          <h4>Work</h4>
+          <a href="/proof">Proof Pack</a>
+          <a href="/detections">Detections</a>
+          <a href="/projects">Case studies</a>
+          <a href="/soc-lab">SOC/Lab</a>
+        </div>
+        <div class="footer-nav-col">
+          <h4>Contact</h4>
+          <a href="/resume">Resume</a>
+          <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Repository</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
