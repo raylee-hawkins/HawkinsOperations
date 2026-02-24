@@ -110,8 +110,8 @@
   cowrie:
     image: cowrie/cowrie:latest
     ports:
-      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_SSH_PORT:-2222}:2222"
-      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_TELNET_PORT:-2223}:2223"
+      - "${LAN_BIND_IP:-localhost}:${COWRIE_SSH_PORT:-2222}:2222"
+      - "${LAN_BIND_IP:-localhost}:${COWRIE_TELNET_PORT:-2223}:2223"
     volumes:
       - ./cowrie/var:/cowrie/cowrie-git/var
     # Logs write to cowrie/var/log/cowrie/cowrie.json
@@ -119,14 +119,14 @@
   grafana:
     image: grafana/grafana-oss:latest
     ports:
-      - "${LAN_BIND_IP:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
+      - "${LAN_BIND_IP:-localhost}:${GRAFANA_PORT:-3000}:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASS}
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/dashboards:/var/lib/grafana/dashboards</pre>
-        <p style="margin-top:10px">All secrets live in <code>.env</code> (not committed). <code>LAN_BIND_IP</code> defaults to <code>127.0.0.1</code> — services are LAN-only unless explicitly overridden.</p>
+        <p style="margin-top:10px">All secrets live in <code>.env</code> (not committed). <code>LAN_BIND_IP</code> defaults to <code>localhost</code> — services are LAN-only unless explicitly overridden.</p>
       </div>
     </div>
 
@@ -185,7 +185,7 @@ docker compose up -d
       <div class="card">
         <h2 class="card-ttl">Security decisions</h2>
         <ul class="card-sub" style="padding-left:18px">
-          <li><b>LAN-only by default</b> — <code>LAN_BIND_IP</code> defaults to <code>127.0.0.1</code>. Public-facing deployment requires explicit <code>.env</code> change.</li>
+          <li><b>LAN-only by default</b> — <code>LAN_BIND_IP</code> defaults to <code>localhost</code>. Public-facing deployment requires explicit <code>.env</code> change.</li>
           <li><b>No credentials on disk</b> — all secrets via environment variables from <code>.env</code>. No hardcoded values in compose file or scripts.</li>
           <li><b>Proxmox DMZ placement</b> — docs specify isolating the honeypot VM on a DMZ bridge segment; DMZ cannot initiate connections to LAN.</li>
           <li><b>CI validation</b> — GitHub Actions validates <code>docker-compose.yml</code> syntax and shellchecks scripts on every push.</li>
