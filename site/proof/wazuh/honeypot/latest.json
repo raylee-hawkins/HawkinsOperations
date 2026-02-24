@@ -58,5 +58,35 @@
       "desc": "New dpkg (Debian Package) installed."
     },
     "has_srcip": false
+  },
+  {
+    "ts": "2026-02-24T11:56:32.227+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "5710",
+      "level": 5,
+      "desc": "sshd: Attempt to login using a non-existent user"
+    },
+    "has_srcip": true
+  },
+  {
+    "ts": "2026-02-24T11:59:30.242+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "5710",
+      "level": 5,
+      "desc": "sshd: Attempt to login using a non-existent user"
+    },
+    "has_srcip": true
+  },
+  {
+    "ts": "2026-02-24T11:59:30.244+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "5710",
+      "level": 5,
+      "desc": "sshd: Attempt to login using a non-existent user"
+    },
+    "has_srcip": true
   }
 ]
