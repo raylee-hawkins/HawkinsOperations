@@ -6,11 +6,11 @@ const path = require("path");
 const root = process.cwd();
 const checkOnly = process.argv.includes("--check");
 
-const targetPages = [
-  path.join("site", "index.html"),
-  path.join("site", "proof.html"),
-  path.join("site", "security.html")
-];
+const targetPages = fs
+  .readdirSync(path.join(root, "site"), { withFileTypes: true })
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".html") && entry.name !== "404.html")
+  .map((entry) => path.join("site", entry.name))
+  .sort();
 
 const includeDefs = {
   nav: path.join("site", "partials", "nav.html"),

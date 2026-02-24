@@ -63,31 +63,35 @@
 </style>
 </head>
 <body>
+<!-- @include:nav:start -->
 <nav>
   <div class="nav-i">
-    <a class="logo" href="/"><b>Hawkins</b>Ops</a>
+    <a class="logo" href="/"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
+      <li><a href="/lab">SOC/Lab</a></li>
+      <li><a href="/security">Detections</a></li>
+      <li><a href="/proof">Proof Pack</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/security">Security</a></li>
-      <li><a href="/lab">Lab</a></li>
-      <li><a href="/triage">Triage</a></li>
-      <li><a href="/proof">Proof</a></li>
+      <li><a href="/triage">Wildcard</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
+    <a class="btn btn-p" href="/proof">View Proof Pack</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
+  <a href="/lab">SOC/Lab</a>
+  <a href="/security">Detections</a>
+  <a href="/proof">Proof Pack</a>
   <a href="/projects">Projects</a>
-  <a href="/security">Security</a>
-  <a href="/lab">Lab</a>
-  <a href="/triage">Triage</a>
-  <a href="/proof">Proof</a>
+  <a href="/triage">Wildcard</a>
   <a href="/resume">Resume</a>
 </div>
+
+<!-- @include:nav:end -->
 
 <section class="resume-shell">
   <div class="ctr">
@@ -172,6 +176,7 @@
     <div id="modalBody" class="modal-b"></div>
   </div>
 </div>
+<!-- @include:footer:start -->
 <footer>
   <div class="ctr">
     <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
@@ -182,6 +187,8 @@
     </div>
   </div>
 </footer>
+
+<!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
