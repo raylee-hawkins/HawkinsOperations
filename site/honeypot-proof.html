@@ -142,7 +142,7 @@
 <script>
   (function () {
     var jsonPath = '/proof/wazuh/honeypot/latest.json';
-    var mdPath = '/proof/wazuh/honeypot/latest.md';
+    var metaPath = '/proof/wazuh/honeypot/latest.meta.json';
     var lastGeneratedEl = document.getElementById('lastGenerated');
     var alertCountEl = document.getElementById('alertCount');
     var tbody = document.getElementById('alertsTableBody');
@@ -171,11 +171,6 @@
       }).join('');
     }
 
-    function parseGeneratedFromMd(mdText) {
-      var m = mdText.match(/- Last generated \(UTC\):\s*(.+)/i);
-      return m ? m[1].trim() : null;
-    }
-
     async function run() {
       try {
         var alertsResp = await fetch(jsonPath, { cache: 'no-store' });
@@ -183,26 +178,26 @@
         var alerts = await alertsResp.json();
         if (!Array.isArray(alerts)) throw new Error('latest.json is not a JSON array');
 
-        alertCountEl.textContent = String(alerts.length);
         setRows(alerts);
 
-        var generated = null;
+        var meta = null;
         try {
-          var mdResp = await fetch(mdPath, { cache: 'no-store' });
-          if (mdResp.ok) {
-            var mdText = await mdResp.text();
-            generated = parseGeneratedFromMd(mdText);
-          }
+          var metaResp = await fetch(metaPath, { cache: 'no-store' });
+          if (metaResp.ok) meta = await metaResp.json();
         } catch (err) {
-          generated = null;
+          meta = null;
         }
+
+        var generated = meta && typeof meta.generated_utc === 'string' ? meta.generated_utc : null;
+        var exportedCount = meta && Number.isFinite(meta.exported_count) ? meta.exported_count : alerts.length;
 
         if (!generated && alerts.length) {
           generated = alerts[alerts.length - 1].ts || null;
         }
 
+        alertCountEl.textContent = String(exportedCount);
         lastGeneratedEl.textContent = generated || 'Unavailable';
-        loadState.textContent = 'Loaded sanitized alerts from latest.json.';
+        loadState.textContent = 'Loaded sanitized alerts from latest.json and latest.meta.json.';
       } catch (err) {
         lastGeneratedEl.textContent = 'Unavailable';
         alertCountEl.textContent = 'Unavailable';

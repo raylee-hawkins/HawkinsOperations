@@ -8,6 +8,7 @@ The honeypot proof pipeline runs on the private Wazuh manager and publishes only
 - Reads `/var/ossec/logs/alerts/alerts.json`
 - Filters `agent.name == "HO-HONEYPOT-01"`
 - Exports only: `ts`, `agent`, `rule.id`, `rule.level`, `rule.desc`, `has_srcip`
+- Writes metadata artifact: `latest.meta.json` (`generated_utc`, `exported_count`, `agent_name`, `last_rule_id`)
 - Writes:
   - `proof/wazuh/honeypot/latest.json`
   - `proof/wazuh/honeypot/latest.md`
