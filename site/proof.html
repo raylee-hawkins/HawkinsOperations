@@ -48,6 +48,7 @@
       <li><a href="/lab">Lab</a></li>
       <li><a href="/triage">Triage</a></li>
       <li><a href="/proof">Proof</a></li>
+      <li><a href="/proof/honeypot">Honeypot</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
@@ -60,6 +61,7 @@
   <a href="/lab">Lab</a>
   <a href="/triage">Triage</a>
   <a href="/proof">Proof</a>
+  <a href="/proof/honeypot">Honeypot</a>
   <a href="/resume">Resume</a>
 </div>
 
@@ -69,9 +71,14 @@
     <h1 class="stitle">How to validate this portfolio (fast)</h1>
     <p class="sdesc">
       The point is that you can verify the claims with commands.
-      This is what “auditable” looks like when nobody is hand-waving.
+      This is what "auditable" looks like when nobody is hand-waving.
     </p>
     <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>
+
+    <div class="card" style="margin:18px 0 24px 0">
+      <div class="card-ttl">Proof -> Honeypot (Wazuh)</div>
+      <div class="card-sub">Live sanitized alert feed, artifact download, and verification steps. <a href="/proof/honeypot">Open page</a></div>
+    </div>
 
     <div class="g2">
       <div class="card">
@@ -127,15 +134,15 @@ pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
           <li><span data-verified="splunk">7</span> Splunk SPL queries</li>
           <li><span data-verified="ir">10</span> IR playbooks</li>
         </ul>
-        <p>These totals are documented in the repo’s release notes and verification artifacts.</p>
+        <p>These totals are documented in the repoâs release notes and verification artifacts.</p>
       </div>
     </details>
 
     <details>
-      <summary>Why crawlers used to show “0” <span>(and why they don’t now)</span></summary>
+      <summary>Why crawlers used to show â0â <span>(and why they donât now)</span></summary>
       <div class="details-body">
         <p>
-          The old build relied on client-side JS counters. If JS didn’t run (bots, locked-down browsers),
+          The old build relied on client-side JS counters. If JS didnât run (bots, locked-down browsers),
           the page rendered zeros. This site now renders numbers as plain HTML and only uses JS for
           optional UX (modals/copy buttons).
         </p>
@@ -155,7 +162,7 @@ pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
 </div>
 <footer>
   <div class="ctr">
-    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <p><b>HawkinsOps</b> â¢ Huntsville-adjacent (North Alabama)</p>
     <div class="fl">
       <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
       <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>

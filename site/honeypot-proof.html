@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | Honeypot Proof (Wazuh)</title>
+<meta name="description" content="Sanitized Wazuh honeypot alerts published from a private manager to GitHub and surfaced as auditable proof artifacts.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<link rel="canonical" href="https://hawkinsops.com/proof/honeypot">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('rh-theme'); } catch (err) { saved = null; }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
+<style>
+  .proof-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin: 16px 0 22px; }
+  .proof-meta { background: var(--bg2); border:1px solid var(--bdr); border-radius:16px; padding:18px; }
+  .proof-meta .label { font-family: var(--mono); font-size: .68rem; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+  .proof-meta .value { margin-top: 6px; font-size: 1.05rem; color: var(--txt); word-break: break-word; }
+  .proof-table-wrap { overflow-x:auto; border:1px solid var(--bdr); border-radius:16px; background: var(--bg2); }
+  .proof-table { width:100%; border-collapse: collapse; min-width: 760px; }
+  .proof-table th, .proof-table td { padding: 10px 12px; border-bottom:1px solid var(--bdr); font-size: .82rem; vertical-align: top; }
+  .proof-table th { font-family: var(--mono); color: var(--acc); text-transform: uppercase; letter-spacing:.05em; font-size:.68rem; }
+  .proof-note { font-size:.86rem; color:var(--dim); margin: 12px 0 0; }
+  @media (max-width: 900px) { .proof-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/lab">Lab</a></li>
+      <li><a href="/triage">Triage</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/proof/honeypot">Honeypot</a></li>
+      <li><a href="/resume">Resume</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/security">Security</a>
+  <a href="/lab">Lab</a>
+  <a href="/triage">Triage</a>
+  <a href="/proof">Proof</a>
+  <a href="/proof/honeypot">Honeypot</a>
+  <a href="/resume">Resume</a>
+</div>
+
+<section style="padding-top:110px">
+  <div class="ctr">
+    <div class="slbl">Proof</div>
+    <h1 class="stitle">Honeypot (Wazuh) Sanitized Alert Proof</h1>
+    <p class="sdesc">Source data is exported on a private Wazuh manager, sanitized, and published to GitHub on a scheduled pipeline. No Wazuh API is exposed publicly.</p>
+
+    <div class="card" style="margin: 0 0 22px 0;">
+      <div class="card-ttl">Proof -> Honeypot (Wazuh)</div>
+      <div class="card-sub">This page renders <code>/proof/wazuh/honeypot/latest.json</code> from the same domain and links to the exact GitHub artifact path.</div>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-meta">
+        <div class="label">Last generated (UTC)</div>
+        <div id="lastGenerated" class="value">Loading...</div>
+      </div>
+      <div class="proof-meta">
+        <div class="label">Exported alerts</div>
+        <div id="alertCount" class="value">Loading...</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-bottom: 22px;">
+      <div class="card">
+        <div class="card-ttl">Download artifact</div>
+        <div class="card-sub"><a id="sameDomainJson" href="/proof/wazuh/honeypot/latest.json" target="_blank" rel="noopener noreferrer">/proof/wazuh/honeypot/latest.json</a></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">GitHub artifact path</div>
+        <div class="card-sub"><a id="githubJson" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/proof/wazuh/honeypot/latest.json" target="_blank" rel="noopener noreferrer">proof/wazuh/honeypot/latest.json</a></div>
+      </div>
+    </div>
+
+    <div class="proof-table-wrap">
+      <table class="proof-table" aria-label="Recent sanitized honeypot alerts">
+        <thead>
+          <tr>
+            <th>ts</th>
+            <th>rule.id</th>
+            <th>rule.level</th>
+            <th>rule.desc</th>
+          </tr>
+        </thead>
+        <tbody id="alertsTableBody">
+          <tr><td colspan="4">Loading sanitized alerts...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p id="loadState" class="proof-note"></p>
+
+    <details open style="margin-top:20px">
+      <summary>How to verify</summary>
+      <div class="details-body">
+        <ol style="padding-left:18px">
+          <li style="margin:8px 0">Check the timestamp in the artifact.</li>
+          <li style="margin:8px 0">View the commit history for proof updates: <a href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main/proof/wazuh/honeypot" target="_blank" rel="noopener noreferrer">proof/wazuh/honeypot commits</a>.</li>
+          <li style="margin:8px 0">Reproduce: exporter reads Wazuh <code>alerts.json</code> and publishes sanitized artifacts.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/fetch-utils.js" defer></script>
+<script src="/assets/app.js" defer></script>
+<script>
+  (function () {
+    var jsonPath = '/proof/wazuh/honeypot/latest.json';
+    var metaPath = '/proof/wazuh/honeypot/latest.meta.json';
+    var lastGeneratedEl = document.getElementById('lastGenerated');
+    var alertCountEl = document.getElementById('alertCount');
+    var tbody = document.getElementById('alertsTableBody');
+    var loadState = document.getElementById('loadState');
+
+    function esc(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function setRows(alerts) {
+      if (!alerts.length) {
+        tbody.innerHTML = '<tr><td colspan="4">No alerts available in current artifact.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = alerts.slice().reverse().map(function (a) {
+        var ts = esc(a.ts || '');
+        var id = esc(a.rule && a.rule.id || '');
+        var lvl = esc(a.rule && a.rule.level != null ? a.rule.level : '');
+        var desc = esc(a.rule && a.rule.desc || '');
+        return '<tr><td>' + ts + '</td><td>' + id + '</td><td>' + lvl + '</td><td>' + desc + '</td></tr>';
+      }).join('');
+    }
+
+    async function run() {
+      try {
+        var alertsResp = await fetch(jsonPath, { cache: 'no-store' });
+        if (!alertsResp.ok) throw new Error('Unable to fetch latest.json (' + alertsResp.status + ')');
+        var alerts = await alertsResp.json();
+        if (!Array.isArray(alerts)) throw new Error('latest.json is not a JSON array');
+
+        setRows(alerts);
+
+        var meta = null;
+        try {
+          var metaResp = await fetch(metaPath, { cache: 'no-store' });
+          if (metaResp.ok) meta = await metaResp.json();
+        } catch (err) {
+          meta = null;
+        }
+
+        var generated = meta && typeof meta.generated_utc === 'string' ? meta.generated_utc : null;
+        var exportedCount = meta && Number.isFinite(meta.exported_count) ? meta.exported_count : alerts.length;
+
+        if (!generated && alerts.length) {
+          generated = alerts[alerts.length - 1].ts || null;
+        }
+
+        alertCountEl.textContent = String(exportedCount);
+        lastGeneratedEl.textContent = generated || 'Unavailable';
+        loadState.textContent = 'Loaded sanitized alerts from latest.json and latest.meta.json.';
+      } catch (err) {
+        lastGeneratedEl.textContent = 'Unavailable';
+        alertCountEl.textContent = 'Unavailable';
+        tbody.innerHTML = '<tr><td colspan="4">Failed to load proof artifact.</td></tr>';
+        loadState.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown error');
+      }
+    }
+
+    run();
+  })();
+</script>
+</body>
+</html>
