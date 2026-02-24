@@ -21,6 +21,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="/assets/styles.css">
 
 </head>
@@ -38,6 +50,7 @@
       <li><a href="/proof">Proof</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
@@ -109,10 +122,10 @@ pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
       <summary>What those verified numbers should be <span>(reproducible today)</span></summary>
       <div class="details-body">
         <ul>
-          <li><span data-verified="sigma">--</span> Sigma rules</li>
-          <li><span data-verified="wazuh">--</span> Wazuh rule blocks (<span data-verified="wazuh_xml_files">--</span> XML files)</li>
-          <li><span data-verified="splunk">--</span> Splunk SPL queries</li>
-          <li><span data-verified="ir">--</span> IR playbooks</li>
+          <li><span data-verified="sigma">105</span> Sigma rules</li>
+          <li><span data-verified="wazuh">29</span> Wazuh rule blocks (<span data-verified="wazuh_xml_files">25</span> XML files)</li>
+          <li><span data-verified="splunk">8</span> Splunk SPL queries</li>
+          <li><span data-verified="ir">10</span> IR playbooks</li>
         </ul>
         <p>These totals are documented in the repo’s release notes and verification artifacts.</p>
       </div>

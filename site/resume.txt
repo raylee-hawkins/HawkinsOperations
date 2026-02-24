@@ -19,11 +19,12 @@ SKILLS
 
 EXPERIENCE / PROJECTS
 - HawkinsOperations (Primary Portfolio Repo)
-  - Built and maintain a detection and response library with verified inventory:
-    platform counts are sourced from PROOF_PACK/VERIFIED_COUNTS.md and rendered
-    from generated verified-counts data.
+  - Built and maintain a detection and response library: 105 Sigma rules,
+    29 Wazuh rule blocks (25 XML files), 8 Splunk SPL queries, 10 IR playbooks.
+    Counts sourced from PROOF_PACK/VERIFIED_COUNTS.md and reproducible via CI.
   - Implemented proof-first validation workflow so reviewers can reproduce claims
     directly from repository artifacts.
+  - Proof: https://hawkinsops.com/proof
 
 - SOC Triage Simulator
   - Built an interactive triage workflow artifact to practice investigation steps,

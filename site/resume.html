@@ -21,6 +21,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="/assets/styles.css">
 <style>
   .resume-shell{padding-top:110px}
@@ -64,6 +76,7 @@
       <li><a href="/proof">Proof</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
@@ -114,7 +127,7 @@
         <div class="resume-project">
           <h3>HawkinsOperations (Primary Portfolio Repo)</h3>
           <ul>
-            <li>Built and maintain a detection and response library with verified inventory: <span data-verified="sigma">--</span> Sigma rules, <span data-verified="wazuh">--</span> Wazuh rule blocks (<span data-verified="wazuh_xml_files">--</span> XML files), <span data-verified="splunk">--</span> Splunk detections, and <span data-verified="ir">--</span> IR playbooks.</li>
+            <li>Built and maintain a detection and response library with verified inventory: <span data-verified="sigma">105</span> Sigma rules, <span data-verified="wazuh">29</span> Wazuh rule blocks (<span data-verified="wazuh_xml_files">25</span> XML files), <span data-verified="splunk">8</span> Splunk detections, and <span data-verified="ir">10</span> IR playbooks.</li>
             <li>Implemented proof-first validation workflow (scripts, documentation, CI alignment) so reviewers can reproduce claims directly from repo artifacts.</li>
           </ul>
         </div>
