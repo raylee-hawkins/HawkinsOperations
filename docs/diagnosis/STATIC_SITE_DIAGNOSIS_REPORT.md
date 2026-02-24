@@ -1,6 +1,6 @@
 # Static Site Diagnosis Report
 
-Generated: `2026-02-18T14:12:42.316Z`
+Generated: `2026-02-24T13:29:53.237Z`
 Root: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 Site directory: `site`
 
@@ -15,13 +15,13 @@ Site directory: `site`
 
 ## Sample Run Output
 ```text
-HTML files scanned: 10
+HTML files scanned: 17
 JS files scanned: 8
 Fetch calls found: 0
 Trailing-slash hazards: 0
 Missing local asset resolutions: 0
-Legacy owner hits: 486
-Legacy hosting hits: 14
+Legacy owner hits: 143
+Legacy hosting hits: 0
 ```
 
 ## A) Asset Path Consistency Audit (HTML)
@@ -32,8 +32,15 @@ Homepage absolute + inner-page relative pattern detected: `false`
 | --- | --- | --- | --- | --- | --- |
 | `site/404.html` | 3 | 0 | 1 | no | `https://hawkinsops.com/404` |
 | `site/blog-python2-to-python3.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/blog-python2-to-python3` |
+| `site/case-study-cve-patch.html` | 8 | 0 | 4 | no | `https://hawkinsops.com/case-study-cve-patch` |
+| `site/case-study-detection-harness.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/case-study-detection-harness` |
+| `site/case-study-honeypot.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/case-study-honeypot` |
+| `site/case-study-ir-howe01.html` | 7 | 0 | 4 | no | `https://hawkinsops.com/case-study-ir-howe01` |
+| `site/case-study-ir-playbooks.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/case-study-ir-playbooks` |
+| `site/case-study-sigma-library.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/case-study-sigma-library` |
+| `site/case-study-soc-integration.html` | 6 | 0 | 4 | no | `https://hawkinsops.com/case-study-soc-integration` |
 | `site/case-study.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/case-study` |
-| `site/index.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/` |
+| `site/index.html` | 6 | 0 | 4 | no | `https://hawkinsops.com/` |
 | `site/lab.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/lab` |
 | `site/projects.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/projects` |
 | `site/proof.html` | 5 | 0 | 4 | no | `https://hawkinsops.com/proof` |
@@ -88,15 +95,15 @@ Generation script evidence:
 - `scripts/smoke-production.ps1:123` "$BaseUrl/assets/data/media.json",
 - `scripts/smoke-production.ps1:124` "$BaseUrl/assets/verified-counts.json"
 Cloudflare output evidence:
-- `README.md:81` - `site/assets/verified-counts.json`
-- `README.md:98` \| `site/` \| static portfolio site source \| published recruiter-facing web content \|
-- `README.md:117` \|-- generate-site-content.js      -> site/assets/data/*.json
-- `README.md:121` \|-- generate-site-data.js         -> PROOF_PACK/verified_counts.json + site/assets/verified-counts.json
-- `README.md:146` - Runtime remains static HTML/CSS/JS under `site/` (no framework lock-in).
-- `README.md:147` - Design tokens and fluid layout primitives: `site/assets/design-system.css`.
-- `README.md:149` - `site/projects.html` reads `site/assets/data/projects.json`.
-- `README.md:150` - `site/security.html` reads `site/assets/data/detections.json`.
-- `README.md:160` Cloudflare Pages production build:
+- `README.md:82` - `site/assets/verified-counts.json`
+- `README.md:99` \| `site/` \| static portfolio site source \| published recruiter-facing web content \|
+- `README.md:118` \|-- generate-site-content.js      -> site/assets/data/*.json
+- `README.md:122` \|-- generate-site-data.js         -> PROOF_PACK/verified_counts.json + site/assets/verified-counts.json
+- `README.md:147` - Runtime remains static HTML/CSS/JS under `site/` (no framework lock-in).
+- `README.md:148` - Design tokens and fluid layout primitives: `site/assets/design-system.css`.
+- `README.md:150` - `site/projects.html` reads `site/assets/data/projects.json`.
+- `README.md:151` - `site/security.html` reads `site/assets/data/detections.json`.
+- `README.md:161` Cloudflare Pages production build:
 - `START_HERE.md:27` - `PROOF_PACK/verified_counts.json` and `site/assets/verified-counts.json` stay in sync with verified counts.
 - `site/README_DEPLOY.md:15` - Primary production hosting: **Cloudflare Pages**
 - `site/README_DEPLOY.md:16` - Publish directory: `site/`
@@ -118,6 +125,14 @@ Legacy owners detected: `alessandroz`, `gentilkiwi`, `sigmahq`, `swiftonsecurity
 raylee-hawkins/old owner hits:
 - `.github/ISSUE_TEMPLATE/config.yml:4` [raylee-hawkins] url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md
 - `.github/ISSUE_TEMPLATE/config.yml:7` [raylee-hawkins] url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/SECURITY.md
+- `CONTRIBUTING.md:80` [raylee-hawkins] git remote add upstream https://github.com/raylee-hawkins/HawkinsOperations.git
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:94` [raylee-hawkins] <a href="https://github.com/raylee-hawkins" target="_blank" rel="noreferrer">GitHub</a> \|
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:96` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:173` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noreferrer">GitHub</a>
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:174` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt:13` [raylee-hawkins] GitHub: https://github.com/raylee-hawkins
+- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt:15` [raylee-hawkins] LinkedIn: https://linkedin.com/in/raylee-hawkins
+- `README.md:5` [raylee-hawkins] [![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)
 - `content/detections.json:13` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma"
 - `content/detections.json:17` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
 - `content/detections.json:31` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
@@ -137,7 +152,12 @@ raylee-hawkins/old owner hits:
 - `content/projects.json:70` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks",
 - `content/projects.json:75` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks"
 - `content/projects.json:79` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md"
-- `CONTRIBUTING.md:80` [raylee-hawkins] git remote add upstream https://github.com/raylee-hawkins/HawkinsOperations.git
+- `content/projects.json:90` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/wazuh-detection-harness",
+- `content/projects.json:95` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/README.md"
+- `content/projects.json:99` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/runs/run_02-19-2026_034113/report.md"
+- `content/projects.json:110` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/honeypot-grafana-wazuh",
+- `content/projects.json:115` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/README.md"
+- `content/projects.json:119` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/docker-compose.yml"
 - `projects/migration-rh/PROOF_PACK/PROOF_INDEX.md:7` [raylee-hawkins] - Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)
 - `projects/migration-rh/PROOF_PACK/PROOF_INDEX.md:8` [raylee-hawkins] - Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)
 - `projects/migration-rh/PROOF_PACK/VERIFICATION.md:19` [raylee-hawkins] - https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0
@@ -173,128 +193,81 @@ raylee-hawkins/old owner hits:
 - `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:190` [raylee-hawkins] git clone https://github.com/raylee-hawkins/HawkinsOperations.git
 - `projects/repo-history/MIGRATION_GUIDE_FOR_USERS.md:229` [raylee-hawkins] - **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues
 - `projects/repo-history/RELEASE_NOTES_v1.1.0.md:185` [raylee-hawkins] **Repository:** https://github.com/raylee-hawkins/HawkinsOperations
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:94` [raylee-hawkins] <a href="https://github.com/raylee-hawkins" target="_blank" rel="noreferrer">GitHub</a> \|
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:96` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:173` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noreferrer">GitHub</a>
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_html_02-14-2026.txt:174` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noreferrer">LinkedIn</a>
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt:13` [raylee-hawkins] GitHub: https://github.com/raylee-hawkins
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_headers_resume_txt_02-14-2026.txt:15` [raylee-hawkins] LinkedIn: https://linkedin.com/in/raylee-hawkins
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt:13` [raylee-hawkins] GitHub: https://github.com/raylee-hawkins
-- `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/evidence/logs/local_server_output_02-14-2026.txt:15` [raylee-hawkins] LinkedIn: https://linkedin.com/in/raylee-hawkins
-- `README.md:5` [raylee-hawkins] [![Verification](https://img.shields.io/github/actions/workflow/status/raylee-hawkins/HawkinsOperations/verify.yml?branch=main&label=verify)](https://github.com/raylee-hawkins/HawkinsOperations/actions/workflows/verify.yml)
-- `run_02-17-2026_195804/content/detections.json:13` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma"
-- `run_02-17-2026_195804/content/detections.json:17` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
-- `run_02-17-2026_195804/content/detections.json:31` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
-- `run_02-17-2026_195804/content/detections.json:35` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1"
-- `run_02-17-2026_195804/content/detections.json:49` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk"
-- `run_02-17-2026_195804/content/detections.json:53` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md"
-- `run_02-17-2026_195804/content/detections.json:67` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks"
-- `run_02-17-2026_195804/content/detections.json:71` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md"
-- `run_02-17-2026_195804/content/projects.json:10` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules",
-- `run_02-17-2026_195804/content/projects.json:15` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
-- `run_02-17-2026_195804/content/projects.json:19` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
-- `run_02-17-2026_195804/content/projects.json:30` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh",
-- `run_02-17-2026_195804/content/projects.json:35` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md"
-- `run_02-17-2026_195804/content/projects.json:39` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK"
-- `run_02-17-2026_195804/content/projects.json:50` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html",
-- `run_02-17-2026_195804/content/projects.json:59` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents"
-- `run_02-17-2026_195804/content/projects.json:70` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks",
-- `run_02-17-2026_195804/content/projects.json:75` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks"
-- `run_02-17-2026_195804/content/projects.json:79` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md"
-- `run_02-17-2026_195804/CONTRIBUTING.md:80` [raylee-hawkins] git remote add upstream https://github.com/raylee-hawkins/HawkinsOperations.git
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:398` [raylee-hawkins] "currentOwner": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:400` [raylee-hawkins] "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:406` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:409` [raylee-hawkins] "text": "    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/VERIFY_COMMANDS_POWERSHELL.md"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:412` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:415` [raylee-hawkins] "text": "    url: https://github.com/raylee-hawkins/HawkinsOperations/blob/main/SECURITY.md"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:418` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:421` [raylee-hawkins] "text": "- Standalone release receipt: [`v0.9.0`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:424` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:427` [raylee-hawkins] "text": "- Standalone source repository: [`raylee-hawkins/RH_MIGRATION_2026_V2`](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:430` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:433` [raylee-hawkins] "text": "- https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:436` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:439` [raylee-hawkins] "text": "- Repo: `raylee-hawkins/RH_MIGRATION_2026_V2`"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:442` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:445` [raylee-hawkins] "text": "- Release: [`v0.9.0` — Phase 08 complete (100% core phases)](https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2/releases/tag/v0.9.0)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:448` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:451` [raylee-hawkins] "text": "**Source:** raylee-hawkins/RH_MIGRATION_2026_V2 (private, active project)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:454` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:457` [raylee-hawkins] "text": "**PR:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:460` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:463` [raylee-hawkins] "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-framework"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:466` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:469` [raylee-hawkins] "text": "- **URL:** https://github.com/raylee-hawkins/hawkins_ops"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:472` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:475` [raylee-hawkins] "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-site"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:478` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:481` [raylee-hawkins] "text": "- **URL:** https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2 (private)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:484` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:487` [raylee-hawkins] "text": "- **URL:** https://github.com/raylee-hawkins/hawkinsops-soc-content (already archived)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:490` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:493` [raylee-hawkins] "text": "gh repo archive raylee-hawkins/hawkinsops-framework --yes"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:496` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:499` [raylee-hawkins] "text": "gh repo archive raylee-hawkins/hawkins_ops --yes"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:502` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:505` [raylee-hawkins] "text": "gh repo archive raylee-hawkins/hawkinsops-site --yes"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:508` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:511` [raylee-hawkins] "text": "gh repo archive raylee-hawkins/RH_MIGRATION_2026_V2 --yes"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:514` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:517` [raylee-hawkins] "text": "- **Pull Request:** https://github.com/raylee-hawkins/HawkinsOperations/pull/2"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:520` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:523` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:526` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:529` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:532` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:535` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:538` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:541` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:544` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:547` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/hawkinsops-site.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:550` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:553` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:556` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:559` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/RH_MIGRATION_2026_V2.git  # Private repo"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:562` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:565` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:568` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:571` [raylee-hawkins] "text": "    run: git clone https://github.com/raylee-hawkins/hawkinsops-framework.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:574` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:577` [raylee-hawkins] "text": "    run: git clone https://github.com/raylee-hawkins/hawkins_ops.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:580` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:583` [raylee-hawkins] "text": "    run: git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:586` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:589` [raylee-hawkins] "text": "See [hawkinsops-framework](https://github.com/raylee-hawkins/hawkinsops-framework)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:592` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:595` [raylee-hawkins] "text": "See [HawkinsOperations/tools](https://github.com/raylee-hawkins/HawkinsOperations/tree/main/tools)"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:598` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:601` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/hawkins_ops.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:604` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:607` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:610` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:613` [raylee-hawkins] "text": "git clone https://github.com/raylee-hawkins/HawkinsOperations.git"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:616` [raylee-hawkins] "token": "raylee-hawkins",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:619` [raylee-hawkins] "text": "- **Issues:** Report at https://github.com/raylee-hawkins/HawkinsOperations/issues"
+- `site/README_DEPLOY.md:20` [raylee-hawkins] - `raylee-hawkins/HawkinsOperations`
+- `site/assets/components/sections/listing-renderer.js:31` [raylee-hawkins] ? `https://github.com/raylee-hawkins/HawkinsOperations/tree/main/${esc(item.location \|\| "")}`
+- `site/assets/data/detections.json:13` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma"
+- `site/assets/data/detections.json:17` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+- `site/assets/data/detections.json:31` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
+- `site/assets/data/detections.json:35` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1"
+- `site/assets/data/detections.json:49` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/splunk"
+- `site/assets/data/detections.json:53` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/mappings/mitre_coverage_matrix.md"
+- `site/assets/data/detections.json:67` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks"
+- `site/assets/data/detections.json:71` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/checklists/IR-004-to-030-Quick-Reference.md"
+- `site/assets/data/projects.json:10` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules",
+- `site/assets/data/projects.json:15` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+- `site/assets/data/projects.json:19` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules"
+- `site/assets/data/projects.json:30` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh",
+- `site/assets/data/projects.json:35` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md"
+- `site/assets/data/projects.json:39` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK"
+- `site/assets/data/projects.json:50` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html",
+- `site/assets/data/projects.json:59` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents"
+- `site/assets/data/projects.json:70` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks",
+- `site/assets/data/projects.json:75` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks"
+- `site/assets/data/projects.json:79` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md"
+- `site/assets/data/projects.json:90` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/wazuh-detection-harness",
+- `site/assets/data/projects.json:95` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/README.md"
+- `site/assets/data/projects.json:99` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/runs/run_02-19-2026_034113/report.md"
+- `site/assets/data/projects.json:110` [raylee-hawkins] "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/honeypot-grafana-wazuh",
+- `site/assets/data/projects.json:115` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/README.md"
+- `site/assets/data/projects.json:119` [raylee-hawkins] "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/docker-compose.yml"
+- `site/assets/home.js:3` [raylee-hawkins] username: "raylee-hawkins",
+- `site/blog-python2-to-python3.html:112` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/blog-python2-to-python3.html:113` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/case-study-soc-integration.html:139` [raylee-hawkins] <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration/evidence" target="_blank" rel="noopener noreferrer">PP_SOC_Integration evidence directory (GitHub)</a> — Wazuh alert screenshots, agent status, CVE remediation artifacts.</li>
+- `site/case-study-soc-integration.html:140` [raylee-hawkins] <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration" target="_blank" rel="noopener noreferrer">Full project package (GitHub)</a> — README, docs, and structured proof artifacts.</li>
+- `site/case-study-soc-integration.html:141` [raylee-hawkins] <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/PP_SOC_Integration/docs/UPCOMING_PROJECT_DIRECTION.md" target="_blank" rel="noopener noreferrer">Upcoming project direction doc</a> — next phase priorities and expansion plan.</li>
+- `site/case-study-soc-integration.html:176` [raylee-hawkins] <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration/evidence" target="_blank" rel="noopener noreferrer">View evidence artifacts</a>
+- `site/case-study-soc-integration.html:196` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/case-study-soc-integration.html:197` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/case-study.html:131` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/case-study.html:132` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/index.html:102` [raylee-hawkins] <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Clone the repo</a>
+- `site/index.html:108` [raylee-hawkins] <div class="lupd">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>
+- `site/index.html:149` [raylee-hawkins] <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block">
+- `site/index.html:172` [raylee-hawkins] <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration/evidence" target="_blank" rel="noopener noreferrer">View proof artifacts</a>
+- `site/index.html:173` [raylee-hawkins] <a class="btn btn-g" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/PP_SOC_Integration/docs/UPCOMING_PROJECT_DIRECTION.md" target="_blank" rel="noopener noreferrer">Read upcoming direction</a>
+- `site/index.html:391` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/index.html:392` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/lab.html:133` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/lab.html:134` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/projects.html:72` [raylee-hawkins] <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+- `site/projects.html:78` [raylee-hawkins] <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+- `site/projects.html:84` [raylee-hawkins] <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+- `site/projects.html:90` [raylee-hawkins] <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+- `site/projects.html:204` [raylee-hawkins] <p><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects" target="_blank" rel="noopener noreferrer">Open projects folder on GitHub</a></p>
+- `site/projects.html:214` [raylee-hawkins] <p><a href="https://github.com/raylee-hawkins/hawkinsops-framework" target="_blank" rel="noopener noreferrer">Open hawkinsops-framework</a></p>
+- `site/projects.html:224` [raylee-hawkins] <p><a href="https://github.com/raylee-hawkins/hawkins_ops" target="_blank" rel="noopener noreferrer">Open hawkins_ops</a></p>
+- `site/projects.html:230` [raylee-hawkins] <p><a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open HawkinsOperations</a></p>
+- `site/projects.html:236` [raylee-hawkins] <p><a href="https://github.com/raylee-hawkins/hawkinsops-framework" target="_blank" rel="noopener noreferrer">Open hawkinsops-framework</a></p>
+- `site/projects.html:252` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/projects.html:253` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/proof.html:79` [raylee-hawkins] <div class="card-sub"><a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">raylee-hawkins/HawkinsOperations</a></div>
+- `site/proof.html:104` [raylee-hawkins] <pre id="cProofPS" class="term-b">git clone https://github.com/raylee-hawkins/HawkinsOperations
+- `site/proof.html:160` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/proof.html:161` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/resume-content.md:3` [raylee-hawkins] raylee@hawkinsops.com \| https://github.com/raylee-hawkins \| https://hawkinsops.com \| https://linkedin.com/in/raylee-hawkins
+- `site/resume.html:100` [raylee-hawkins] <a href="https://github.com/raylee-hawkins" target="_blank" rel="noopener noreferrer">GitHub</a> \|
+- `site/resume.html:102` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/resume.html:179` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/resume.html:180` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/resume.txt:6` [raylee-hawkins] GitHub: https://github.com/raylee-hawkins
+- `site/resume.txt:8` [raylee-hawkins] LinkedIn: https://linkedin.com/in/raylee-hawkins
+- `site/security.html:336` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/security.html:337` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+- `site/triage.html:185` [raylee-hawkins] <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+- `site/triage.html:186` [raylee-hawkins] <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
 raw.githubusercontent.com hits:
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:1096` "howToConfirm": "Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.",
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:161` raw.githubusercontent.com hits:
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:234` - How to confirm: Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.
 legacy-hosting hits:
-- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:2` Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app
-- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:4` === nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ===
-- `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:8` Name:    hawkinsoperations.legacy-hosting.app
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:653` "legacy-hostingHits": [
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:672` "text": "Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:677` "text": "=== nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ==="
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:682` "text": "Name:    hawkinsoperations.legacy-hosting.app"
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json:1094` "legacy-hostingHits": 14
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:13` - Rename regression checks (`raylee-hawkins`, `legacy-hosting`, raw GitHub URLs)
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:162` legacy-hosting hits:
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:166` - `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:2` Legacy provider target reference (Legacy hosting hostname): hawkinsoperations.legacy-hosting.app
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:167` - `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:4` === nslookup hawkinsoperations.legacy-hosting.app 8.8.8.8 ===
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:168` - `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/dns_before_after_backfill_02-14-2026.txt:8` Name:    hawkinsoperations.legacy-hosting.app
-- `run_02-17-2026_195804/docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md:236` - Evidence: `{"legacyOwnerHits":41,"rawGithubHits":0,"legacy-hostingHits":14}`
 
 ## G) Content/DOM Mount Mismatch Checks
 Duplicate ID findings: 0
@@ -329,7 +302,7 @@ Missing script mount IDs by page: 0
 - Why intermittent: Old owner URLs may redirect unpredictably across mirrors/caches; raw.githubusercontent dependencies are sensitive to owner/repo/path changes.
 - How to confirm: Search deployed source for raylee-hawkins and raw.githubusercontent.com, then test those links directly for redirects or 404s.
 - Minimal fix: Replace old owner references with raylee-hawkins and prefer same-origin packaged assets over raw external URLs.
-- Evidence: `{"legacyOwnerHits":486,"rawGithubHits":3,"legacyHostingHits":14}`
+- Evidence: `{"legacyOwnerHits":143,"rawGithubHits":0,"legacyHostingHits":0}`
 
 ## Minimal Safe Fix Plan
 1. Standardize local asset references in HTML to root-absolute `/assets/...`.

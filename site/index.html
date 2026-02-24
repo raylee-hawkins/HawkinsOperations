@@ -159,11 +159,13 @@
     </a>
 
     <div class="hproof" style="margin-top:14px">
-      <b>Latest progress</b>
-      <br>• Wazuh agent coverage active across Windows 11 Enterprise endpoint and Proxmox VMs
-      <br>• Critical finding closed: CVE-2025-55130 remediation verified
-      <br>• 15,052 alerts observed in 24-hour window
-      <br>• Daily updates added as the environment hardens
+      <b>Completed</b>
+      <br>• Wazuh agent coverage active — CVE-2025-55130 detected and remediated, 15,052 alerts observed in 24h
+      <br>• IR case study published: live Level 12 FIM alert, triage to BENIGN verdict in 35 minutes, 9 evidence artifacts
+      <br>• Sigma library case study published: <span data-verified="sigma">103</span> platform-agnostic rules across 10 ATT&amp;CK tactics, false positive discipline documented
+      <br>• IR playbook library case study published: <span data-verified="ir">10</span> structured playbooks, 7-section template, escalation logic
+      <br>• CVE-2025-55130 patch response case study published: detect → triage → patch → verify workflow with evidence
+      <br>• Splunk credential access detections added: <span data-verified="splunk">8</span> SPL detection files now verified
     </div>
 
     <div class="hctas" style="margin-top:16px">
@@ -277,13 +279,63 @@
 
 <section>
   <div class="ctr">
-    <div class="slbl">Writing</div>
-    <h2 class="stitle">Technical write-up</h2>
+    <div class="slbl">Case studies</div>
+    <h2 class="stitle">Documented work — evidence at every step</h2>
+    <p class="sdesc">Each case study draws from real repository artifacts: SIEM dashboards, terminal output, structured IR reports, and verification commands. No re-enactments.</p>
     <div class="writing-grid">
+      <a class="card" href="/case-study-soc-integration" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">PP_SOC_Integration — Flagship</div>
+        <div class="card-sub">Verified rules into a live SOC workflow. 7 agents, 15,052 alerts observed, CVE-2025-55130 remediated.</div>
+        <div class="card-meta"><span class="tag">Featured</span><span class="tag">Live telemetry</span></div>
+      </a>
+      <a class="card" href="/case-study-ir-howe01" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">IR: Level 12 FIM alert — triage to verdict</div>
+        <div class="card-sub">Live Wazuh Rule 100052 on HOWE01. BENIGN verdict in 35 minutes. 9 evidence artifacts from real Wazuh dashboards and PowerShell validation.</div>
+        <div class="card-meta"><span class="tag">IR lifecycle</span><span class="tag">Evidence</span></div>
+      </a>
+      <a class="card" href="/case-study-cve-patch" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">CVE-2025-55130 — detect, patch, verify</div>
+        <div class="card-sub">Critical Node.js CVE surfaced during live monitoring. Triaged, patched via winget, and verified closed in one operational cycle.</div>
+        <div class="card-meta"><span class="tag">Vuln response</span><span class="tag">Evidence</span></div>
+      </a>
+      <a class="card" href="/case-study-ir-playbooks" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">IR playbook library — methodology</div>
+        <div class="card-sub"><span data-verified="ir">10</span> structured playbooks. 7-section analyst template, binary escalation criteria, and runnable investigation commands built in.</div>
+        <div class="card-meta"><span class="tag">IR</span><span class="tag">Process</span></div>
+      </a>
+      <a class="card" href="/case-study-sigma-library" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Sigma library — platform-agnostic ATT&CK coverage</div>
+        <div class="card-sub"><span data-verified="sigma">103</span> Sigma rules across 10 ATT&amp;CK tactics. Logsource schema, false positive filters, multi-backend portability.</div>
+        <div class="card-meta"><span class="tag">Detection engineering</span><span class="tag">Sigma</span></div>
+      </a>
+      <a class="card" href="/case-study" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Wazuh rule blocks — build and validate</div>
+        <div class="card-sub">How <span data-verified="wazuh">28</span> Wazuh rule blocks were built, bundled, and validated with reproducible commands from repo root.</div>
+        <div class="card-meta"><span class="tag">Wazuh</span><span class="tag">Verification</span></div>
+      </a>
+      <a class="card" href="/case-study-detection-harness" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Wazuh Detection Harness</div>
+        <div class="card-sub">Python tool that queries Wazuh Indexer REST API to validate expected detections per ATT&amp;CK technique. Pass/fail reports with evidence artifacts.</div>
+        <div class="card-meta"><span class="tag">Detection engineering</span><span class="tag">Python</span></div>
+      </a>
+      <a class="card" href="/case-study-honeypot" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Cowrie Honeypot + Grafana + Wazuh</div>
+        <div class="card-sub">Docker Compose stack: Cowrie SSH/Telnet honeypot feeding Wazuh Indexer. Grafana dashboard provisioned from code. LAN-only, no credentials on disk.</div>
+        <div class="card-meta"><span class="tag">Lab infrastructure</span><span class="tag">Docker</span></div>
+      </a>
       <a class="card" href="/blog-python2-to-python3" style="text-decoration:none">
         <div class="card-click">Read →</div>
-        <div class="card-ttl">Migrating Legacy Detection Rules from Python 2 to Python 3</div>
-        <div class="card-sub">A practical migration path for legacy-heavy environments and SOC engineering teams.</div>
+        <div class="card-ttl">Python 2 to Python 3 detection migration</div>
+        <div class="card-sub">Practical migration path for legacy detection content in real SOC engineering environments.</div>
+        <div class="card-meta"><span class="tag">Engineering</span><span class="tag">Python</span></div>
       </a>
     </div>
   </div>

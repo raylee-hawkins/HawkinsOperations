@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | Case Study: Sigma Detection Library — Platform-Agnostic ATT&CK Coverage</title>
+<meta name="description" content="How verified Sigma detection rules were authored across MITRE ATT&CK tactics: logsource schema, false positive filters, technique tagging, and multi-platform portability.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<link rel="canonical" href="https://hawkinsops.com/case-study-sigma-library">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case Study | Sigma Detection Library — Verified Rules, Full ATT&CK Coverage">
+<meta property="og:description" content="Platform-agnostic detection rules authored to Sigma spec. Logsource schema, false positive filters, MITRE tagging, and portability across Splunk, Wazuh, and Elastic backends.">
+<meta property="og:url" content="https://hawkinsops.com/case-study-sigma-library">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study | Sigma Detection Library — Verified Rules, Full ATT&CK Coverage">
+<meta name="twitter:description" content="Platform-agnostic Sigma rules authored to spec. Covers credential access, lateral movement, ransomware, exfiltration, and more.">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/lab">Lab</a></li>
+      <li><a href="/triage">Triage</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/resume">Resume</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/security">Security</a>
+  <a href="/lab">Lab</a>
+  <a href="/triage">Triage</a>
+  <a href="/proof">Proof</a>
+  <a href="/resume">Resume</a>
+</div>
+
+<section style="padding-top:110px">
+  <div class="ctr" style="max-width:900px">
+    <div class="slbl">Detection engineering</div>
+    <h1 class="stitle">Sigma detection library: <span data-verified="sigma">103</span> platform-agnostic rules across 10 MITRE ATT&CK tactics</h1>
+    <p class="sdesc">
+      Sigma is the detection rule format that compiles to anything — Splunk SPL, Elasticsearch queries, Wazuh rules, QRadar.
+      Write once, deploy anywhere.
+      These <span data-verified="sigma">103</span> rules were authored to Sigma spec with explicit logsource schemas, false positive filters, and MITRE technique tags,
+      so they are deployable without modification in any SIEM that supports Sigma compilation.
+    </p>
+    <div class="lupd" style="margin-bottom:14px">Verify count: <code>(Get-ChildItem -Recurse .\detection-rules\sigma -Filter *.yml).Count</code></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Why Sigma</h2>
+      <p class="card-sub">
+        Platform-specific detection rules are technical debt.
+        Write a Splunk query, and it runs only in Splunk.
+        Write a Wazuh XML rule, and it runs only in Wazuh.
+        Sigma decouples the detection logic from the implementation.
+        The rules in this library were authored to the Sigma specification so they can be compiled
+        to any supported backend — which means the coverage survives a SIEM migration.
+        It also means every rule documents its own logsource, technique mapping, and false-positive
+        considerations as part of the format, not as a separate document.
+      </p>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Coverage by tactic</h2>
+      <div class="card-sub" style="font-size:0.93em">
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="border-bottom:2px solid var(--stroke)">
+              <th style="text-align:left;padding:6px 10px 6px 0">ATT&amp;CK Tactic</th>
+              <th style="text-align:right;padding:6px 10px">Rules</th>
+              <th style="text-align:left;padding:6px 0">Example detections</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Collection</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">Screen capture, keylogging, data staging</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Credential Access</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">LSASS access, DCSync, Kerberoasting, browser credential theft</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Defense Evasion</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">Log clearing, masquerading, obfuscation, security tool tampering</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Discovery</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">User/domain enumeration, network scanning, share discovery</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Execution</td><td style="padding:5px 10px;text-align:right"><b>9</b></td><td style="padding:5px 0;font-size:0.9em">PowerShell encoded execution, LOLBin abuse, script host anomalies</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Exfiltration</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">Unusual outbound transfer, DNS tunneling, staging indicators</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Impact</td><td style="padding:5px 10px;text-align:right"><b>13</b></td><td style="padding:5px 0;font-size:0.9em">Ransomware indicators, shadow copy deletion, service disruption</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Lateral Movement</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">Pass-the-hash, RDP anomalies, admin share abuse, WMI remote exec</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 10px 5px 0">Persistence</td><td style="padding:5px 10px;text-align:right"><b>11</b></td><td style="padding:5px 0;font-size:0.9em">Scheduled tasks, registry run keys, service installation</td></tr>
+            <tr><td style="padding:5px 10px 5px 0">Privilege Escalation</td><td style="padding:5px 10px;text-align:right"><b>10</b></td><td style="padding:5px 0;font-size:0.9em">Token manipulation, abnormal group changes, UAC bypass</td></tr>
+          </tbody>
+          <tfoot>
+            <tr style="border-top:2px solid var(--stroke)"><td style="padding:8px 10px 5px 0"><b>Total</b></td><td style="padding:8px 10px 5px;text-align:right"><b><span data-verified="sigma">103</span></b></td><td></td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">Rule anatomy</h2>
+        <div class="card-sub">
+          <p>Every Sigma rule in this library ships with all required fields. Example structure from the LSASS detection:</p>
+          <pre class="term-b">title: Suspicious LSASS Process Access
+status: stable
+description: Detects suspicious access to lsass.exe
+  that may indicate credential dumping
+tags:
+    - attack.credential_access
+    - attack.t1003.001
+logsource:
+    product: windows
+    category: process_access
+    service: sysmon
+detection:
+    selection:
+        EventID: 10
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1410'
+            - '0x1010'
+            - '0x1438'
+    filter_known_good:
+        SourceImage|endswith:
+            - '\wmiprvse.exe'
+            - '\taskmgr.exe'
+            - '\MsMpEng.exe'
+    condition: selection and not filter_known_good
+falsepositives:
+    - Legitimate security software (EDR agents)
+    - Authorized memory forensics tools
+level: high</pre>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Required fields in every rule</h2>
+        <ul class="card-sub" style="padding-left:18px">
+          <li><b>title</b> — human-readable, unambiguous name.</li>
+          <li><b>id</b> — stable UUID for deduplication across environments.</li>
+          <li><b>status</b> — stable / experimental / test. No rule ships as "test" without a comment.</li>
+          <li><b>description</b> — what this detects and why it matters.</li>
+          <li><b>tags</b> — MITRE ATT&amp;CK tactic + technique IDs. Required. No untagged rules.</li>
+          <li><b>logsource</b> — explicit product, category, service. Required for compilation.</li>
+          <li><b>detection</b> — selection + condition. Filter blocks for known-good processes.</li>
+          <li><b>falsepositives</b> — at least one entry. Empty false positives is a red flag.</li>
+          <li><b>level</b> — informational / low / medium / high / critical. Not defaulted.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">False positive discipline</h2>
+        <div class="card-sub">
+          <p>A detection rule without false positive handling is a noisy alert factory.
+             Every rule in this library includes explicit filter conditions for known-good behavior.
+             The LSASS rule filters <code>wmiprvse.exe</code>, <code>taskmgr.exe</code>, <code>MsMpEng.exe</code>,
+             and common EDR agents before firing — because those processes legitimately access LSASS memory.</p>
+          <p style="margin-top:10px">This matters for hirers: a rule that fires on everything is not a detection.
+             It's a visibility tax that burns analyst time.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Multi-platform portability</h2>
+        <div class="card-sub">
+          <p>Sigma rules compile to any supported backend. These rules were authored against Windows Sysmon and Windows Security event sources, making them compatible with:</p>
+          <ul style="padding-left:18px;margin-top:8px">
+            <li>Splunk (via <code>sigmac</code> or <code>pySigma</code>)</li>
+            <li>Elastic / OpenSearch (Wazuh's indexer backend)</li>
+            <li>Microsoft Sentinel KQL</li>
+            <li>QRadar AQL</li>
+          </ul>
+          <p style="margin-top:10px">The same credential-access detection set exists in both Sigma YAML (platform-agnostic) and Splunk SPL (direct implementation) in this repo — illustrating the same logic expressed in both formats.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Verify the count</h2>
+      <div class="card-sub">
+        <div class="g2">
+          <div>
+            <p>PowerShell (from repo root):</p>
+            <pre class="term-b">(Get-ChildItem -Recurse .\detection-rules\sigma -Filter *.yml).Count
+# Expected: <span data-verified="sigma">103</span></pre>
+          </div>
+          <div>
+            <p>Count per tactic:</p>
+            <pre class="term-b">Get-ChildItem .\detection-rules\sigma -Directory |
+  ForEach-Object {
+    $c = (Get-ChildItem $_.FullName -Filter *.yml).Count
+    "$($_.Name): $c"
+  }</pre>
+          </div>
+        </div>
+        <p style="margin-top:12px">Source of truth: <code>PROOF_PACK/VERIFIED_COUNTS.md</code> — generated by CI on every commit via <code>scripts/verify/generate-verified-counts.ps1</code>.</p>
+      </div>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="hctas">
+      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/sigma" target="_blank" rel="noopener noreferrer">Browse Sigma rules (GitHub)</a>
+      <a class="btn btn-g" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer">Verified counts</a>
+      <a class="btn btn-g" href="/security">Security page</a>
+    </div>
+  </div>
+</section>
+
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/fetch-utils.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

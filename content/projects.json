@@ -79,6 +79,46 @@
           "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/incident-response/INDEX.md"
         }
       ]
+    },
+    {
+      "id": "wazuh-detection-harness",
+      "title": "Wazuh Detection Harness",
+      "summary": "Python tool querying Wazuh Indexer REST API to validate expected detections per ATT&CK technique. Timestamped run folders with pass/fail reports and evidence artifacts.",
+      "type": "detection",
+      "status": "active",
+      "tags": ["wazuh", "python", "detection", "testing", "mitre"],
+      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/wazuh-detection-harness",
+      "page_url": "/case-study-detection-harness",
+      "evidence": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/README.md"
+        },
+        {
+          "label": "Sample Run Report",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/wazuh-detection-harness/runs/run_02-19-2026_034113/report.md"
+        }
+      ]
+    },
+    {
+      "id": "honeypot-grafana-wazuh",
+      "title": "Cowrie Honeypot Stack",
+      "summary": "Docker Compose stack: Cowrie SSH/Telnet honeypot feeding Wazuh Indexer with Grafana dashboard. LAN-only deployment, CI-validated, credentials in env only.",
+      "type": "lab",
+      "status": "active",
+      "tags": ["honeypot", "cowrie", "grafana", "wazuh", "docker"],
+      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/honeypot-grafana-wazuh",
+      "page_url": "/case-study-honeypot",
+      "evidence": [
+        {
+          "label": "Project README",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/README.md"
+        },
+        {
+          "label": "Docker Compose",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/docker-compose.yml"
+        }
+      ]
     }
   ]
 }

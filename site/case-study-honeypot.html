@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | Case Study: Cowrie Honeypot + Grafana + Wazuh — Attacker Intelligence Stack</title>
+<meta name="description" content="Docker-based Cowrie SSH/Telnet honeypot feeding Wazuh Indexer with a Grafana dashboard for attacker session visualization. Minimal, auditable, and LAN-only by default.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<link rel="canonical" href="https://hawkinsops.com/case-study-honeypot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case Study | Cowrie Honeypot + Grafana + Wazuh — Attacker Intelligence Stack">
+<meta property="og:description" content="Docker Compose stack: Cowrie SSH/Telnet honeypot, Grafana dashboard querying Wazuh Indexer. LAN-only binding, no credentials on disk, CI-validated.">
+<meta property="og:url" content="https://hawkinsops.com/case-study-honeypot">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study | Cowrie Honeypot + Grafana + Wazuh Stack">
+<meta name="twitter:description" content="Docker Compose honeypot stack with Grafana visualization. Feeds Wazuh Indexer. LAN-only, auditable, CI-validated.">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/lab">Lab</a></li>
+      <li><a href="/triage">Triage</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/resume">Resume</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/security">Security</a>
+  <a href="/lab">Lab</a>
+  <a href="/triage">Triage</a>
+  <a href="/proof">Proof</a>
+  <a href="/resume">Resume</a>
+</div>
+
+<section style="padding-top:110px">
+  <div class="ctr" style="max-width:900px">
+    <div class="slbl">Lab infrastructure</div>
+    <h1 class="stitle">Cowrie honeypot + Grafana + Wazuh: attacker intelligence pipeline in a Docker Compose stack</h1>
+    <p class="sdesc">
+      A minimal, auditable deployment that runs Cowrie SSH/Telnet honeypot, feeds attacker session data to Wazuh Indexer, and visualizes it in a Grafana dashboard provisioned from code.
+      LAN-only binding by default. No credentials written to disk. CI validates the compose file on every push.
+    </p>
+
+    <div class="card">
+      <h2 class="card-ttl">Stack overview</h2>
+      <div class="card-sub">
+        <div class="g2">
+          <div>
+            <p><b>Components:</b></p>
+            <ul style="padding-left:18px;margin-top:8px">
+              <li><b>Cowrie</b> — low-interaction SSH/Telnet honeypot. Records attacker commands, credentials attempted, session duration, and payload downloads. Writes structured JSON logs.</li>
+              <li><b>Grafana OSS</b> — dashboard provisioned from code (<code>grafana/dashboards/honeypot_ops.json</code>). Queries Wazuh Indexer directly via OpenSearch datasource.</li>
+              <li><b>Wazuh Indexer</b> — already in the lab infrastructure. Cowrie JSON logs ingested via Wazuh agent localfile config → decoded → indexed under <code>rule.groups:cowrie</code>.</li>
+            </ul>
+          </div>
+          <div>
+            <p><b>Data flow:</b></p>
+            <ol style="padding-left:18px;margin-top:8px">
+              <li>Attacker hits Cowrie on SSH port (2222) or Telnet port (2223)</li>
+              <li>Cowrie logs session to <code>/var/log/cowrie/cowrie.json</code></li>
+              <li>Wazuh agent reads JSON log via localfile config</li>
+              <li>Wazuh manager decodes and indexes to Wazuh Indexer</li>
+              <li>Grafana queries <code>rule.groups:cowrie</code> → dashboard panels update</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Docker Compose stack</h2>
+      <div class="card-sub">
+<pre class="term-b">services:
+  cowrie:
+    image: cowrie/cowrie:latest
+    ports:
+      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_SSH_PORT:-2222}:2222"
+      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_TELNET_PORT:-2223}:2223"
+    volumes:
+      - ./cowrie/var:/cowrie/cowrie-git/var
+    # Logs write to cowrie/var/log/cowrie/cowrie.json
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - "${LAN_BIND_IP:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASS}
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards</pre>
+        <p style="margin-top:10px">All secrets live in <code>.env</code> (not committed). <code>LAN_BIND_IP</code> defaults to <code>127.0.0.1</code> — services are LAN-only unless explicitly overridden.</p>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">Grafana dashboard (provisioned from code)</h2>
+        <div class="card-sub">
+          <p>Dashboard JSON lives in <code>grafana/dashboards/honeypot_ops.json</code> and is provisioned automatically on container start. Three panels:</p>
+          <ul style="padding-left:18px;margin-top:8px">
+            <li><b>Sessions Over Time</b> — time series of Cowrie session events (<code>rule.groups:cowrie</code>). Shows attacker activity volume across the monitoring window.</li>
+            <li><b>Top Usernames</b> — aggregated credential spray patterns. Shows which usernames attackers try most.</li>
+            <li><b>Top Commands</b> — what attackers type after gaining access. Shows adversary objectives and tooling.</li>
+          </ul>
+          <p style="margin-top:10px">No manual dashboard config — dashboard state is version-controlled and reproduced identically on every deploy.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Wazuh integration</h2>
+        <div class="card-sub">
+          <p>Wazuh agent localfile config on the honeypot VM or host:</p>
+          <pre class="term-b">&lt;localfile&gt;
+  &lt;log_format&gt;json&lt;/log_format&gt;
+  &lt;location&gt;/var/log/cowrie/cowrie.json&lt;/location&gt;
+&lt;/localfile&gt;</pre>
+          <p style="margin-top:10px">OpenSearch queries to verify ingestion:</p>
+          <pre class="term-b">rule.groups:cowrie
+data.cowrie.session:*
+data.username:* AND rule.groups:cowrie</pre>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">Verify the stack</h2>
+        <div class="card-sub">
+<pre class="term-b"># Copy env template and fill in values
+cp .env.example .env
+
+# Bring up the stack
+docker compose up -d
+
+# Health check script
+./scripts/verify_stack.sh
+
+# Expected:
+# - cowrie: Up
+# - grafana: Up
+# - Grafana HTTP check: 302 Found (redirect to login)</pre>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Security decisions</h2>
+        <ul class="card-sub" style="padding-left:18px">
+          <li><b>LAN-only by default</b> — <code>LAN_BIND_IP</code> defaults to <code>127.0.0.1</code>. Public-facing deployment requires explicit <code>.env</code> change.</li>
+          <li><b>No credentials on disk</b> — all secrets via environment variables from <code>.env</code>. No hardcoded values in compose file or scripts.</li>
+          <li><b>Proxmox DMZ placement</b> — docs specify isolating the honeypot VM on a DMZ bridge segment; DMZ cannot initiate connections to LAN.</li>
+          <li><b>CI validation</b> — GitHub Actions validates <code>docker-compose.yml</code> syntax and shellchecks scripts on every push.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Why this matters to a hiring team</h2>
+      <p class="card-sub">
+        A honeypot generates attacker intelligence — real credential spray patterns, post-auth command sequences, and tooling fingerprints from actual threat actors (or automated scanners).
+        That data feeds directly into detection rule refinement: if the top username spray list from the honeypot shows <code>admin</code>, <code>root</code>, and <code>ubuntu</code>, the Sigma and Wazuh authentication failure rules should be tuned to weight those patterns.
+        The Grafana dashboard makes that feedback loop visible. The Wazuh integration means attacker session data is indexed alongside endpoint telemetry — enabling correlation between honeypot hits and lateral movement patterns on monitored systems.
+      </p>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="hctas">
+      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/honeypot-grafana-wazuh" target="_blank" rel="noopener noreferrer">View project (GitHub)</a>
+      <a class="btn btn-g" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/honeypot-grafana-wazuh/docker-compose.yml" target="_blank" rel="noopener noreferrer">Docker Compose file</a>
+      <a class="btn btn-g" href="/lab">Home lab overview</a>
+    </div>
+  </div>
+</section>
+
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/fetch-utils.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

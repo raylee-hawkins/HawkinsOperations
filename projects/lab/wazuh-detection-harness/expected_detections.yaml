@@ -1,0 +1,44 @@
+# v0 schema for expected detections
+# Use empty strings/lists as placeholders while discovering rule IDs.
+
+tests:
+  - test_name: ART_T1110_001_password_guessing
+    platform: windows
+    agent_name: HOWE01
+    agent_id: "003"
+    lookback_minutes: 30
+    expected:
+      rule_id: "60204"
+      rule_groups:
+        - authentication_failures
+      mitre_ids: []
+      must_contain:
+        - "logon"
+
+  - test_name: ART_T1059_001_powershell
+    platform: windows
+    agent_name: HOWE01
+    agent_id: "003"
+    lookback_minutes: 30
+    expected:
+      rule_id: ""
+      rule_groups:
+        - powershell
+      mitre_ids:
+        - T1059
+      must_contain:
+        - "powershell"
+
+  - test_name: ART_T1003_001_lsass_dump
+    platform: windows
+    agent_name: HOWE01
+    agent_id: "003"
+    lookback_minutes: 30
+    expected:
+      rule_id: ""
+      rule_groups:
+        - credential_access
+      mitre_ids:
+        - T1003
+      must_contain:
+        - "lsass"

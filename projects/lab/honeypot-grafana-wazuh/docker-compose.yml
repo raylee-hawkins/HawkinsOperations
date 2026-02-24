@@ -1,0 +1,28 @@
+services:
+  cowrie:
+    image: cowrie/cowrie:latest
+    container_name: cowrie
+    restart: unless-stopped
+    ports:
+      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_SSH_PORT:-2222}:2222"
+      - "${LAN_BIND_IP:-127.0.0.1}:${COWRIE_TELNET_PORT:-2223}:2223"
+    volumes:
+      - ./cowrie/var:/cowrie/cowrie-git/var
+    environment:
+      - COWRIE_LOGLEVEL=${COWRIE_LOGLEVEL:-INFO}
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "${LAN_BIND_IP:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASS}
+      - GF_USERS_DEFAULT_THEME=light
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+      - cowrie

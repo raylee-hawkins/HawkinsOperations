@@ -1,10 +1,10 @@
 # MEDIA TRIAGE REPORT
 
-Generated: `2026-02-18`
+Generated: `2026-02-24`
 
-- Total discovered assets: **91**
+- Total discovered assets: **48**
 - Safe to publish: **11**
-- Needs privacy review: **80**
+- Needs privacy review: **37**
 
 ## Top 10 safe to publish
 
@@ -25,16 +25,16 @@ Generated: `2026-02-18`
 
 | id | source | reason | tags | size | suggested placement |
 |---|---|---|---|---:|---|
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-200338-becbbd5d32` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200338.png` | privacy_review=required | proof | 572869 | home proof strip |
 | `2026-01-25-howe01-rule100052-hosts-ics-modified-benign-evidence-06-event-9b5d13644d` | `incident-response/incidents/2026/2026-01-25__howe01__rule100052__hosts-ics-modified__benign/evidence/06_event_detail_json_full.png` | privacy_review=required | incident, proof | 503893 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-200347-66c7422ed7` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200347.png` | privacy_review=required | proof | 459242 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-200410-e0fe41ac08` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200410.png` | privacy_review=required | proof | 445955 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-195258-02806e8e3e` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195258.png` | privacy_review=required | proof | 384062 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-195813-e6854a44e9` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 195813.png` | privacy_review=required | proof | 375658 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-200027-d4f478e2c4` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200027.png` | privacy_review=required | proof | 369018 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-194201-00251af006` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194201.png` | privacy_review=required | proof | 367992 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-194139-05e95c7e60` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 194139.png` | privacy_review=required | proof | 362992 | home proof strip |
-| `screenshots-raw-unredacted-do-not-commit-screenshot-2026-02-13-200225-b4f8cbf57f` | `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_191244/evidence/screenshots/raw_unredacted_do_not_commit/Screenshot 2026-02-13 200225.png` | privacy_review=required | proof | 338189 | home proof strip |
+| `evidence-public-images-02-vuln-0critical-31high-redacted-2ba15e892c` | `projects/lab/PP_SOC_Integration/evidence/public_images/02_vuln_0critical_31high_redacted.png` | privacy_review=required | lab, proof | 486909 | projects page gallery |
+| `assets-pp-soc-integration-02-vuln-0critical-31high-redacted-129823dfc5` | `site/assets/pp_soc_integration/02_vuln_0critical_31high_redacted.png` | privacy_review=required | proof | 486909 | home proof strip |
+| `evidence-public-images-04-nodejs-patch-terminal-eabe816fa9` | `projects/lab/PP_SOC_Integration/evidence/public_images/04_nodejs_patch_terminal.png` | privacy_review=required | lab, proof | 448259 | projects page gallery |
+| `assets-pp-soc-integration-04-nodejs-patch-terminal-3412a16941` | `site/assets/pp_soc_integration/04_nodejs_patch_terminal.png` | privacy_review=required | proof | 448259 | home proof strip |
+| `evidence-public-images-03-cve-2025-55130-detected-redacted-ab822db8af` | `projects/lab/PP_SOC_Integration/evidence/public_images/03_cve_2025_55130_detected_redacted.png` | privacy_review=required | lab, proof | 401913 | projects page gallery |
+| `assets-pp-soc-integration-03-cve-2025-55130-detected-redacted-8283cd3456` | `site/assets/pp_soc_integration/03_cve_2025_55130_detected_redacted.png` | privacy_review=required | proof | 401913 | home proof strip |
+| `assets-pp-soc-integration-t3-workflow-0cc0edc8ce` | `site/assets/pp_soc_integration/t3-workflow.png` | privacy_review=required | proof | 357129 | home proof strip |
+| `assets-pp-soc-integration-t5-infrastructure-map-410c451f79` | `site/assets/pp_soc_integration/t5-infrastructure-map.png` | privacy_review=required | proof | 299170 | home proof strip |
+| `assets-pp-soc-integration-t5-proxmox-redacted-7f801a2573` | `site/assets/pp_soc_integration/t5-proxmox-redacted.png` | privacy_review=required | proof | 294403 | home proof strip |
 
 ## Placement suggestions
 

@@ -3,7 +3,7 @@
     {
       "id": "sigma",
       "platform": "Sigma",
-      "count": 105,
+      "count": 103,
       "format": "YAML",
       "location": "detection-rules/sigma/",
       "tags": ["detection", "portable", "mitre"],
@@ -21,7 +21,7 @@
     {
       "id": "wazuh",
       "platform": "Wazuh",
-      "count": 29,
+      "count": 28,
       "format": "XML rule blocks",
       "location": "detection-rules/wazuh/rules/",
       "tags": ["siem", "xml", "deployment"],
