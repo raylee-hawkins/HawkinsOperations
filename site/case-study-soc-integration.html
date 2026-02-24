@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | Case Study: PP_SOC_Integration — Live Detection Workflow</title>
+<meta name="description" content="How verified Wazuh rules were deployed into a live SOC workflow: 7 agents, 15,052 alerts in 24h, CVE-2025-55130 remediation verified. Evidence-first case study.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<link rel="canonical" href="https://hawkinsops.com/case-study-soc-integration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Case Study | PP_SOC_Integration — Verified Rules into a Live Detection Workflow">
+<meta property="og:description" content="7 Wazuh agents, 15,052 alerts observed in 24h, CVE-2025-55130 remediation closed. Evidence-first SOC integration case study.">
+<meta property="og:url" content="https://hawkinsops.com/case-study-soc-integration">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Case Study | PP_SOC_Integration — Verified Rules into a Live Detection Workflow">
+<meta name="twitter:description" content="7 Wazuh agents, 15,052 alerts observed in 24h, CVE-2025-55130 remediation closed. Evidence-first SOC integration case study.">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/lab">Lab</a></li>
+      <li><a href="/triage">Triage</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/resume">Resume</a></li>
+    </ul>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/security">Security</a>
+  <a href="/lab">Lab</a>
+  <a href="/triage">Triage</a>
+  <a href="/proof">Proof</a>
+  <a href="/resume">Resume</a>
+</div>
+
+<section style="padding-top:110px">
+  <div class="ctr" style="max-width:900px">
+    <div class="slbl">Flagship case study</div>
+    <h1 class="stitle">PP_SOC_Integration: from a verified rule library to a live detection workflow</h1>
+    <p class="sdesc">
+      Evidence-first transition from static detection artifacts to a running SOC production-sim environment.
+      Numbers are sourced from observed monitoring data; redacted screenshots and artifacts are available in the project repository.
+    </p>
+
+    <div class="card">
+      <h2 class="card-ttl">Problem</h2>
+      <p class="card-sub">
+        The HawkinsOperations detection library reached a verified baseline: 105 Sigma rules, 29 Wazuh rule blocks, and 8 Splunk SPL queries — all confirmed by CI and reproducible from repo root.
+        The gap was not rule correctness. It was workflow validity.
+        None of those rules had been run against continuous live telemetry in a real environment with a real analyst decision loop on top.
+        The question became: do these rules fire on actual endpoint and VM behavior, at SOC speed, in a way that produces actionable alerts rather than noise?
+      </p>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Telemetry &amp; environment</h2>
+      <div class="card-sub">
+        <ul style="padding-left:18px">
+          <li><b>7 Wazuh agents</b> deployed across a Windows 11 Enterprise endpoint and Proxmox-hosted VMs.</li>
+          <li>Agents stream telemetry (process creation, file integrity, authentication events, network connections) to a Wazuh manager.</li>
+          <li>Detection rules deployed from <code>dist/wazuh/local_rules.xml</code> — generated by <code>scripts/build-wazuh-bundle.ps1</code> from the verified rule set in <code>detection-rules/wazuh/rules/</code>.</li>
+          <li>Splunk available in the lab for SPL rule authoring and pivot work; not yet connected to the live telemetry pipeline during this phase.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">Detection &amp; triage steps</h2>
+        <div class="card-sub">
+          <ol style="padding-left:18px">
+            <li>Observe Wazuh alert stream. Classify by rule level (low / medium / high / critical).</li>
+            <li>Pivot on process trees and parent-child relationships for high-level alerts.</li>
+            <li>Correlate with known-good baselines; apply suppression for confirmed noise patterns.</li>
+            <li>For any critical or high alert: apply the documented SOC analyst decision flow — classify → pivot → validate source → document findings or escalate suppression.</li>
+            <li>Capture alert evidence artifacts per <code>PROOF_PACK/EVIDENCE_CHECKLIST.md</code> policy (redacted where internal identifiers are present).</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Validation</h2>
+        <div class="card-sub">
+          <ul style="padding-left:18px">
+            <li><b>15,052 alerts</b> observed in a single 24-hour monitoring window — confirming agent connectivity and rule coverage at scale.</li>
+            <li><b>CVE-2025-55130</b> identified during active monitoring. Remediation steps applied and verified as closed.</li>
+            <li>Agent health confirmed via Wazuh manager dashboard after each bundle redeploy cycle.</li>
+            <li>Bundle rebuild verification command:
+<pre class="term-b" style="margin-top:8px">pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <h2 class="card-ttl">Evidence</h2>
+      <div class="card-sub">
+        <p>All artifacts from this project are collected in the repository evidence directory. Screenshots containing internal identifiers are redacted per repo sanitization policy.</p>
+        <ul style="padding-left:18px;margin-top:10px">
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration/evidence" target="_blank" rel="noopener noreferrer">PP_SOC_Integration evidence directory (GitHub)</a> — Wazuh alert screenshots, agent status, CVE remediation artifacts.</li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration" target="_blank" rel="noopener noreferrer">Full project package (GitHub)</a> — README, docs, and structured proof artifacts.</li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/lab/PP_SOC_Integration/docs/UPCOMING_PROJECT_DIRECTION.md" target="_blank" rel="noopener noreferrer">Upcoming project direction doc</a> — next phase priorities and expansion plan.</li>
+        </ul>
+        <div style="margin-top:12px">
+          <img src="/assets/pp_soc_integration/t5-proxmox-redacted.png" alt="SOC infrastructure map showing collect detect triage investigate respond improve workflow across Proxmox and endpoint systems" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--stroke)">
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">Limits &amp; tradeoffs</h2>
+        <ul class="card-sub" style="padding-left:18px">
+          <li>Single-node Wazuh manager — home lab, not clustered. No high-availability or cross-site correlation.</li>
+          <li>Splunk not connected to live telemetry during this phase. SPL detections are authored and verified against static log samples only.</li>
+          <li>15,052 alerts/24h includes untuned noise — suppression tuning is ongoing work, not a completed deliverable.</li>
+          <li>Screenshots contain internal hostnames and identifiers; all are redacted per <code>PROOF_PACK/EVIDENCE_CHECKLIST.md</code>.</li>
+          <li>No correlation engine across data sources — ATT&amp;CK lateral movement coverage relies on per-host telemetry only at this stage.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Next iteration</h2>
+        <ul class="card-sub" style="padding-left:18px">
+          <li>Connect Splunk to live telemetry pipeline to run SPL detections against real data.</li>
+          <li>Expand Proxmox VM coverage — add additional agent targets for lateral movement simulation.</li>
+          <li>Build a daily alert triage log as a structured artifact (consistent format, reviewer-readable).</li>
+          <li>Add synthetic event generators for Wazuh regression testing after rule changes.</li>
+          <li>Publish a false-positive review matrix per rule family.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height:20px"></div>
+    <div class="hctas">
+      <a class="btn btn-p" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration/evidence" target="_blank" rel="noopener noreferrer">View evidence artifacts</a>
+      <a class="btn btn-g" href="/proof">See the proof pack</a>
+      <a class="btn btn-g" href="/case-study">Wazuh rule-build case study</a>
+    </div>
+  </div>
+</section>
+
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    </div>
+  </div>
+</footer>
+<script src="/assets/fetch-utils.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
