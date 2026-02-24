@@ -4,7 +4,7 @@
     <loc>https://hawkinsops.com/</loc>
   </url>
   <url>
-    <loc>https://hawkinsops.com/security</loc>
+    <loc>https://hawkinsops.com/detections</loc>
   </url>
   <url>
     <loc>https://hawkinsops.com/projects</loc>
@@ -16,10 +16,10 @@
     <loc>https://hawkinsops.com/proof</loc>
   </url>
   <url>
-    <loc>https://hawkinsops.com/lab</loc>
+    <loc>https://hawkinsops.com/soc-lab</loc>
   </url>
   <url>
-    <loc>https://hawkinsops.com/triage</loc>
+    <loc>https://hawkinsops.com/wildcard</loc>
   </url>
   <url>
     <loc>https://hawkinsops.com/case-study</loc>
