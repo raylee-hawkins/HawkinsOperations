@@ -1,0 +1,68 @@
+[
+  {
+    "ts": "2026-02-24T09:26:59.346+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2901",
+      "level": 3,
+      "desc": "New dpkg (Debian Package) requested to install."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  },
+  {
+    "ts": "2026-02-24T09:27:01.347+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2901",
+      "level": 3,
+      "desc": "New dpkg (Debian Package) requested to install."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  },
+  {
+    "ts": "2026-02-24T09:27:01.361+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2904",
+      "level": 7,
+      "desc": "Dpkg (Debian Package) half configured."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  },
+  {
+    "ts": "2026-02-24T09:27:01.363+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2902",
+      "level": 7,
+      "desc": "New dpkg (Debian Package) installed."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  },
+  {
+    "ts": "2026-02-24T09:27:01.370+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2904",
+      "level": 7,
+      "desc": "Dpkg (Debian Package) half configured."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  },
+  {
+    "ts": "2026-02-24T09:27:01.372+0000",
+    "agent": "HO-HONEYPOT-01",
+    "rule": {
+      "id": "2902",
+      "level": 7,
+      "desc": "New dpkg (Debian Package) installed."
+    },
+    "srcip": null,
+    "full_log": "REDACTED_LOG"
+  }
+]
