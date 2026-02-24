@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/assets/styles.css">
 
 </head>
-<body>
+<body class="triage-sim">
 <!-- @include:nav:start -->
 <nav>
   <div class="nav-i">
@@ -60,20 +60,19 @@
     <div class="slbl">Extras</div>
     <h1 class="stitle">Triage simulator</h1>
     <p class="sdesc">
-      Lightweight practice flow: pick an alert, get pivots, and generate an evidence checklist.
-      This page is intentionally simple so it works everywhere (even in the cursed browsers).
+      Lightweight SOC workflow practice: select an alert, review severity context, execute next steps, and capture evidence cleanly.
     </p>
 
-    <div class="card">
+    <div class="card sim-card">
       <div class="card-ttl">Select an alert</div>
       <div class="card-sub" style="margin-top:10px">
-        <select id="alertSel" style="width:100%;padding:12px;border-radius:12px;background:var(--bg1);border:1px solid var(--bdr);color:var(--txt);font-family:var(--mono)">
+        <select id="alertSel" class="sim-select" aria-label="Select triage scenario">
           <option>Suspicious PowerShell (Encoded)</option>
           <option>New Local Admin Membership</option>
           <option>Possible Log Clearing</option>
         </select>
       </div>
-      <div id="triageOutput"></div>
+      <div id="triageOutput" style="margin-top:14px"></div>
     </div>
 
     <details>
@@ -82,7 +81,7 @@
         <ul>
           <li>Use the triage flow to validate detections in <code>detection-rules/</code>.</li>
           <li>Escalation and containment steps map to IR playbooks in <code>incident-response/playbooks/</code>.</li>
-          <li>Build new scenarios by adding alerts and attaching “expected evidence” to each.</li>
+          <li>Each scenario output is purpose-driven so analysts know why each step exists.</li>
         </ul>
       </div>
     </details>
@@ -143,30 +142,45 @@ document.addEventListener('DOMContentLoaded', () => {
   function render(key) {
     const item = data[key];
     if (!item) return;
+    const stepsText = item.steps.map((s, i) => `${i + 1}. ${s}`).join('\n');
+    const evidenceText = item.evidence.map((e) => `- ${e}`).join('\n');
     out.innerHTML = `
-      <div class="card" style="margin-top:14px">
-        <div class="card-ttl">Triage guidance</div>
-        <div class="card-sub"><b>Severity:</b> ${item.sev}<br><b>Why it matters:</b> ${item.why}</div>
+      <div class="guidance">
+        <div class="panel-title card-ttl">Triage guidance</div>
+        <div class="sev-pill"><span class="dot"></span>Severity: ${item.sev}</div>
+        <div class="why"><strong>Why it matters:</strong> ${item.why}</div>
       </div>
-      <div class="g2" style="margin-top:14px">
+      <div class="sim-grid" style="margin-top:14px">
         <div class="card">
           <div class="card-ttl">Next steps</div>
-          <div class="card-sub">
-            <ol style="padding-left:18px;margin-top:8px">
-              ${item.steps.map(s => `<li style="margin:8px 0">${s}</li>`).join('')}
-            </ol>
-          </div>
+          <ol class="stepper" id="triageSteps">
+            ${item.steps.map((s, i) => `<li><span class="step-num">${i + 1}</span><span>${s}</span></li>`).join('')}
+          </ol>
         </div>
         <div class="card">
           <div class="card-ttl">Evidence checklist</div>
-          <div class="card-sub">
-            <ul style="padding-left:18px;margin-top:8px">
-              ${item.evidence.map(e => `<li style="margin:8px 0">${e}</li>`).join('')}
-            </ul>
-          </div>
+          <ul class="clean" id="triageEvidence">
+            ${item.evidence.map(e => `<li>${e}</li>`).join('')}
+          </ul>
         </div>
       </div>
+      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn-mini" type="button" data-copy-inline="${stepsText.replaceAll('"', '&quot;')}">Copy next steps</button>
+        <button class="btn-mini" type="button" data-copy-inline="${evidenceText.replaceAll('"', '&quot;')}">Copy evidence checklist</button>
+      </div>
     `;
+
+    out.querySelectorAll('[data-copy-inline]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy-inline') || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => { btn.textContent = old; }, 900);
+        } catch (_) {}
+      });
+    });
   }
 
   sel.addEventListener('change', () => render(sel.value));

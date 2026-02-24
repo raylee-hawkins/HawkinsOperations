@@ -74,12 +74,13 @@ node .\scripts\generate-site-data.js
 node .\scripts\generate-site-content.js
 node .\scripts\generate-media-manifest.js
 node .\scripts\verify\hosting-cloudflare-only.js
+# Release/proof-pack JSON mirror (optional in normal UI commits)
+node .\scripts\generate-site-data.js --with-proof-pack
 python -m http.server --directory site 8000
 ```
 
 Expected artifacts:
 - `PROOF_PACK/VERIFIED_COUNTS.md`
-- `PROOF_PACK/verified_counts.json`
 - `site/assets/verified-counts.json`
 - `dist/wazuh/local_rules.xml`
 
@@ -120,7 +121,8 @@ content/projects.json + content/detections.json
       '-- portfolio-data.js             -> rendered listings + filters
 
 PROOF_PACK/VERIFIED_COUNTS.md
-      |-- generate-site-data.js         -> PROOF_PACK/verified_counts.json + site/assets/verified-counts.json
+      |-- generate-site-data.js         -> site/assets/verified-counts.json
+      '-- generate-site-data.js --with-proof-pack -> PROOF_PACK/verified_counts.json (release mirror)
       '-- drift_scan.py                 -> fail on markdown/json/site drift
 ```
 

@@ -24,7 +24,7 @@ pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
 Expected:
 
 - `PROOF_PACK/VERIFIED_COUNTS.md` updates with current counts.
-- `PROOF_PACK/verified_counts.json` and `site/assets/verified-counts.json` stay in sync with verified counts.
+- `site/assets/verified-counts.json` updates from verified counts (and `PROOF_PACK/verified_counts.json` updates when `--with-proof-pack` is used for release/proof packaging).
 - `dist/wazuh/local_rules.xml` is generated.
 
 ## Reviewer Notes

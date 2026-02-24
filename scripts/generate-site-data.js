@@ -8,6 +8,7 @@ const srcPath = path.join(root, "PROOF_PACK", "VERIFIED_COUNTS.md");
 const canonicalOutPath = path.join(root, "PROOF_PACK", "verified_counts.json");
 const siteOutPath = path.join(root, "site", "assets", "verified-counts.json");
 const detectionsDataPath = path.join(root, "site", "assets", "data", "detections.json");
+const withProofPack = process.argv.includes("--with-proof-pack");
 
 function readMatch(lines, regex) {
   for (let i = 0; i < lines.length; i += 1) {
@@ -138,10 +139,12 @@ const payload = {
 
 fs.mkdirSync(path.dirname(canonicalOutPath), { recursive: true });
 fs.mkdirSync(path.dirname(siteOutPath), { recursive: true });
-fs.writeFileSync(canonicalOutPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 fs.writeFileSync(siteOutPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 syncDetectionsData(parsed.counts);
 
-console.log(`Generated ${path.relative(root, canonicalOutPath)}`);
+if (withProofPack) {
+  fs.writeFileSync(canonicalOutPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  console.log(`Generated ${path.relative(root, canonicalOutPath)}`);
+}
 console.log(`Generated ${path.relative(root, siteOutPath)}`);
 console.log(`Synced ${path.relative(root, detectionsDataPath)}`);

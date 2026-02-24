@@ -380,6 +380,114 @@
 .modal-b ul{margin:10px 0 10px 20px}
 .modal-b li{margin:6px 0}
 
+/* Triage simulator visual refresh (scoped) */
+body.triage-sim{
+  background:
+    radial-gradient(900px 500px at 30% 10%, rgba(96,165,250,.10), transparent 60%),
+    radial-gradient(700px 400px at 70% 0%, rgba(34,211,238,.08), transparent 55%),
+    linear-gradient(180deg, rgba(2,6,23,1), rgba(2,6,23,.92) 60%, rgba(2,6,23,1));
+}
+body.triage-sim .sim-card{
+  background:linear-gradient(180deg, rgba(15,23,42,.92), rgba(15,23,42,.78));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:0 14px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+  border-radius:18px;
+}
+body.triage-sim .sim-select{
+  width:100%;
+  background:linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.35));
+  border:1px solid rgba(148,163,184,.22);
+  color:rgba(226,232,240,.96);
+  padding:12px 14px;
+  border-radius:12px;
+  outline:none;
+}
+body.triage-sim .sim-select:focus{
+  border-color:rgba(96,165,250,.55);
+  box-shadow:0 0 0 4px rgba(96,165,250,.16);
+}
+body.triage-sim .guidance{
+  border:1px solid rgba(148,163,184,.16);
+  background:linear-gradient(180deg, rgba(2,6,23,.38), rgba(2,6,23,.22));
+  border-radius:14px;
+  padding:12px;
+}
+body.triage-sim .sev-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(248,113,113,.28);
+  background:rgba(248,113,113,.10);
+  font-weight:600;
+  margin-top:8px;
+}
+body.triage-sim .sev-pill .dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:rgba(248,113,113,.95);
+}
+body.triage-sim .why{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid rgba(96,165,250,.18);
+  background:rgba(96,165,250,.08);
+}
+body.triage-sim .sim-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+body.triage-sim ol.stepper{
+  list-style:none;
+  margin:8px 0 0;
+  padding:0;
+}
+body.triage-sim ol.stepper li{
+  display:grid;
+  grid-template-columns:34px 1fr;
+  gap:12px;
+  padding:10px 10px;
+  border-radius:12px;
+}
+body.triage-sim ol.stepper li:hover{background:rgba(148,163,184,.06)}
+body.triage-sim .step-num{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  color:rgba(226,232,240,.95);
+  background:rgba(96,165,250,.14);
+  border:1px solid rgba(96,165,250,.22);
+}
+body.triage-sim ul.clean{margin:8px 0 0;padding-left:18px}
+body.triage-sim ul.clean li{margin:8px 0;color:rgba(226,232,240,.92)}
+body.triage-sim .btn-mini{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid rgba(148,163,184,.20);
+  background:rgba(2,6,23,.35);
+  color:var(--txt);
+  font-family:var(--mono);
+  font-size:.7rem;
+  cursor:pointer;
+}
+body.triage-sim .btn-mini:hover{
+  border-color:rgba(96,165,250,.40);
+  background:rgba(96,165,250,.10);
+}
+@media (max-width:920px){
+  body.triage-sim .sim-grid{grid-template-columns:1fr}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
   html{scroll-behavior:auto}
