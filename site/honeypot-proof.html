@@ -30,6 +30,9 @@
   .proof-table { width:100%; border-collapse: collapse; min-width: 760px; }
   .proof-table th, .proof-table td { padding: 10px 12px; border-bottom:1px solid var(--bdr); font-size: .82rem; vertical-align: top; }
   .proof-table th { font-family: var(--mono); color: var(--acc); text-transform: uppercase; letter-spacing:.05em; font-size:.68rem; }
+  .proof-rule-list { margin: 0; padding-left: 18px; color: var(--txt); }
+  .proof-rule-list li { margin: 7px 0; }
+  .proof-rule-list code { font-size: .78rem; }
   .proof-note { font-size:.86rem; color:var(--dim); margin: 12px 0 0; }
   @media (max-width: 900px) { .proof-grid { grid-template-columns:1fr; } }
 </style>
@@ -71,7 +74,7 @@
 
     <div class="card" style="margin: 0 0 22px 0;">
       <div class="card-ttl">Proof -> Honeypot (Wazuh)</div>
-      <div class="card-sub">This page renders <code>/proof/wazuh/honeypot/latest.json</code> from the same domain and links to the exact GitHub artifact path.</div>
+      <div class="card-sub">This page renders <code>/proof/wazuh/honeypot/latest.json</code> and <code>/proof/wazuh/honeypot/latest.summary.json</code> from the same domain and links to exact GitHub artifact paths.</div>
     </div>
 
     <div class="proof-grid">
@@ -93,7 +96,16 @@
       <div class="card">
         <div class="card-ttl">GitHub artifact path</div>
         <div class="card-sub"><a id="githubJson" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/proof/wazuh/honeypot/latest.json" target="_blank" rel="noopener noreferrer">proof/wazuh/honeypot/latest.json</a></div>
+        <div class="card-sub"><a id="githubSummary" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/proof/wazuh/honeypot/latest.summary.json" target="_blank" rel="noopener noreferrer">proof/wazuh/honeypot/latest.summary.json</a></div>
       </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 22px;">
+      <div class="card-ttl">Top alert types (last 50)</div>
+      <div class="card-sub">Grouped by <code>rule.id</code>, showing count and rule description.</div>
+      <ol id="topRulesList" class="proof-rule-list">
+        <li>Loading summary...</li>
+      </ol>
     </div>
 
     <div class="proof-table-wrap">
@@ -143,8 +155,10 @@
   (function () {
     var jsonPath = '/proof/wazuh/honeypot/latest.json';
     var metaPath = '/proof/wazuh/honeypot/latest.meta.json';
+    var summaryPath = '/proof/wazuh/honeypot/latest.summary.json';
     var lastGeneratedEl = document.getElementById('lastGenerated');
     var alertCountEl = document.getElementById('alertCount');
+    var topRulesList = document.getElementById('topRulesList');
     var tbody = document.getElementById('alertsTableBody');
     var loadState = document.getElementById('loadState');
 
@@ -171,6 +185,43 @@
       }).join('');
     }
 
+    function summarizeRules(alerts) {
+      var grouped = new Map();
+      alerts.forEach(function (a) {
+        var rule = a && a.rule || {};
+        var id = String(rule.id == null ? '' : rule.id);
+        var desc = String(rule.desc == null ? '' : rule.desc);
+        var key = id || 'UNKNOWN';
+        if (!grouped.has(key)) {
+          grouped.set(key, { rule_id: key, desc: desc, count: 0 });
+        }
+        var item = grouped.get(key);
+        item.count += 1;
+        if (!item.desc && desc) {
+          item.desc = desc;
+        }
+      });
+      return Array.from(grouped.values())
+        .sort(function (a, b) {
+          if (b.count !== a.count) return b.count - a.count;
+          return a.rule_id.localeCompare(b.rule_id);
+        })
+        .slice(0, 8);
+    }
+
+    function setTopRules(items) {
+      if (!items || !items.length) {
+        topRulesList.innerHTML = '<li>No alerts available in current artifact.</li>';
+        return;
+      }
+      topRulesList.innerHTML = items.map(function (item) {
+        var id = esc(item.rule_id || '');
+        var count = esc(item.count == null ? '' : item.count);
+        var desc = esc(item.desc || '');
+        return '<li><code>' + id + '</code> ' + desc + ' (' + count + ')</li>';
+      }).join('');
+    }
+
     async function run() {
       try {
         var alertsResp = await fetch(jsonPath, { cache: 'no-store' });
@@ -181,26 +232,36 @@
         setRows(alerts);
 
         var meta = null;
+        var summary = null;
         try {
           var metaResp = await fetch(metaPath, { cache: 'no-store' });
           if (metaResp.ok) meta = await metaResp.json();
         } catch (err) {
           meta = null;
         }
+        try {
+          var summaryResp = await fetch(summaryPath, { cache: 'no-store' });
+          if (summaryResp.ok) summary = await summaryResp.json();
+        } catch (err) {
+          summary = null;
+        }
 
         var generated = meta && typeof meta.generated_utc === 'string' ? meta.generated_utc : null;
         var exportedCount = meta && Number.isFinite(meta.exported_count) ? meta.exported_count : alerts.length;
+        var summaryTopRules = summary && Array.isArray(summary.top_rules) ? summary.top_rules : null;
 
         if (!generated && alerts.length) {
           generated = alerts[alerts.length - 1].ts || null;
         }
 
+        setTopRules(summaryTopRules || summarizeRules(alerts));
         alertCountEl.textContent = String(exportedCount);
         lastGeneratedEl.textContent = generated || 'Unavailable';
-        loadState.textContent = 'Loaded sanitized alerts from latest.json and latest.meta.json.';
+        loadState.textContent = summaryTopRules ? 'Loaded sanitized alerts from latest.json, latest.meta.json, and latest.summary.json.' : 'Loaded sanitized alerts from latest.json and latest.meta.json (summary computed client-side).';
       } catch (err) {
         lastGeneratedEl.textContent = 'Unavailable';
         alertCountEl.textContent = 'Unavailable';
+        setTopRules([]);
         tbody.innerHTML = '<tr><td colspan="4">Failed to load proof artifact.</td></tr>';
         loadState.textContent = 'Error: ' + (err && err.message ? err.message : 'unknown error');
       }
