@@ -277,7 +277,7 @@
       '<div class="tag-fallback">' +
       "<p>Tag coverage is temporarily unavailable. Showing fallback tags.</p>" +
       '<div class="tag-pills">' + pills + "</div>" +
-      '<a href="/security.html#detection-inventory">View full inventory</a>' +
+      '<a href="/security#detection-inventory">View full inventory</a>' +
       "</div>";
     root.setAttribute("aria-busy", "false");
     if (statusNode) statusNode.textContent = "Fallback tag set active.";

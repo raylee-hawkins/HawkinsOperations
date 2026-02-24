@@ -8,7 +8,7 @@
       "status": "active",
       "tags": ["wazuh", "sigma", "splunk", "verification"],
       "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules",
-      "page_url": "/security.html",
+      "page_url": "/security",
       "evidence": [
         {
           "label": "Verified Counts",
@@ -28,7 +28,7 @@
       "status": "active",
       "tags": ["runbooks", "ops", "evidence"],
       "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh",
-      "page_url": "/projects.html",
+      "page_url": "/projects",
       "evidence": [
         {
           "label": "Project README",
@@ -48,7 +48,7 @@
       "status": "active",
       "tags": ["soc", "triage", "workflow"],
       "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html",
-      "page_url": "/triage.html",
+      "page_url": "/triage",
       "evidence": [
         {
           "label": "Triage Page",
@@ -68,7 +68,7 @@
       "status": "active",
       "tags": ["ir", "playbooks", "documentation"],
       "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks",
-      "page_url": "/security.html",
+      "page_url": "/security",
       "evidence": [
         {
           "label": "Playbooks Folder",

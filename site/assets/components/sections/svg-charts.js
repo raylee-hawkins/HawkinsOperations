@@ -231,7 +231,7 @@ function buildTagPoints(detections, options = {}) {
     .map(([tag, value]) => ({
       label: tag,
       value: toInt(value),
-      url: `/security.html?tag=${encodeURIComponent(tag)}#detection-inventory`,
+      url: `/security?tag=${encodeURIComponent(tag)}#detection-inventory`,
       navLabel: "Detection Inventory"
     }))
     .filter((item) => item.value > 0)
@@ -243,12 +243,12 @@ export function renderCoverageChart(container, verifiedCounts, options = {}) {
   if (!container) return;
   const counts = verifiedCounts && verifiedCounts.counts ? verifiedCounts.counts : verifiedCounts || {};
   const map = [
-    { key: "detections", label: "Detections", url: "/security.html#detection-inventory", navLabel: "Detection Inventory" },
-    { key: "sigma", label: "Sigma Rules", url: "/security.html#detection-inventory", navLabel: "Detection Inventory" },
-    { key: "wazuh", label: "Wazuh Blocks", url: "/security.html#detection-inventory", navLabel: "Detection Inventory" },
-    { key: "splunk", label: "Splunk Queries", url: "/security.html#detection-inventory", navLabel: "Detection Inventory" },
-    { key: "ir", label: "Playbooks", url: "/projects.html#project-evidence", navLabel: "Project Evidence" },
-    { key: "migrations", label: "Migrations", url: "/projects.html#project-evidence", navLabel: "Project Evidence" }
+    { key: "detections", label: "Detections", url: "/security#detection-inventory", navLabel: "Detection Inventory" },
+    { key: "sigma", label: "Sigma Rules", url: "/security#detection-inventory", navLabel: "Detection Inventory" },
+    { key: "wazuh", label: "Wazuh Blocks", url: "/security#detection-inventory", navLabel: "Detection Inventory" },
+    { key: "splunk", label: "Splunk Queries", url: "/security#detection-inventory", navLabel: "Detection Inventory" },
+    { key: "ir", label: "Playbooks", url: "/projects#project-evidence", navLabel: "Project Evidence" },
+    { key: "migrations", label: "Migrations", url: "/projects#project-evidence", navLabel: "Project Evidence" }
   ];
   const points = map
     .map((item) => ({ label: item.label, value: toInt(counts[item.key]), url: item.url, navLabel: item.navLabel }))

@@ -53,8 +53,8 @@
     const noQuery = raw.split('#')[0].split('?')[0];
     const trimmed = noQuery.replace(/^https?:\/\/[^/]+/i, '').replace(/\\/g, '/').replace(/\/+$/, '');
     const leaf = (trimmed.split('/').pop() || '').trim();
-    if (!leaf) return 'index.html';
-    return leaf.includes('.') ? leaf.toLowerCase() : `${leaf.toLowerCase()}.html`;
+    if (!leaf) return '';
+    return leaf.toLowerCase().replace(/\.html$/, '');
   }
 
   const activePath = normalizeNavPath(location.pathname || '/');
