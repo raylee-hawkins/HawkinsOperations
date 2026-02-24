@@ -8,7 +8,7 @@ REPO_ROOT: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 
 ## Summary
 
-23 commits in 24 hours across two machines. Workstation built and published 6 case studies, fixed Splunk count, added 2 Python SOC tools, staged 2 lab projects. Wazuh manager VM ran automated honeypot proof pipeline — 14 cron-driven commits. All drift scan CI gates pass. Demo rule 100110 confirmed firing in latest artifact.
+23 commits in the last 24 hours (UTC) across two machines; 25 commits were pushed during the full sprint/session window. Workstation built and published 6 case studies, fixed Splunk count, added 2 Python SOC tools, and staged 2 lab projects. Wazuh manager VM ran the automated honeypot proof pipeline with 14 cron-driven commits. All drift scan CI gates pass. Demo rule 100110 is present in the latest artifact.
 
 ---
 
@@ -27,33 +27,33 @@ REPO_ROOT: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 
 Evidence images: `site/assets/howe01/` (3 images), `site/assets/pp_soc_integration/` (3 images)
 
-### Honeypot proof pipeline (Wazuh manager → GitHub, automated)
+### Honeypot proof pipeline (Wazuh manager -> GitHub, automated)
 
 - Cron cadence: `*/15 * * * *`
-- Scripts: `export_honeypot_proof.sh` → `publish_proof_to_github.sh` (on Wazuh manager VM)
-- Latest run: `2026-02-24T13:28:14Z` — **43 alerts exported**, agent `HO-HONEYPOT-01`
+- Scripts: `export_honeypot_proof.sh` -> `publish_proof_to_github.sh` (verified directly on `HO-SR-WM-01`)
+- Snapshot pinned for this report: `generated_utc=2026-02-24T13:34:35Z`, **exported_count=28**, agent `HO-HONEYPOT-01`
+- Scope note: values from other runs/machines are not merged into this snapshot
 - Demo rule 100110 present: **YES** (`Honeypot deterministic demo alert (HONEY_DEMO)`)
 - Artifacts live at: `proof/wazuh/honeypot/` and mirrored to `site/proof/wazuh/honeypot/`
 - Public page: `/honeypot-proof`
 
-### Rule breakdown — latest run (43 alerts)
+### Rule breakdown - pinned snapshot (28 alerts)
 
 ```
-5503  (9x)   PAM: User login failed
-5710  (5x)   sshd: Attempt to login using a non-existent user
 5501  (5x)   PAM: Login session opened
-2501  (4x)   syslog: User authentication failure
 5502  (4x)   PAM: Login session closed
+5503  (4x)   PAM: User login failed
 5404  (3x)   Three failed attempts to run sudo
-5760  (2x)   sshd: authentication failed
 5715  (2x)   sshd: authentication success
-503   (2x)   Wazuh agent started
+5760  (2x)   sshd: authentication failed
+503   (1x)   Wazuh agent started
+5403  (1x)   First time user executed sudo
+5405  (1x)   Unauthorized user attempted to use sudo
+5555  (1x)   PAM: User changed password
 5901  (1x)   New group added to the system
 5902  (1x)   New user added to the system
-5405  (1x)   Unauthorized user attempted to use sudo
-5403  (1x)   First time user executed sudo
-5555  (1x)   PAM: User changed password
-100110 (1x)  Honeypot deterministic demo alert (HONEY_DEMO)  ← pipeline integrity check
+100110 (1x)  Honeypot deterministic demo alert (HONEY_DEMO)
+5710  (1x)   sshd: Attempt to login using a non-existent user
 ```
 
 ### SPL count fix

@@ -96,11 +96,48 @@ def scan_hardcoded_claim_numbers(site_root: Path, truth: Dict[str, int]) -> List
         if not path.exists():
             continue
         for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            # Handled by scan_data_verified_fallbacks() with key-aware validation.
             if "data-verified" in line:
                 continue
             if token_re.search(line) and claim_context_re.search(line):
                 issues.append((path, lineno, line.strip()))
     return issues
+
+
+def scan_data_verified_fallbacks(site_root: Path, truth: Dict[str, int]) -> List[str]:
+    html_files = sorted(p for p in site_root.rglob("*.html") if p.is_file())
+    errors: List[str] = []
+    # Matches: data-verified="key">value<
+    token_re = re.compile(r'data-verified="([a-z_]+)">\s*([^<]+?)\s*<', re.IGNORECASE)
+    allowed_placeholders = {"0", "-", "—"}
+
+    for path in html_files:
+        for lineno, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            for m in token_re.finditer(line):
+                key = m.group(1)
+                raw_value = m.group(2).strip()
+
+                if key not in truth:
+                    errors.append(f"{path}:{lineno}: unknown data-verified key '{key}'")
+                    continue
+
+                if raw_value.isdigit():
+                    actual = int(raw_value)
+                    expected = truth[key]
+                    if actual != expected:
+                        errors.append(
+                            f"{path}:{lineno}: data-verified '{key}' fallback mismatch "
+                            f"(expected {expected}, got {actual})"
+                        )
+                    continue
+
+                if raw_value not in allowed_placeholders:
+                    errors.append(
+                        f"{path}:{lineno}: data-verified '{key}' has invalid fallback '{raw_value}' "
+                        f"(use expected number or placeholder 0/-/—)"
+                    )
+
+    return errors
 
 
 def run_generator() -> None:
@@ -161,6 +198,7 @@ def main() -> int:
     hardcoded = scan_hardcoded_claim_numbers(Path(args.site_root), expected)
     for path, lineno, line in hardcoded:
         errors.append(f"Hard-coded claim number in {path}:{lineno}: {line}")
+    errors.extend(scan_data_verified_fallbacks(Path(args.site_root), expected))
 
     if errors:
         print("DRIFT SCAN: FAIL")

@@ -41,9 +41,9 @@ Source of truth: [`PROOF_PACK/VERIFIED_COUNTS.md`](PROOF_PACK/VERIFIED_COUNTS.md
 ### Detection rules
 | Platform | Count | Location |
 |---|---:|---|
-| Sigma (YAML) | 105 rules | `detection-rules/sigma/` |
+| Sigma (YAML) | 103 rules | `detection-rules/sigma/` |
 | Splunk (SPL) | 8 queries | `detection-rules/splunk/` |
-| Wazuh (XML) | 25 files / 29 rule blocks | `detection-rules/wazuh/rules/` |
+| Wazuh (XML) | 24 files / 28 rule blocks | `detection-rules/wazuh/rules/` |
 
 ### Incident response
 | Type | Count | Location |
@@ -166,4 +166,3 @@ Cloudflare Pages production build:
 
 ## License
 MIT. See [LICENSE](LICENSE).
-
