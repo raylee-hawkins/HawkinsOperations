@@ -5,10 +5,11 @@ const path = require("path");
 
 const root = process.cwd();
 const checkOnly = process.argv.includes("--check");
+const excludedPages = new Set(["404.html", "lab.html", "security.html", "triage.html"]);
 
 const targetPages = fs
   .readdirSync(path.join(root, "site"), { withFileTypes: true })
-  .filter((entry) => entry.isFile() && entry.name.endsWith(".html") && entry.name !== "404.html")
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".html") && !excludedPages.has(entry.name))
   .map((entry) => path.join("site", entry.name))
   .sort();
 
