@@ -19,17 +19,16 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-    (function () {
-      var saved = localStorage.getItem('rh-theme');
-      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-    })();
-  </script>
-  <link rel="stylesheet" href="/assets/styles.css">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = localStorage.getItem('rh-theme');
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 <!-- @include:nav:start -->
@@ -59,69 +58,99 @@
   <a href="/wildcard">Extras</a>
   <a href="/resume">Resume</a>
 </div>
-
 <!-- @include:nav:end -->
 
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">Projects</div>
-    <h1 class="stitle">Portfolio projects (the “proof” kind, not the “trust me” kind)</h1>
+    <h1 class="stitle">Outcomes, not descriptions</h1>
     <p class="sdesc">
-      The homepage stays lean. This page is where the receipts live.
-      Cards are expandable and link to the repos.
+      Every project here has a measurable output: a verified count, a closed alert, a published artifact, or a documented workflow.
+      If it doesn't have a result, it doesn't belong on this page.
     </p>
-    <div class="lupd" style="margin-bottom:14px">Verify lane: <code>pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</code> and <code>pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</code>.</div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="ctr">
+    <div class="slbl">Featured</div>
+    <h2 class="stitle">The flagship project</h2>
+
+    <a class="card lane-card" href="/case-study-soc-integration" style="text-decoration:none" data-lane="fastest">
+      <span class="lane-tag">FLAGSHIP</span>
+      <div class="card-ttl">PP_SOC_Integration — Live SOC detection workflow</div>
+      <div class="card-sub">
+        End-to-end SOC integration running on real hardware. Wazuh agent on Windows 11 endpoint (HOWE01) feeding Proxmox-hosted Wazuh Manager and Splunk.
+        15,052 alerts observed in 24h. CVE-2025-55130 detected by live monitoring, triaged, patched via winget, and verified closed.
+        <span data-verified="detections">139</span> verified detections active across three platforms.
+      </div>
+      <div class="card-meta"><span class="tag">Live telemetry</span><span class="tag">CVE response</span><span class="tag">Verified closed</span><span class="tag">Documented</span></div>
+      <div class="lane-cta" aria-hidden="true">Read full case study <span>→</span></div>
+    </a>
+
+    <div style="height:14px"></div>
 
     <div class="g3">
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/lab/PP_SOC_Integration" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">PP_SOC_Integration</div>
-        <div class="card-sub">Centerpiece project: verified rules now running in a production-sim SOC workflow on Windows 11 Enterprise and Proxmox systems.</div>
-        <div class="card-meta"><span class="tag">projects/lab/PP_SOC_Integration/</span><span class="tag">Alerts closed</span><span class="tag">Featured</span></div>
+      <a class="card" href="/case-study-ir-howe01" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">IR: Level 12 FIM alert</div>
+        <div class="card-sub">Live Wazuh Rule 100052 alert — triage to BENIGN verdict in 35 minutes. 9 evidence artifacts.</div>
+        <div class="card-meta"><span class="tag">Incident response</span><span class="tag">FIM</span></div>
       </a>
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Migration Project Folder</div>
-        <div class="card-sub">RH_MIGRATION_2026_V2 artifacts and runbooks inside this repo.</div>
-        <div class="card-meta"><span class="tag">projects/</span><span class="tag">Subfolder CTA</span></div>
+      <a class="card" href="/case-study-cve-patch" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">CVE-2025-55130 response</div>
+        <div class="card-sub">Detect → triage → patch → verify. Critical Node.js CVE closed with documented evidence trail.</div>
+        <div class="card-meta"><span class="tag">CVE</span><span class="tag">Patch verified</span></div>
       </a>
+      <a class="card" href="/case-study-detection-harness" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Wazuh detection harness</div>
+        <div class="card-sub">Python tool querying Wazuh Indexer API. Pass/fail detection validation with artifact output.</div>
+        <div class="card-meta"><span class="tag">Python</span><span class="tag">API</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Active</div>
+    <h2 class="stitle">Current detection and response work</h2>
+    <p class="sdesc">
+      These are the projects actively shipping verified artifacts to the repo.
+    </p>
+
+    <div class="g2">
       <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Detection Rules Folder</div>
-        <div class="card-sub">Sigma, Wazuh, and Splunk content mapped for review.</div>
-        <div class="card-meta"><span class="tag">detection-rules/</span><span class="tag">Subfolder CTA</span></div>
+        <div class="card-click">Browse →</div>
+        <div class="card-ttl">Detection rules library</div>
+        <div class="card-sub"><span data-verified="detections">139</span> verified detections across Sigma, Wazuh, and Splunk. Organized by platform and MITRE tactic. Counts validated by CI on every push.</div>
+        <div class="card-meta"><span class="tag">Sigma <span data-verified="sigma">103</span></span><span class="tag">Wazuh <span data-verified="wazuh">28</span></span><span class="tag">Splunk <span data-verified="splunk">8</span></span></div>
       </a>
       <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/playbooks" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">IR Playbooks Folder</div>
-        <div class="card-sub">Playbook library with clear steps for responders.</div>
-        <div class="card-meta"><span class="tag">incident-response/playbooks/</span><span class="tag">Subfolder CTA</span></div>
+        <div class="card-click">Browse →</div>
+        <div class="card-ttl">IR playbook library</div>
+        <div class="card-sub"><span data-verified="ir">10</span> structured incident response playbooks. 7-section template covering DETECTION through DOCUMENTATION. Escalation logic and evidence checklists per playbook.</div>
+        <div class="card-meta"><span class="tag">Markdown</span><span class="tag">MITRE ATT&amp;CK</span><span class="tag">Verified <span data-verified="ir">10</span></span></div>
       </a>
     </div>
 
     <div style="height:14px"></div>
 
-    <div class="g3">
-      <button class="card" type="button" data-modal="pMigration" data-modal-title="RH_MIGRATION_2026_V2">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">RH_MIGRATION_2026_V2</div>
-        <div class="card-sub">Migration proof trail and runbooks.</div>
-        <div class="card-meta"><span class="tag">Runbooks</span><span class="tag">Artifacts</span><span class="tag">Evidence</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="pExperiments" data-modal-title="Experiments / AI evaluation">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">Experiments</div>
-        <div class="card-sub">AI evaluation + structured testing (security-adjacent, repeatable).</div>
-        <div class="card-meta"><span class="tag">Test harness</span><span class="tag">Repro</span><span class="tag">Notes</span></div>
-      </button>
-
-      <button class="card" type="button" data-modal="pFilesystem" data-modal-title="File system project">
-        <div class="card-click">Expand →</div>
-        <div class="card-ttl">File System Project</div>
-        <div class="card-sub">A sane folder/ops framework for repeatable work.</div>
-        <div class="card-meta"><span class="tag">Framework</span><span class="tag">Templates</span><span class="tag">Process</span></div>
-      </button>
+    <div class="g2">
+      <a class="card" href="/case-study-sigma-library" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Sigma library</div>
+        <div class="card-sub"><span data-verified="sigma">103</span> platform-agnostic rules across 10 ATT&CK tactics. Logsource schema, false positive filters, multi-backend portability. Full case study available.</div>
+        <div class="card-meta"><span class="tag">Sigma</span><span class="tag">Multi-tactic</span><span class="tag">Multi-backend</span></div>
+      </a>
+      <a class="card" href="/case-study-honeypot" style="text-decoration:none">
+        <div class="card-click">Read →</div>
+        <div class="card-ttl">Cowrie honeypot stack</div>
+        <div class="card-sub">Docker Compose — Cowrie SSH/Telnet honeypot feeding Wazuh Indexer with Grafana dashboard. LAN-only, CI-validated.</div>
+        <div class="card-meta"><span class="tag">Docker</span><span class="tag">Grafana</span><span class="tag">Wazuh</span></div>
+      </a>
     </div>
 
     <div style="height:14px"></div>
@@ -129,70 +158,96 @@
     <div class="g2">
       <button class="card" type="button" data-modal="pHawkinsOps" data-modal-title="HawkinsOperations">
         <div class="card-click">Expand →</div>
-        <div class="card-ttl">HawkinsOperations</div>
-        <div class="card-sub">Main repo: detections + playbooks + proof pack.</div>
-        <div class="card-meta"><span class="tag">Verified counts</span><span class="tag">CI checks</span></div>
+        <div class="card-ttl">HawkinsOperations (this repo)</div>
+        <div class="card-sub">Main detection + playbook + proof pack repo. CI validates counts on every push. Deployed to Cloudflare Pages.</div>
+        <div class="card-meta"><span class="tag">Verified counts</span><span class="tag">CI checks</span><span class="tag">Cloudflare Pages</span></div>
       </button>
-
       <button class="card" type="button" data-modal="pFramework" data-modal-title="HawkinsOps Framework">
         <div class="card-click">Expand →</div>
-        <div class="card-ttl">Automation Framework</div>
-        <div class="card-sub">Cross-platform ops and automation scaffolding.</div>
+        <div class="card-ttl">Automation framework</div>
+        <div class="card-sub">Cross-platform ops and automation scaffolding — turns one-off scripts into repeatable workflows with structured output.</div>
         <div class="card-meta"><span class="tag">Cross-platform</span><span class="tag">Automation</span></div>
       </button>
     </div>
+  </div>
+</section>
 
-    <div style="height:14px"></div>
+<section>
+  <div class="ctr">
+    <div class="slbl">Upcoming</div>
+    <h2 class="stitle">What's being built next</h2>
+    <p class="sdesc">
+      Planned additions with current status. Status tags reflect where each item is in the pipeline.
+    </p>
+
     <div class="g2">
-      <a class="card" href="/case-study-soc-integration" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">PP_SOC_Integration — Flagship Case Study</div>
-        <div class="card-sub">Live SOC detection workflow with active Wazuh coverage, 15,052 alerts observed in 24h, CVE-2025-55130 remediation closed.</div>
-        <div class="card-meta"><span class="tag">Featured</span><span class="tag">SOC Integration</span><span class="tag">Live telemetry</span></div>
-      </a>
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:rgba(40,200,64,.10);border-color:rgba(40,200,64,.28);color:#28c840">Building</span></div>
+        <div class="card-ttl">Expanded Sigma tactic coverage</div>
+        <div class="card-sub">Additional Sigma rules targeting underrepresented tactics. Goal: broader ATT&CK matrix coverage with validated test scenarios for each new rule.</div>
+        <div class="card-meta"><span class="tag">Sigma</span><span class="tag">MITRE ATT&amp;CK</span></div>
+      </div>
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:rgba(40,200,64,.10);border-color:rgba(40,200,64,.28);color:#28c840">Building</span></div>
+        <div class="card-ttl">Additional IR playbooks</div>
+        <div class="card-sub">Expanding the playbook library to cover more threat scenarios. Each playbook follows the 7-section template and includes MITRE technique references.</div>
+        <div class="card-meta"><span class="tag">IR</span><span class="tag">Playbooks</span></div>
+      </div>
     </div>
 
     <div style="height:14px"></div>
-    <div class="writing-grid">
-      <a class="card" href="/case-study" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: Wazuh rule blocks</div>
-        <div class="card-sub">How I built + validated <span data-verified="wazuh">28</span> Wazuh rule blocks (method, evidence, and gaps).</div>
-      </a>
-      <a class="card" href="/case-study-ir-howe01" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">IR case study: Level 12 FIM alert</div>
-        <div class="card-sub">Live Wazuh Rule 100052 alert on HOWE01 — triage to BENIGN verdict in 35 minutes. 9 evidence artifacts.</div>
-      </a>
-      <a class="card" href="/case-study-ir-playbooks" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: IR playbook library</div>
-        <div class="card-sub"><span data-verified="ir">10</span> structured playbooks with 7-section template, escalation logic, and MITRE ATT&amp;CK coverage.</div>
-      </a>
-      <a class="card" href="/case-study-cve-patch" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: CVE-2025-55130 response</div>
-        <div class="card-sub">Critical Node.js CVE detected by Wazuh during live monitoring — triaged, patched via winget, and verified closed in one cycle.</div>
-      </a>
-      <a class="card" href="/case-study-sigma-library" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: Sigma detection library</div>
-        <div class="card-sub"><span data-verified="sigma">103</span> platform-agnostic rules across 10 ATT&amp;CK tactics. Logsource schema, false positive filters, multi-backend portability.</div>
-      </a>
-      <a class="card" href="/case-study-detection-harness" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: Wazuh Detection Harness</div>
-        <div class="card-sub">Python tool querying Wazuh Indexer REST API to validate expected detections per ATT&amp;CK technique. Pass/fail reports with evidence artifacts.</div>
-      </a>
-      <a class="card" href="/case-study-honeypot" style="text-decoration:none">
-        <div class="card-click">Open →</div>
-        <div class="card-ttl">Case study: Cowrie honeypot stack</div>
-        <div class="card-sub">Docker Compose — Cowrie SSH/Telnet honeypot feeding Wazuh Indexer with Grafana dashboard. LAN-only, CI-validated, credentials in env only.</div>
-      </a>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:var(--amb-d);border-color:rgba(255,160,0,.28);color:var(--amb)">Planning</span></div>
+        <div class="card-ttl">Threat hunt playbooks</div>
+        <div class="card-sub">Structured threat hunt workflows for the most common hunting scenarios in a Windows-heavy environment. Hypothesis-driven with SPL pivot templates.</div>
+        <div class="card-meta"><span class="tag">Threat hunting</span><span class="tag">Splunk</span></div>
+      </div>
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:var(--amb-d);border-color:rgba(255,160,0,.28);color:var(--amb)">Planning</span></div>
+        <div class="card-ttl">Detection coverage dashboard</div>
+        <div class="card-sub">Visual MITRE ATT&CK matrix showing current detection coverage by tactic and technique. Generated from the repo's rule inventory.</div>
+        <div class="card-meta"><span class="tag">Dashboard</span><span class="tag">ATT&amp;CK navigator</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Archive</div>
+    <h2 class="stitle">Completed and foundational work</h2>
+
+    <div class="g3">
+      <button class="card" type="button" data-modal="pMigration" data-modal-title="RH_MIGRATION_2026_V2">
+        <div class="card-click">Expand →</div>
+        <div class="card-ttl">RH_MIGRATION_2026_V2</div>
+        <div class="card-sub">Migration proof trail with runbooks, checklists, and artifacts documenting methodical execution.</div>
+        <div class="card-meta"><span class="tag">Runbooks</span><span class="tag">Artifacts</span><span class="tag">Completed</span></div>
+      </button>
+      <button class="card" type="button" data-modal="pFilesystem" data-modal-title="File system project">
+        <div class="card-click">Expand →</div>
+        <div class="card-ttl">File system project</div>
+        <div class="card-sub">A sane folder and ops framework for repeatable work. Pairs with the automation framework for cross-platform workflows.</div>
+        <div class="card-meta"><span class="tag">Framework</span><span class="tag">Templates</span></div>
+      </button>
+      <button class="card" type="button" data-modal="pExperiments" data-modal-title="Experiments / AI evaluation">
+        <div class="card-click">Expand →</div>
+        <div class="card-ttl">AI evaluation experiments</div>
+        <div class="card-sub">Structured experiments for repeatable validation. Evaluation harness patterns that transfer directly to detection validation workflows.</div>
+        <div class="card-meta"><span class="tag">Test harness</span><span class="tag">Reproducible</span></div>
+      </button>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
       <a class="card" href="/blog-python2-to-python3" style="text-decoration:none">
         <div class="card-click">Read →</div>
-        <div class="card-ttl">Python 2 to Python 3 migration write-up</div>
-        <div class="card-sub">Practical migration path for legacy detection content in real environments.</div>
+        <div class="card-ttl">Python 2 to Python 3 migration</div>
+        <div class="card-sub">Practical migration path for legacy detection content in real environments. Covers common compatibility patterns and testing approach.</div>
+        <div class="card-meta"><span class="tag">Python</span><span class="tag">Write-up</span></div>
       </a>
     </div>
   </div>
@@ -210,7 +265,7 @@
 
 <template id="pExperiments">
   <h3>Experiments / AI evaluation</h3>
-  <p>Structured experiments for repeatable validation. This is where “I tested it” becomes “you can reproduce it.”</p>
+  <p>Structured experiments for repeatable validation. This is where "I tested it" becomes "you can reproduce it."</p>
   <ul>
     <li>Use-case: evaluation harness patterns that transfer directly to detection validation.</li>
     <li>Repository references live in the HawkinsOps framework workspace.</li>
@@ -231,12 +286,17 @@
 <template id="pHawkinsOps">
   <h3>HawkinsOperations (main repo)</h3>
   <p>Production-ready SOC content plus a proof pack that makes the numbers verifiable.</p>
+  <ul>
+    <li>CI validates counts on every push and fails on drift.</li>
+    <li>Deployed to Cloudflare Pages from the <code>site/</code> directory.</li>
+    <li>All public numbers trace back to <code>PROOF_PACK/VERIFIED_COUNTS.md</code>.</li>
+  </ul>
   <p><a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open HawkinsOperations</a></p>
 </template>
 
 <template id="pFramework">
   <h3>HawkinsOps Framework</h3>
-  <p>Cross-platform automation scaffolding intended to turn “one-off scripts” into repeatable workflows.</p>
+  <p>Cross-platform automation scaffolding intended to turn "one-off scripts" into repeatable workflows.</p>
   <p><a href="https://github.com/raylee-hawkins/hawkinsops-framework" target="_blank" rel="noopener noreferrer">Open hawkinsops-framework</a></p>
 </template>
 
@@ -260,11 +320,8 @@
     </div>
   </div>
 </footer>
-
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
-
