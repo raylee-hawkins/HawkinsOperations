@@ -70,6 +70,10 @@ __pycache__/
 # Lab safety artifacts
 
 **/raw_unredacted_do_not_commit/**
+
+# Auto-generated diagnosis reports (CI artifact, never commit)
+docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.json
+docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md
 *.qcow2
 *.vma*
 *.zst

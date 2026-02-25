@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | Extras (Triage Simulator)</title>
-<meta name="description" content="Interactive triage simulator: select alerts, get investigation pivots and evidence checklists. Built for SOC workflow practice.">
+<title>HawkinsOps | Extras</title>
+<meta name="description" content="Background, approach, and what I'm building next — plus an interactive SOC triage simulator for workflow practice.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/wildcard">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HawkinsOps | Extras">
-<meta property="og:description" content="SOC triage workflow practice with investigation pivots and evidence checklists.">
+<meta property="og:description" content="Background, approach, and SOC triage workflow practice with investigation pivots and evidence checklists.">
 <meta property="og:url" content="https://hawkinsops.com/wildcard">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HawkinsOps | Extras">
-<meta name="twitter:description" content="SOC triage workflow practice with investigation pivots and evidence checklists.">
+<meta name="twitter:description" content="Background, approach, and SOC triage workflow practice with investigation pivots and evidence checklists.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -22,9 +22,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/styles.css">
-
 </head>
-<body class="triage-sim">
+<body>
 <!-- @include:nav:start -->
 <nav>
   <div class="nav-i">
@@ -52,15 +51,151 @@
   <a href="/wildcard">Extras</a>
   <a href="/resume">Resume</a>
 </div>
-
 <!-- @include:nav:end -->
 
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">Extras</div>
-    <h1 class="stitle">Triage simulator</h1>
+    <h1 class="stitle">The stuff that doesn't fit a nav label</h1>
     <p class="sdesc">
-      Lightweight SOC workflow practice: select an alert, review severity context, execute next steps, and capture evidence cleanly.
+      Background, approach, what I'm building next, and a SOC triage simulator you can actually use.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="ctr">
+    <div class="slbl">My Story</div>
+    <h2 class="stitle">Self-taught, North Alabama, no degree</h2>
+
+    <div class="about-split">
+      <div>
+        <p class="about-lead">
+          I didn't come up through a CS program. I came up through obsession with how systems break,
+          and a compulsion to document everything so I could reproduce it.
+        </p>
+        <p class="about-body">
+          Security clicked because it's the intersection of "how does this actually work" and
+          "what happens when it doesn't." The adversary mindset — understanding attack chains well
+          enough to write detections for them — is the part I keep returning to.
+        </p>
+        <p class="about-body" style="margin-top:10px">
+          Everything on this site is self-directed. The lab, the rules, the playbooks, the verification
+          pipeline — built because I wanted to understand how a real SOC workflow holds together,
+          not because a course told me to.
+        </p>
+        <div class="sbadge" style="margin-top:14px"><span class="sdot"></span>Open to SOC Analyst / Detection Engineer roles — Huntsville, AL • Sept 2026 target</div>
+      </div>
+      <div>
+        <div class="tl">
+          <div class="tli on">
+            <div class="tld"></div>
+            <div class="tl-dt">2024 – Present</div>
+            <div class="tl-tt">Built HawkinsOps from scratch</div>
+            <div class="tl-ds">Proxmox lab, Wazuh SIEM, Splunk, <span data-verified="detections">139</span> verified detections, <span data-verified="ir">10</span> IR playbooks. All public, all reproducible.</div>
+          </div>
+          <div class="tli">
+            <div class="tld"></div>
+            <div class="tl-dt">Ongoing</div>
+            <div class="tl-tt">Real detection runs</div>
+            <div class="tl-ds">CVE-2025-55130 detected by live Wazuh monitoring, triaged, patched, verified closed. 15,052 alerts observed in a 24h window during active testing.</div>
+          </div>
+          <div class="tli">
+            <div class="tld"></div>
+            <div class="tl-dt">Target</div>
+            <div class="tl-tt">Defense-adjacent Huntsville ecosystem</div>
+            <div class="tl-ds">MSFC contractor environment. Documentation-first workflow aligns with clearance-track role requirements.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Why Automation</div>
+    <h2 class="stitle">Manual doesn't scale. Documented does.</h2>
+    <p class="sdesc">
+      I gravitated toward the automation side of security because that's where the leverage is.
+      One well-written detection catches the same behavior a thousand times. One IR playbook keeps a responder from having to rebuild triage logic under pressure.
+    </p>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-ttl">Detection as code</div>
+        <div class="card-sub">Rules in YAML and SPL aren't "security theater" — they're testable, version-controlled, and deployable across platforms. Sigma's platform-agnostic format means a rule written once can be converted to Wazuh, Splunk, or Elastic without rewriting the logic.</div>
+        <div class="card-meta"><span class="tag">Sigma</span><span class="tag">YAML</span><span class="tag">Multi-backend</span></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Reproducibility as credibility</div>
+        <div class="card-sub">A count that can't be reproduced isn't a count — it's a claim. Every number on this site traces back to a script that walks the repo and counts files. That's not extra work. That's the only work that matters.</div>
+        <div class="card-meta"><span class="tag">Verification scripts</span><span class="tag">CI gates</span><span class="tag">Public repo</span></div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-ttl">IR playbooks as runbooks</div>
+        <div class="card-sub">A playbook that exists only in someone's head isn't a playbook. A written, structured playbook with explicit steps, decision points, and expected outputs is something a responder can execute at 2am on no sleep.</div>
+        <div class="card-meta"><span class="tag">Structured</span><span class="tag">7-section template</span><span class="tag">Escalation logic</span></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Evidence capture by default</div>
+        <div class="card-sub">Every detection run in my lab produces an artifact. Screenshots are redacted and filed. Counts are verified before publishing. The workflow forces documentation because documentation is the deliverable.</div>
+        <div class="card-meta"><span class="tag">Evidence-first</span><span class="tag">PROOF_PACK/</span><span class="tag">Sanitized</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">What I'm Building Next</div>
+    <h2 class="stitle">Current pipeline</h2>
+    <p class="sdesc">
+      Active work in progress. Nothing ships to the public site until it has verified counts and at least one artifact.
+    </p>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:rgba(40,200,64,.10);border-color:rgba(40,200,64,.28);color:#28c840">Building</span></div>
+        <div class="card-ttl">Broader Sigma tactic coverage</div>
+        <div class="card-sub">Adding rules to underrepresented ATT&CK tactics. Goal is a verifiable detection story across the full matrix, not just the easy ones.</div>
+      </div>
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:rgba(40,200,64,.10);border-color:rgba(40,200,64,.28);color:#28c840">Building</span></div>
+        <div class="card-ttl">IR playbook expansion</div>
+        <div class="card-sub">More threat scenarios following the 7-section template. Each one will include a detection reference and a MITRE technique tag.</div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:var(--amb-d);border-color:rgba(255,160,0,.28);color:var(--amb)">Planning</span></div>
+        <div class="card-ttl">Threat hunt playbooks</div>
+        <div class="card-sub">Hypothesis-driven hunt workflows with SPL pivots for common Windows threat scenarios. Structured to match how a real tier 2/3 analyst would approach a hunt.</div>
+      </div>
+      <div class="card">
+        <div class="card-meta" style="margin-bottom:10px"><span class="tag" style="background:var(--amb-d);border-color:rgba(255,160,0,.28);color:var(--amb)">Planning</span></div>
+        <div class="card-ttl">ATT&CK coverage map</div>
+        <div class="card-sub">Visual representation of current detection coverage generated from the rule inventory. So reviewers can see gaps without reading 100+ YAML files.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Triage Simulator</div>
+    <h2 class="stitle">SOC workflow practice</h2>
+    <p class="sdesc">
+      Lightweight triage practice: select an alert, review severity context, execute next steps, and capture evidence cleanly.
+      Each scenario maps to actual detection rules in the repo.
     </p>
 
     <div class="card sim-card">
@@ -87,6 +222,7 @@
     </details>
   </div>
 </section>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const data = {
@@ -208,14 +344,8 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </footer>
-
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
-
-
-
-

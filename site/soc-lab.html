@@ -21,8 +21,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('rh-theme'); } catch (e) {}
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="/assets/styles.css">
-
 </head>
 <body>
 <!-- @include:nav:start -->
@@ -52,28 +59,52 @@
   <a href="/wildcard">Extras</a>
   <a href="/resume">Resume</a>
 </div>
-
 <!-- @include:nav:end -->
 
 <section style="padding-top:110px">
   <div class="ctr">
-    <div class="slbl">Lab</div>
-    <h1 class="stitle">Home lab (built to break detections, not egos)</h1>
+    <div class="slbl">SOC/Lab</div>
+    <h1 class="stitle">A real lab, not a slide deck</h1>
     <p class="sdesc">
-      This is the environment used to test rules, generate logs, and validate playbooks.
-      If a detection can’t survive messy reality, it doesn’t belong in a repo.
+      This is the physical and virtual environment behind every verified count on this site.
+      If a detection can't survive messy reality, it doesn't belong in the repo.
+    </p>
+    <div class="g2">
+      <a class="card lane-card" href="/case-study-soc-integration" style="text-decoration:none" data-lane="fastest">
+        <span class="lane-tag">FEATURED</span>
+        <div class="card-ttl">PP_SOC_Integration case study</div>
+        <div class="card-sub">Full SOC integration write-up: 15,052 alerts observed in 24h, CVE triaged and patched, verified closed.</div>
+        <div class="lane-cta" aria-hidden="true">Read case study <span>→</span></div>
+      </a>
+      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="source">
+        <span class="lane-tag">VERIFY</span>
+        <div class="card-ttl">Run the verification yourself</div>
+        <div class="card-sub">Clone the repo and run the verify script. All counts are reproducible commands against public artifacts.</div>
+        <div class="lane-cta" aria-hidden="true">Open proof pack <span>→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Architecture</div>
+    <h2 class="stitle">What's running and why</h2>
+    <p class="sdesc">
+      Single Proxmox host running multiple VMs. Windows 11 endpoint feeds Wazuh for detection, Splunk for search and investigation pivots.
+      Everything runs on isolated RFC1918 subnets — test traffic stays in the lab, evidence comes out.
     </p>
 
     <div class="g2">
       <div class="card">
-        <div class="card-ttl">Compute</div>
-        <div class="card-sub">Proxmox host: HO-SR-01 • ~72 CPUs • ~2 TiB RAM</div>
-        <div class="card-meta"><span class="tag">Virtualized</span><span class="tag">Snapshot driven</span><span class="tag">Evidence-first</span></div>
+        <div class="card-ttl">Compute — HO-SR-01</div>
+        <div class="card-sub">Proxmox hypervisor host. Multiple VMs including Windows 11 endpoint (HOWE01), Wazuh Manager, and Splunk. Snapshot-driven so detection scenarios are fully repeatable.</div>
+        <div class="card-meta"><span class="tag">Proxmox</span><span class="tag">~72 vCPUs</span><span class="tag">~2 TiB RAM</span><span class="tag">Snapshot-driven</span></div>
       </div>
       <div class="card">
-        <div class="card-ttl">Monitoring</div>
-        <div class="card-sub">Wazuh Manager + agented endpoints (Windows + Linux) feeding test data.</div>
-        <div class="card-meta"><span class="tag">Wazuh</span><span class="tag">Sysmon-ready</span><span class="tag">Alert tuning</span></div>
+        <div class="card-ttl">Endpoint — HOWE01</div>
+        <div class="card-sub">Windows 11 Enterprise. Primary target for detection scenarios. Wazuh agent installed, Sysmon-ready, log forwarding configured. Real telemetry, real alerts, real artifacts.</div>
+        <div class="card-meta"><span class="tag">Windows 11 Enterprise</span><span class="tag">Wazuh agent</span><span class="tag">Sysmon-ready</span></div>
       </div>
     </div>
 
@@ -81,30 +112,118 @@
 
     <div class="g2">
       <div class="card">
-        <div class="card-ttl">SIEM / Search</div>
-        <div class="card-sub">Splunk for SPL detections and investigation pivots.</div>
-        <div class="card-meta"><span class="tag">SPL</span><span class="tag">ES-style pivots</span></div>
+        <div class="card-ttl">SIEM — Wazuh</div>
+        <div class="card-sub">Wazuh Manager + agented endpoints. Handles rule matching, alerting, and FIM. Custom rule IDs in the 100000+ range. Alert levels validated in live detection runs.</div>
+        <div class="card-meta"><span class="tag">Wazuh 4.x</span><span class="tag">Custom rules</span><span class="tag">FIM enabled</span><span class="tag">Alert tuning</span></div>
       </div>
       <div class="card">
-        <div class="card-ttl">Network</div>
-        <div class="card-sub">Private RFC1918 lab subnet. Isolated, reproducible, boring in a good way.</div>
-        <div class="card-meta"><span class="tag">Isolated</span><span class="tag">Repeatable runs</span></div>
+        <div class="card-ttl">Search — Splunk</div>
+        <div class="card-sub">Splunk instance for SPL-based detection and investigation pivots. Queries designed around ES-style workflows even without a full ES license.</div>
+        <div class="card-meta"><span class="tag">Splunk</span><span class="tag">SPL</span><span class="tag">ES-style pivots</span></div>
       </div>
     </div>
 
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <div class="card-ttl">Infrastructure map</div>
+      <div class="card-sub">Windows 11 endpoint and Proxmox systems wired into a detection-to-response loop. Hardware identifiers intentionally redacted.</div>
+      <div style="margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--bdr)">
+        <img src="/assets/pp_soc_integration/t5-infrastructure-map.png" alt="SOC lab: Windows 11 endpoint and Proxmox systems wired into a detection-to-response loop" style="display:block;width:100%;height:auto">
+      </div>
+      <div class="card-meta" style="margin-top:10px">
+        <span class="redaction-pill">Hardware identifiers intentionally redacted</span>
+        <span class="tag">Live environment</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Network and Access</div>
+    <h2 class="stitle">Isolated, repeatable, boring in a good way</h2>
+    <p class="sdesc">
+      The lab runs on a private RFC1918 subnet. Isolated from external networks during detection runs.
+      Test traffic stays in the lab. Evidence comes out.
+    </p>
+    <div class="g2">
+      <div class="card">
+        <div class="card-ttl">Network layout</div>
+        <div class="card-sub">Private RFC1918 lab subnet. Wazuh Manager, Splunk, and endpoint VMs communicate internally. Lab-to-internet egress is controlled and monitored.</div>
+        <div class="card-meta"><span class="tag">RFC1918</span><span class="tag">Isolated</span><span class="tag">Controlled egress</span></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Access model</div>
+        <div class="card-sub">Admin access via Proxmox web console. Wazuh Manager API for rule management. Splunk web UI for SPL investigation. No public exposure of lab services.</div>
+        <div class="card-meta"><span class="tag">Proxmox console</span><span class="tag">Wazuh API</span><span class="tag">Splunk UI</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Simulation</div>
+    <h2 class="stitle">How detection scenarios run</h2>
+    <p class="sdesc">
+      Each detection scenario follows a consistent pattern: trigger the behavior, confirm the alert fires, capture evidence, validate counts.
+      Nothing ships to the repo until the full loop completes.
+    </p>
+    <div class="g2">
+      <div class="card">
+        <div class="card-ttl">Trigger → alert → evidence loop</div>
+        <div class="card-sub">Trigger behavior on HOWE01, confirm Wazuh alert fires at expected severity, capture screenshot/log artifact, confirm alert resolves or closes. Snapshot restore between runs for clean slate.</div>
+        <div class="card-meta"><span class="tag">Repeatable</span><span class="tag">Evidence-first</span><span class="tag">Snapshot restore</span></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Wazuh detection harness</div>
+        <div class="card-sub">Python tool querying Wazuh Indexer REST API. Validates expected detections fire per ATT&CK technique. Generates pass/fail reports with artifact references.</div>
+        <div class="card-meta"><span class="tag">Python</span><span class="tag">Wazuh Indexer API</span><span class="tag">Pass/fail reports</span></div>
+        <a class="met-link" href="/case-study-detection-harness" style="margin-top:8px;display:inline-block">→ Read detection harness case study</a>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
     <details>
-      <summary>What to screenshot for proof <span>(redact anything sensitive)</span></summary>
+      <summary>Data flow: endpoint to alert <span>(how logs move)</span></summary>
       <div class="details-body">
-        <ul>
-          <li>Wazuh alert showing a custom rule firing (rule ID + level visible, no hostnames if you don’t want them public).</li>
-          <li>Splunk search results with the SPL query name + hit count.</li>
-          <li>One screenshot of the lab topology (VM list) with internal IPs only.</li>
-        </ul>
-        <p>
-          Drop redacted images into <code>assets/screenshots/</code>. The gallery below only renders screenshots that exist.
-        </p>
+        <ol style="padding-left:18px">
+          <li style="margin:6px 0">HOWE01 generates event (process creation, FIM change, network connection, etc.)</li>
+          <li style="margin:6px 0">Wazuh agent forwards to Wazuh Manager over encrypted channel</li>
+          <li style="margin:6px 0">Wazuh Manager evaluates against custom rules (100000+ range)</li>
+          <li style="margin:6px 0">Alert fires at configured severity level</li>
+          <li style="margin:6px 0">Alert captured and validated as evidence artifact</li>
+          <li style="margin:6px 0">Splunk receives forwarded events for SPL pivot layer</li>
+        </ol>
       </div>
     </details>
+  </div>
+</section>
+
+<section>
+  <div class="ctr">
+    <div class="slbl">Evidence and Artifacts</div>
+    <h2 class="stitle">What's captured and where it lives</h2>
+    <p class="sdesc">
+      Every detection run produces at least one artifact: a screenshot, log snippet, or verification output.
+      Artifacts are sanitized and stored in <code>PROOF_PACK/</code> alongside counts and evidence checklists.
+    </p>
+    <div class="g2">
+      <div class="card">
+        <div class="card-ttl">Proxmox + alert evidence</div>
+        <div class="card-sub">Redacted Proxmox node screenshots showing VM layout. Wazuh alert screenshots showing rule ID, severity level, and triggering event. No hostnames or IPs in public artifacts.</div>
+        <div class="card-meta"><span class="tag">Redacted</span><span class="tag">PROOF_PACK/</span><span class="tag">Available on request</span></div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Verified counts output</div>
+        <div class="card-sub">CI generates <code>PROOF_PACK/VERIFIED_COUNTS.md</code> on every push. Counts are reproducible by running the verify script against the public repo. No hand-waving required.</div>
+        <div class="card-meta"><span class="tag">CI-generated</span><span class="tag">Reproducible</span><span class="tag">PROOF_PACK/VERIFIED_COUNTS.md</span></div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
 
     <div class="g2" data-screenshot-gallery>
       <div class="card" data-screenshot-card data-src="/assets/screenshots/detection_firing.png" hidden>
@@ -119,6 +238,12 @@
       </div>
     </div>
     <p class="lupd" data-screenshot-fallback>Redacted examples available on request.</p>
+
+    <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:10px">
+      <a class="btn btn-p" href="/proof">Open proof pack</a>
+      <a class="btn btn-g" href="/case-study-soc-integration">Read SOC integration case study</a>
+      <a class="btn btn-g" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Browse repository</a>
+    </div>
   </div>
 </section>
 
@@ -142,13 +267,8 @@
     </div>
   </div>
 </footer>
-
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
-
-
-
