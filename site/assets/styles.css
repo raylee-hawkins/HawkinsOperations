@@ -148,7 +148,7 @@
         .copy-btn:hover{border-color:var(--acc);color:var(--acc)}
         .verify-code{margin:0;padding:12px 14px;font-family:var(--mono);font-size:.72rem;line-height:1.6;overflow-x:auto;white-space:pre}
         .verify-date{margin-top:8px}
-        .redaction-pill{display:inline-flex;align-items:center;padding:4px 10px;border:1px solid rgba(255,59,92,.35);border-radius:10px;background:rgba(255,59,92,.12);color:#ff93a7;font-family:var(--mono);font-size:.62rem;letter-spacing:.02em}
+        .redaction-pill{font-family:var(--mono);font-size:.62rem;color:var(--faint);letter-spacing:.02em;opacity:.75}
 
         /* METRICS */
         .mstrip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--bdr);border:1px solid var(--bdr);margin-bottom:0}
@@ -513,12 +513,12 @@ body.triage-sim .btn-mini:hover{
 /* ===== HOME REVAMP 2026-02-24 ===== */
 
 /* 1. Hero 2-column split */
-.hero-split-ctr{max-width:1120px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.hero-split-ctr{max-width:1120px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .hero-split-ctr .hero-panel{max-width:100%}
-.hero-visual{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2}
+.hero-visual{display:flex;flex-direction:column;position:relative;z-index:2}
 .hero-visual-frame{border-radius:14px;overflow:hidden;border:1px solid var(--bdr);box-shadow:0 22px 50px rgba(0,0,0,.48)}
 .hero-visual-frame img{display:block;width:100%;height:auto}
-.hero-visual-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.hero-visual-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
 
 /* 4. Inline verify chip in hero panel */
 .hero-verify-row{display:flex;align-items:center;gap:8px;padding:7px 10px;background:linear-gradient(180deg,rgba(12,16,22,.96),rgba(8,12,18,.99));border:1px solid var(--bdr);border-radius:10px;margin:10px 0 8px;overflow:hidden}

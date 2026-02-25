@@ -196,12 +196,11 @@
       <div class="card-meta">
         <span class="tag">Collect</span><span class="tag">Detect</span><span class="tag">Triage</span><span class="tag">Respond</span><span class="tag">Investigate</span><span class="tag">Improve</span>
       </div>
-      <div style="margin-top:14px;border-radius:14px;overflow:hidden;border:1px solid var(--bdr)">
-        <img src="/assets/pp_soc_integration/t5-infrastructure-map.png" alt="SOC workflow mapped to Raylee Hawkins lab systems" style="display:block;width:100%;height:auto">
-      </div>
-      <div class="card-meta" style="margin-top:10px">
-        <span class="redaction-pill">Hardware identifiers intentionally redacted</span>
-      </div>
+      <ul style="padding-left:18px;margin:14px 0 4px;font-size:.87rem;color:var(--dim);line-height:1.7">
+        <li>Wazuh agent on HOWE01 (Windows 11) wired to Proxmox-hosted Wazuh Manager and Splunk</li>
+        <li><span data-verified="detections">139</span> verified detections active across Sigma, Wazuh, and Splunk</li>
+        <li>Detection scenarios run end-to-end: trigger → alert → evidence capture → verify counts</li>
+      </ul>
     </a>
 
     <div class="mstrip" style="margin-top:18px">
