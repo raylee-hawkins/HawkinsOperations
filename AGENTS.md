@@ -1,6 +1,13 @@
 CONTEXT_FILE: C:\RH\OPS\BUILD\agents\codex\codex_context_latest.txt
+ROUTING_TRUTH_FILE: C:\RH\OPS\BUILD\agents\shared\rh_routing_latest.txt
 
 # AGENTS.md — HawkinsOperations (Codex instructions)
+
+## Shared routing source of truth (all agents)
+- Before any file write, read `ROUTING_TRUTH_FILE`, then read its `ACTIVE_ROUTING_FILE`.
+- Use the routing contract as authoritative for what goes where across `C:\RH`.
+- If requested work conflicts with the routing contract, stop and ask before writing.
+- Dated routing specs are immutable records; update only the `rh_routing_latest.txt` pointer when promoting new rules.
 
 ## Project identity
 - Purpose: evidence-first SOC portfolio for job hunting
