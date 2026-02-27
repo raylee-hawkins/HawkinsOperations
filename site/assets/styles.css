@@ -316,6 +316,13 @@
         @media(max-width:375px){.hero-panel{padding:18px 14px 16px}.hsub{font-size:.94rem;line-height:1.58}.hctas .btn{padding:9px 12px;font-size:.7rem}.lane-grid .card-sub{font-size:.8rem}}
     
 
+/* About/content boxes (blog, extras) */
+.about-box{background:linear-gradient(160deg,rgba(15,15,15,.95),rgba(8,8,8,.98));border:1px solid var(--bdr);padding:20px 22px;border-radius:13px;margin-bottom:0;color:var(--txt)}
+.about-box h2{font-family:var(--head);font-size:1.1rem;font-weight:600;color:var(--heading);margin-bottom:8px}
+.about-box p{font-size:.88rem;color:var(--dim);line-height:1.7;margin-bottom:10px}
+.about-box p:last-child{margin-bottom:0}
+html[data-theme="light"] .about-box{background:linear-gradient(160deg,rgba(255,255,255,.92),rgba(242,245,251,.95));border-color:var(--bdr2)}
+
 /* v3 additions (non-React pages) */
 .modal-backdrop{
   position:fixed; inset:0;
