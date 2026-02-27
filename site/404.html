@@ -18,9 +18,18 @@
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('rh-theme'); } catch (e) { saved = null; }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
+<main>
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:760px">
     <div class="slbl">404</div>
@@ -36,6 +45,7 @@
     </div>
   </div>
 </section>
+</main>
 </body>
 </html>
 
