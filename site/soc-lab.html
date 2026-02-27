@@ -62,6 +62,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">SOC/Lab</div>
@@ -99,11 +100,11 @@
     <div class="g2">
       <div class="card">
         <div class="card-ttl">Compute — HO-SR-01</div>
-        <div class="card-sub">Proxmox hypervisor host. Multiple VMs including Windows 11 endpoint (HOWE01), Wazuh Manager, and Splunk. Snapshot-driven so detection scenarios are fully repeatable.</div>
-        <div class="card-meta"><span class="tag">Proxmox</span><span class="tag">~72 vCPUs</span><span class="tag">~2 TiB RAM</span><span class="tag">Snapshot-driven</span></div>
+        <div class="card-sub">Proxmox hypervisor host. Multiple VMs including Windows 11 endpoint (primary endpoint), Wazuh Manager, and Splunk. Snapshot-driven so detection scenarios are fully repeatable.</div>
+        <div class="card-meta"><span class="tag">Proxmox</span><span class="tag">Multi-VM</span><span class="tag">Snapshot-driven</span></div>
       </div>
       <div class="card">
-        <div class="card-ttl">Endpoint — HOWE01</div>
+        <div class="card-ttl">Endpoint — Primary Windows system</div>
         <div class="card-sub">Windows 11 Enterprise. Primary target for detection scenarios. Wazuh agent installed, Sysmon-ready, log forwarding configured. Real telemetry, real alerts, real artifacts.</div>
         <div class="card-meta"><span class="tag">Windows 11 Enterprise</span><span class="tag">Wazuh agent</span><span class="tag">Sysmon-ready</span></div>
       </div>
@@ -174,7 +175,7 @@
     <div class="g2">
       <div class="card">
         <div class="card-ttl">Trigger → alert → evidence loop</div>
-        <div class="card-sub">Trigger behavior on HOWE01, confirm Wazuh alert fires at expected severity, capture screenshot/log artifact, confirm alert resolves or closes. Snapshot restore between runs for clean slate.</div>
+        <div class="card-sub">Trigger behavior on the primary endpoint, confirm Wazuh alert fires at expected severity, capture screenshot/log artifact, confirm alert resolves or closes. Snapshot restore between runs for clean slate.</div>
         <div class="card-meta"><span class="tag">Repeatable</span><span class="tag">Evidence-first</span><span class="tag">Snapshot restore</span></div>
       </div>
       <div class="card">
@@ -191,7 +192,7 @@
       <summary>Data flow: endpoint to alert <span>(how logs move)</span></summary>
       <div class="details-body">
         <ol style="padding-left:18px">
-          <li style="margin:6px 0">HOWE01 generates event (process creation, FIM change, network connection, etc.)</li>
+          <li style="margin:6px 0">Primary endpoint generates event (process creation, FIM change, network connection, etc.)</li>
           <li style="margin:6px 0">Wazuh agent forwards to Wazuh Manager over encrypted channel</li>
           <li style="margin:6px 0">Wazuh Manager evaluates against custom rules (100000+ range)</li>
           <li style="margin:6px 0">Alert fires at configured severity level</li>
@@ -248,6 +249,7 @@
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

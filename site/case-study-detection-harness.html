@@ -66,6 +66,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:900px">
     <div class="slbl">Detection engineering</div>
@@ -77,7 +78,7 @@
     </p>
 
     <div class="card">
-      <h2 class="card-ttl">The problem it solves</h2>
+      <h2 class="card-ttl">Context</h2>
       <p class="card-sub">
         A rule can be syntactically valid, deployed to Wazuh, and still never fire in practice.
         The logsource might not match. The Sysmon config might not capture the required event.
@@ -91,7 +92,7 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Architecture</h2>
+        <h2 class="card-ttl">Problem</h2>
         <div class="card-sub">
           <ul style="padding-left:18px">
             <li><b>Language:</b> Python 3</li>
@@ -104,12 +105,12 @@
         </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">Detection spec (YAML)</h2>
+        <h2 class="card-ttl">Approach</h2>
         <div class="card-sub">
 <pre class="term-b">tests:
   - test_name: ART_T1110_001_password_guessing
     platform: windows
-    agent_name: HOWE01
+    agent_name: WINDOWS-PRIMARY
     lookback_minutes: 30
     expected:
       rule_id: "60204"
@@ -120,7 +121,7 @@
 
   - test_name: ART_T1003_001_lsass_dump
     platform: windows
-    agent_name: HOWE01
+    agent_name: WINDOWS-PRIMARY
     lookback_minutes: 30
     expected:
       rule_groups:
@@ -136,7 +137,7 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Run it</h2>
+      <h2 class="card-ttl">Evidence</h2>
       <div class="card-sub">
 <pre class="term-b">export WAZUH_INDEXER_HOST='localhost'
 export WAZUH_INDEXER_USER='admin'
@@ -157,9 +158,9 @@ export WAZUH_TLS_INSECURE='true'
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Sample run output — and what it means</h2>
+      <h2 class="card-ttl">Outcome</h2>
       <div class="card-sub">
-        <p>Run from 2026-02-19, 3 tests against HOWE01:</p>
+        <p>Run from 2026-02-19, 3 tests against the primary Windows endpoint:</p>
         <pre class="term-b">Run: run_02-19-2026_034113
 Result: 0/3 PASS
 
@@ -174,7 +175,7 @@ Result: 0/3 PASS
           A SOC that can run this harness and get 0/3 is in a better position than a SOC with no harness — because it now knows specifically where coverage is missing.
         </p>
         <p style="margin-top:10px">
-          The SOC report from the same sprint (a separate detection validation tool) achieved 1/5 PASS — T1110 password guessing fired rule 60204 on HOWE01 at exactly <code>2026-02-19T02:20:25.678+0000</code>, alert ID <code>1771467625.2810738</code>. That match was captured and preserved.
+          The SOC report from the same sprint (a separate detection validation tool) achieved 1/5 PASS — T1110 password guessing fired rule 60204 on the primary Windows endpoint at exactly <code>2026-02-19T02:20:25.678+0000</code>, alert ID <code>1771467625.2810738</code>. That match was captured and preserved.
         </p>
       </div>
     </div>
@@ -197,7 +198,7 @@ Result: 0/3 PASS
         </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">Design decisions</h2>
+        <h2 class="card-ttl">Lessons + next hardening step</h2>
         <ul class="card-sub" style="padding-left:18px">
           <li><b>No active response</b> — harness only reads from Wazuh Indexer, never writes or modifies the environment</li>
           <li><b>No Atomic execution</b> — harness validates detections, does not run attacks; separation of concerns</li>
@@ -218,6 +219,7 @@ Result: 0/3 PASS
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

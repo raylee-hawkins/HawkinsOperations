@@ -67,6 +67,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <header class="hero">
   <div class="hero-glow"></div>
   <div class="ctr hero-split-ctr">
@@ -197,7 +198,7 @@
         <span class="tag">Collect</span><span class="tag">Detect</span><span class="tag">Triage</span><span class="tag">Respond</span><span class="tag">Investigate</span><span class="tag">Improve</span>
       </div>
       <ul style="padding-left:18px;margin:14px 0 4px;font-size:.87rem;color:var(--dim);line-height:1.7">
-        <li>Wazuh agent on HOWE01 (Windows 11) wired to Proxmox-hosted Wazuh Manager and Splunk</li>
+        <li>Wazuh agent on a primary Windows 11 endpoint wired to Proxmox-hosted Wazuh Manager and Splunk</li>
         <li><span data-verified="detections">139</span> verified detections active across Sigma, Wazuh, and Splunk</li>
         <li>Detection scenarios run end-to-end: trigger → alert → evidence capture → verify counts</li>
       </ul>
@@ -244,7 +245,7 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
     <div id="workMore" class="work-more" hidden>
       <div class="g2" style="margin-top:12px">
         <a class="card" href="/case-study-cve-patch" style="text-decoration:none"><div class="card-ttl">CVE patch report</div><div class="card-sub">Detect -> triage -> patch -> verify timeline for CVE-2025-55130 with evidence snapshots.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-        <a class="card" href="/case-study-ir-howe01" style="text-decoration:none"><div class="card-ttl">IR alert brief</div><div class="card-sub">Level 12 FIM alert from trigger through BENIGN verdict with investigation pivots.</div><div class="card-meta"><span class="tag">Read</span></div></a>
+        <a class="card" href="/case-study-ir-howe01" style="text-decoration:none"><div class="card-ttl">IR alert brief</div><div class="card-sub">Level 12 FIM alert from trigger through BENIGN verdict with investigation pivots and evidence capture.</div><div class="card-meta"><span class="tag">Read</span></div></a>
         <a class="card" href="/case-study-sigma-library" style="text-decoration:none"><div class="card-ttl">Sigma library brief</div><div class="card-sub">Rule structure, tactic mapping, and false-positive intent across the Sigma lane.</div><div class="card-meta"><span class="tag">Read</span></div></a>
         <a class="card" href="/case-study-detection-harness" style="text-decoration:none"><div class="card-ttl">Detection harness report</div><div class="card-sub">How expected detections are validated with repeatable pass/fail outputs.</div><div class="card-meta"><span class="tag">Read</span></div></a>
       </div>
@@ -256,6 +257,7 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

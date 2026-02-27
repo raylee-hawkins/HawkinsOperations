@@ -62,6 +62,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">Proof pack</div>
@@ -70,7 +71,7 @@
       The point is that you can verify the claims with commands against a public repo.
       This is what "auditable" looks like when nobody is hand-waving.
     </p>
-    <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>
+    <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>`r`n<p class="lupd">Quick scan: 1) open <code>PROOF_PACK/VERIFIED_COUNTS.md</code> 2) run <code>scripts/verify/verify-counts.ps1</code> 3) compare output to published totals.</p>
 
     <div class="card" style="margin:18px 0 24px 0">
       <div class="card-ttl">Proof → Honeypot (Wazuh)</div>
@@ -306,6 +307,7 @@ pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

@@ -61,13 +61,14 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">Projects</div>
     <h1 class="stitle">Outcomes, not descriptions</h1>
     <p class="sdesc">
       Every project here has a measurable output: a verified count, a closed alert, a published artifact, or a documented workflow.
-      If it doesn't have a result, it doesn't belong on this page.
+      If it doesn't have a result, it doesn't belong on this page. Each card links directly to evidence, commands, or final outputs.
     </p>
   </div>
 </section>
@@ -81,7 +82,7 @@
       <span class="lane-tag">FLAGSHIP</span>
       <div class="card-ttl">PP_SOC_Integration — Live SOC detection workflow</div>
       <div class="card-sub">
-        End-to-end SOC integration running on real hardware. Wazuh agent on Windows 11 endpoint (HOWE01) feeding Proxmox-hosted Wazuh Manager and Splunk.
+        End-to-end SOC integration running on real hardware. Wazuh agent on Windows 11 endpoint (primary endpoint) feeding Proxmox-hosted Wazuh Manager and Splunk.
         15,052 alerts observed in 24h. CVE-2025-55130 detected by live monitoring, triaged, patched via winget, and verified closed.
         <span data-verified="detections">139</span> verified detections active across three platforms.
       </div>
@@ -301,6 +302,7 @@
   <p><a href="https://github.com/raylee-hawkins/hawkinsops-framework" target="_blank" rel="noopener noreferrer">Open hawkinsops-framework</a></p>
 </template>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

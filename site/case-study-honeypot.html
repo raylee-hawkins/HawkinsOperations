@@ -66,6 +66,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:900px">
     <div class="slbl">Lab infrastructure</div>
@@ -76,7 +77,7 @@
     </p>
 
     <div class="card">
-      <h2 class="card-ttl">Stack overview</h2>
+      <h2 class="card-ttl">Context</h2>
       <div class="card-sub">
         <div class="g2">
           <div>
@@ -104,7 +105,7 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Docker Compose stack</h2>
+      <h2 class="card-ttl">Problem</h2>
       <div class="card-sub">
 <pre class="term-b">services:
   cowrie:
@@ -134,7 +135,7 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Grafana dashboard (provisioned from code)</h2>
+        <h2 class="card-ttl">Approach</h2>
         <div class="card-sub">
           <p>Dashboard JSON lives in <code>grafana/dashboards/honeypot_ops.json</code> and is provisioned automatically on container start. Three panels:</p>
           <ul style="padding-left:18px;margin-top:8px">
@@ -146,7 +147,7 @@
         </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">Wazuh integration</h2>
+        <h2 class="card-ttl">Evidence</h2>
         <div class="card-sub">
           <p>Wazuh agent localfile config on the honeypot VM or host:</p>
           <pre class="term-b">&lt;localfile&gt;
@@ -165,7 +166,7 @@ data.username:* AND rule.groups:cowrie</pre>
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Verify the stack</h2>
+        <h2 class="card-ttl">Outcome</h2>
         <div class="card-sub">
 <pre class="term-b"># Copy env template and fill in values
 cp .env.example .env
@@ -183,7 +184,7 @@ docker compose up -d
         </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">Security decisions</h2>
+        <h2 class="card-ttl">Lessons + next hardening step</h2>
         <ul class="card-sub" style="padding-left:18px">
           <li><b>LAN-only by default</b> — <code>LAN_BIND_IP</code> defaults to <code>localhost</code>. Public-facing deployment requires explicit <code>.env</code> change.</li>
           <li><b>No credentials on disk</b> — all secrets via environment variables from <code>.env</code>. No hardcoded values in compose file or scripts.</li>
@@ -213,6 +214,7 @@ docker compose up -d
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

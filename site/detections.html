@@ -61,10 +61,11 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr">
     <div class="slbl">Detections</div>
-    <h1 class="stitle">Case studies first, then the library</h1>
+    <h1 class="stitle">Case studies first, then verified library content</h1>
     <p class="sdesc">
       The repo ships multi-platform detection content and IR playbooks with reproducible counts.
       All numbers are <b>verified (reproducible today)</b> — no inflated totals, no hand-waving.
@@ -90,7 +91,7 @@
       <a class="card" href="/case-study-ir-howe01" style="text-decoration:none">
         <div class="card-click">Read →</div>
         <div class="card-ttl">IR: Level 12 FIM alert — triage to verdict</div>
-        <div class="card-sub">Live Wazuh Rule 100052 alert on HOWE01. Triage to BENIGN verdict in 35 minutes. 9 evidence artifacts collected.</div>
+        <div class="card-sub">Live Wazuh Rule 100052 alert on a primary monitored endpoint. Triage to BENIGN verdict in 35 minutes. 9 evidence artifacts collected.</div>
         <div class="card-meta"><span class="tag">IR case study</span><span class="tag">FIM</span><span class="tag">Wazuh</span></div>
       </a>
     </div>
@@ -219,6 +220,7 @@
       <button class="card" type="button" data-modal="tTacticDisc" data-modal-title="Discovery"><div class="card-click">Expand →</div><div class="card-ttl">Discovery</div><div class="card-sub">Environment, users, shares.</div></button>
       <button class="card" type="button" data-modal="tTacticLM" data-modal-title="Lateral Movement"><div class="card-click">Expand →</div><div class="card-ttl">Lateral Movement</div><div class="card-sub">Remote exec and credential reuse.</div></button>
       <button class="card" type="button" data-modal="tTacticC2" data-modal-title="Command and Control"><div class="card-click">Expand →</div><div class="card-ttl">C2</div><div class="card-sub">Beaconing patterns + tooling.</div></button>
+      <button class="card" type="button" data-modal="tTacticCol" data-modal-title="Collection"><div class="card-click">Expand →</div><div class="card-ttl">Collection</div><div class="card-sub">Data staging and archive capture.</div></button>
       <button class="card" type="button" data-modal="tTacticExf" data-modal-title="Exfiltration"><div class="card-click">Expand →</div><div class="card-ttl">Exfiltration</div><div class="card-sub">Staging and outbound movement.</div></button>
       <button class="card" type="button" data-modal="tTacticImp" data-modal-title="Impact"><div class="card-click">Expand →</div><div class="card-ttl">Impact</div><div class="card-sub">Encryption, wiping, disruption.</div></button>
     </div>
@@ -388,6 +390,14 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
     <li>DNS/HTTP anomalies</li>
   </ul>
 </template>
+<template id="tTacticCol">
+  <h3>Collection</h3>
+  <ul>
+    <li>Archive creation and data staging patterns</li>
+    <li>Screen capture and clipboard access</li>
+    <li>Local data gathering and file collection signals</li>
+  </ul>
+</template>
 <template id="tTacticExf">
   <h3>Exfiltration</h3>
   <ul>
@@ -405,6 +415,7 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
   </ul>
 </template>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">

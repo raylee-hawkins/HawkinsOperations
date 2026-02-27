@@ -66,6 +66,7 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:900px">
     <div class="slbl">Case study</div>
@@ -78,7 +79,7 @@
     <div class="lupd" style="margin-bottom:14px">Verify count: <code>(Get-ChildItem .\incident-response\playbooks -Filter *.md).Count</code></div>
 
     <div class="card">
-      <h2 class="card-ttl">The problem with most playbooks</h2>
+      <h2 class="card-ttl">Context</h2>
       <p class="card-sub">
         A playbook that says "investigate the process tree" is not a playbook.
         It's a reminder that process trees exist.
@@ -94,7 +95,7 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">7-section template</h2>
+      <h2 class="card-ttl">Problem</h2>
       <div class="card-sub">
         <p>Every playbook follows the same structure. No exceptions.</p>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
@@ -121,7 +122,7 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Coverage \u2014 <span data-verified="ir">10</span> playbooks</h2>
+      <h2 class="card-ttl">Approach</h2>
       <div class="card-sub" style="font-size:0.93em">
         <table style="width:100%;border-collapse:collapse">
           <thead>
@@ -152,7 +153,7 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Escalation logic example (LSASS)</h2>
+        <h2 class="card-ttl">Evidence</h2>
         <div class="card-sub">
           <p>Triage criteria that produce a binary decision — not analyst intuition:</p>
           <ul style="padding-left:18px;margin-top:8px">
@@ -187,7 +188,7 @@ Get-ADUser -Filter * -Properties * |
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Ransomware — triage protocol (excerpt)</h2>
+        <h2 class="card-ttl">Outcome</h2>
         <div class="card-sub">
           <p>Critical-incident triage has different defaults than standard triage:</p>
           <ul style="padding-left:18px">
@@ -217,7 +218,7 @@ Get-ADUser -Filter * -Properties * |
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Design decisions</h2>
+      <h2 class="card-ttl">Lessons + next hardening step</h2>
       <div class="card-sub">
         <ul style="padding-left:18px">
           <li><b>Time-boxed phases</b> — Triage is 5 minutes. Investigation scope is 30 minutes. These are not aspirational; they force the analyst to reach a decision state rather than investigate indefinitely.</li>
@@ -238,6 +239,7 @@ Get-ADUser -Filter * -Properties * |
   </div>
 </section>
 
+</main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-h">
