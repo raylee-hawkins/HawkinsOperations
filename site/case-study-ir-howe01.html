@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 <title>HawkinsOps | IR Case Study: Level 12 FIM Alert — Triage to Verdict</title>
-<meta name="description" content="Full IR lifecycle: Level 12 Wazuh FIM alert on HOWE01, triaged and closed as BENIGN in 35 minutes. Evidence trail, PowerShell validation, and rule-tuning recommendations included.">
+<meta name="description" content="Full IR lifecycle: Level 12 Wazuh FIM alert on a Windows endpoint, triaged and closed as BENIGN in 35 minutes. Evidence trail, PowerShell validation, and rule-tuning recommendations included.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/case-study-ir-howe01">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IR Case Study | Level 12 FIM Alert — Triage to BENIGN Verdict in 35 Minutes">
-<meta property="og:description" content="Full IR lifecycle documented with 9 evidence artifacts: Wazuh threat hunting, PowerShell validation, and rule-tuning recommendations from a live alert on HOWE01.">
+<meta property="og:description" content="Full IR lifecycle documented with 9 evidence artifacts: Wazuh threat hunting, PowerShell validation, and rule-tuning recommendations from a live alert on a monitored endpoint.">
 <meta property="og:url" content="https://hawkinsops.com/case-study-ir-howe01">
 <meta property="og:image" content="https://hawkinsops.com/assets/howe01/02_threat_hunting_level12_filter.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="IR Case Study | Level 12 FIM Alert — Triage to BENIGN Verdict in 35 Minutes">
-<meta name="twitter:description" content="Full IR lifecycle documented with 9 evidence artifacts: Wazuh threat hunting, PowerShell validation, and rule-tuning recommendations from a live alert on HOWE01.">
+<meta name="twitter:description" content="Full IR lifecycle documented with 9 evidence artifacts: Wazuh threat hunting, PowerShell validation, and rule-tuning recommendations from a live alert on a monitored endpoint.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/howe01/02_threat_hunting_level12_filter.png">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -70,7 +70,7 @@
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:900px">
     <div class="slbl">IR Case Study</div>
-    <h1 class="stitle">Level 12 FIM alert on HOWE01 — triage to BENIGN verdict in 35 minutes</h1>
+    <h1 class="stitle">Level 12 FIM alert on primary endpoint — triage to BENIGN verdict in 35 minutes</h1>
     <p class="sdesc">
       A live Wazuh File Integrity Monitoring alert fires at the highest rule severity in the lab environment.
       No prior context. One endpoint. The question: is <code>C:\Windows\System32\drivers\etc\hosts.ics</code>
@@ -79,13 +79,13 @@
     </p>
 
     <div class="card">
-      <h2 class="card-ttl">The alert</h2>
+      <h2 class="card-ttl">Context</h2>
       <div class="card-sub">
         <ul style="padding-left:18px">
           <li><b>Rule:</b> 100052 — "Critical system file modified - Possible system compromise"</li>
           <li><b>Level:</b> 12 (High / critical threshold in this environment)</li>
           <li><b>Source:</b> Wazuh FIM — <code>detection-rules/wazuh/rules/</code></li>
-          <li><b>Agent:</b> HOWE01 (Windows 11 Enterprise endpoint, Agent ID 003)</li>
+          <li><b>Agent:</b> primary endpoint (Windows 11 Enterprise endpoint, Agent ID 003)</li>
           <li><b>File:</b> <code>C:\Windows\System32\drivers\etc\hosts.ics</code></li>
           <li><b>Timestamp:</b> 2026-01-25 17:55:52 UTC</li>
         </ul>
@@ -103,13 +103,13 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Triage — 5 minutes</h2>
+        <h2 class="card-ttl">Problem</h2>
         <div class="card-sub">
           <ol style="padding-left:18px">
             <li>Opened Threat Hunting dashboard, filtered to Level 12+ alerts, last 24 hours.</li>
             <li>Result: <b>1 total alert</b> — single event, no cluster.</li>
             <li>0 authentication failures. 0 authentication successes. No lateral indicators.</li>
-            <li>Only HOWE01 affected — no other agents flagged in the same window.</li>
+            <li>Only primary endpoint affected — no other agents flagged in the same window.</li>
             <li>Decision: proceed to investigation. No escalation trigger met.</li>
           </ol>
         </div>
@@ -132,11 +132,11 @@
     <div class="card">
       <h2 class="card-ttl">Triage evidence — Threat Hunting dashboard (Level 12+ filter)</h2>
       <div class="card-sub">
-        <p>Filters applied: <code>manager.name: [REDACTED_INTERNAL]</code>, <code>rule.level: 12 to 14</code>, last 24 hours.
-           Single Level 12 spike visible at ~18:00 UTC. HOWE01 sole affected agent.</p>
+        <p>Filters applied: <code>rule.level: 12 to 14</code>, last 24 hours.
+           Single Level 12 spike visible at ~18:00 UTC. primary endpoint sole affected agent.</p>
         <div style="margin-top:12px">
           <img src="/assets/howe01/02_threat_hunting_level12_filter.png"
-               alt="Wazuh Threat Hunting dashboard filtered to Level 12 or above alerts, showing 1 total alert from HOWE01"
+               alt="Wazuh Threat Hunting dashboard filtered to Level 12 or above alerts, showing 1 total alert from primary endpoint"
                style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--stroke)">
         </div>
       </div>
@@ -146,12 +146,12 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Investigation — 30 minutes</h2>
+        <h2 class="card-ttl">Approach</h2>
         <div class="card-sub">
           <ol style="padding-left:18px">
             <li>Pulled full event JSON from Wazuh — 805 available fields. File path, modification timestamp, rule classification confirmed.</li>
             <li>Researched <code>hosts.ics</code> purpose: Microsoft Internet Connection Sharing auto-generates and maintains this file for local network hostname resolution. It is not user-editable — the file header says so explicitly.</li>
-            <li>PowerShell validation on HOWE01: <code>Get-Content</code> of <code>hosts.ics</code>. File contains Microsoft copyright, auto-generation warning, and a single RFC 1918 IP-to-hostname mapping. No external IPs, no suspicious domains.</li>
+            <li>PowerShell validation on primary endpoint: <code>Get-Content</code> of <code>hosts.ics</code>. File contains Microsoft copyright, auto-generation warning, and a single RFC 1918 IP-to-hostname mapping. No external IPs, no suspicious domains.</li>
             <li>Modification timestamp (4:06 PM local) correlates with ICS service activity — expected behavior.</li>
             <li>Verdict: <b>BENIGN</b>. False positive. Rule 100052 correctly detected a file modification; the modification was legitimate system behavior.</li>
           </ol>
@@ -170,9 +170,9 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Critical evidence — PowerShell validation on HOWE01</h2>
+      <h2 class="card-ttl">Evidence</h2>
       <div class="card-sub">
-        <p>Executed locally on HOWE01. File metadata confirmed. Contents read and inspected.</p>
+        <p>Executed locally on primary endpoint. File metadata confirmed. Contents read and inspected.</p>
         <pre class="term-b"># File metadata
 Get-Item "C:\Windows\System32\drivers\etc\hosts.ics" | Select-Object FullName, Length, LastWriteTime
 
@@ -189,10 +189,10 @@ Get-Content "C:\Windows\System32\drivers\etc\hosts.ics"
 # Internet Connection Sharing. Please do not make changes to the
 # HOSTS.ICS file. Any changes may result in a loss of connectivity.
 
-&lt;PRIVATE_LAN_IP&gt; [REDACTED_INTERNAL].mshome.net # [REDACTED]</pre>
+&lt;PRIVATE_LAN_IP&gt; [REDACTED_LOCAL_HOSTNAME] # [REDACTED]</pre>
         <div style="margin-top:12px">
           <img src="/assets/howe01/05_powershell_validation_hosts_ics_content.png"
-               alt="PowerShell terminal on HOWE01 showing Get-Item and Get-Content output for hosts.ics, confirming Microsoft copyright and benign ICS auto-generated content"
+               alt="PowerShell terminal on primary endpoint showing Get-Item and Get-Content output for hosts.ics, confirming Microsoft copyright and benign ICS auto-generated content"
                style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--stroke)">
         </div>
       </div>
@@ -202,7 +202,7 @@ Get-Content "C:\Windows\System32\drivers\etc\hosts.ics"
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Timeline (UTC)</h2>
+        <h2 class="card-ttl">Outcome</h2>
         <div class="card-sub" style="font-size:0.93em">
           <table style="width:100%;border-collapse:collapse">
             <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>16:06</b></td><td style="padding:5px 0">ICS service writes hosts.ics</td></tr>
@@ -210,7 +210,7 @@ Get-Content "C:\Windows\System32\drivers\etc\hosts.ics"
             <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>17:56</b></td><td style="padding:5px 0">Analyst reviews Threat Hunting dashboard</td></tr>
             <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:00</b></td><td style="padding:5px 0">Triage complete — single event, no lateral indicators</td></tr>
             <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:05</b></td><td style="padding:5px 0">Full event JSON reviewed (805 fields)</td></tr>
-            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:15</b></td><td style="padding:5px 0">PowerShell validation executed on HOWE01</td></tr>
+            <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:15</b></td><td style="padding:5px 0">PowerShell validation executed on primary endpoint</td></tr>
             <tr style="border-bottom:1px solid var(--stroke)"><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:25</b></td><td style="padding:5px 0">BENIGN verdict — investigation complete</td></tr>
             <tr><td style="padding:5px 8px 5px 0;white-space:nowrap"><b>18:30</b></td><td style="padding:5px 0">Alert closed as false positive</td></tr>
           </table>
@@ -232,14 +232,14 @@ Get-Content "C:\Windows\System32\drivers\etc\hosts.ics"
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Rule-tuning recommendation</h2>
+        <h2 class="card-ttl">Lessons + next hardening step</h2>
         <div class="card-sub">
           <p>Rule 100052 monitors all files in <code>drivers\etc\</code> at Level 12. It does not differentiate between:</p>
           <ul style="padding-left:18px;margin-top:8px">
             <li><code>hosts</code> — user-editable, high-risk target</li>
             <li><code>hosts.ics</code> — ICS-managed, auto-updated, not a compromise indicator</li>
           </ul>
-          <p style="margin-top:10px">Recommended action: add a Wazuh FIM exception for <code>hosts.ics</code> or a rule-level override that downgrades this specific file path to informational. The modification of <code>hosts</code> (no extension) should remain Level 12.</p>
+          <p style="margin-top:10px">Recommended action: add a Wazuh FIM exception for <code>hosts.ics</code> or a rule-level override that downgrades this specific file path to informational. The modification of <code>hosts</code> (no extension) should remain Level 12.</p><p style="margin-top:10px"><b>Next hardening step:</b> validate this path-specific tuning in a controlled replay so true hosts-file tampering still escalates at high severity.</p>
         </div>
       </div>
       <div class="card">
@@ -249,7 +249,7 @@ Get-Content "C:\Windows\System32\drivers\etc\hosts.ics"
           <ul style="padding-left:18px;margin-top:8px">
             <li>Wazuh overview dashboard — baseline context</li>
             <li>Threat Hunting: Level 12 filter — triage confirmation</li>
-            <li>Threat Hunting: HOWE01 agent-specific — scope validation</li>
+            <li>Threat Hunting: primary endpoint agent-specific — scope validation</li>
             <li>Events table: Rule 100052 metadata</li>
             <li><b>PowerShell validation — critical BENIGN proof</b></li>
             <li>Full event JSON (805 fields) — forensic depth</li>

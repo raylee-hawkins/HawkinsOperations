@@ -98,7 +98,7 @@
         }
       });
     } catch {
-      // leave placeholders in place if the payload is unavailable
+      // keep existing values if the payload is unavailable
     }
   }
 

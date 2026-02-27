@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 <title>HawkinsOps | Case Study: Wazuh Rule Blocks</title>
-<meta name="description" content="Case study: building, validating, and deploying 28 Wazuh rule blocks across 24 XML files with reproducible verification.">
+<meta name="description" content="Case study: building, validating, and deploying Wazuh rule content with reproducible verification.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/case-study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Case Study | Building + Validating Wazuh Rule Blocks">
-<meta property="og:description" content="28 rule blocks across 24 XML files — authored, bundled, validated, and deployable from repo root.">
+<meta property="og:description" content="Wazuh rule content authored, bundled, validated, and deployable from repo root.">
 <meta property="og:url" content="https://hawkinsops.com/case-study">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-27-2026">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Case Study | Building + Validating Wazuh Rule Blocks">
-<meta name="twitter:description" content="28 rule blocks across 24 XML files — authored, bundled, validated, and deployable from repo root.">
+<meta name="twitter:description" content="Wazuh rule content authored, bundled, validated, and deployable from repo root.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-27-2026">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -88,7 +88,7 @@
             <li>Author XML rules under <code>detection-rules/wazuh/rules/</code>, each with a descriptive <code>description</code> field and a <code>mitre</code> mapping where applicable.</li>
             <li>Build deployment bundles with <code>scripts/build-wazuh-bundle.ps1</code> to ensure rules are packaged consistently.</li>
             <li>Count files and <code>&lt;rule id=</code> blocks separately — file count and rule block count diverge because some XML files contain multiple rules.</li>
-            <li>Run representative alert simulations (e.g., encoded PowerShell commands on HOWE01) and verify generated alerts appear in Wazuh dashboards.</li>
+            <li>Run representative alert simulations (e.g., encoded PowerShell commands on the primary endpoint) and verify generated alerts appear in Wazuh dashboards.</li>
           </ol>
         </div>
       </div>

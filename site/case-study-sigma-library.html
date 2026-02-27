@@ -80,7 +80,7 @@
     <div class="lupd" style="margin-bottom:14px">Verify count: <code>(Get-ChildItem -Recurse .\detection-rules\sigma -Filter *.yml).Count</code></div>
 
     <div class="card">
-      <h2 class="card-ttl">Why Sigma</h2>
+      <h2 class="card-ttl">Context</h2>
       <p class="card-sub">
         Platform-specific detection rules are technical debt.
         Write a Splunk query, and it runs only in Splunk.
@@ -96,7 +96,7 @@
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Coverage by tactic</h2>
+      <h2 class="card-ttl">Problem</h2>
       <div class="card-sub" style="font-size:0.93em">
         <table style="width:100%;border-collapse:collapse">
           <thead>
@@ -129,7 +129,7 @@
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">Rule anatomy</h2>
+        <h2 class="card-ttl">Approach</h2>
         <div class="card-sub">
           <p>Every Sigma rule in this library ships with all required fields. Example structure from the LSASS detection:</p>
           <pre class="term-b">title: Suspicious LSASS Process Access
@@ -184,18 +184,18 @@ level: high</pre>
 
     <div class="g2">
       <div class="card">
-        <h2 class="card-ttl">False positive discipline</h2>
+        <h2 class="card-ttl">Lessons + next hardening step</h2>
         <div class="card-sub">
           <p>A detection rule without false positive handling is a noisy alert factory.
              Every rule in this library includes explicit filter conditions for known-good behavior.
              The LSASS rule filters <code>wmiprvse.exe</code>, <code>taskmgr.exe</code>, <code>MsMpEng.exe</code>,
              and common EDR agents before firing — because those processes legitimately access LSASS memory.</p>
-          <p style="margin-top:10px">This matters for hirers: a rule that fires on everything is not a detection.
-             It's a visibility tax that burns analyst time.</p>
+          <p style="margin-top:10px">This matters for hiring teams: a rule that fires on everything is not a detection.
+             It's a visibility tax that burns analyst time.</p><p style="margin-top:10px"><b>Next hardening step:</b> add tactic-level replay tests so each false-positive filter is validated against real telemetry before promotion.</p>
         </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">Multi-platform portability</h2>
+        <h2 class="card-ttl">Outcome</h2>
         <div class="card-sub">
           <p>Sigma rules compile to any supported backend. These rules were authored against Windows Sysmon and Windows Security event sources, making them compatible with:</p>
           <ul style="padding-left:18px;margin-top:8px">
@@ -212,7 +212,7 @@ level: high</pre>
     <div style="height:14px"></div>
 
     <div class="card">
-      <h2 class="card-ttl">Verify the count</h2>
+      <h2 class="card-ttl">Evidence</h2>
       <div class="card-sub">
         <div class="g2">
           <div>
