@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
 <title>HawkinsOps | Case Study: Wazuh Rule Blocks</title>
-<meta name="description" content="Mini case study: how verified Wazuh rule blocks were built, validated, and documented with reproducible commands.">
+<meta name="description" content="Case study: building, validating, and deploying 28 Wazuh rule blocks across 24 XML files with reproducible verification.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/case-study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Case Study | Building + validating Wazuh rule blocks">
-<meta property="og:description" content="Objective, test method, verification commands, evidence path, and next improvements.">
+<meta property="og:title" content="Case Study | Building + Validating Wazuh Rule Blocks">
+<meta property="og:description" content="28 rule blocks across 24 XML files — authored, bundled, validated, and deployable from repo root.">
 <meta property="og:url" content="https://hawkinsops.com/case-study">
-<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-27-2026">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Case Study | Building + validating Wazuh rule blocks">
-<meta name="twitter:description" content="Objective, test method, verification commands, evidence path, and next improvements.">
-<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
+<meta name="twitter:title" content="Case Study | Building + Validating Wazuh Rule Blocks">
+<meta name="twitter:description" content="28 rule blocks across 24 XML files — authored, bundled, validated, and deployable from repo root.">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-infrastructure-map.png?v=02-27-2026">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,11 +24,7 @@
 <script>
   (function () {
     var saved = null;
-    try {
-      saved = localStorage.getItem('rh-theme');
-    } catch (err) {
-      saved = null;
-    }
+    try { saved = localStorage.getItem('rh-theme'); } catch (e) { saved = null; }
     var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
   })();
@@ -66,68 +62,109 @@
 
 <!-- @include:nav:end -->
 
+<main>
 <section style="padding-top:110px">
-  <div class="ctr" style="max-width:900px">
-    <div class="slbl">Mini case study</div>
-    <h1 class="stitle">How I built + validated <span data-verified="wazuh">28</span> Wazuh rule blocks</h1>
-    <div class="count-pill">Verified today: <span data-verified="wazuh">28</span> blocks across <span data-verified="wazuh_xml_files">24</span> XML files</div>
-    <p class="sdesc">This is the practical workflow behind the Wazuh detection subset in HawkinsOperations, optimized for review speed and reproducibility.</p>
+  <div class="ctr" style="max-width:920px">
+    <div class="slbl">Case Study</div>
+    <h1 class="stitle">Building and Validating <span data-verified="wazuh">28</span> Wazuh Rule Blocks</h1>
+    <p class="sdesc"><span data-verified="wazuh">28</span> rule blocks across <span data-verified="wazuh_xml_files">24</span> XML files — authored for SOC triage patterns, bundled for deployment, and validated with reproducible commands from repo root.</p>
 
-    <div class="card">
-      <h2 class="card-ttl">Objective</h2>
-      <p class="card-sub">Build a Wazuh rule set that maps to realistic SOC triage patterns, packages cleanly for deployment, and can be validated with a small set of commands from repo root.</p>
+    <div class="card" style="margin-bottom:14px">
+      <h2 class="card-ttl">Context</h2>
+      <p class="card-sub">The Wazuh rules in this portfolio are not copies of community defaults. They target specific detection gaps identified during lab triage — RDP brute force patterns, PowerShell encoded command execution, suspicious scheduled task creation, and Windows process anomalies. Each rule was authored to generate actionable alerts that map directly to IR playbook decision points.</p>
     </div>
 
-    <div style="height:14px"></div>
-    <div class="g2">
+    <div class="card" style="margin-bottom:14px">
+      <h2 class="card-ttl">Problem</h2>
+      <p class="card-sub">Default Wazuh rules produce high-volume, low-context alerts. Analyst fatigue is the predictable result. Without custom tuning, triage time increases because analysts must manually determine whether each alert is worth investigating. The goal was to build a rule set that pre-filters noise and surfaces events with enough context for immediate triage decisions.</p>
+    </div>
+
+    <div class="g2" style="margin-bottom:14px">
       <div class="card">
-        <h2 class="card-ttl">Test method</h2>
+        <h2 class="card-ttl">Approach</h2>
         <div class="card-sub">
-          <ol style="padding-left:18px">
-            <li>Author/tune XML rules under <code>detection-rules/wazuh/rules/</code>.</li>
-            <li>Build deployment bundle with <code>scripts/build-wazuh-bundle.ps1</code>.</li>
-            <li>Count files and count <code>&lt;rule id=</code> blocks separately.</li>
-            <li>Run representative alert simulations and verify generated evidence artifacts.</li>
+          <ol style="padding-left:18px;margin:0">
+            <li>Identify detection gaps by reviewing alert volume during normal lab operation and noting which attack patterns produced no alerts.</li>
+            <li>Author XML rules under <code>detection-rules/wazuh/rules/</code>, each with a descriptive <code>description</code> field and a <code>mitre</code> mapping where applicable.</li>
+            <li>Build deployment bundles with <code>scripts/build-wazuh-bundle.ps1</code> to ensure rules are packaged consistently.</li>
+            <li>Count files and <code>&lt;rule id=</code> blocks separately — file count and rule block count diverge because some XML files contain multiple rules.</li>
+            <li>Run representative alert simulations (e.g., encoded PowerShell commands on HOWE01) and verify generated alerts appear in Wazuh dashboards.</li>
           </ol>
         </div>
       </div>
       <div class="card">
         <h2 class="card-ttl">Validation commands</h2>
         <div class="card-sub">
-<pre class="term-b">pwsh -File .\scripts\build-wazuh-bundle.ps1
+<pre class="term-b"># Build deployment bundle
+pwsh -File .\scripts\build-wazuh-bundle.ps1
 
+# Count XML files
 (Get-ChildItem .\detection-rules\wazuh\rules -Filter *.xml).Count
 
+# Count rule blocks (not files)
 Select-String -Path .\detection-rules\wazuh\rules\*.xml `
-  -Pattern '<rule\s+id=' | Measure-Object | % Count
+  -Pattern '&lt;rule\s+id=' | Measure-Object | % Count
 
+# Full verification
 pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
         </div>
       </div>
     </div>
 
-    <div style="height:14px"></div>
-    <div class="g2">
-      <div class="card">
-        <h2 class="card-ttl">Evidence placeholders (redacted)</h2>
-        <ul class="card-sub" style="padding-left:18px">
-          <li><code>assets/screenshots/wazuh_bundle_build.png</code></li>
-          <li><code>assets/screenshots/wazuh_rule_fire_example.png</code></li>
-          <li><code>assets/screenshots/wazuh_count_validation.png</code></li>
+    <div class="card" style="margin-bottom:14px">
+      <h2 class="card-ttl">Evidence</h2>
+      <div class="card-sub">
+        <p>The rule source files, bundle script, and verification outputs are all in the public repo:</p>
+        <ul style="padding-left:18px;margin:8px 0 0">
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules/wazuh/rules" target="_blank" rel="noopener noreferrer">Wazuh rules directory</a> — <span data-verified="wazuh_xml_files">24</span> XML files</li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/build-wazuh-bundle.ps1" target="_blank" rel="noopener noreferrer">Bundle build script</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer">VERIFIED_COUNTS.md</a> — locked counts</li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/verify/verify-counts.ps1" target="_blank" rel="noopener noreferrer">verify-counts.ps1</a> — run to reproduce</li>
         </ul>
+        <p style="margin-top:10px;font-size:.82rem;color:var(--faint)">Lab screenshots of alert firing are available on request. Dashboard images are withheld to avoid exposing internal Wazuh indexer configuration.</p>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-bottom:14px">
+      <div class="card">
+        <h2 class="card-ttl">Outcome</h2>
+        <div class="card-sub">
+          <ul style="padding-left:18px;margin:0">
+            <li><span data-verified="wazuh">28</span> rule blocks active and verified against <code>VERIFIED_COUNTS.md</code>.</li>
+            <li>Rule set covers: RDP brute force, encoded PowerShell, suspicious schtasks, process anomalies, and file integrity changes.</li>
+            <li>Bundle script produces a deployable archive — no manual assembly required.</li>
+            <li>Verification runs in under 10 seconds from repo root.</li>
+          </ul>
+        </div>
       </div>
       <div class="card">
-        <h2 class="card-ttl">What I would improve next</h2>
-        <ul class="card-sub" style="padding-left:18px">
-          <li>Add synthetic event generators for regression testing.</li>
-          <li>Split high-noise patterns into tuning profiles per environment.</li>
-          <li>Publish a compact false-positive review matrix per rule family.</li>
+        <h2 class="card-ttl">Lessons and next steps</h2>
+        <ul class="card-sub" style="padding-left:18px;margin:0">
+          <li>Synthetic event generators would enable regression testing without requiring a live lab endpoint.</li>
+          <li>Splitting high-noise rules into tuning profiles per environment type (endpoint vs. server) would reduce alert fatigue further.</li>
+          <li>A false-positive review matrix per rule family would give reviewers a quick trust signal.</li>
+          <li>Adding automated log sample replay (similar to the detection harness) would close the validation loop.</li>
         </ul>
       </div>
     </div>
+
+    <div style="margin-top:18px">
+      <a class="btn btn-g" href="/detections">Browse all detections</a>
+      <a class="btn btn-g" href="/projects" style="margin-left:8px">Back to projects</a>
+    </div>
   </div>
 </section>
+</main>
 
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
 <!-- @include:footer:start -->
 <footer>
   <div class="ctr">
@@ -145,5 +182,3 @@ pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
-
