@@ -7,6 +7,23 @@
 
 ---
 
+## Release update (03-02-2026)
+- AutoSOC production hardening completed for pipeline resilience and operator visibility:
+  - poll retry/backoff handling for transient indexer connectivity failures
+  - explicit no-new-alert telemetry for idle cycles
+  - queue growth guard with overflow archive into processed lane
+  - pipeline log retention control and per-run log metadata
+- End-to-end workflow validated through live alert processing:
+  - ingest -> triage -> redact -> pack -> repo-staged incident output
+  - scheduler runs stable with `Last Result: 0` during healthy cycles
+- Homepage visual refresh:
+  - front-and-center hero asset upgraded to an AutoSOC system map
+  - OG/Twitter share image aligned to the new map for consistent external previews
+- Operations documentation added:
+  - `docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md`
+
+---
+
 ## Portfolio site and quick CTAs
 - Site: [hawkinsops.com](https://hawkinsops.com)
 - Proof Pack: [`PROOF_PACK/PROOF_INDEX.md`](PROOF_PACK/PROOF_INDEX.md)
