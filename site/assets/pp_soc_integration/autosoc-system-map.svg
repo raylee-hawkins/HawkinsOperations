@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AutoSOC System Map</title>
+  <desc id="desc">Closed-loop AutoSOC architecture from alert sources through ingestion, triage, evidence gates, and repo-backed outputs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1022"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111b33"/>
+      <stop offset="100%" stop-color="#12213d"/>
+    </linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <style>
+      .t { font-family: "Inter", "Segoe UI", Arial, sans-serif; fill: #e5e7eb; }
+      .h1 { font-size: 40px; font-weight: 800; letter-spacing: 0.4px; }
+      .h2 { font-size: 22px; font-weight: 700; fill: #dbeafe; }
+      .p { font-size: 17px; font-weight: 500; fill: #cbd5e1; }
+      .s { font-size: 15px; font-weight: 600; fill: #93c5fd; }
+      .chip { fill: #0b1327; stroke: #1d4ed8; stroke-width: 1.5; rx: 12; }
+      .box { fill: url(#panel); stroke: #233a63; stroke-width: 2; rx: 18; }
+      .step { fill: #0f1a33; stroke: #1f3b68; stroke-width: 1.5; rx: 12; }
+      .line { stroke: #38bdf8; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .line2 { stroke: #14b8a6; stroke-width: 3; fill: none; marker-end: url(#arrow2); }
+      .warn { fill: #2a1414; stroke: #7f1d1d; stroke-width: 1.5; rx: 10; }
+      .ok { fill: #062d1f; stroke: #065f46; stroke-width: 1.5; rx: 10; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#14b8a6"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="26" y="26" width="1548" height="848" fill="none" stroke="#1e3a8a" stroke-width="2" rx="20"/>
+
+  <text x="60" y="92" class="t h1">AutoSOC Closed-Loop System Map</text>
+  <text x="60" y="126" class="t p">Alert Ingestion -> Policy Triage -> Redaction Gate -> Pack Assembly -> Repo Evidence -> Repeatable Closure</text>
+
+  <rect x="60" y="156" width="340" height="56" class="chip"/>
+  <text x="84" y="191" class="t s">Evidence-Safe Design: public outputs are sanitized and reproducible</text>
+
+  <!-- Left column: sources -->
+  <rect x="70" y="250" width="360" height="560" class="box"/>
+  <text x="95" y="292" class="t h2">1) Alert Sources</text>
+
+  <rect x="96" y="320" width="308" height="96" class="step"/>
+  <text x="118" y="354" class="t p">Windows endpoint telemetry</text>
+  <text x="118" y="384" class="t s">Sysmon, auth events, service changes</text>
+
+  <rect x="96" y="438" width="308" height="96" class="step"/>
+  <text x="118" y="472" class="t p">Linux + honeypot signals</text>
+  <text x="118" y="502" class="t s">auth logs, integrity events, trap activity</text>
+
+  <rect x="96" y="556" width="308" height="96" class="step"/>
+  <text x="118" y="590" class="t p">Wazuh rule engine</text>
+  <text x="118" y="620" class="t s">normalized alerts routed to indexer</text>
+
+  <rect x="96" y="674" width="308" height="96" class="step"/>
+  <text x="118" y="708" class="t p">Secure tunnel transport</text>
+  <text x="118" y="738" class="t s">tailnet TCP exposure of index endpoint</text>
+
+  <!-- Center column: pipeline -->
+  <rect x="500" y="210" width="620" height="600" class="box"/>
+  <text x="526" y="252" class="t h2">2) AutoSOC Pipeline (HO-WE-01)</text>
+
+  <rect x="530" y="280" width="560" height="74" class="step"/>
+  <text x="552" y="324" class="t p">poll-alerts.py  -> queue JSON + cursor checkpoint</text>
+
+  <rect x="530" y="372" width="560" height="74" class="step"/>
+  <text x="552" y="416" class="t p">triage.py  -> policy.yaml + known_fps.yaml disposition</text>
+
+  <rect x="530" y="464" width="560" height="74" class="step"/>
+  <text x="552" y="508" class="t p">redact.py  -> hard gate for public-safe artifacts</text>
+
+  <rect x="530" y="556" width="560" height="74" class="step"/>
+  <text x="552" y="600" class="t p">assemble-pack.py  -> required evidence bundle docs</text>
+
+  <rect x="530" y="648" width="560" height="74" class="step"/>
+  <text x="552" y="692" class="t p">create-pr.py  -> incident path + content/ledger updates</text>
+
+  <!-- Right column: controls + outputs -->
+  <rect x="1180" y="250" width="350" height="560" class="box"/>
+  <text x="1204" y="292" class="t h2">3) Controls & Outputs</text>
+
+  <rect x="1206" y="320" width="298" height="96" class="ok"/>
+  <text x="1228" y="354" class="t p">Quality gates</text>
+  <text x="1228" y="384" class="t s">tests, redaction pass, checksum trail</text>
+
+  <rect x="1206" y="438" width="298" height="96" class="step"/>
+  <text x="1228" y="472" class="t p">Transfer-ready case pack</text>
+  <text x="1228" y="502" class="t s">timeline, queries, one-pager, closure report</text>
+
+  <rect x="1206" y="556" width="298" height="96" class="step"/>
+  <text x="1228" y="590" class="t p">Repo-backed publication</text>
+  <text x="1228" y="620" class="t s">incident-response/incidents/YYYY/case-id</text>
+
+  <rect x="1206" y="674" width="298" height="96" class="warn"/>
+  <text x="1228" y="708" class="t p">Failure handling</text>
+  <text x="1228" y="738" class="t s">retry/backoff, log retention, queue cap archive</text>
+
+  <!-- Flow lines -->
+  <path d="M 430 366 C 468 366, 478 317, 530 317" class="line"/>
+  <path d="M 430 484 C 468 484, 478 409, 530 409" class="line"/>
+  <path d="M 430 602 C 468 602, 478 501, 530 501" class="line"/>
+  <path d="M 430 720 C 468 720, 478 593, 530 593" class="line"/>
+
+  <path d="M 1092 317 C 1132 317, 1142 366, 1206 366" class="line2"/>
+  <path d="M 1092 409 C 1132 409, 1142 484, 1206 484" class="line2"/>
+  <path d="M 1092 501 C 1132 501, 1142 602, 1206 602" class="line2"/>
+  <path d="M 1092 593 C 1132 593, 1142 720, 1206 720" class="line2"/>
+
+  <rect x="500" y="824" width="1030" height="40" class="chip"/>
+  <text x="526" y="850" class="t s">Scheduler cadence: every 5 min -> validate tests -> ingest -> triage -> gate -> assemble -> publish-ready output</text>
+</svg>
