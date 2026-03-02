@@ -86,7 +86,7 @@
 
   <!-- Right column: controls + outputs -->
   <rect x="1180" y="250" width="350" height="560" class="box"/>
-  <text x="1204" y="292" class="t h2">3) Controls & Outputs</text>
+  <text x="1204" y="292" class="t h2">3) Controls &amp; Outputs</text>
 
   <rect x="1206" y="320" width="298" height="96" class="ok"/>
   <text x="1228" y="354" class="t p">Quality gates</text>
