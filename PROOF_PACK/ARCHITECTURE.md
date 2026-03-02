@@ -221,8 +221,8 @@ Test alert generation
 ### Safe Documentation Pattern
 
 ```
-❌ BAD:  "Alert triggered from raylee@company.com at 192.168.1.105"
-✅ GOOD: "Alert triggered from analyst01@lab.local at 10.0.0.100"
+❌ BAD:  "Alert triggered from raylee@company.com at [REDACTED_IP]"
+✅ GOOD: "Alert triggered from analyst01@lab.local at [REDACTED_IP]"
 
 ❌ BAD:  C:\Users\Raylee\Documents\Tools\mimikatz.exe
 ✅ GOOD: C:\Users\analyst\Documents\Tools\mimikatz.exe
@@ -271,3 +271,4 @@ For someone validating this portfolio:
 - ✅ Content is real and organized
 - ✅ Candidate understands production deployment
 - ✅ Professional presentation and documentation
+

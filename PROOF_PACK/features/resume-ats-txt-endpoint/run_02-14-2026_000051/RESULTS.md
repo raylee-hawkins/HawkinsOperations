@@ -54,11 +54,12 @@ RUN_FOLDER: `PROOF_PACK/features/resume-ats-txt-endpoint/run_02-14-2026_000051/`
 ## Manual Validation Steps
 - Local:
   - `python -m http.server --directory site 8000`
-  - `curl.exe -i http://127.0.0.1:8000/resume.txt`
-  - Open `http://127.0.0.1:8000/resume.html` and confirm `Download plain-text (ATS)` link.
+  - `curl.exe -i http://[REDACTED_IP]:8000/resume.txt`
+  - Open `http://[REDACTED_IP]:8000/resume.html` and confirm `Download plain-text (ATS)` link.
 - Production:
   - `curl.exe -sI https://hawkinsops.com/resume.txt`
   - Expected after deploy: `HTTP/1.1 200 OK` and `Content-Type: text/plain; charset=utf-8`.
 
 ## Constraints / Remaining TODO
 - Remaining for full production PASS: deploy branch to production and re-capture `prod_headers_resume_txt_*.txt` showing HTTP 200 + text/plain charset header.
+

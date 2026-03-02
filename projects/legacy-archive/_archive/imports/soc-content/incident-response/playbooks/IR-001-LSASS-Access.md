@@ -205,7 +205,7 @@ Get-NetTCPConnection | Where-Object {$_.State -eq "Established"} |
 ### Timeline Example:
 | Time (UTC) | Event | Action Taken |
 |------------|-------|--------------|
-| 14:25:13 | RDP logon from 192.168.1.50 | Detected in logs |
+| 14:25:13 | RDP logon from [REDACTED_IP] | Detected in logs |
 | 14:27:45 | procdump.exe executed | Alert triggered |
 | 14:27:46 | LSASS process access (0x1410) | Wazuh Rule 100001 fired |
 | 14:28:00 | lsass.dmp created in C:\Temp | File created |
@@ -268,3 +268,4 @@ Get-NetTCPConnection | Where-Object {$_.State -eq "Established"} |
 - https://attack.mitre.org/techniques/T1003/001/
 - https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/
 - https://www.microsoft.com/security/blog/2022/10/05/detecting-and-preventing-lsass-credential-dumping-attacks/
+

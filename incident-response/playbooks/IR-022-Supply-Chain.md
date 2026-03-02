@@ -21,19 +21,22 @@
 - Determine lateral movement / privilege escalation indicators
 
 ## 4) Containment (15 minutes)
-- Isolate affected endpoint(s) if needed
-- Disable or reset compromised accounts (coordinate with IAM/IT)
-- Block malicious hashes/domains/URLs/IPs in your controls (SIEM/SOAR/EDR/firewall)
+- Identify and inventory all endpoints that received the compromised package/update
+- Freeze the software update pipeline — prevent further distribution of the compromised version
+- Block network connections to known C2 infrastructure embedded in the compromised package
+- Quarantine or roll back the compromised software version across affected systems
 
 ## 5) Eradication
-- Remove persistence mechanisms (services, scheduled tasks, autoruns)
-- Remove malicious binaries/scripts
-- Patch exploited vulnerabilities and rotate exposed secrets
+- Remove the compromised package or update; restore from a known-good baseline or perform clean install
+- Audit all systems that executed the compromised version for post-exploitation indicators (new accounts, scheduled tasks, network beacons, credential access)
+- Verify hash/signature of the clean replacement against an out-of-band authoritative source before redeployment
+- Notify affected vendor and coordinate disclosure if applicable
 
 ## 6) Recovery
-- Restore from known-good backups if needed
-- Re-enable accounts with strong controls (MFA, conditional access)
-- Monitor for recurrence (same indicators + adjacent TTPs)
+- Implement software supply chain verification controls: code signing validation, hash verification against vendor manifests
+- Establish a vendor notification and verification process for future update packages
+- Audit third-party software update procedures and restrict auto-update mechanisms for high-risk software categories
+- Monitor for delayed-action payloads — supply chain implants may be dormant and trigger on schedule or condition
 
 ## 7) Documentation
 - Record IOCs, timeline, and root cause

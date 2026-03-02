@@ -1,7 +1,7 @@
-# Evidence Index - Incident 2026-01-25-HOWE01-100052
+# Evidence Index - Incident 2026-01-25-[REDACTED_HOST]-100052
 
 **Incident:** Wazuh Rule 100052 - hosts.ics Modified (BENIGN)
-**Agent:** HOWE01 (003)
+**Agent:** [REDACTED_HOST] (003)
 **Date:** 2026-01-25
 **Evidence Count:** 9 files
 
@@ -48,16 +48,16 @@ Demonstrates the SOC analyst's systematic approach by starting with a high-level
 **Size:** 130,716 bytes
 
 **Description:**
-Threat Hunting dashboard filtered to show only Level 12 or above alerts from manager "ho-sr-wm-01" over the last 24 hours.
+Threat Hunting dashboard filtered to show only Level 12 or above alerts from manager "[REDACTED_HOST]" over the last 24 hours.
 
 **Key Information Visible:**
-- Filter tags: `manager.name: ho-sr-wm-01`, `rule.level: 12 to 14`
+- Filter tags: `manager.name: [REDACTED_HOST]`, `rule.level: 12 to 14`
 - **1 Total alert** matching filter criteria
 - **1 Level 12 or above alert** (highlighted in red)
 - **0 Authentication failures**
 - **0 Authentication successes**
 - Top 10 Alert level evolution chart showing single Level 12 spike at ~18:00
-- Top 5 agents pie chart showing **HOWE01** as sole affected agent
+- Top 5 agents pie chart showing **[REDACTED_HOST]** as sole affected agent
 - Alert groups breakdown: critical_files, file_integrity, syscheck
 
 **Report References:**
@@ -68,7 +68,7 @@ Threat Hunting dashboard filtered to show only Level 12 or above alerts from man
 - Single, isolated event (not part of broader attack campaign)
 - No authentication-related activity (rules out credential-based attack)
 - Event occurred during specific timeframe (18:00 UTC window)
-- HOWE01 is the only affected system (no lateral movement)
+- [REDACTED_HOST] is the only affected system (no lateral movement)
 
 ---
 
@@ -79,11 +79,11 @@ Threat Hunting dashboard filtered to show only Level 12 or above alerts from man
 **Size:** 145,440 bytes
 
 **Description:**
-Threat Hunting dashboard with additional filter applied for agent.id: 003 (HOWE01), showing agent-specific alert breakdown.
+Threat Hunting dashboard with additional filter applied for agent.id: 003 ([REDACTED_HOST]), showing agent-specific alert breakdown.
 
 **Key Information Visible:**
-- Filter tags: `manager.name: ho-sr-wm-01`, `agent.id: 003`, `rule.level: 12 to 14`, `Level 12 or above alerts`
-- **1 Total alert** from HOWE01
+- Filter tags: `manager.name: [REDACTED_HOST]`, `agent.id: 003`, `rule.level: 12 to 14`, `Level 12 or above alerts`
+- **1 Total alert** from [REDACTED_HOST]
 - **1 Level 12 or above alert**
 - Top 10 Alert groups evolution showing spike in critical_files, file_integrity, syscheck
 - Top 5 alerts: "Critical system file mo..." (truncated)
@@ -91,12 +91,12 @@ Threat Hunting dashboard with additional filter applied for agent.id: 003 (HOWE0
 - Top 5 PCI DSS Requirements: No results found (indicates non-compliance-related event)
 
 **Report References:**
-- Section 1 (DETECTION) - "Agent: HOWE01 (003)"
+- Section 1 (DETECTION) - "Agent: [REDACTED_HOST] (003)"
 - Section 2 (TRIAGE) - "Single system affected (no lateral indicators)"
 - Section 2 (TRIAGE) - Evidence file reference
 
 **What This Proves:**
-- Confirms HOWE01 (agent 003) as sole affected system
+- Confirms [REDACTED_HOST] (agent 003) as sole affected system
 - Alert categorized under critical_files, file_integrity, and syscheck rule groups
 - No PCI DSS compliance implications (informational for risk assessment)
 
@@ -117,7 +117,7 @@ Wazuh Events view showing the specific Rule 100052 alert entry with key metadata
 - 805 available fields in event record
 - Event table columns:
   - **timestamp:** Jan 25, 2026 @ 17:55:52.8...
-  - **agent.name:** HOWE01 (blue hyperlink)
+  - **agent.name:** [REDACTED_HOST] (blue hyperlink)
   - **rule.description:** "Critical system file modified - Possible system compromise"
   - **rule.level:** 12
   - **rule.id:** 100052
@@ -144,7 +144,7 @@ Wazuh Events view showing the specific Rule 100052 alert entry with key metadata
 **Size:** 77,050 bytes
 
 **Description:**
-PowerShell terminal session showing local validation of hosts.ics file on HOWE01, including file metadata and full contents.
+PowerShell terminal session showing local validation of hosts.ics file on [REDACTED_HOST], including file metadata and full contents.
 
 **Key Information Visible:**
 - Command 1: `Get-Item "C:\Windows\System32\drivers\etc\hosts.ics" | Select-Object FullName, Length, LastWriteTime`
@@ -164,7 +164,7 @@ PowerShell terminal session showing local validation of hosts.ics file on HOWE01
     # local network.
     #
 
-    172.25.176.1 HO-WE-01.mshome.net # 2031 1 5 24 22 6 1 919
+    [REDACTED_IP] [REDACTED_HOST].mshome.net # 2031 1 5 24 22 6 1 919
     ```
 
 **Report References:**
@@ -177,7 +177,7 @@ PowerShell terminal session showing local validation of hosts.ics file on HOWE01
 **What This Proves:**
 - **BENIGN VERDICT:** File contains Microsoft copyright and explicit warning about auto-generation
 - File modified at 4:06 PM local time (correlates with Wazuh alert timestamp)
-- Only contains single, legitimate local network mapping (172.25.176.1 = HO-WE-01.mshome.net)
+- Only contains single, legitimate local network mapping ([REDACTED_IP] = [REDACTED_HOST].mshome.net)
 - No malicious domains, external IPs, or suspicious redirection attempts
 - File purpose clearly identified as Microsoft ICS auto-generated
 
@@ -227,7 +227,7 @@ Duplicate capture of the events table view (similar to 04_events_table_rule10005
 - Same event table layout as screenshot #4
 - 1 hit showing Rule 100052 event
 - Timestamp: Jan 25, 2026 @ 17:55:52.8...
-- Agent: HOWE01
+- Agent: [REDACTED_HOST]
 - Rule description: "Critical system file modified - Possible system compromise"
 
 **Report References:**
@@ -296,7 +296,7 @@ filters," "
 - Single result (1) matching filter criteria
 
 **Report References:**
-- Section 2 (TRIAGE) - "Reviewed Threat Hunting dashboard filters (Level 12+, HOWE01 agent)"
+- Section 2 (TRIAGE) - "Reviewed Threat Hunting dashboard filters (Level 12+, [REDACTED_HOST] agent)"
 
 **What This Proves:**
 - Analyst applied appropriate severity filtering during triage
@@ -330,7 +330,7 @@ For hiring managers reviewing this incident, here's how evidence was collected i
 
 1. **Overview (16:32)** → Analyst checks global dashboard for context
 2. **Filter to High Severity (16:36)** → Narrows focus to Level 12+ alerts
-3. **Agent-Specific View (16:37)** → Confirms HOWE01 is sole affected system
+3. **Agent-Specific View (16:37)** → Confirms [REDACTED_HOST] is sole affected system
 4. **Event Details (16:38)** → Identifies Rule 100052 and file path
 5. **Local Validation (16:41)** → **CRITICAL STEP** - PowerShell reveals BENIGN file contents
 6. **Deep Telemetry (16:44)** → Reviews full event JSON for completeness
@@ -427,3 +427,4 @@ This evidence collection demonstrates:
 **Evidence Index Prepared By:** HawkinsOps SOC Team
 **Date:** 2026-01-27
 **Purpose:** Portfolio documentation for hiring managers and security professionals
+

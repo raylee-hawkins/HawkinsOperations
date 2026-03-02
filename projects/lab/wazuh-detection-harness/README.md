@@ -18,7 +18,7 @@ It does not execute Atomic tests. It only verifies ingestion/detection and produ
 
 Set these before running:
 
-- `WAZUH_INDEXER_HOST` (example: `127.0.0.1` or your indexer DNS name)
+- `WAZUH_INDEXER_HOST` (example: `[REDACTED_IP]` or your indexer DNS name)
 - `WAZUH_INDEXER_USER`
 - `WAZUH_INDEXER_PASS`
 - Optional: `WAZUH_TLS_INSECURE=true` for self-signed certs in lab
@@ -26,7 +26,7 @@ Set these before running:
 Example:
 
 ```bash
-export WAZUH_INDEXER_HOST='127.0.0.1'
+export WAZUH_INDEXER_HOST='[REDACTED_IP]'
 export WAZUH_INDEXER_USER='admin'
 export WAZUH_INDEXER_PASS='REDACTED'
 export WAZUH_TLS_INSECURE='true'
@@ -68,3 +68,4 @@ If a rule ID is unknown, keep it empty (`""`) and rely on other conditions until
 - No changes to Wazuh server configuration
 - Do not expose Wazuh dashboard publicly while testing
 - Keep access internal (for example Tailscale/internal network only)
+

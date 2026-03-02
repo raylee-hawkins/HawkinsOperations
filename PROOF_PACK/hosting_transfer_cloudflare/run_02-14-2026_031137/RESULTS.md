@@ -15,7 +15,7 @@ RUN_FOLDER: `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/`
 - `_headers` parity on production routes: `PASS`
 - `_redirects` parity for resume canonicalization redirects: `PASS`
 - Hard refresh parity (desktop + mobile no-cache checks): `PASS`
-- DNS resolver checks (1.1.1.1 + 8.8.8.8): `PASS`
+- DNS resolver checks ([REDACTED_IP] + [REDACTED_IP]): `PASS`
 - DNS before->after backfill record: `PASS`
 - Rollback drill receipt (controlled simulation): `PASS`
 
@@ -47,3 +47,4 @@ RUN_FOLDER: `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/`
 ## Notes
 - The rollback drill was executed as a controlled simulation to avoid live DNS churn during active production serving.
 - All claims above are tied to explicit logs/screenshots in this run folder.
+

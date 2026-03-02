@@ -1,7 +1,7 @@
 # Tonight's Done List — 2026-02-24
 
 Generated: 2026-02-24T13:37Z
-Machines: HO-WE-01 (workstation, Windows 11) + HO-SR-WM-01 (Wazuh manager, via cron push activity)
+Machines: [REDACTED_HOST] (workstation, Windows 11) + [REDACTED_HOST] (Wazuh manager, via cron push activity)
 REPO_ROOT: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 
 ---
@@ -18,20 +18,20 @@ REPO_ROOT: `C:\RH\OPS\PUBLISH\GITHUB\repos\HawkinsOperations`
 
 | Page | Subject |
 |---|---|
-| `/case-study-ir-howe01` | howe01 Level 12 FIM alert — triage to verdict |
+| `/case-study-ir-[REDACTED_HOST]` | [REDACTED_HOST] Level 12 FIM alert — triage to verdict |
 | `/case-study-ir-playbooks` | IR playbook library — methodology, 10-playbook coverage table |
 | `/case-study-cve-patch` | CVE-2025-55130 — detect, patch, verify |
 | `/case-study-sigma-library` | Sigma library — 103 rules across 10 ATT&CK tactics |
 | `/case-study-detection-harness` | Wazuh Detection Harness — Python REST API validator |
 | `/case-study-honeypot` | Cowrie + Grafana + Wazuh Docker Compose stack |
 
-Evidence images: `site/assets/howe01/` (3 images), `site/assets/pp_soc_integration/` (3 images)
+Evidence images: `site/assets/[REDACTED_HOST]/` (3 images), `site/assets/pp_soc_integration/` (3 images)
 
 ### Honeypot proof pipeline (Wazuh manager -> GitHub, automated)
 
 - Cron cadence: `*/15 * * * *`
-- Scripts: `export_honeypot_proof.sh` -> `publish_proof_to_github.sh` (verified directly on `HO-SR-WM-01`)
-- Snapshot pinned for this report: `generated_utc=2026-02-24T13:34:35Z`, **exported_count=28**, agent `HO-HONEYPOT-01`
+- Scripts: `export_honeypot_proof.sh` -> `publish_proof_to_github.sh` (verified directly on `[REDACTED_HOST]`)
+- Snapshot pinned for this report: `generated_utc=2026-02-24T13:34:35Z`, **exported_count=28**, agent `[REDACTED_HOST]`
 - Scope note: values from other runs/machines are not merged into this snapshot
 - Demo rule 100110 present: **YES** (`Honeypot deterministic demo alert (HONEY_DEMO)`)
 - Artifacts live at: `proof/wazuh/honeypot/` and mirrored to `site/proof/wazuh/honeypot/`
@@ -116,3 +116,4 @@ git log --since="24 hours ago" --oneline | wc -l
 - [ ] Validate publisher sanitization guardrail rejects forbidden fields at publish-time (regression check on Wazuh manager)
 - [ ] Update `site/assets/Raylee_Hawkins_Resume.pdf` if any counts on the resume still say old numbers (Sigma 103, Splunk 8 now verified)
 - [ ] Run `verify.yml` CI locally end-to-end on the Windows runner path before next push to main
+

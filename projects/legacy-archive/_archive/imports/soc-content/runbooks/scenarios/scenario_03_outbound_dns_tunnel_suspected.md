@@ -163,7 +163,7 @@
 1. **Block Domain at pfSense DNS Resolver**
    ```
    Services → DNS Resolver → General Settings
-   Add to Host Overrides with null IP (0.0.0.0 or sinkhole IP)
+   Add to Host Overrides with null IP ([REDACTED_IP] or sinkhole IP)
 
    OR
 
@@ -301,3 +301,4 @@
 - Shows network-level investigation skills (packet analysis, DNS deep-dive)
 - Highlights multi-layer detection and prevention (endpoint + network)
 - Emphasizes threat intelligence integration
+

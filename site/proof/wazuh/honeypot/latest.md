@@ -1,7 +1,7 @@
 # Wazuh Honeypot Proof (Sanitized)
 
 - Last generated (UTC): 2026-02-24T13:34:35Z
-- Agent: HO-HONEYPOT-01
+- Agent: [REDACTED_HOST]
 - Exported alerts: 28
 
 Fields per alert: `ts`, `agent`, `rule.id`, `rule.level`, `rule.desc`, `has_srcip`
@@ -36,3 +36,4 @@ Fields per alert: `ts`, `agent`, `rule.id`, `rule.level`, `rule.desc`, `has_srci
 - 2026-02-24T13:27:43.329+0000 | rule.id=5501 | level=3 | PAM: Login session opened.
 - 2026-02-24T13:27:43.329+0000 | rule.id=5502 | level=3 | PAM: Login session closed.
 - 2026-02-24T13:27:51.288+0000 | rule.id=100110 | level=5 | Honeypot deterministic demo alert (HONEY_DEMO).
+

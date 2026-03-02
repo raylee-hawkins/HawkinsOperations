@@ -19,7 +19,7 @@ Use these rules for any file, screenshot, log, or diagram committed as evidence.
 - Secrets: `[REDACTED]`
 - Internal infrastructure identifiers: `[REDACTED_INTERNAL]`
 - Example domains: `example.local`
-- Example addresses: `10.0.0.10`, `10.0.0.20` only if synthetic and documented as synthetic
+- Example addresses: `[REDACTED_IP]`, `[REDACTED_IP]` only if synthetic and documented as synthetic
 - Example users: `analyst01`, `admin01`
 
 ## Examples
@@ -60,3 +60,4 @@ rg -n -i "(\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b)" .
 ```
 
 If a result is not clearly synthetic, redact before push.
+

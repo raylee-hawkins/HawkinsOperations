@@ -48,7 +48,7 @@ function Copy-WithScp {
   & scp @opts $SourceGlob "$User@$Host:$DestinationDir" 2>&1
 }
 
-$hostName = if ($env:WAZUH_HOST) { $env:WAZUH_HOST } else { "192.168.8.231" }
+$hostName = if ($env:WAZUH_HOST) { $env:WAZUH_HOST } else { "[REDACTED_IP]" }
 $sshUser = if ($env:WAZUH_SSH_USER) { $env:WAZUH_SSH_USER } else { "root" }
 $sshPort = if ($env:WAZUH_SSH_PORT) { [int]$env:WAZUH_SSH_PORT } else { 22 }
 $sshKey = if ($env:WAZUH_SSH_KEY) { $env:WAZUH_SSH_KEY } else { "" }
@@ -143,3 +143,4 @@ catch {
 finally {
   $summary | Out-File -LiteralPath $deployReport -Encoding UTF8
 }
+

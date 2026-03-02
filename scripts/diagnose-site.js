@@ -1100,7 +1100,7 @@ function analyze() {
       nodeFailOnIssues: "node scripts/diagnose-site.js --fail-on-issues",
       localServer: [
         "python -m http.server --directory site 8000",
-        "Open http://127.0.0.1:8000/ in a browser.",
+        "Open http://[REDACTED_IP]:8000/ in a browser.",
         "Test both /security and /security/ to validate relative-path behavior."
       ]
     }
@@ -1345,4 +1345,5 @@ function main() {
 }
 
 main();
+
 

@@ -384,7 +384,7 @@ Apply Changes
 Services → DNS Resolver → General Settings → Host Overrides
 Add Override:
   - Host: <malicious_domain>
-  - IP Address: 0.0.0.0 (or sinkhole IP)
+  - IP Address: [REDACTED_IP] (or sinkhole IP)
 Save and Apply
 ```
 
@@ -676,3 +676,4 @@ Before closing incident:
 - Playbook: General Incident Response
 - pfSense documentation
 - Wireshark/tshark analysis guides
+

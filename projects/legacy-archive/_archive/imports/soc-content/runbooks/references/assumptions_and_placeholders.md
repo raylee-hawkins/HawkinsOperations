@@ -17,12 +17,12 @@ This document clearly identifies all assumptions made in creating the HawkinsOps
 
 | Assumption | Actual Value | Status | Update Required In |
 |------------|--------------|--------|-------------------|
-| pfSense LAN IP: `192.168.1.1` | _____________ | ❌ **REQUIRED** | All scenario files, playbooks, hawk_ops_env_mapping.md |
-| LAN Subnet: `192.168.1.0/24` | _____________ | ❌ **REQUIRED** | All network-related scenarios |
-| Wazuh Server IP: `192.168.1.10` | _____________ | ❌ **REQUIRED** | All scenarios, playbooks, hawk_ops_env_mapping.md |
-| Windows Powerhouse IP: `192.168.1.20` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving Windows |
-| PRIMARY_OS IP: `192.168.1.30` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving Linux |
-| MINT-3 IP: `192.168.1.40` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving MINT-3 |
+| pfSense LAN IP: `[REDACTED_IP]` | _____________ | ❌ **REQUIRED** | All scenario files, playbooks, hawk_ops_env_mapping.md |
+| LAN Subnet: `[REDACTED_IP]/24` | _____________ | ❌ **REQUIRED** | All network-related scenarios |
+| Wazuh Server IP: `[REDACTED_IP]` | _____________ | ❌ **REQUIRED** | All scenarios, playbooks, hawk_ops_env_mapping.md |
+| Windows Powerhouse IP: `[REDACTED_IP]` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving Windows |
+| PRIMARY_OS IP: `[REDACTED_IP]` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving Linux |
+| MINT-3 IP: `[REDACTED_IP]` | _____________ | ⚠️ **RECOMMENDED** | Scenarios involving MINT-3 |
 
 **Action**: Update `hawk_ops_env_mapping.md` with actual IP addresses, then reference that document instead of memorizing IPs.
 
@@ -72,9 +72,9 @@ sudo grep -r "id=\"5503\"" /var/ossec/etc/rules/
 
 | Assumption | Actual Value | Status |
 |------------|--------------|--------|
-| Dashboard URL: `https://192.168.1.10:443` | _____________ | ❌ **REQUIRED** |
+| Dashboard URL: `https://[REDACTED_IP]:443` | _____________ | ❌ **REQUIRED** |
 | Dashboard credentials: `wazuh-user` / [password] | _____________ | ❌ **REQUIRED** |
-| API URL: `https://192.168.1.10:55000` | _____________ | ℹ️ **OPTIONAL** |
+| API URL: `https://[REDACTED_IP]:55000` | _____________ | ℹ️ **OPTIONAL** |
 
 **Action**: Document actual Wazuh dashboard URL and create secure password storage.
 
@@ -641,3 +641,4 @@ git commit -m "Updated IPs and hostnames with actual values"
 ---
 
 **End of Assumptions & Placeholders Document**
+

@@ -5,7 +5,7 @@
 
 ## VM Identity
 - VMID: `102`
-- Hostname: `HO-SR-AI-01`
+- Hostname: `[REDACTED_HOST]`
 - Role: OpenClo VM
 
 ## Snapshot and Reset Policy
@@ -22,3 +22,4 @@
 - No secrets, tokens, keys, or credentials.
 - No internal IPs.
 - Use `[REDACTED_INTERNAL]` for sensitive internal details.
+

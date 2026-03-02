@@ -6,7 +6,7 @@ RUN_FOLDER: `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/`
 - Goal: Execute Phase 4 (Resume + PDF + download verification) with recruiter-proof evidence.
 - Branch target: `ops/phase4-resume-pdf`
 - Validation lanes attempted:
-  - Local deterministic lane: `http://127.0.0.1:8000` (python static server)
+  - Local deterministic lane: `http://[REDACTED_IP]:8000` (python static server)
   - Production lane: `https://hawkinsops.com` (live capture complete)
 
 ## Pass/Fail
@@ -50,3 +50,4 @@ RUN_FOLDER: `PROOF_PACK/hosting_transfer_cloudflare/run_02-13-2026_232415/`
 - Production evidence now includes immutable sanitized header and download logs committed under `evidence/logs/sanitized/`.
 - iOS Safari lane is evidenced via iPhone Safari user-agent capture and mobile viewport artifacts from production URLs.
 - Static redirect-map analysis still indicates no redirect loops for the two resume canonicalization rules in `site/_redirects`.
+

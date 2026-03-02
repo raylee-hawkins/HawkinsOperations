@@ -29,7 +29,8 @@ docker ps --format '{{.Names}} {{.Status}}' || fail "unable to inspect container
 
 echo "==> endpoint checks"
 if [[ -n "${GRAFANA_PORT:-}" ]]; then
-  curl -sS -I "http://127.0.0.1:${GRAFANA_PORT}" | head -n 1 || fail "Grafana endpoint check failed on port ${GRAFANA_PORT}"
+  curl -sS -I "http://[REDACTED_IP]:${GRAFANA_PORT}" | head -n 1 || fail "Grafana endpoint check failed on port ${GRAFANA_PORT}"
 else
-  curl -sS -I "http://127.0.0.1:3000" | head -n 1 || fail "Grafana endpoint check failed on default port 3000"
+  curl -sS -I "http://[REDACTED_IP]:3000" | head -n 1 || fail "Grafana endpoint check failed on default port 3000"
 fi
+

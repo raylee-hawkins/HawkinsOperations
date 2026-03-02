@@ -35,7 +35,7 @@ This document defines the HawkinsOps environment architecture, including hostnam
 
 **IP Address** (assumed):
 - **WAN Interface**: DHCP from ISP (or static public IP)
-- **LAN Interface**: `192.168.1.1` (assumed default)
+- **LAN Interface**: `[REDACTED_IP]` (assumed default)
 - **Management Access**: HTTPS on port 443 (or custom port)
 
 **Services**:
@@ -63,7 +63,7 @@ This document defines the HawkinsOps environment architecture, including hostnam
 - DNS queries (if resolver logging enabled)
 
 **Access**:
-- **Web Interface**: `https://192.168.1.1` (or custom)
+- **Web Interface**: `https://[REDACTED_IP]` (or custom)
 - **SSH**: Enabled/disabled in System → Advanced → Secure Shell
 - **Credentials**: Admin account (set during setup)
 
@@ -261,7 +261,7 @@ This document defines the HawkinsOps environment architecture, including hostnam
 ## Network Segments (Current & Future)
 
 ### Current (Assumed Flat LAN)
-- **LAN Subnet**: `192.168.1.0/24`
+- **LAN Subnet**: `[REDACTED_IP]/24`
 - **All systems on same subnet**: Simplifies initial setup
 - **Firewall rules at pfSense**: Control inbound WAN traffic
 
@@ -331,12 +331,12 @@ This document defines the HawkinsOps environment architecture, including hostnam
 
 | Device/System | Hostname | IP Address | DHCP/Static | Notes |
 |---------------|----------|------------|-------------|-------|
-| pfSense LAN | pfsense | 192.168.1.1 | Static | Default gateway |
-| Wazuh Server | wazuh-server | 192.168.1.10 | Static | SIEM |
-| Windows Powerhouse | POWERHOUSE | 192.168.1.20 | Static/DHCP Reserved | Primary Windows endpoint |
-| PRIMARY_OS | primary-mint | 192.168.1.30 | Static/DHCP Reserved | Primary Linux workstation |
-| MINT-3 | mint3 | 192.168.1.40 | Static/DHCP Reserved | Secondary Linux endpoint |
-| Domain Controller (future) | DC01 | 192.168.1.5 | Static | Active Directory |
+| pfSense LAN | pfsense | [REDACTED_IP] | Static | Default gateway |
+| Wazuh Server | wazuh-server | [REDACTED_IP] | Static | SIEM |
+| Windows Powerhouse | POWERHOUSE | [REDACTED_IP] | Static/DHCP Reserved | Primary Windows endpoint |
+| PRIMARY_OS | primary-mint | [REDACTED_IP] | Static/DHCP Reserved | Primary Linux workstation |
+| MINT-3 | mint3 | [REDACTED_IP] | Static/DHCP Reserved | Secondary Linux endpoint |
+| Domain Controller (future) | DC01 | [REDACTED_IP] | Static | Active Directory |
 
 **DHCP Reservation** (pfSense):
 - Services → DHCP Server → LAN
@@ -440,8 +440,8 @@ This document defines the HawkinsOps environment architecture, including hostnam
 
 **This document makes assumptions about the HawkinsOps environment. Update as needed:**
 
-- [ ] **pfSense LAN IP**: Assumed `192.168.1.1` - verify actual
-- [ ] **Wazuh Server IP**: Placeholder `192.168.1.10` - set actual static IP
+- [ ] **pfSense LAN IP**: Assumed `[REDACTED_IP]` - verify actual
+- [ ] **Wazuh Server IP**: Placeholder `[REDACTED_IP]` - set actual static IP
 - [ ] **Hostnames**: Assumed generic names - update with actual hostnames
 - [ ] **VPN Deployment**: Not yet configured - plan for future
 - [ ] **IDS/IPS (Suricata)**: Not yet deployed on pfSense - plan for future
@@ -478,14 +478,15 @@ This document defines the HawkinsOps environment architecture, including hostnam
 
 | System | Web/SSH Access | Credentials | Purpose |
 |--------|---------------|-------------|---------|
-| pfSense | https://192.168.1.1:443 | admin / [set during setup] | Firewall management |
-| Wazuh Dashboard | https://192.168.1.10:443 | wazuh-user / [configured] | SIEM dashboard |
-| Windows Powerhouse | RDP: 192.168.1.20:3389 | [Windows account] | Remote desktop |
-| PRIMARY_OS | SSH: 192.168.1.30:22 | [Linux user] | Remote shell |
-| MINT-3 | SSH: 192.168.1.40:22 | [Linux user] | Remote shell |
+| pfSense | https://[REDACTED_IP]:443 | admin / [set during setup] | Firewall management |
+| Wazuh Dashboard | https://[REDACTED_IP]:443 | wazuh-user / [configured] | SIEM dashboard |
+| Windows Powerhouse | RDP: [REDACTED_IP]:3389 | [Windows account] | Remote desktop |
+| PRIMARY_OS | SSH: [REDACTED_IP]:22 | [Linux user] | Remote shell |
+| MINT-3 | SSH: [REDACTED_IP]:22 | [Linux user] | Remote shell |
 
 **Security Note**: Store credentials in password manager. Rotate regularly. Use SSH keys for Linux access. Implement MFA where possible.
 
 ---
 
 **End of HawkinsOps Environment Mapping**
+

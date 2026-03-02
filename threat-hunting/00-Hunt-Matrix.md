@@ -3,7 +3,7 @@
 **Version:** 1.0
 **Total Hunts:** 50
 **Platforms:** Windows (30), Linux (20)
-**Author:** HawkinsOps SOC Team
+**Author:** Raylee Hawkins
 
 ---
 

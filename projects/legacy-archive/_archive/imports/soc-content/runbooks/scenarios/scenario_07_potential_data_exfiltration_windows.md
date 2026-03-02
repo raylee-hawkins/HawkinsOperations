@@ -130,7 +130,7 @@
 
    # Network connections to cloud providers:
    Get-NetTCPConnection -State Established |
-     Where-Object {$_.RemoteAddress -ne '127.0.0.1'} |
+     Where-Object {$_.RemoteAddress -ne '[REDACTED_IP]'} |
      Select-Object LocalPort, RemoteAddress, RemotePort, OwningProcess,
      @{Name='ProcessName';Expression={(Get-Process -Id $_.OwningProcess).Name}}
 
@@ -415,3 +415,4 @@
 - Emphasizes legal/compliance considerations
 - Understanding of DLP concepts and controls
 - Shows ability to balance security with user productivity
+
