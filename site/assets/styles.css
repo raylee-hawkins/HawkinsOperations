@@ -109,7 +109,8 @@
 
         /* HERO */
         .hero{min-height:88vh;display:flex;align-items:center;padding-top:74px;position:relative;overflow:hidden}
-        .home-shell{max-width:960px}
+        /* Unify homepage section container width with .ctr to keep hero/sections aligned */
+        .ctr.home-shell{max-width:1200px}
         .hero-glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(var(--acc-rgb),.22) 0%,transparent 70%);top:-70px;right:-80px;pointer-events:none;animation:gp 8s ease-in-out infinite}
         @keyframes gp{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:.65;transform:scale(1.06)}}
         .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
