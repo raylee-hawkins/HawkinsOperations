@@ -1,25 +1,31 @@
-# Rootcheck Patch Proof Index
+# Rootcheck Escalation Closeout - Public Proof Index
 
-Use this page as the single public reference for the rootcheck patch closeout.
+Date: 2026-03-02  
+Status: CLOSED
+
+Use this page as the single public reference for this rootcheck closeout.
 
 ## Public Artifacts
 - Redacted closeout report: [docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md](../../docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md)
 - Sanitized transfer manifest: [transfer_sftp_rootcheck_sanitized_manifest_03-02-2026.md](./transfer_sftp_rootcheck_sanitized_manifest_03-02-2026.md)
 
-## What Changed (3-5 bullets)
-- Patched critical false-positive escalation logic in the rootcheck detection path.
-- Consolidated incident evidence into one transfer-ready proof bundle.
-- Generated and validated manifest plus SHA256 checksums for transfer integrity.
-- Verified uploaded archive integrity with local/remote hash match.
-- Closed incident workflow from investigation to verified closeout.
+## Summary of Work
+- Patched a false-positive critical escalation path in rootcheck detection logic.
+- Consolidated investigation evidence into one transfer-ready bundle.
+- Validated transfer integrity using SHA256 checksums before and after transfer.
+- Completed closeout with a redacted public report and separate private operational logging.
 
 ## Outcome
-- Critical alert noise for the remediated condition was reduced.
-- Evidence handling is now deterministic: manifest, checksum, runbook, and verification gates.
-- Redacted reporting path is isolated from private operational logs.
+- Critical queue noise dropped for the remediated condition.
+- Case progressed from investigation to CLOSED.
+- Repeatable closeout workflow established (manifest, checksums, runbook, verification gates).
 
-## 2-Minute Proof Steps
+## Verification Steps
 1. Open the redacted closeout report and confirm status is `CLOSED`.
-2. Open the sanitized manifest and confirm transfer integrity checks are marked `PASS`.
-3. Confirm no internal host/IP/user details appear in either public artifact.
-4. Use this index as the only external link target.
+2. Open the sanitized manifest and confirm integrity checks are `PASS`.
+3. Confirm no internal hostnames, IPs, usernames, or private paths are disclosed.
+
+## External Sharing Rule
+- Share this README as the top-level index.
+- Do not share raw transfer archives.
+- Do not share private detailed logs.

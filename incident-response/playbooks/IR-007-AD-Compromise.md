@@ -21,19 +21,22 @@
 - Determine lateral movement / privilege escalation indicators
 
 ## 4) Containment (15 minutes)
-- Isolate affected endpoint(s) if needed
-- Disable or reset compromised accounts (coordinate with IAM/IT)
-- Block malicious hashes/domains/URLs/IPs in your controls (SIEM/SOAR/EDR/firewall)
+- Disable the account used for DCSync replication immediately
+- Isolate the origin system that triggered replication events
+- Block DC replication traffic to/from the compromised host at the network level
+- Escalate to senior analyst or IR lead — DCSync is a domain-level compromise indicator
 
 ## 5) Eradication
-- Remove persistence mechanisms (services, scheduled tasks, autoruns)
-- Remove malicious binaries/scripts
-- Patch exploited vulnerabilities and rotate exposed secrets
+- Reset the **krbtgt** account password **twice** (with a minimum 10-hour interval between resets to invalidate all Kerberos tickets)
+- Reset all privileged account passwords (Domain Admins, Enterprise Admins, service accounts with DCSync rights)
+- Remove unauthorized DS-Replication-Get-Changes and DS-Replication-Get-Changes-All permissions from non-DC accounts
+- Audit Active Directory for new accounts, group membership changes, and GPO modifications made during the compromise window
 
 ## 6) Recovery
-- Restore from known-good backups if needed
-- Re-enable accounts with strong controls (MFA, conditional access)
-- Monitor for recurrence (same indicators + adjacent TTPs)
+- Audit all accounts with replication rights — scope to legitimate DCs and Azure AD Connect only
+- Deploy Privileged Access Management (PAM) or tiered admin model to limit domain admin exposure
+- Enable and alert on Event ID 4662 with DS-Replication properties in SIEM
+- Monitor for Golden Ticket or Pass-the-Hash indicators post-recovery (attackers may have harvested hashes before detection)
 
 ## 7) Documentation
 - Record IOCs, timeline, and root cause

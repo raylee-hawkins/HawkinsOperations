@@ -21,19 +21,22 @@
 - Determine lateral movement / privilege escalation indicators
 
 ## 4) Containment (15 minutes)
-- Isolate affected endpoint(s) if needed
-- Disable or reset compromised accounts (coordinate with IAM/IT)
-- Block malicious hashes/domains/URLs/IPs in your controls (SIEM/SOAR/EDR/firewall)
+- Block destination IPs/domains at firewall and proxy immediately to stop active transfer
+- Terminate active network connections from the source endpoint
+- Isolate the source endpoint if exfiltration is ongoing or if volume suggests bulk data movement
+- Capture and preserve network flow data and proxy logs before blocking
 
 ## 5) Eradication
-- Remove persistence mechanisms (services, scheduled tasks, autoruns)
-- Remove malicious binaries/scripts
-- Patch exploited vulnerabilities and rotate exposed secrets
+- Identify and remove any exfiltration tooling, scripts, or scheduled jobs on the source endpoint
+- Audit all outbound connections during the exfiltration window — determine scope (what data, what volume, what destination)
+- Identify the initial access vector that enabled the exfiltration capability and close it
+- Determine if data requires breach notification review (PII, PHI, credentials, IP)
 
 ## 6) Recovery
-- Restore from known-good backups if needed
-- Re-enable accounts with strong controls (MFA, conditional access)
-- Monitor for recurrence (same indicators + adjacent TTPs)
+- Implement or tune DLP controls for the identified exfil channel (HTTP, DNS, cloud upload, email)
+- Tighten egress firewall rules — block outbound to file sharing sites and unusual destinations by default
+- Monitor for resumed exfiltration attempts using same or alternate channels
+- If sensitive data was confirmed exfiltrated, escalate to legal/compliance for breach determination
 
 ## 7) Documentation
 - Record IOCs, timeline, and root cause

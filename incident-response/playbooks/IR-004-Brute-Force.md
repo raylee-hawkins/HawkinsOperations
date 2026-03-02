@@ -21,19 +21,20 @@
 - Determine lateral movement / privilege escalation indicators
 
 ## 4) Containment (15 minutes)
-- Isolate affected endpoint(s) if needed
-- Disable or reset compromised accounts (coordinate with IAM/IT)
-- Block malicious hashes/domains/URLs/IPs in your controls (SIEM/SOAR/EDR/firewall)
+- Block attacking source IPs at firewall/WAF/network controls
+- Implement or verify account lockout policy is active on targeted systems
+- Disable or reset targeted accounts if any successful authentication occurred (coordinate with IAM/IT)
+- Alert on further login attempts from same source range
 
 ## 5) Eradication
-- Remove persistence mechanisms (services, scheduled tasks, autoruns)
-- Remove malicious binaries/scripts
-- Patch exploited vulnerabilities and rotate exposed secrets
+- Reset passwords on any accounts that were successfully authenticated during the attack window
+- Audit all successful logins during the attack window for unauthorized access
+- Confirm no persistence was established if any login succeeded
 
 ## 6) Recovery
-- Restore from known-good backups if needed
-- Re-enable accounts with strong controls (MFA, conditional access)
-- Monitor for recurrence (same indicators + adjacent TTPs)
+- Enforce MFA on all externally-facing authentication (VPN, OWA, RDP, SSH)
+- Deploy or tune account lockout thresholds and alerting
+- Monitor for resumed attacks, credential stuffing, or lateral pivot using any harvested credentials
 
 ## 7) Documentation
 - Record IOCs, timeline, and root cause
