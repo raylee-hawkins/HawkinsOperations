@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AutoSOC Milestone</title>
+  <desc id="desc">AutoSOC production milestone card showing end-to-end validated pipeline.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="100%" stop-color="#13233b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <style>
+      .t { font-family: "Inter", "Segoe UI", Arial, sans-serif; fill: #e5e7eb; }
+      .h1 { font-size: 58px; font-weight: 800; }
+      .h2 { font-size: 28px; font-weight: 700; fill: #bfdbfe; }
+      .p { font-size: 24px; font-weight: 600; fill: #cbd5e1; }
+      .k { font-size: 22px; font-weight: 700; fill: #99f6e4; }
+      .box { fill: rgba(10,20,36,0.82); stroke: #1d4ed8; stroke-width: 2; rx: 16; }
+      .chip { fill: rgba(7,27,29,0.9); stroke: #0f766e; stroke-width: 1.5; rx: 12; }
+      .flow { stroke: #38bdf8; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="34" y="34" width="1532" height="832" fill="none" stroke="url(#accent)" stroke-width="2" rx="18"/>
+
+  <text x="72" y="128" class="t h1">AutoSOC Milestone Delivered</text>
+  <text x="72" y="178" class="t h2">End-to-end production-sim workflow with enforced gates and verifiable outputs</text>
+
+  <rect x="72" y="226" width="1456" height="82" class="chip"/>
+  <text x="104" y="279" class="t p">ingest -> triage -> redact -> assemble -> repo-staged closure artifacts</text>
+
+  <rect x="72" y="344" width="690" height="448" class="box"/>
+  <text x="102" y="394" class="t h2">What changed</text>
+  <text x="102" y="446" class="t p">- Retry/backoff on ingestion connectivity</text>
+  <text x="102" y="494" class="t p">- Redaction and quality gates enforced</text>
+  <text x="102" y="542" class="t p">- Queue overflow archive guard added</text>
+  <text x="102" y="590" class="t p">- Log retention + run metadata added</text>
+  <text x="102" y="638" class="t p">- Scheduler-backed recurring execution validated</text>
+
+  <rect x="838" y="344" width="690" height="448" class="box"/>
+  <text x="868" y="394" class="t h2">Operational outcomes</text>
+  <text x="868" y="446" class="t p">- Repeatable SOC closeout workflow</text>
+  <text x="868" y="494" class="t p">- Lower triage/closure friction</text>
+  <text x="868" y="542" class="t p">- Auditable evidence bundles</text>
+  <text x="868" y="590" class="t p">- Clear idle-cycle telemetry</text>
+  <text x="868" y="638" class="t p">- Stable run health in scheduled operation</text>
+
+  <path d="M 760 690 C 810 690, 810 690, 860 690" class="flow"/>
+  <text x="620" y="845" class="t k">HawkinsOps | Evidence-first SOC automation</text>
+</svg>

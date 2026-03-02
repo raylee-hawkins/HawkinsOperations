@@ -9,7 +9,7 @@
 
 <group name="rootcheck,">
   <rule id="100053" level="13">
-    <if_sid>510</if_sid>
+    <if_sid>521</if_sid>
     <match>Rootkit|Trojan|Backdoor</match>
     <description>Rootkit or backdoor detected on system</description>
     <mitre>
@@ -21,8 +21,8 @@
 
 <!--
 Summary:
-  Detects rootkits, trojans, and backdoors identified by Wazuh rootcheck module.
-  Includes signature-based detection and behavioral anomalies.
+  Detects high-confidence rootkit/backdoor findings from Wazuh rootcheck.
+  Narrowed to SID 521 to reduce false-positive escalation from broad rootcheck text.
 
 Fields Used:
   - file: Suspected malicious file
