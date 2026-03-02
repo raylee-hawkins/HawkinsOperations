@@ -21,9 +21,9 @@
 - **Auth Log Location**: `/var/log/auth.log`
 - **Common Patterns**:
   ```
-  Failed password for invalid user admin from 192.168.1.100 port 54321 ssh2
-  Failed password for root from 203.0.113.45 port 12345 ssh2
-  Connection closed by authenticating user root 203.0.113.45 port 12345 [preauth]
+  Failed password for invalid user admin from [REDACTED_IP] port 54321 ssh2
+  Failed password for root from [REDACTED_IP] port 12345 ssh2
+  Connection closed by authenticating user root [REDACTED_IP] port 12345 [preauth]
   ```
 
 ### Additional Detection Methods
@@ -260,3 +260,4 @@
 - Demonstrate understanding of Linux auth mechanisms
 - Show proficiency with log analysis and firewall configuration
 - Highlight proactive hardening to prevent future attacks
+

@@ -189,7 +189,7 @@ Get-NetTCPConnection | Where-Object {$_.LocalPort -eq 5985 -or $_.LocalPort -eq 
 ```powershell
 # Task creation with network source
 Get-WinEvent -FilterHashtable @{LogName='Security';ID=4698} |
-    Where-Object {$_.Properties[4].Value -notmatch 'localhost|127.0.0.1'} |
+    Where-Object {$_.Properties[4].Value -notmatch 'localhost|[REDACTED_IP]'} |
     Select-Object TimeCreated,
         @{N='TaskName';E={$_.Properties[0].Value}},
         @{N='Account';E={$_.Properties[1].Value}},
@@ -222,3 +222,4 @@ Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Sysmon/Operational';I
 
 **Expected False Positives:** Legitimate SSH usage in DevOps environments
 **Triage Steps:** Verify authorized SSH usage; check destination; review user
+

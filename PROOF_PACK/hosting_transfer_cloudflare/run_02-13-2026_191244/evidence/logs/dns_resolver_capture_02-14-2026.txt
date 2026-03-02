@@ -1,21 +1,22 @@
-=== nslookup hawkinsops.com 1.1.1.1 ===
+=== nslookup hawkinsops.com [REDACTED_IP] ===
 Server:  one.one.one.one
-Address:  1.1.1.1
+Address:  [REDACTED_IP]
 
 Name:    hawkinsops.com
 Addresses:  2606:4700:3035::6815:3429
 	  2606:4700:3033::ac43:c310
-	  172.67.195.16
-	  104.21.52.41
+	  [REDACTED_IP]
+	  [REDACTED_IP]
 
 
-=== nslookup hawkinsops.com 8.8.8.8 ===
+=== nslookup hawkinsops.com [REDACTED_IP] ===
 Server:  dns.google
-Address:  8.8.8.8
+Address:  [REDACTED_IP]
 
 Name:    hawkinsops.com
 Addresses:  2606:4700:3033::ac43:c310
 	  2606:4700:3035::6815:3429
-	  172.67.195.16
-	  104.21.52.41
+	  [REDACTED_IP]
+	  [REDACTED_IP]
+
 

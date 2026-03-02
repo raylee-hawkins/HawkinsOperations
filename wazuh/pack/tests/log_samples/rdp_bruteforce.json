@@ -1,5 +1,5 @@
 {
-  "srcip": "198.51.100.25",
+  "srcip": "[REDACTED_IP]",
   "event_type": "authentication_failed",
   "rule": {
     "groups": [
@@ -7,4 +7,5 @@
     ]
   }
 }
+
 

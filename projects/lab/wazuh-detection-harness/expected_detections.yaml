@@ -4,7 +4,7 @@
 tests:
   - test_name: ART_T1110_001_password_guessing
     platform: windows
-    agent_name: HOWE01
+    agent_name: [REDACTED_HOST]
     agent_id: "003"
     lookback_minutes: 30
     expected:
@@ -17,7 +17,7 @@ tests:
 
   - test_name: ART_T1059_001_powershell
     platform: windows
-    agent_name: HOWE01
+    agent_name: [REDACTED_HOST]
     agent_id: "003"
     lookback_minutes: 30
     expected:
@@ -31,7 +31,7 @@ tests:
 
   - test_name: ART_T1003_001_lsass_dump
     platform: windows
-    agent_name: HOWE01
+    agent_name: [REDACTED_HOST]
     agent_id: "003"
     lookback_minutes: 30
     expected:
@@ -42,3 +42,4 @@ tests:
         - T1003
       must_contain:
         - "lsass"
+

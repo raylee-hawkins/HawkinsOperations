@@ -26,6 +26,7 @@ Rollback to previous DNS provider/records if one or more occurs:
 ## Drill receipt (2026-02-14)
 - Drill type: controlled simulation (no live DNS mutation during active production window)
 - Trigger simulated: route failure + header regression scenario
-- Resolver pre-check and post-check captured for `1.1.1.1` and `8.8.8.8`
+- Resolver pre-check and post-check captured for `[REDACTED_IP]` and `[REDACTED_IP]`
 - Planned rollback steps documented and timed in evidence log
 - Evidence: `PROOF_PACK/hosting_transfer_cloudflare/run_02-14-2026_031137/evidence/logs/rollback_drill_simulation_02-14-2026.txt`
+

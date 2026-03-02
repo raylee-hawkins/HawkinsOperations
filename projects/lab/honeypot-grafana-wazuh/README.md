@@ -10,7 +10,7 @@ Minimal, auditable Cowrie + Grafana setup that feeds Wazuh Indexer and produces 
 
 ## Environment Variables
 All secrets stay in your `.env` file (not committed).
-- `LAN_BIND_IP` (default `127.0.0.1`)
+- `LAN_BIND_IP` (default `[REDACTED_IP]`)
 - `COWRIE_SSH_PORT`, `COWRIE_TELNET_PORT`
 - `GRAFANA_PORT`, `GRAFANA_ADMIN_USER`, `GRAFANA_ADMIN_PASS`
 - `WAZUH_INDEXER_URL`, `WAZUH_INDEXER_HOST`
@@ -36,3 +36,4 @@ Expected result:
 ## Notes
 - Cowrie and Grafana bind to `LAN_BIND_IP` only (no public exposure by default).
 - No credentials are written to disk by any script in this repo.
+

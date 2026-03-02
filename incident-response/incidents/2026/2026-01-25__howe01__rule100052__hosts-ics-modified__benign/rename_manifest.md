@@ -1,9 +1,9 @@
 # Incident Response Reorganization Manifest
 
 **Reorganization Date:** 2026-01-27
-**Incident ID:** 2026-01-25-HOWE01-100052
+**Incident ID:** 2026-01-25-[REDACTED_HOST]-100052
 **Incident:** Wazuh Rule 100052 - hosts.ics Modified (BENIGN)
-**Agent:** HOWE01 (003)
+**Agent:** [REDACTED_HOST] (003)
 **Performed By:** HawkinsOps SOC Team (via Claude Code automation)
 **Purpose:** Transform ad-hoc incident files into professional, portfolio-ready structure
 
@@ -94,7 +94,7 @@ All changes follow these principles:
 |--------------|--------------|---------|
 | `Screenshot 2026-01-26 163225.png` | `01_wazuh_overview_dashboard.png` | Wazuh overview showing alert counts across all systems |
 | `Screenshot 2026-01-26 163607.png` | `02_threat_hunting_level12_filter.png` | Threat Hunting dashboard filtered to Level 12+ alerts |
-| `Screenshot 2026-01-26 163700.png` | `03_threat_hunting_howe01_agent.png` | Threat Hunting dashboard focused on HOWE01 agent (003) |
+| `Screenshot 2026-01-26 163700.png` | `03_threat_hunting_howe01_agent.png` | Threat Hunting dashboard focused on [REDACTED_HOST] agent (003) |
 | `Screenshot 2026-01-26 163821.png` | `04_events_table_rule100052.png` | Events table showing the specific Rule 100052 alert |
 | `Screenshot 2026-01-26 164133.png` | `05_powershell_validation_hosts_ics_content.png` | PowerShell local validation proving BENIGN file contents |
 | `Screenshot 2026-01-26 164429.png` | `06_event_detail_json_full.png` | Full event detail JSON view (805 fields) |
@@ -525,7 +525,7 @@ Restructured ad-hoc incident files into professional portfolio format:
 
 Incident details:
 - Date: 2026-01-25
-- Agent: HOWE01 (003)
+- Agent: [REDACTED_HOST] (003)
 - Rule: 100052 (Level 12) - Critical system file modified
 - File: C:\Windows\System32\drivers\etc\hosts.ics
 - Verdict: BENIGN (Microsoft ICS auto-generated)
@@ -703,3 +703,4 @@ git reset --hard HEAD~1
 **Date:** 2026-01-27 01:37 UTC
 **Purpose:** Audit trail for incident response reorganization
 **Status:** ✓ COMPLETE (Pending git commit/push)
+

@@ -60,7 +60,7 @@ AS_OF: 2026-02-14
 - `[x]` Route validation checklist content exists with full production evidence.
   - Evidence: `PROOF_PACK/hosting_transfer_cloudflare/ROUTING_AND_HEADERS_VALIDATION.md`
 - `[x]` DNS cutover output captured from two resolvers.
-  - Expected resolvers: `1.1.1.1`, `8.8.8.8`
+  - Expected resolvers: `[REDACTED_IP]`, `[REDACTED_IP]`
   - Evidence target: `PROOF_PACK/hosting_transfer_cloudflare/DNS_CUTOVER_RECORDS.md`
 - `[x]` Deploy log rows fully filled with timestamp/SHA/URL/status.
   - Evidence target: `PROOF_PACK/hosting_transfer_cloudflare/DEPLOY_LOG_LINKS.md`
@@ -81,3 +81,4 @@ AS_OF: 2026-02-14
 ## 7) Phase gate decision
 - `[x]` Gate open for post-hosting polish phases.
   - Criteria: all items in sections 3 and 6 must be `[x]`.
+

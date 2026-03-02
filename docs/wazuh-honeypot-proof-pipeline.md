@@ -6,7 +6,7 @@ The honeypot proof pipeline runs on the private Wazuh manager and publishes only
 
 1. `/opt/hawkinsops/bin/export_honeypot_proof.sh`
 - Reads `/var/ossec/logs/alerts/alerts.json`
-- Filters `agent.name == "HO-HONEYPOT-01"`
+- Filters `agent.name == "[REDACTED_HOST]"`
 - Exports only: `ts`, `agent`, `rule.id`, `rule.level`, `rule.desc`, `has_srcip`
 - Writes metadata artifact: `latest.meta.json` (`generated_utc`, `exported_count`, `agent_name`, `last_rule_id`)
 - Writes:
@@ -35,3 +35,4 @@ The honeypot proof pipeline runs on the private Wazuh manager and publishes only
 /opt/hawkinsops/bin/export_honeypot_proof.sh
 /opt/hawkinsops/bin/publish_proof_to_github.sh
 ```
+

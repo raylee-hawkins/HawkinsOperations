@@ -49,7 +49,7 @@ level: high
 #   Tool: Mimikatz
 #   Command: sekurlsa::logonpasswords
 #   Expected: Alert fires within 30 seconds
-#   Tested: 2026-01-15 on HO-WE-01
+#   Tested: 2026-01-15 on [REDACTED_HOST]
 #
 # FALSE POSITIVE RATE:
 #   Lab environment: <2%
@@ -64,3 +64,4 @@ level: high
 #   - Test screenshot: /PROOF_PACK/SCREENSHOTS/T1003-001-test.png
 #   - Alert JSON: /PROOF_PACK/SAMPLES/T1003-001-alert.json
 # =============================================================================
+

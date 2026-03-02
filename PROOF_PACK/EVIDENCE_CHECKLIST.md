@@ -66,7 +66,7 @@ Use this checklist before publishing any screenshots or files.
 ### Don't Do This
 
 ```
-❌ Screenshot showing: 192.168.1.105 (your actual network)
+❌ Screenshot showing: [REDACTED_IP] (your actual network)
 ❌ Path showing: C:\Users\Raylee\Documents\...
 ❌ Alert showing: user "rhawkins" logged in
 ❌ Config showing: api_key = "sk-abc123..."
@@ -75,7 +75,7 @@ Use this checklist before publishing any screenshots or files.
 ### Do This Instead
 
 ```
-✅ Screenshot showing: 10.0.0.100 (or blur the IP)
+✅ Screenshot showing: [REDACTED_IP] (or blur the IP)
 ✅ Path showing: C:\Users\analyst\Documents\...
 ✅ Alert showing: user "analyst01" logged in
 ✅ Config showing: api_key = "[REDACTED]"
@@ -119,3 +119,4 @@ Before publishing the Proof Pack:
 ---
 
 *Security professionals should demonstrate security awareness in their own repos.*
+

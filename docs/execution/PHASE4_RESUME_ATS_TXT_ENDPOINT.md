@@ -19,7 +19,7 @@
 - Local static serve:
   - `python -m http.server --directory site 8000`
 - Local header check:
-  - `curl.exe -i http://127.0.0.1:8000/resume.txt`
+  - `curl.exe -i http://[REDACTED_IP]:8000/resume.txt`
 - Production header check:
   - `curl.exe -sI https://hawkinsops.com/resume.txt`
 
@@ -28,3 +28,4 @@
   - `RESULTS.md`
   - `evidence/logs/`
   - `evidence/screenshots/`
+
