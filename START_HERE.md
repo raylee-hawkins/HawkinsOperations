@@ -8,7 +8,7 @@ Use this file for a fast technical validation path.
 2. Open [PROOF_PACK/VERIFIED_COUNTS.md](PROOF_PACK/VERIFIED_COUNTS.md) for current rule/playbook counts.
 3. Open [detection-rules/INDEX.md](detection-rules/INDEX.md) to inspect detection coverage and platform layout.
 4. Open [incident-response/INDEX.md](incident-response/INDEX.md) to review the IR catalog.
-5. Open [projects/migration-rh/README.md](projects/migration-rh/README.md) for migration project proof linkage.
+5. Open [docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md](docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md) for the live AutoSOC pipeline — architecture, scheduler config, and operational proof.
 
 ## Reproduce Locally
 

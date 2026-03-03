@@ -10,5 +10,5 @@
 - Reason: rule in always_escalate_rule_ids
 
 ## Evidence Paths
-- Redacted source: artifacts/redacted
+- Redacted source: artifacts/redacted_20260302_172519
 - Alert artifact: artifacts/alert.raw.json
