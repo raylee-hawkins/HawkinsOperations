@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | AutoSOC Case Study</title>
+<meta name="description" content="AutoSOC pipeline case study: architecture, rootcheck tuning, and repo-backed incident pack outputs with reproducible proof links.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07070b">
+<link rel="canonical" href="https://hawkinsops.com/case-study-autosoc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AutoSOC Case Study | Closed-Loop Alert Pipeline">
+<meta property="og:description" content="What AutoSOC is, how the pipeline is wired, rootcheck tuning results, and artifact outputs linked to proof lanes.">
+<meta property="og:url" content="https://hawkinsops.com/case-study-autosoc">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AutoSOC Case Study | Closed-Loop Alert Pipeline">
+<meta name="twitter:description" content="Architecture, rootcheck tuning, and repo-backed incident pack outputs for AutoSOC.">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('rh-theme'); } catch (e) { saved = null; }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+<!-- @include:nav:start -->
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/soc-lab">SOC/Lab</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/wildcard">About</a></li>
+      <li><a href="/resume">Resume</a></li>
+    </ul>
+    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+  </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/soc-lab">SOC/Lab</a>
+  <a href="/detections">Detections</a>
+  <a href="/proof">Proof</a>
+  <a href="/projects">Projects</a>
+  <a href="/wildcard">About</a>
+  <a href="/resume">Resume</a>
+</div>
+
+<!-- @include:nav:end -->
+<main>
+<section style="padding-top:110px">
+  <div class="ctr" style="max-width:980px">
+    <div class="slbl">Case Study</div>
+    <h1 class="stitle">AutoSOC closed-loop alert pipeline</h1>
+    <p class="sdesc">
+      AutoSOC is the operational layer behind the portfolio evidence flow: poll alerts, apply policy triage, redact sensitive values,
+      assemble incident packs, and publish reviewable outputs to repository paths with traceable logs.
+    </p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">1) What it is</h2>
+      <div class="card-sub">
+        AutoSOC is a script-driven incident pipeline that converts noisy alert streams into consistent, reviewer-safe outputs.
+        Each run produces structured artifacts for triage, closure reporting, and handoff. The objective is repeatability:
+        same inputs, same steps, same output structure, with quality gates before publication.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">2) Architecture diagram</h2>
+      <div class="card-sub">Sources feed ingestion and triage gates, then move through redaction and pack assembly into repo-backed output folders.</div>
+      <div style="margin-top:12px;border:1px solid var(--bdr);border-radius:12px;overflow:hidden">
+        <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1" alt="AutoSOC architecture map showing sources, pipeline gates, and output controls" style="display:block;width:100%;height:auto">
+      </div>
+      <div class="card-meta" style="margin-top:10px"><span class="tag">AutoSOC</span><span class="tag">Closed loop</span><span class="tag">Evidence-safe</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">3) Rootcheck tuning event (1,312 alerts)</h2>
+      <div class="card-sub">
+        A noisy rootcheck lane produced 1,312 alerts in the review window, dominated by repeat false-positive patterns.
+        The fix path was: isolate recurring signatures, tune suppression policy at the rule layer, rerun triage, and verify
+        closure behavior through incident pack outputs. Result: reduced noise floor while preserving escalation paths for true positives.
+      </div>
+      <pre class="term-b" style="margin-top:10px">rootcheck_window_alerts: 1312
+dominant_pattern: repeated benign rootcheck signatures
+action: policy tuning + replay validation
+result: lower false-positive pressure with retained critical signal path</pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="g2">
+      <div class="card">
+        <h2 class="card-ttl">4) Output artifacts</h2>
+        <div class="card-sub">
+          Each incident run emits a standard pack:
+          <ul style="padding-left:18px;margin-top:8px">
+            <li><code>00_one_pager.md</code> summary for reviewer intake</li>
+            <li><code>01_full_report.md</code> full investigative narrative</li>
+            <li><code>02_timeline.csv</code> event chronology</li>
+            <li><code>03_queries.md</code> search and pivot commands</li>
+            <li><code>closure_report.md</code> disposition and final action</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <h2 class="card-ttl">Redacted snippet</h2>
+        <pre class="term-b">{
+  "case_id": "2026-03-03__soc__rule533__...__1772505772-31771",
+  "status": "closed",
+  "disposition": "benign",
+  "artifacts": ["00_one_pager.md", "closure_report.md", "evidence_index.md"]
+}</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">5) Related links</h2>
+      <div class="card-sub">
+        <ul style="padding-left:18px">
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/30_Projects/Active/AutoSOC" target="_blank" rel="noopener noreferrer">AutoSOC project folder</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC runbook</a></li>
+          <li><a href="/proof">Proof Pack lane</a></li>
+          <li><a href="/march-2026-release">March 2026 release timeline</a></li>
+          <li><a href="/detections">Detections inventory</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="modalBg" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-h">
+      <div id="modalTitle" class="modal-ttl">DETAILS</div>
+      <button id="modalClose" class="modal-x" type="button">Close</button>
+    </div>
+    <div id="modalBody" class="modal-b"></div>
+  </div>
+</div>
+<!-- @include:footer:start -->
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <div class="fl">
+      <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
+      <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
+      <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- @include:footer:end -->
+<script src="/assets/fetch-utils.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
