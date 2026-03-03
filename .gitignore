@@ -78,3 +78,6 @@ docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md
 *.zst
 *.iso
 *.tar.gz
+
+# Auto-generated incident packs from pipeline runs (local-only)
+incident-response/incidents/2026/2026-03-*
