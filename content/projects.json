@@ -21,26 +21,6 @@
       ]
     },
     {
-      "id": "migration-proof",
-      "title": "RH Migration 2026 Proof Trail",
-      "summary": "Change-controlled migration evidence with runbooks, checkpoints, and rollback logic.",
-      "type": "operations",
-      "status": "active",
-      "tags": ["runbooks", "ops", "evidence"],
-      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh",
-      "page_url": "/projects.html",
-      "evidence": [
-        {
-          "label": "Project README",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/projects/migration-rh/README.md"
-        },
-        {
-          "label": "Proof Pack",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/projects/migration-rh/PROOF_PACK"
-        }
-      ]
-    },
-    {
       "id": "triage-simulator",
       "title": "SOC Triage Simulator",
       "summary": "Scenario-driven triage flow emphasizing context pivots, escalation criteria, and closure notes.",

@@ -59,7 +59,6 @@ Use this structure for evidence and runbooks. Keep all identifiers redacted.
 
 - Sanitized inventory and documentation scaffolding in this file
 - Redaction policy in `PROOF_PACK/REDACTION_RULES.md`
-- Execution note in `docs/execution/PHASE_6A_INFRA_VALIDATION.md`
 - Evidence run folder under `PROOF_PACK/features/phase6a-infra-validation-doc/`
 
 ## What Is Not Executed in Phase 6A
