@@ -11,11 +11,13 @@
 <meta property="og:title" content="HawkinsOps | Raylee Hawkins | Home">
 <meta property="og:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
 <meta property="og:url" content="https://hawkinsops.com/">
-<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2">
+<meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="HawkinsOps | Raylee Hawkins | Home">
 <meta name="twitter:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
-<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2">
+<meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +50,7 @@
       <li><a href="/detections">Detections</a></li>
       <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">Extras</a></li>
+      <li><a href="/wildcard">About</a></li>
       <li><a href="/resume">Resume</a></li>
     </ul>
     <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
@@ -61,7 +63,7 @@
   <a href="/detections">Detections</a>
   <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">Extras</a>
+  <a href="/wildcard">About</a>
   <a href="/resume">Resume</a>
 </div>
 
@@ -81,13 +83,7 @@
       <p class="review-note">Review path: open Proof Pack, run verify, match published outputs.</p>
       <div class="hctas">
         <a class="btn btn-p" href="/proof">View Proof Pack</a>
-        <a class="btn btn-g" href="/projects">Read documented work</a>
-        <a class="btn btn-g" href="/resume">Open resume</a>
-      </div>
-      <div class="hero-verify-row">
-        <span class="hero-verify-label">$ verify:</span>
-        <code class="hero-verify-cmd" id="heroVerifyShort">pwsh -File .\scripts\verify\verify-counts.ps1</code>
-        <button class="copy-btn" type="button" data-copy="heroVerifyShort" aria-label="Copy verify command">Copy</button>
+        <a class="btn btn-g" href="/resume">Open Resume</a>
       </div>
       <div class="hero-icons" aria-label="Proof highlights">
         <span class="ico-chip">
@@ -151,7 +147,7 @@
 <section>
   <div class="ctr home-shell">
     <div class="slbl">Who I Am</div>
-    <h2 class="stitle">Self-taught. No degree. Everything verified.</h2>
+    <h2 class="stitle">Built from scratch. Everything verifiable.</h2>
     <div class="about-split">
       <div>
         <p class="about-lead">Self-taught North Alabama security engineer. Every count on this site is reproducible with a single command against a public repo—because claims without proof aren't claims at all.</p>
@@ -292,6 +288,7 @@ pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\P
       <div class="g2" style="margin-top:12px">
         <a class="card" href="/case-study-cve-patch" style="text-decoration:none"><div class="card-ttl">CVE patch report</div><div class="card-sub">Detect -> triage -> patch -> verify timeline for CVE-2025-55130 with evidence snapshots.</div><div class="card-meta"><span class="tag">Read</span></div></a>
         <a class="card" href="/case-study-ir-howe01" style="text-decoration:none"><div class="card-ttl">IR alert brief</div><div class="card-sub">Level 12 FIM alert from trigger through BENIGN verdict with investigation pivots and evidence capture.</div><div class="card-meta"><span class="tag">Read</span></div></a>
+        <a class="card" href="/case-study-autosoc" style="text-decoration:none"><div class="card-ttl">AutoSOC pipeline brief</div><div class="card-sub">Closed-loop alert pipeline with rootcheck tuning and incident pack outputs linked to proof artifacts.</div><div class="card-meta"><span class="tag">Read</span></div></a>
         <a class="card" href="/case-study-sigma-library" style="text-decoration:none"><div class="card-ttl">Sigma library brief</div><div class="card-sub">Rule structure, tactic mapping, and false-positive intent across the Sigma lane.</div><div class="card-meta"><span class="tag">Read</span></div></a>
         <a class="card" href="/case-study-detection-harness" style="text-decoration:none"><div class="card-ttl">Detection harness report</div><div class="card-sub">How expected detections are validated with repeatable pass/fail outputs.</div><div class="card-meta"><span class="tag">Read</span></div></a>
       </div>

@@ -5,7 +5,7 @@
     { "id": "detections", "label": "Detections", "href": "/detections" },
     { "id": "proof_pack", "label": "Proof", "href": "/proof" },
     { "id": "projects", "label": "Projects", "href": "/projects" },
-    { "id": "wildcard", "label": "Extras", "href": "/wildcard" },
+    { "id": "wildcard", "label": "About", "href": "/wildcard" },
     { "id": "resume", "label": "Resume", "href": "/resume" }
   ],
   "cta": {
