@@ -17,7 +17,7 @@ Curated reviewer lane for this repository.
 2. Read `START_HERE.md`
 3. Validate counts in `PROOF_PACK/VERIFIED_COUNTS.md`
 4. Inspect sample artifacts in `PROOF_PACK/SAMPLES/`
-5. Review migration project entrypoint at `projects/migration-rh/README.md`
+5. Review lab deliverables in `projects/lab/`
 
 ## Additional Evidence Sets
 
