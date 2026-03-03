@@ -211,7 +211,7 @@
       <div class="met"><div class="met-icon mi-spl">SPL</div><div class="met-v" data-verified="splunk">8</div><div class="met-l">Splunk queries</div><a class="met-link" href="/detections">→ browse</a></div>
       <div class="met"><div class="met-icon mi-ir">IR</div><div class="met-v" data-verified="ir">10</div><div class="met-l">IR playbooks</div><a class="met-link" href="/case-study-ir-playbooks">→ view</a></div>
     </div>
-    <div class="lupd verify-date">Last verified: <span data-verified-date>02-24-2026</span></div>
+    <div class="lupd verify-date">Last verified: <span data-verified-date>03-03-2026</span></div>
     <div class="verify-panel" style="margin-top:8px">
       <div class="verify-panel-h">
         <span>Verify commands</span>
@@ -219,6 +219,52 @@
       </div>
       <pre id="homeVerifyCmdLong" class="verify-code">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1
 pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</pre>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="ctr home-shell">
+    <div class="slbl">March 2026</div>
+    <h2 class="stitle">Release window and proof trail</h2>
+    <p class="sdesc">March upgrades are documented as a single evidence chain: release notes, operations runbook, rootcheck closeout, and the live system map.</p>
+    <div class="g2 lane-grid">
+      <a class="card lane-card" href="/march-2026-release" style="text-decoration:none" data-lane="fastest">
+        <span class="lane-tag">TIMELINE</span>
+        <div class="card-ttl">March 2026 accomplishments</div>
+        <div class="card-sub">One-page timeline with shipped changes, proof links, and reproducible validation commands.</div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+      </a>
+      <a class="card lane-card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none" data-lane="systems">
+        <span class="lane-tag">RELEASE</span>
+        <div class="card-ttl">AutoSOC v1.4.0 release notes</div>
+        <div class="card-sub">End-to-end pipeline validation, hardening changes, rootcheck tuning closeout, and reviewer paths.</div>
+        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="ctr home-shell">
+    <div class="slbl">Ship Log</div>
+    <h2 class="stitle">What shipped this week</h2>
+    <div class="g3">
+      <a class="card" href="/march-2026-release" style="text-decoration:none">
+        <div class="card-ttl">AutoSOC end-to-end loop</div>
+        <div class="card-sub">Scheduler-backed run pipeline validated: ingest -> triage -> redact -> pack -> repo-staged output.</div>
+        <div class="card-meta"><span class="tag">v1.4.0</span><span class="tag">Operational</span></div>
+      </a>
+      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+        <div class="card-ttl">Rootcheck tuning closeout</div>
+        <div class="card-sub">False-positive escalation path narrowed and documented with sanitized closure artifacts.</div>
+        <div class="card-meta"><span class="tag">Rule tuning</span><span class="tag">Closeout proof</span></div>
+      </a>
+      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+        <div class="card-ttl">Sysmon + triage quality controls</div>
+        <div class="card-sub">Sysmon telemetry integration, noisy-rule suppression, and daily triage quality artifact generation.</div>
+        <div class="card-meta"><span class="tag">Sysmon</span><span class="tag">Quality gate</span></div>
+      </a>
     </div>
   </div>
 </section>

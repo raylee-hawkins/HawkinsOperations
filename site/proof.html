@@ -71,11 +71,44 @@
       The point is that you can verify the claims with commands against a public repo.
       This is what "auditable" looks like when nobody is hand-waving.
     </p>
-    <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>`r`n<p class="lupd">Quick scan: 1) open <code>PROOF_PACK/VERIFIED_COUNTS.md</code> 2) run <code>scripts/verify/verify-counts.ps1</code> 3) compare output to published totals.</p>
+    <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>
+    <p class="lupd">Quick scan: 1) open <code>PROOF_PACK/VERIFIED_COUNTS.md</code> 2) run <code>scripts/verify/verify-counts.ps1</code> 3) compare output to published totals.</p>
 
     <div class="card" style="margin:18px 0 24px 0">
       <div class="card-ttl">Proof → Honeypot (Wazuh)</div>
       <div class="card-sub">Live sanitized alert feed, artifact download, and verification steps. <a href="/proof/honeypot">Open page</a></div>
+    </div>
+
+    <div class="g2">
+      <a class="card" href="/march-2026-release" style="text-decoration:none">
+        <div class="card-ttl">March 2026 release timeline</div>
+        <div class="card-sub">Canonical page for March homepage upgrades, rootcheck tuning, Sysmon integration, and AutoSOC release closure.</div>
+        <div class="card-meta"><span class="tag">Timeline</span><span class="tag">March 2026</span></div>
+      </a>
+      <div class="card">
+        <div class="card-ttl">March quick links</div>
+        <div class="card-sub">
+          <ul style="padding-left:18px;margin:8px 0">
+            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer">Release notes: v1.4.0</a></li>
+            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC operations runbook</a></li>
+            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md" target="_blank" rel="noopener noreferrer">Rootcheck closeout report</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <div class="card">
+      <div class="card-ttl">Triage quality artifact panel</div>
+      <div class="card-sub">
+        Daily triage quality artifacts are generated from live pipeline output and compared against prior windows:
+        <code>autosoc-triage-quality-*.md</code>, <code>autosoc-triage-quality-*.json</code>,
+        <code>autosoc-triage-quality-history.csv</code>, and <code>autosoc-triage-quality-trend.png</code>.
+        Use the command below to regenerate from current telemetry.
+      </div>
+      <pre class="term-b" style="margin-top:10px">python C:\RH\OPS\50_System\Scripts\Automation\auto-soc\triage-quality.py --window-hours 24 --compare-previous --csv
+pwsh -NoProfile -File C:\RH\OPS\50_System\Scripts\Automation\auto-soc\render-triage-quality-chart.ps1</pre>
     </div>
 
     <div class="g2">

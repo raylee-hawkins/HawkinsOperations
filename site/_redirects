@@ -5,4 +5,5 @@
 /security /detections 301
 /lab /soc-lab 301
 /triage /soc-lab 301
+/march-2026-release /march-2026-release.html 200
 /proof/honeypot /honeypot-proof.html 200
