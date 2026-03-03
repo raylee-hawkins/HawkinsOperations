@@ -1,2 +1,2 @@
 timestamp_utc,phase,action,evidence_ref,notes
-2026-03-02T17:35:10Z,triage,disposition,artifacts/alert.raw.json,ESCALATE
+2026-03-02T17:35:10Z,triage,disposition,alert.raw.json,ESCALATE
