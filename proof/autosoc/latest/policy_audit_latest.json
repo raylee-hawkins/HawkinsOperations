@@ -1,0 +1,411 @@
+{
+  "generated_utc": "2026-03-04T14:19:16Z",
+  "source_files": 1000,
+  "totals": {
+    "auto_close": 980,
+    "unclassified": 18,
+    "always_escalate": 1,
+    "review": 1
+  },
+  "top_by_bucket_rule": {
+    "auto_close": [
+      [
+        "67027",
+        641
+      ],
+      [
+        "92151",
+        288
+      ],
+      [
+        "60642",
+        23
+      ],
+      [
+        "5501",
+        10
+      ],
+      [
+        "92153",
+        9
+      ],
+      [
+        "5502",
+        9
+      ]
+    ],
+    "unclassified": [
+      [
+        "5402",
+        8
+      ],
+      [
+        "533",
+        2
+      ],
+      [
+        "19004",
+        2
+      ],
+      [
+        "60602",
+        1
+      ],
+      [
+        "503",
+        1
+      ],
+      [
+        "506",
+        1
+      ],
+      [
+        "501",
+        1
+      ],
+      [
+        "5503",
+        1
+      ],
+      [
+        "5403",
+        1
+      ]
+    ],
+    "always_escalate": [
+      [
+        "5715",
+        1
+      ]
+    ],
+    "review": [
+      [
+        "61102",
+        1
+      ]
+    ]
+  },
+  "top_by_bucket_group": {
+    "auto_close": [
+      [
+        "windows",
+        961
+      ],
+      [
+        " wef",
+        641
+      ],
+      [
+        "sysmon",
+        297
+      ],
+      [
+        "sysmon_eid7_detections",
+        297
+      ],
+      [
+        "windows_application",
+        23
+      ],
+      [
+        "pam",
+        19
+      ],
+      [
+        "syslog",
+        19
+      ],
+      [
+        "authentication_success",
+        10
+      ]
+    ],
+    "unclassified": [
+      [
+        "syslog",
+        10
+      ],
+      [
+        "sudo",
+        9
+      ],
+      [
+        "ossec",
+        5
+      ],
+      [
+        "sca",
+        2
+      ],
+      [
+        "windows",
+        1
+      ],
+      [
+        "windows_application",
+        1
+      ],
+      [
+        "system_error",
+        1
+      ],
+      [
+        "pam",
+        1
+      ],
+      [
+        "authentication_failed",
+        1
+      ]
+    ],
+    "always_escalate": [
+      [
+        "syslog",
+        1
+      ],
+      [
+        "sshd",
+        1
+      ],
+      [
+        "authentication_success",
+        1
+      ]
+    ],
+    "review": [
+      [
+        "windows",
+        1
+      ],
+      [
+        "windows_system",
+        1
+      ],
+      [
+        "system_error",
+        1
+      ]
+    ]
+  },
+  "top_rules": [
+    {
+      "rule_id": "67027",
+      "count": 641,
+      "max_level": 3,
+      "description": "A process was created.",
+      "top_agents": [
+        [
+          "HOWE01",
+          641
+        ]
+      ]
+    },
+    {
+      "rule_id": "92151",
+      "count": 288,
+      "max_level": 12,
+      "description": "Binary loaded PowerShell automation library - Possible unmanaged Powershell execution by suspicious process",
+      "top_agents": [
+        [
+          "HOWE01",
+          288
+        ]
+      ]
+    },
+    {
+      "rule_id": "60642",
+      "count": 23,
+      "max_level": 3,
+      "description": "Software protection service scheduled successfully.",
+      "top_agents": [
+        [
+          "HOWE01",
+          23
+        ]
+      ]
+    },
+    {
+      "rule_id": "5501",
+      "count": 10,
+      "max_level": 3,
+      "description": "PAM: Login session opened.",
+      "top_agents": [
+        [
+          "ho-sr-wm-01",
+          6
+        ],
+        [
+          "HO-LM-01",
+          4
+        ]
+      ]
+    },
+    {
+      "rule_id": "92153",
+      "count": 9,
+      "max_level": 10,
+      "description": "Suspicious process loaded VaultCli.dll module. Possible use to dump stored passwords.",
+      "top_agents": [
+        [
+          "HOWE01",
+          9
+        ]
+      ]
+    },
+    {
+      "rule_id": "5502",
+      "count": 9,
+      "max_level": 3,
+      "description": "PAM: Login session closed.",
+      "top_agents": [
+        [
+          "ho-sr-wm-01",
+          5
+        ],
+        [
+          "HO-LM-01",
+          4
+        ]
+      ]
+    },
+    {
+      "rule_id": "5402",
+      "count": 8,
+      "max_level": 3,
+      "description": "Successful sudo to ROOT executed.",
+      "top_agents": [
+        [
+          "ho-sr-wm-01",
+          5
+        ],
+        [
+          "HO-LM-01",
+          3
+        ]
+      ]
+    },
+    {
+      "rule_id": "533",
+      "count": 2,
+      "max_level": 7,
+      "description": "Listened ports status (netstat) changed (new port opened or closed).",
+      "top_agents": [
+        [
+          "ho-sr-01",
+          2
+        ]
+      ]
+    },
+    {
+      "rule_id": "19004",
+      "count": 2,
+      "max_level": 7,
+      "description": "SCA summary: CIS Distribution Independent Linux Benchmark v2.0.0.: Score less than 50% (46)",
+      "top_agents": [
+        [
+          "HO-LM-01",
+          2
+        ]
+      ]
+    },
+    {
+      "rule_id": "60602",
+      "count": 1,
+      "max_level": 9,
+      "description": "Windows application error event.",
+      "top_agents": [
+        [
+          "HOWE01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "503",
+      "count": 1,
+      "max_level": 3,
+      "description": "Wazuh agent started.",
+      "top_agents": [
+        [
+          "HOWE01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "506",
+      "count": 1,
+      "max_level": 3,
+      "description": "Wazuh agent stopped.",
+      "top_agents": [
+        [
+          "HOWE01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "501",
+      "count": 1,
+      "max_level": 3,
+      "description": "New wazuh agent connected.",
+      "top_agents": [
+        [
+          "HOWE01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "5503",
+      "count": 1,
+      "max_level": 5,
+      "description": "PAM: User login failed.",
+      "top_agents": [
+        [
+          "ho-sr-wm-01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "5715",
+      "count": 1,
+      "max_level": 3,
+      "description": "sshd: authentication success.",
+      "top_agents": [
+        [
+          "ho-sr-wm-01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "61102",
+      "count": 1,
+      "max_level": 5,
+      "description": "Windows System error event",
+      "top_agents": [
+        [
+          "HOWE01",
+          1
+        ]
+      ]
+    },
+    {
+      "rule_id": "5403",
+      "count": 1,
+      "max_level": 4,
+      "description": "First time user executed sudo.",
+      "top_agents": [
+        [
+          "HO-LM-01",
+          1
+        ]
+      ]
+    }
+  ],
+  "recommendations": [],
+  "candidate_suppressions": [],
+  "candidate_always_escalate": []
+}

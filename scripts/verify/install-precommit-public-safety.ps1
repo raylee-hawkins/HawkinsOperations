@@ -16,6 +16,11 @@ if (`$LASTEXITCODE -ne 0) {
   Write-Host "Commit blocked by public safety scan." -ForegroundColor Red
   exit 1
 }
+pwsh -NoProfile -File "./scripts/verify/autosoc-publish-contract-scan.ps1"
+if (`$LASTEXITCODE -ne 0) {
+  Write-Host "Commit blocked by AutoSOC publish contract scan." -ForegroundColor Red
+  exit 1
+}
 "@
 
 Set-Content -LiteralPath $hookPath -Value $hookBody -NoNewline -Encoding UTF8

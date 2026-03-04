@@ -81,3 +81,19 @@ docs/diagnosis/STATIC_SITE_DIAGNOSIS_REPORT.md
 
 # Auto-generated incident packs from pipeline runs (local-only)
 incident-response/incidents/2026/2026-03-*
+
+# AutoSOC runtime firehose (never commit runtime or deep case artifacts)
+**/AutoSOC/Output/**
+**/auto-soc/Output/**
+**/Build/Cases/**
+**/Build/Queue/**
+**/Build/Queue/Processed/**
+
+# Incident trees are blocked by default; curate only explicit proof lane
+**/incident-response/incidents/**
+**/incidents/**
+**/*__rule*__*/pack/**
+**/*__rule*__*/redacted/**
+
+# Curated publish lane (allowed)
+!proof/autosoc/**

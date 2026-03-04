@@ -1,0 +1,73 @@
+name: autosoc-publish-contract
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  contract-scan:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run AutoSOC publish contract gate (changed files)
+        shell: pwsh
+        run: |
+          if ("${{ github.event_name }}" -eq "pull_request") {
+            $base = "${{ github.event.pull_request.base.sha }}"
+          } else {
+            $base = "${{ github.event.before }}"
+          }
+          $head = "${{ github.sha }}"
+
+          $changed = @(git diff --name-only $base $head | Where-Object { $_ -and $_.Trim().Length -gt 0 })
+          if ($changed.Count -eq 0) {
+            Write-Host "No changed files; contract gate passed."
+            exit 0
+          }
+
+          $blocked = @(
+            "/autosoc/output/",
+            "/auto-soc/output/",
+            "/output/cases/",
+            "/build/cases/",
+            "/build/queue/",
+            "/incidents/",
+            "/incident-response/incidents/"
+          )
+
+          $errors = New-Object System.Collections.Generic.List[string]
+          foreach ($path in $changed) {
+            $norm = ($path -replace "\\", "/").ToLowerInvariant()
+            foreach ($pattern in $blocked) {
+              if ($norm.Contains($pattern) -and -not $norm.StartsWith("proof/autosoc/")) {
+                $errors.Add("Blocked path in change set: $path")
+                break
+              }
+            }
+
+            if (Test-Path -LiteralPath $path -PathType Leaf) {
+              $size = (Get-Item -LiteralPath $path).Length
+              if ($size -gt 5MB) {
+                $mb = [math]::Round($size / 1MB, 2)
+                $errors.Add("Oversized file in change set: $path (${mb}MB)")
+              }
+            }
+          }
+
+          if ($errors.Count -gt 0) {
+            Write-Host "AutoSOC publish contract gate failed:" -ForegroundColor Red
+            $errors | ForEach-Object { Write-Host "- $_" -ForegroundColor Red }
+            exit 1
+          }
+
+          Write-Host "AutoSOC publish contract gate passed."
