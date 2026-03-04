@@ -108,3 +108,9 @@ PR_BODY_AUTOSOC_*.md
 
 # Local evidence drafting artifacts
 PROOF_PACK/**/*.docx
+
+# Runs contract tooling safety (do not commit local run exhaust)
+Runs/**/Logs/
+Runs/**/Diagnostics/
+**/*_catalog*.jsonl
+**/output_catalog_global*.jsonl
