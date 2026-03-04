@@ -1,15 +1,15 @@
 {
   "navItems": [
     { "id": "home", "label": "Home", "href": "/" },
-    { "id": "soc_lab", "label": "SOC/Lab", "href": "/soc-lab" },
-    { "id": "detections", "label": "Detections", "href": "/detections" },
-    { "id": "proof_pack", "label": "Proof", "href": "/proof" },
     { "id": "projects", "label": "Projects", "href": "/projects" },
-    { "id": "wildcard", "label": "About", "href": "/wildcard" },
-    { "id": "resume", "label": "Resume", "href": "/resume" }
+    { "id": "autosoc_case", "label": "AutoSOC Case Study", "href": "/case-study-autosoc" },
+    { "id": "detections", "label": "Detections", "href": "/detections" },
+    { "id": "soc_lab", "label": "Lab", "href": "/soc-lab" },
+    { "id": "resume", "label": "Resume", "href": "/resume" },
+    { "id": "proof_pack", "label": "Proof", "href": "/proof" }
   ],
   "cta": {
-    "label": "View Proof Pack",
-    "href": "/proof"
+    "label": "Read AutoSOC",
+    "href": "/case-study-autosoc"
   }
 }

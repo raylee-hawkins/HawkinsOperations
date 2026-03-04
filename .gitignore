@@ -97,3 +97,14 @@ incident-response/incidents/2026/2026-03-*
 
 # Curated publish lane (allowed)
 !proof/autosoc/**
+
+# AutoSOC generated publish mirrors (local-only; canonical lane is proof/autosoc/latest)
+content/metrics/**
+content/incidents.json
+docs/execution/coverage_latest.md
+docs/execution/reconciliation_latest.md
+docs/execution/policy_audit_latest.md
+PR_BODY_AUTOSOC_*.md
+
+# Local evidence drafting artifacts
+PROOF_PACK/**/*.docx
