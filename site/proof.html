@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | Proof Pack (Verify counts, clone repo, run scripts)</title>
-<meta name="description" content="Proof pack: clone HawkinsOperations, run scripts/verify/verify-counts.ps1, and validate detection/playbook inventory counts. Evidence-first portfolio.">
+<title>HawkinsOps | Proof | AutoSOC Evidence and Verification</title>
+<meta name="description" content="AutoSOC proof page: evidence packs, run logs, release/runbook chain, and reproducible verification commands.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/proof">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HawkinsOps | Proof Pack">
-<meta property="og:description" content="Clone, run verification commands, and match counts to repository artifacts.">
+<meta property="og:title" content="HawkinsOps | Proof">
+<meta property="og:description" content="AutoSOC evidence packs, run logs, release references, and verification workflow.">
 <meta property="og:url" content="https://hawkinsops.com/proof">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HawkinsOps | Proof Pack">
-<meta name="twitter:description" content="Clone, run verification commands, and match counts to repository artifacts.">
+<meta name="twitter:title" content="HawkinsOps | Proof">
+<meta name="twitter:description" content="AutoSOC evidence packs, run logs, release references, and verification workflow.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -39,25 +39,25 @@
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
-      <li><a href="/soc-lab">SOC/Lab</a></li>
-      <li><a href="/detections">Detections</a></li>
-      <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">About</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
+      <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
-  <a href="/soc-lab">SOC/Lab</a>
-  <a href="/detections">Detections</a>
-  <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">About</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/detections">Detections</a>
+  <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
+  <a href="/proof">Proof</a>
 </div>
 
 <!-- @include:nav:end -->
@@ -65,33 +65,33 @@
 <main>
 <section style="padding-top:110px">
   <div class="ctr">
-    <div class="slbl">Proof pack</div>
-    <h1 class="stitle">How to validate this portfolio (fast)</h1>
+    <div class="slbl">Proof</div>
+    <h1 class="stitle">AutoSOC receipt drawer</h1>
     <p class="sdesc">
-      The point is that you can verify the claims with commands against a public repo.
-      This is what "auditable" looks like when nobody is hand-waving.
+      This page shows proof that the workflow runs end-to-end: triage decisions, redaction, evidence packs, and escalation artifacts.
     </p>
-    <p class="lupd">All counts on this page are <b>Verified (reproducible today)</b>. "Total library" numbers are not shown.</p>
-    <p class="lupd">Quick scan: 1) open <code>PROOF_PACK/VERIFIED_COUNTS.md</code> 2) run <code>scripts/verify/verify-counts.ps1</code> 3) compare output to published totals.</p>
-
-    <div class="card" style="margin:18px 0 24px 0">
-      <div class="card-ttl">Proof → Honeypot (Wazuh)</div>
-      <div class="card-sub">Live sanitized alert feed, artifact download, and verification steps. <a href="/proof/honeypot">Open page</a></div>
-    </div>
+    <p class="lupd">Quick scan: 1) evidence packs 2) run logs 3) release/runbook chain 4) git history highlights.</p>
 
     <div class="g2">
-      <a class="card" href="/march-2026-release" style="text-decoration:none">
-        <div class="card-ttl">March 2026 release timeline</div>
-        <div class="card-sub">Canonical page for March homepage upgrades, rootcheck tuning, Sysmon integration, and AutoSOC release closure.</div>
-        <div class="card-meta"><span class="tag">Timeline</span><span class="tag">March 2026</span></div>
-      </a>
       <div class="card">
-        <div class="card-ttl">March quick links</div>
+        <div class="card-ttl">AutoSOC evidence packs (examples)</div>
         <div class="card-sub">
           <ul style="padding-left:18px;margin:8px 0">
-            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer">Release notes: v1.4.0</a></li>
-            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC operations runbook</a></li>
-            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md" target="_blank" rel="noopener noreferrer">Rootcheck closeout report</a></li>
+            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/incident-response/incidents/2026" target="_blank" rel="noopener noreferrer">Incident artifact tree (2026)</a></li>
+            <li><code>00_one_pager.md</code> analyst intake summary</li>
+            <li><code>01_full_report.md</code> full investigative narrative</li>
+            <li><code>02_timeline.csv</code> chronology output</li>
+            <li><code>closure_report.md</code> final disposition record</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-ttl">Run logs (redacted)</div>
+        <div class="card-sub">
+          <ul style="padding-left:18px;margin:8px 0">
+            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">Operational runbook log references</a></li>
+            <li><a href="/march-2026-release">March release execution timeline</a></li>
+            <li>Sensitive values are sanitized before publishing artifacts.</li>
           </ul>
         </div>
       </div>
@@ -99,112 +99,28 @@
 
     <div style="height:14px"></div>
 
-    <a class="card" href="/case-study-autosoc" style="text-decoration:none">
-      <div class="card-ttl">AutoSOC case study</div>
-      <div class="card-sub">Architecture map, rootcheck tuning event (1,312 alerts), and redacted output artifact snippets with proof links.</div>
-      <div class="card-meta"><span class="tag">Automation</span><span class="tag">AutoSOC</span><span class="tag">Evidence trail</span></div>
-    </a>
-
-    <div style="height:14px"></div>
-
-    <div class="card">
-      <div class="card-ttl">Verification output snapshot (redacted)</div>
-      <div class="card-sub">Example terminal capture from a verification lane run. Sensitive host identifiers are redacted in published artifacts.</div>
-      <div style="margin-top:12px;border:1px solid var(--bdr);border-radius:10px;overflow:hidden">
-        <img src="/assets/pp_soc_integration/04_nodejs_patch_terminal.png" alt="Redacted verification terminal output snapshot" style="display:block;width:100%;height:auto">
-      </div>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <div class="card">
-      <div class="card-ttl">Triage quality artifact panel</div>
-      <div class="card-sub">
-        Daily triage quality artifacts are generated from live pipeline output and compared against prior windows:
-        <code>autosoc-triage-quality-*.md</code>, <code>autosoc-triage-quality-*.json</code>,
-        <code>autosoc-triage-quality-history.csv</code>, and <code>autosoc-triage-quality-trend.png</code>.
-        Use the command below to regenerate from current telemetry.
-      </div>
-      <pre class="term-b" style="margin-top:10px">python C:\RH\OPS\50_System\Scripts\Automation\auto-soc\triage-quality.py --window-hours 24 --compare-previous --csv
-pwsh -NoProfile -File C:\RH\OPS\50_System\Scripts\Automation\auto-soc\render-triage-quality-chart.ps1</pre>
-    </div>
-
     <div class="g2">
-      <div class="card">
-        <div class="card-ttl">Repo</div>
-        <div class="card-sub"><a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">raylee-hawkins/HawkinsOperations</a></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">Counts (source of truth)</div>
-        <div class="card-sub"><code>PROOF_PACK/VERIFIED_COUNTS.md</code> (generated by CI on every push)</div>
-      </div>
+      <a class="card" href="/case-study-autosoc" style="text-decoration:none">
+        <div class="card-ttl">AutoSOC case study page</div>
+        <div class="card-sub">Problem, architecture, decision table, example incident, and proof links in one place.</div>
+        <div class="card-meta"><span class="tag">Main narrative</span></div>
+      </a>
+      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
+        <div class="card-ttl">Git history highlights</div>
+        <div class="card-sub">Public commit trail that tracks pipeline additions, tuning changes, and release documentation.</div>
+        <div class="card-meta"><span class="tag">Public history</span></div>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="section-tight">
   <div class="ctr">
-    <div class="slbl">How Verification Works</div>
-    <h2 class="stitle">Three scripts, one truth</h2>
+    <div class="slbl">Verification</div>
+    <h2 class="stitle">How to validate claims quickly</h2>
     <p class="sdesc">
-      Every number on this site traces back to a single source of truth file generated by scripts that run against the actual repo artifacts.
-      CI validates counts on every push and fails if anything drifts.
+      Fast reviewer workflow: open release/runbook links, inspect artifact trees, then run one verification command from the public repo.
     </p>
-
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">verify-counts.ps1</div>
-        <div class="card-sub">Counts detection rules and IR playbooks by walking the repo directories. Output matches <code>PROOF_PACK/VERIFIED_COUNTS.md</code> exactly. Run it locally — fast, no extra setup needed.</div>
-        <div class="card-meta"><span class="tag">scripts/verify/verify-counts.ps1</span><span class="tag">PowerShell</span></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">drift_scan.py</div>
-        <div class="card-sub">Compares hardcoded claim numbers in HTML against the verified counts source of truth. Fails CI if any public claim drifts. Skips lines with <code>data-verified</code> attributes.</div>
-        <div class="card-meta"><span class="tag">scripts/drift_scan.py</span><span class="tag">Python</span><span class="tag">CI gate</span></div>
-      </div>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <div class="card">
-      <div class="card-ttl">What those numbers should be</div>
-      <div class="card-sub" style="margin-top:6px">
-        <ul style="padding-left:18px;margin:8px 0">
-          <li style="margin:6px 0"><span data-verified="sigma">103</span> Sigma rules</li>
-          <li style="margin:6px 0"><span data-verified="wazuh">28</span> Wazuh rule blocks (<span data-verified="wazuh_xml_files">24</span> XML files)</li>
-          <li style="margin:6px 0"><span data-verified="splunk">8</span> Splunk SPL queries</li>
-          <li style="margin:6px 0"><span data-verified="ir">10</span> IR playbooks</li>
-          <li style="margin:6px 0"><span data-verified="detections">139</span> total verified detections</li>
-        </ul>
-        <p style="margin:0">These totals are documented in the repo's release notes and in <code>PROOF_PACK/VERIFIED_COUNTS.md</code>.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr">
-    <div class="slbl">Why Cloning Is Proof</div>
-    <h2 class="stitle">The repo doesn't lie</h2>
-    <p class="sdesc">
-      Counting files in a public repo is not "trust me" — it's reproducible by anyone with git.
-      Every count on this site can be independently validated in under 90 seconds.
-    </p>
-
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">Public + versioned</div>
-        <div class="card-sub">The repo is public. The commit history shows when each rule was added. The CI log shows every count validation run. Nothing is hidden or adjustable after the fact.</div>
-        <div class="card-meta"><span class="tag">Public repo</span><span class="tag">Git history</span><span class="tag">CI logs</span></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">Reproducible locally</div>
-        <div class="card-sub">Clone the repo, run one PowerShell script, get the same numbers published on this site. No special access required. No environment setup beyond PowerShell.</div>
-        <div class="card-meta"><span class="tag">One command</span><span class="tag">Under 90 seconds</span><span class="tag">No special setup</span></div>
-      </div>
-    </div>
-
-    <div style="height:14px"></div>
 
     <div class="term">
       <div class="term-h">
@@ -219,140 +135,16 @@ cd HawkinsOperations
 pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
     </div>
 
-    <div class="term">
-      <div class="term-h">
-        <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-        <div class="term-t">Build Wazuh bundle (optional)</div>
-        <div class="term-actions"><button class="tbtn" type="button" data-copy="cWazuhBundle">Copy</button></div>
-      </div>
-      <pre id="cWazuhBundle" class="term-b"># Produces local_rules.xml for deployment testing
-pwsh -File .\scripts\build-wazuh-bundle.ps1</pre>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr">
-    <div class="slbl">Repo Map</div>
-    <h2 class="stitle">Where everything lives</h2>
-    <p class="sdesc">
-      The folder structure is intentional. Detection rules are organized by platform and tactic. IR playbooks follow a standard template. The proof pack holds all verification artifacts.
-    </p>
-
-    <details open>
-      <summary>Folder tree <span>(key paths)</span></summary>
+    <details style="margin-top:14px">
+      <summary>Key verification references</summary>
       <div class="details-body">
-        <pre style="font-family:var(--mono);font-size:.82rem;line-height:1.7;overflow-x:auto">HawkinsOperations/
-├── detection-rules/
-│   ├── sigma/              ← <span data-verified="sigma">103</span> YAML rules (10 tactic subfolders)
-│   ├── wazuh/
-│   │   └── rules/          ← <span data-verified="wazuh_xml_files">24</span> XML files, <span data-verified="wazuh">28</span> rule blocks
-│   └── splunk/             ← <span data-verified="splunk">8</span> SPL files
-│
-├── incident-response/
-│   └── playbooks/          ← <span data-verified="ir">10</span> IR playbooks (7-section template)
-│
-├── PROOF_PACK/
-│   ├── VERIFIED_COUNTS.md  ← sole public numeric source of truth
-│   ├── PROOF_INDEX.md      ← curated reviewer lane
-│   └── EVIDENCE_CHECKLIST.md
-│
-├── scripts/
-│   ├── verify/
-│   │   ├── verify-counts.ps1         ← reproduces all counts
-│   │   └── generate-verified-counts.ps1
-│   └── drift_scan.py                 ← CI gate
-│
-└── site/                   ← deployed to Cloudflare Pages</pre>
-      </div>
-    </details>
-
-    <details>
-      <summary>Key files for reviewers <span>(fastest path)</span></summary>
-      <div class="details-body">
-        <ul>
-          <li><code>PROOF_PACK/VERIFIED_COUNTS.md</code> — start here. All counts with source references.</li>
-          <li><code>PROOF_PACK/PROOF_INDEX.md</code> — curated reviewer path with direct links to evidence.</li>
-          <li><code>scripts/verify/verify-counts.ps1</code> — run this to reproduce counts locally.</li>
-          <li><code>detection-rules/INDEX.md</code> — detection coverage catalog.</li>
-          <li><code>incident-response/INDEX.md</code> — IR playbook catalog.</li>
+        <ul style="padding-left:18px;margin:8px 0">
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer">Release notes v1.4.0</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC operations runbook</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/verify/verify-counts.ps1" target="_blank" rel="noopener noreferrer">verify-counts.ps1</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/drift_scan.py" target="_blank" rel="noopener noreferrer">drift_scan.py</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer">Main branch commit history</a></li>
         </ul>
-      </div>
-    </details>
-  </div>
-</section>
-
-<section>
-  <div class="ctr">
-    <div class="slbl">Published Outputs</div>
-    <h2 class="stitle">What CI generates and publishes</h2>
-    <p class="sdesc">
-      CI doesn't just check counts — it generates the artifacts that back up every public claim.
-      These outputs are committed to the repo on each validated run.
-    </p>
-
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">PROOF_PACK/VERIFIED_COUNTS.md</div>
-        <div class="card-sub">Markdown source of truth. Lists exact counts with source file references and line numbers. Auto-generated by <code>generate-verified-counts.ps1</code>. This is what everything else traces back to.</div>
-        <div class="card-meta"><span class="tag">Auto-generated</span><span class="tag">Source of truth</span></div>
-      </div>
-      <div class="card">
-        <div class="card-ttl">site/assets/verified-counts.json</div>
-        <div class="card-sub">JSON artifact consumed by the site at runtime to hydrate count displays. Generated from <code>VERIFIED_COUNTS.md</code>. Allows real-time count display without JS being required for SEO crawlers.</div>
-        <div class="card-meta"><span class="tag">JSON</span><span class="tag">Site data</span><span class="tag">Runtime hydration</span></div>
-      </div>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <div class="card">
-      <div class="card-ttl">Wazuh bundle — dist/wazuh/local_rules.xml</div>
-      <div class="card-sub">All Wazuh rule XML files concatenated into a single deployable bundle. Built by <code>build-wazuh-bundle.ps1</code>. CI asserts the file exists after the build step. Deploy-ready for a Wazuh Manager instance.</div>
-      <div class="card-meta"><span class="tag">XML</span><span class="tag">CI-validated</span><span class="tag">Deploy-ready</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr">
-    <div class="slbl">Notes for Reviewers</div>
-    <h2 class="stitle">Fastest path by reviewer type</h2>
-
-    <div class="g2">
-      <div class="card" data-lane="fastest">
-        <div class="card-ttl">Technical reviewer (90 seconds)</div>
-        <div class="card-sub">
-          <ol style="padding-left:18px;margin:8px 0">
-            <li style="margin:6px 0">Clone the repo.</li>
-            <li style="margin:6px 0">Run <code>pwsh -File .\scripts\verify\verify-counts.ps1</code>.</li>
-            <li style="margin:6px 0">Match output to <code>PROOF_PACK/VERIFIED_COUNTS.md</code>.</li>
-            <li style="margin:6px 0">Browse <code>detection-rules/</code> and <code>incident-response/playbooks/</code>.</li>
-          </ol>
-        </div>
-      </div>
-      <div class="card" data-lane="nontech">
-        <div class="card-ttl">Non-technical reviewer</div>
-        <div class="card-sub">
-          <ol style="padding-left:18px;margin:8px 0">
-            <li style="margin:6px 0">Open <a href="/case-study-soc-integration">PP_SOC_Integration case study</a> — the flagship write-up.</li>
-            <li style="margin:6px 0">Open <a href="/resume">resume</a> for role alignment summary.</li>
-            <li style="margin:6px 0">Open <a href="/projects">projects</a> for outcomes catalog.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <details>
-      <summary>Why crawlers used to show "0" <span>(and why they don't now)</span></summary>
-      <div class="details-body">
-        <p>
-          The old build relied on client-side JS counters. If JS didn't run (bots, locked-down browsers),
-          the page rendered zeros. This site now renders numbers as plain HTML and only uses JS for
-          optional UX (modals, copy buttons, live count hydration).
-        </p>
       </div>
     </details>
   </div>

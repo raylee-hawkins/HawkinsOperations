@@ -46,25 +46,25 @@
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
-      <li><a href="/soc-lab">SOC/Lab</a></li>
-      <li><a href="/detections">Detections</a></li>
-      <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">About</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
+      <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
-  <a href="/soc-lab">SOC/Lab</a>
-  <a href="/detections">Detections</a>
-  <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">About</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/detections">Detections</a>
+  <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
+  <a href="/proof">Proof</a>
 </div>
 
 <!-- @include:nav:end -->
@@ -74,37 +74,26 @@
   <div class="hero-glow"></div>
   <div class="ctr hero-split-ctr">
     <div class="hero-panel">
-      <div class="htag">EVIDENCE-FIRST SECURITY PORTFOLIO</div>
-      <h1 class="htitle">Automation-first SOC portfolio, <span class="hl">repo-backed</span> and verifiable.</h1>
+      <div class="htag">ENTRY-LEVEL SOC | AUTOMATION + DETECTION</div>
+      <h1 class="htitle">I built an <span class="hl">AutoSOC pipeline</span> that turns Wazuh alerts into consistent triage decisions and redacted escalation artifacts.</h1>
       <p class="hsub">
-        I build deployable detections and response workflows with repeatable validation and measurable outcomes,
-        because that's where modern security operations is heading.
+        I automated repeatable first-pass SOC triage for Wazuh alerts: classify alerts, redact sensitive data,
+        package investigation evidence, and escalate suspicious cases with reviewable GitHub artifacts.
       </p>
-      <p class="review-note">Review path: open Proof Pack, run verify, match published outputs.</p>
       <div class="hctas">
-        <a class="btn btn-p" href="/proof">View Proof Pack</a>
-        <a class="btn btn-g" href="/resume">Open Resume</a>
+        <a class="btn btn-p" href="/case-study-autosoc">Read AutoSOC Case Study</a>
+        <a class="btn btn-g" href="/proof">View Proof</a>
       </div>
-      <div class="hero-icons" aria-label="Proof highlights">
-        <span class="ico-chip">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3Zm-1 13-3-3 1.4-1.4 1.6 1.6 4-4L16.4 9 11 15Z"/></svg>
-          Verified artifacts
-        </span>
-        <span class="ico-chip">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8.7 16.7-1.4 1.4L2.2 13l5.1-5.1 1.4 1.4L5 13l3.7 3.7Zm6.6 0L19 13l-3.7-3.7 1.4-1.4 5.1 5.1-5.1 5.1-1.4-1.4Z"/></svg>
-          Reproducible commands
-        </span>
-      </div>
-      <div class="sbadge"><span class="sdot"></span> Huntsville-adjacent • North Alabama</div>
-      <div class="lupd">Counts and links align to <code>raylee-hawkins/HawkinsOperations</code> (verified, reproducible today).</div>
+      <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
+      <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
     </div>
     <div class="hero-visual">
       <div class="hero-visual-frame">
-        <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC closed-loop system map showing sources, pipeline gates, and repo-backed outputs">
+        <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map from ingestion through triage and escalation outputs">
       </div>
       <div class="hero-visual-foot">
-        <span class="redaction-pill">Hardware identifiers intentionally redacted</span>
-        <a class="lane-cta" href="/soc-lab" style="text-decoration:none">View SOC/Lab <span>-></span></a>
+        <span class="redaction-pill">Identifiers redacted in public artifacts</span>
+        <a class="lane-cta" href="/case-study-autosoc" style="text-decoration:none">Open architecture <span>-></span></a>
       </div>
     </div>
   </div>
@@ -112,194 +101,31 @@
 
 <section class="section-tight">
   <div class="ctr home-shell">
-    <div class="slbl">Review Packs</div>
-    <h2 class="stitle">Choose your verification lane</h2>
-    <p class="sdesc">Pick the reviewer path you need. Every lane ends with reproducible artifacts.</p>
-    <div class="g2 lane-grid">
-      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="fastest">
-        <span class="lane-tag">FASTEST</span>
-        <div class="card-ttl">Proof Pack</div>
-        <div class="card-sub">Fastest path for technical reviewers: scripts, published outputs, and reproducible counts.</div>
+    <div class="slbl">Review First</div>
+    <h2 class="stitle">Fastest path for SOC hiring review</h2>
+    <div class="g3">
+      <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
+        <span class="lane-tag">START HERE</span>
+        <div class="card-ttl">AutoSOC case study</div>
+        <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
         <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="nontech">
-        <span class="lane-tag">NON-TECH</span>
-        <div class="card-ttl">Recruiter/HR Summary</div>
-        <div class="card-sub">Role alignment, resume formats, and clear evidence links without deep repo digging.</div>
+      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="systems">
+        <span class="lane-tag">RECEIPTS</span>
+        <div class="card-ttl">Proof</div>
+        <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
         <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="/case-study-soc-integration" style="text-decoration:none" data-lane="systems">
-        <span class="lane-tag">SYSTEMS</span>
-        <div class="card-ttl">Technical Summary</div>
-        <div class="card-sub">SOC integration write-up with telemetry, triage flow, and closed-loop remediation results.</div>
+      <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="source">
+        <span class="lane-tag">ROLE FIT</span>
+        <div class="card-ttl">Resume</div>
+        <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
         <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
       </a>
-      <a class="card lane-card" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" style="text-decoration:none" data-lane="source">
-        <span class="lane-tag">SOURCE</span>
-        <div class="card-ttl">Repository</div>
-        <div class="card-sub">Raw structure, commit history, and implementation detail for full-source review.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr home-shell">
-    <div class="slbl">Who I Am</div>
-    <h2 class="stitle">Built from scratch. Everything verifiable.</h2>
-    <div class="about-split">
-      <div>
-        <p class="about-lead">Self-taught North Alabama security engineer. Every count on this site is reproducible with a single command against a public repo—because claims without proof aren't claims at all.</p>
-        <p class="about-body">I chose the automation side of security because that's where modern SOC operations is heading. The goal isn't just detection—it's detection you can reproduce, explain, and hand off.</p>
-        <div class="sbadge" style="margin-top:14px"><span class="sdot"></span>Open to SOC Analyst / Detection Engineer roles — Huntsville, AL</div>
-      </div>
-      <div>
-        <div class="tl">
-          <div class="tli on">
-            <div class="tld"></div>
-            <div class="tl-dt">2024 – Present</div>
-            <div class="tl-tt">HawkinsOps: self-directed SOC portfolio</div>
-            <div class="tl-ds">Wazuh SIEM, Proxmox lab, <span data-verified="detections">139</span> verified detections across Sigma / Wazuh / Splunk, <span data-verified="ir">10</span> IR playbooks.</div>
-          </div>
-          <div class="tli">
-            <div class="tld"></div>
-            <div class="tl-dt">Ongoing</div>
-            <div class="tl-tt">CVE triage and patch verification</div>
-            <div class="tl-ds">Documented detect → triage → patch → verify workflow. CVE-2025-55130 cross-referenced with the Node.js security advisory.</div>
-          </div>
-          <div class="tli">
-            <div class="tld"></div>
-            <div class="tl-dt">Target</div>
-            <div class="tl-tt">Huntsville / MSFC contractor ecosystem</div>
-            <div class="tl-ds">Defense-adjacent environment. Documentation-first approach aligns with clearance-track role requirements.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section-tight">
-  <div class="ctr home-shell">
-    <div class="slbl">What This Is</div>
-    <h2 class="stitle">A workflow-shaped SOC portfolio</h2>
-    <p class="sdesc">HawkinsOps is a security operations portfolio built like a real workflow: collect telemetry, detect, triage, respond, investigate, and improve.</p>
-
-    <a class="card" href="/soc-lab" style="text-decoration:none;display:block">
-      <div class="card-click">Open SOC/Lab -></div>
-      <div class="card-ttl">SOC concept mapped to my actual machines and workflow</div>
-      <div class="card-sub">Windows 11 endpoint + Proxmox systems wired into a repeatable detection-to-response loop with evidence capture at each stage.</div>
-      <div class="card-meta">
-        <span class="tag">Collect</span><span class="tag">Detect</span><span class="tag">Triage</span><span class="tag">Respond</span><span class="tag">Investigate</span><span class="tag">Improve</span>
-      </div>
-      <ul style="padding-left:18px;margin:14px 0 4px;font-size:.87rem;color:var(--dim);line-height:1.7">
-        <li>Wazuh agent on a primary Windows 11 endpoint wired to Proxmox-hosted Wazuh Manager and Splunk</li>
-        <li><span data-verified="detections">139</span> verified detections active across Sigma, Wazuh, and Splunk</li>
-        <li>Detection scenarios run end-to-end: trigger → alert → evidence capture → verify counts</li>
-      </ul>
-    </a>
-
-    <div class="mstrip" style="margin-top:18px">
-      <div class="met"><div class="met-icon mi-det">DET</div><div class="met-v" data-verified="detections">139</div><div class="met-l">Verified detections</div><a class="met-link" href="/detections">→ browse</a></div>
-      <div class="met"><div class="met-icon mi-sig">Σ</div><div class="met-v" data-verified="sigma">103</div><div class="met-l">Sigma rules</div><a class="met-link" href="/detections">→ browse</a></div>
-      <div class="met"><div class="met-icon mi-waz">WAZ</div><div class="met-v" data-verified="wazuh">28</div><div class="met-l">Wazuh rule blocks</div><a class="met-link" href="/detections">→ browse</a></div>
-      <div class="met"><div class="met-icon mi-spl">SPL</div><div class="met-v" data-verified="splunk">8</div><div class="met-l">Splunk queries</div><a class="met-link" href="/detections">→ browse</a></div>
-      <div class="met"><div class="met-icon mi-ir">IR</div><div class="met-v" data-verified="ir">10</div><div class="met-l">IR playbooks</div><a class="met-link" href="/case-study-ir-playbooks">→ view</a></div>
     </div>
     <div class="lupd verify-date">Last verified: <span data-verified-date>03-03-2026</span></div>
-    <div class="verify-panel" style="margin-top:8px">
-      <div class="verify-panel-h">
-        <span>Verify commands</span>
-        <button class="copy-btn" type="button" data-copy="homeVerifyCmdLong" aria-label="Copy verification commands">Copy</button>
-      </div>
-      <pre id="homeVerifyCmdLong" class="verify-code">pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1
-pwsh -NoProfile -File .\scripts\verify\generate-verified-counts.ps1 -OutFile .\PROOF_PACK\VERIFIED_COUNTS.md</pre>
-    </div>
   </div>
 </section>
-
-<section class="section-tight">
-  <div class="ctr home-shell">
-    <div class="slbl">March 2026</div>
-    <h2 class="stitle">Release window and proof trail</h2>
-    <p class="sdesc">March upgrades are documented as a single evidence chain: release notes, operations runbook, rootcheck closeout, and the live system map.</p>
-    <div class="g2 lane-grid">
-      <a class="card lane-card" href="/march-2026-release" style="text-decoration:none" data-lane="fastest">
-        <span class="lane-tag">TIMELINE</span>
-        <div class="card-ttl">March 2026 accomplishments</div>
-        <div class="card-sub">One-page timeline with shipped changes, proof links, and reproducible validation commands.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-      <a class="card lane-card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none" data-lane="systems">
-        <span class="lane-tag">RELEASE</span>
-        <div class="card-ttl">AutoSOC v1.4.0 release notes</div>
-        <div class="card-sub">End-to-end pipeline validation, hardening changes, rootcheck tuning closeout, and reviewer paths.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section-tight">
-  <div class="ctr home-shell">
-    <div class="slbl">Ship Log</div>
-    <h2 class="stitle">What shipped this week</h2>
-    <div class="g3">
-      <a class="card" href="/march-2026-release" style="text-decoration:none">
-        <div class="card-ttl">AutoSOC end-to-end loop</div>
-        <div class="card-sub">Scheduler-backed run pipeline validated: ingest -> triage -> redact -> pack -> repo-staged output.</div>
-        <div class="card-meta"><span class="tag">v1.4.0</span><span class="tag">Operational</span></div>
-      </a>
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/ROOTCHECK_CLOSEOUT_REDACTED_2026-03-02.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-ttl">Rootcheck tuning closeout</div>
-        <div class="card-sub">False-positive escalation path narrowed and documented with sanitized closure artifacts.</div>
-        <div class="card-meta"><span class="tag">Rule tuning</span><span class="tag">Closeout proof</span></div>
-      </a>
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-ttl">Sysmon + triage quality controls</div>
-        <div class="card-sub">Sysmon telemetry integration, noisy-rule suppression, and daily triage quality artifact generation.</div>
-        <div class="card-meta"><span class="tag">Sysmon</span><span class="tag">Quality gate</span></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr home-shell">
-    <div class="slbl">Documented Work</div>
-    <h2 class="stitle">Report-first, repo-last</h2>
-    <p class="sdesc">Short case studies, lab briefs, and detection reports. Each section explains what the rule/workflow does, the purpose it serves, and ends with artifacts plus a verification path.</p>
-    <div class="g3">
-      <a class="card" href="/projects" style="text-decoration:none"><div class="card-ttl">Case studies</div><div class="card-sub">Triage-to-resolution write-ups with evidence, timelines, and what changed afterward.</div><div class="card-meta"><span class="tag">Read case studies</span></div></a>
-      <a class="card" href="/soc-lab" style="text-decoration:none"><div class="card-ttl">SOC lab brief</div><div class="card-sub">How my lab mirrors collect -> detect -> triage -> respond -> improve, with diagrams and workflows.</div><div class="card-meta"><span class="tag">View lab brief</span></div></a>
-      <a class="card" href="/detections" style="text-decoration:none"><div class="card-ttl">Detections report</div><div class="card-sub">Deployable detections across Sigma, Wazuh, and Splunk, mapped and tested for reuse.</div><div class="card-meta"><span class="tag">Open detections</span></div></a>
-      <a class="card" href="/case-study-ir-playbooks" style="text-decoration:none"><div class="card-ttl">IR playbooks</div><div class="card-sub">Playbooks with steps, decision points, expected outputs, and each playbook's purpose.</div><div class="card-meta"><span class="tag">View playbooks</span></div></a>
-      <a class="card" href="/proof" style="text-decoration:none"><div class="card-ttl">Proof pack</div><div class="card-sub">Verification kit: scripts + outputs so reviewers can reproduce counts quickly.</div><div class="card-meta"><span class="tag">Open proof pack</span></div></a>
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" style="text-decoration:none"><div class="card-ttl">Source repository</div><div class="card-sub">Raw structure and history for full-context technical review after reading reports.</div><div class="card-meta"><span class="tag">Browse repository</span></div></a>
-    </div>
-    <div style="margin-top:14px">
-      <button id="workExpandBtn" class="btn btn-g work-expand-btn" type="button" aria-expanded="false" aria-controls="workMore">
-        <span>See all work</span>
-        <span class="work-chevron" aria-hidden="true">▾</span>
-      </button>
-    </div>
-    <div id="workMore" class="work-more" hidden>
-      <div class="g2" style="margin-top:12px">
-        <a class="card" href="/case-study-cve-patch" style="text-decoration:none"><div class="card-ttl">CVE patch report</div><div class="card-sub">Detect -> triage -> patch -> verify timeline for CVE-2025-55130 with evidence snapshots.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-        <a class="card" href="/case-study-ir-howe01" style="text-decoration:none"><div class="card-ttl">IR alert brief</div><div class="card-sub">Level 12 FIM alert from trigger through BENIGN verdict with investigation pivots and evidence capture.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-        <a class="card" href="/case-study-autosoc" style="text-decoration:none"><div class="card-ttl">AutoSOC pipeline brief</div><div class="card-sub">Closed-loop alert pipeline with rootcheck tuning and incident pack outputs linked to proof artifacts.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-        <a class="card" href="/case-study-sigma-library" style="text-decoration:none"><div class="card-ttl">Sigma library brief</div><div class="card-sub">Rule structure, tactic mapping, and false-positive intent across the Sigma lane.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-        <a class="card" href="/case-study-detection-harness" style="text-decoration:none"><div class="card-ttl">Detection harness report</div><div class="card-sub">How expected detections are validated with repeatable pass/fail outputs.</div><div class="card-meta"><span class="tag">Read</span></div></a>
-      </div>
-      <div style="margin-top:12px">
-        <a class="btn btn-g" href="/projects">View all case studies</a>
-      </div>
-    </div>
-    <div class="hproof" style="margin-top:16px"><b>CVE credibility:</b> <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-55130" target="_blank" rel="noopener noreferrer">CVE-2025-55130</a> with documented detect -> triage -> patch -> verify, cross-referenced with <a href="https://nodejs.org/en/blog/vulnerability" target="_blank" rel="noopener noreferrer">Node.js security advisories</a>.</div>
-  </div>
-</section>
-
 </main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
