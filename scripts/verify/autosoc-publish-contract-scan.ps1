@@ -46,9 +46,7 @@ foreach ($rel in $staged) {
 
   foreach ($p in $blockedPathPatterns) {
     if ($norm.Contains($p)) {
-      if (-not $norm.StartsWith("proof/autosoc/")) {
-        $findings.Add("Blocked path pattern '$p' matched staged file '$rel'.")
-      }
+      $findings.Add("Blocked path pattern '$p' matched staged file '$rel'.")
       break
     }
   }

@@ -48,8 +48,10 @@ jobs:
           $errors = New-Object System.Collections.Generic.List[string]
           foreach ($path in $changed) {
             $norm = ($path -replace "\\", "/").ToLowerInvariant()
+
+            # Hard-block runtime/incident patterns regardless of lane.
             foreach ($pattern in $blocked) {
-              if ($norm.Contains($pattern) -and -not $norm.StartsWith("proof/autosoc/")) {
+              if ($norm.Contains($pattern)) {
                 $errors.Add("Blocked path in change set: $path")
                 break
               }
