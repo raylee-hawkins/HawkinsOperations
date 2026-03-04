@@ -15,14 +15,23 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Get repo root
 $RepoRoot = Split-Path -Parent $PSScriptRoot
-$SrcDir = Join-Path $RepoRoot "detection-rules\wazuh\rules"
+$srcCandidates = @(
+    (Join-Path $RepoRoot "content\detection-rules\wazuh\rules"),
+    (Join-Path $RepoRoot "detection-rules\wazuh\rules")
+)
+$SrcDir = $null
+foreach ($candidate in $srcCandidates) {
+    if (Test-Path -LiteralPath $candidate -PathType Container) {
+        $SrcDir = $candidate
+        break
+    }
+}
 $OutFile = Join-Path $RepoRoot $OutputFile
 
 # Validate source directory
-if (-not (Test-Path $SrcDir)) {
-    Write-Error "ERROR: Source directory not found: $SrcDir"
+if (-not $SrcDir) {
+    Write-Error ("ERROR: Source directory not found. Checked: {0}" -f ($srcCandidates -join "; "))
     exit 1
 }
 

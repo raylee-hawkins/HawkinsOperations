@@ -37,8 +37,9 @@ $blockedPathPatterns = @(
   '/output/cases/',
   '/build/cases/',
   '/build/queue/',
-  '/incidents/',
-  '/content/incident-response/incidents/'
+  '/projects/autosoc/build/cases/',
+  '/projects/autosoc/build/queue/',
+  '/projects/autosoc/output/cases/'
 )
 
 foreach ($rel in $staged) {

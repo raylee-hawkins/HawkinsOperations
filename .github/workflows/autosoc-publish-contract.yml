@@ -41,8 +41,9 @@ jobs:
             "/output/cases/",
             "/build/cases/",
             "/build/queue/",
-            "/incidents/",
-            "/content/incident-response/incidents/"
+            "/projects/autosoc/build/cases/",
+            "/projects/autosoc/build/queue/",
+            "/projects/autosoc/output/cases/"
           )
 
           $errors = New-Object System.Collections.Generic.List[string]
