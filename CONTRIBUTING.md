@@ -150,7 +150,7 @@ Then create a pull request on GitHub.
 
 ### Sigma Rules
 
-**Location:** `detection-rules/sigma/<tactic>/`
+**Location:** `content/detection-rules/sigma/<tactic>/`
 
 **Format:**
 ```yaml
@@ -186,7 +186,7 @@ level: high  # or critical, medium, low
 
 ### Splunk Rules
 
-**Location:** `detection-rules/splunk/`
+**Location:** `content/detection-rules/splunk/`
 
 **Format:**
 ```spl
@@ -209,7 +209,7 @@ index=windows EventCode=1
 
 ### Wazuh Rules
 
-**Location:** `detection-rules/wazuh/rules/`
+**Location:** `content/detection-rules/wazuh/rules/`
 
 **Format:**
 ```xml
@@ -243,9 +243,9 @@ index=windows EventCode=1
 
 ## Incident Response Playbook Guidelines
 
-**Location:** `incident-response/playbooks/`
+**Location:** `content/incident-response/playbooks/`
 
-**Format:** Follow the template in `incident-response/templates/IR-Template.md`
+**Format:** Follow the template in `content/incident-response/templates/IR-Template.md`
 
 **Required Sections:**
 1. **DETECTION** - Alert trigger and indicators
@@ -385,3 +385,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 **Thank you for contributing to HawkinsOps SOC Content Library!** 🛡️
 
 Your contributions help improve security operations practices and demonstrate professional SOC capabilities.
+

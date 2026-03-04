@@ -5,10 +5,10 @@ $repoRoot = Resolve-Path -LiteralPath "."
 
 $scanRoots = @(
   "site",
-  "projects/lab/PP_SOC_Integration",
+  "content/projects/lab/PP_SOC_Integration",
   "README.md",
-  "projects/README.md",
-  "projects/lab/README.md"
+  "content/projects/README.md",
+  "content/projects/lab/README.md"
 )
 
 $skipExtensions = @(
@@ -84,3 +84,5 @@ if ($findings.Count -gt 0) {
 
 Write-Host "Public safety scan passed. No blocked patterns found." -ForegroundColor Green
 exit 0
+
+

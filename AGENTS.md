@@ -84,13 +84,13 @@ Run verify-counts.ps1 any time a detection rule or playbook is added or removed.
 
 ## WHAT LIVES IN THIS REPO
 
-detection-rules/     sigma, splunk, wazuh rules + INDEX.md
-incident-response/   playbooks, checklists, templates
-threat-hunting/      windows and linux hunt queries
-wazuh/               pack, sigma, playbooks, suppression
-lab/                 proxmox, wazuh configs, runbooks
+content/detection-rules/     sigma, splunk, wazuh rules + INDEX.md
+content/incident-response/   playbooks, checklists, templates
+content/threat-hunting/      windows and linux hunt queries
+content/wazuh/       pack, sigma, playbooks, suppression
+content/lab/                 proxmox, wazuh configs, runbooks
 evidence/            sanitized curated evidence per machine
-projects/            project deliverables and write-ups
+content/projects/            project deliverables and write-ups
 content/             projects.json, detections.json (site data)
 site/                hawkinsops.com static HTML
 scripts/             verify-counts, drift_scan, generate-site-data
@@ -103,3 +103,6 @@ Evidence-Raw/ content of any kind
 Real IPs, hostnames, credentials, or internal identifiers
 Machine config files
 .obsidian/ folder
+
+
+

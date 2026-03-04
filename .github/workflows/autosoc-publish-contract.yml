@@ -42,7 +42,7 @@ jobs:
             "/build/cases/",
             "/build/queue/",
             "/incidents/",
-            "/incident-response/incidents/"
+            "/content/incident-response/incidents/"
           )
 
           $errors = New-Object System.Collections.Generic.List[string]
@@ -73,3 +73,4 @@ jobs:
           }
 
           Write-Host "AutoSOC publish contract gate passed."
+

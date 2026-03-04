@@ -11,8 +11,8 @@
 
 Count rules:
 
-- Sigma includes both `*.yml` and `*.yaml` under `detection-rules/sigma/`.
-- IR playbooks include only `IR-*.md` under `incident-response/playbooks/`.
+- Sigma includes both `*.yml` and `*.yaml` under `content/detection-rules/sigma/`.
+- IR playbooks include only `IR-*.md` under `content/incident-response/playbooks/`.
 
 Run from repository root:
 
@@ -26,3 +26,4 @@ pwsh -NoProfile -File ".\scripts\verify\repo-state-grade.ps1" -WarnBelow 80
 pwsh -NoProfile -File ".\scripts\verify\install-precommit-public-safety.ps1"
 node .\scripts\generate-media-manifest.js
 ```
+

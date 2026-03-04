@@ -8,5 +8,6 @@
 
 ## Notes
 
-- Non-shared security automation mapping content lives under `detection-rules/mappings/`.
+- Non-shared security automation mapping content lives under `content/detection-rules/mappings/`.
 - Detection and portfolio verification automation lives under `scripts/`.
+

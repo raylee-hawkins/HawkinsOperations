@@ -1,5 +1,5 @@
 param(
-  [string]$PackRoot = "wazuh/pack"
+  [string]$PackRoot = "content/wazuh/pack"
 )
 
 Set-StrictMode -Version Latest
@@ -63,3 +63,4 @@ if ($errors.Count -gt 0) {
 
 Write-Host "- Status: PASS" -ForegroundColor Green
 exit 0
+

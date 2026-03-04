@@ -35,18 +35,18 @@ HawkinsOperations/
 │   ├── projects.json           # Project metadata and evidence links
 │   ├── detections.json         # Detection platform summary with counts
 │   └── media.json              # Media manifest
-├── detection-rules/            # Multi-platform detection content
+├── content/detection-rules/            # Multi-platform detection content
 │   ├── sigma/                  # 103 Sigma YAML rules, organized by MITRE tactic
 │   ├── splunk/                 # 8 SPL queries
-│   ├── wazuh/rules/            # 24 Wazuh XML files (28 rule blocks)
+│   ├── content/detection-rules/wazuh/rules/  # 24 Wazuh XML files (28 rule blocks)
 │   └── mappings/               # MITRE ATT&CK mapping files
 ├── docs/                       # Execution notes, architecture docs, hosting runbooks
 ├── evidence/                   # Wazuh deployment evidence logs
-├── incident-response/
+├── content/incident-response/
 │   ├── playbooks/              # 10 IR playbooks (IR-001 through IR-022)
 │   └── templates/              # IR-Template.md baseline
-├── lab/                        # Lab infrastructure docs (Proxmox, Wazuh, Grafana)
-├── projects/                   # Reference/legacy projects
+├── content/lab/                        # Lab infrastructure docs (Proxmox, Wazuh, Grafana)
+├── content/projects/                   # Reference/legacy projects
 │   ├── repo-history/           # Historical context; contains its own CLAUDE.md
 │   └── migration-rh/           # Migration project; contains its own CLAUDE.md
 ├── proof/                      # Wazuh honeypot proof artifacts (auto-updated)
@@ -83,9 +83,9 @@ HawkinsOperations/
 │       ├── portfolio-data.js   # Content-driven data rendering
 │       ├── data/               # Generated JSON (verified-counts.json, etc.)
 │       └── Raylee_Hawkins_Resume.pdf  # Resume — must exist at this exact path
-├── threat-hunting/             # Threat hunting matrices and hypothesis notes
+├── content/threat-hunting/             # Threat hunting matrices and hypothesis notes
 ├── tools/python3/              # Python utilities (wazuh_proof_pack.py, etc.)
-├── wazuh/                      # Wazuh pack source (rules, decoders, playbooks)
+├── content/wazuh/                      # Wazuh pack source (rules, decoders, playbooks)
 ├── AGENTS.md                   # Codex/AI environment constraints (read this too)
 ├── CONTRIBUTING.md             # Full contribution guidelines
 ├── README.md                   # Main project overview with verification commands
@@ -123,10 +123,10 @@ Current verified inventory (as of last CI run):
 
 | Platform | Count | Location |
 |---|---|---|
-| Sigma (YAML) | 103 rules | `detection-rules/sigma/` |
-| Splunk (SPL) | 8 queries | `detection-rules/splunk/` |
-| Wazuh (XML) | 24 files / 28 rule blocks | `detection-rules/wazuh/rules/` |
-| IR Playbooks | 10 playbooks | `incident-response/playbooks/` |
+| Sigma (YAML) | 103 rules | `content/detection-rules/sigma/` |
+| Splunk (SPL) | 8 queries | `content/detection-rules/splunk/` |
+| Wazuh (XML) | 24 files / 28 rule blocks | `content/detection-rules/wazuh/rules/` |
+| IR Playbooks | 10 playbooks | `content/incident-response/playbooks/` |
 | Total detections | 139 | (Sigma + Wazuh + Splunk) |
 
 **Never hardcode counts. Never inflate claims ("200+ detections").**
@@ -209,7 +209,7 @@ python3 tools/python3/wazuh_proof_pack.py
 python3 tools/python3/wazuh_proof_pack.py --severity 12 --lookback-lines 100000
 
 python3 tools/python3/generate_detection_report.py \
-  --expected projects/lab/wazuh-detection-harness/expected_detections.yaml \
+  --expected content/projects/lab/wazuh-detection-harness/expected_detections.yaml \
   --out report.md
 ```
 
@@ -242,7 +242,7 @@ Triggered on push to `main` and all pull requests.
 
 ### `public-safety-gate.yml` (Windows runner)
 
-Triggered on PRs/pushes touching `site/*`, `projects/lab/PP_SOC_Integration/*`, or README files.
+Triggered on PRs/pushes touching `site/*`, `content/projects/lab/PP_SOC_Integration/*`, or README files.
 Runs a PowerShell public safety scan for PII, credentials, and real identifiers.
 
 **Both workflows have `permissions: contents:read` only.** They never commit back.
@@ -295,7 +295,7 @@ git commit -m "Docs: Update README [skip ci]"
 
 ## Code Conventions
 
-### Sigma Rules (`detection-rules/sigma/<tactic>/`)
+### Sigma Rules (`content/detection-rules/sigma/<tactic>/`)
 
 File naming: `lowercase_with_underscores.yml`
 
@@ -328,7 +328,7 @@ Rules are organized by MITRE ATT&CK tactic folder:
 `collection`, `credential-access`, `defense-evasion`, `discovery`, `execution`,
 `exfiltration`, `impact`, `lateral-movement`, `persistence`, `privilege-escalation`
 
-### Wazuh Rules (`detection-rules/wazuh/rules/`)
+### Wazuh Rules (`content/detection-rules/wazuh/rules/`)
 
 File naming: `wazuh-NNN-descriptive-name.xml` (NNN = sequential number)
 
@@ -354,7 +354,7 @@ File naming: `wazuh-NNN-descriptive-name.xml` (NNN = sequential number)
 - Custom rule IDs use the 100000+ range
 - Bundled for deployment via `scripts/build-wazuh-bundle.ps1` → `dist/wazuh/local_rules.xml`
 
-### Splunk Rules (`detection-rules/splunk/`)
+### Splunk Rules (`content/detection-rules/splunk/`)
 
 ```spl
 # ========================================
@@ -368,7 +368,7 @@ index=windows EventCode=1
 | where count > threshold
 ```
 
-### IR Playbooks (`incident-response/playbooks/`)
+### IR Playbooks (`content/incident-response/playbooks/`)
 
 File naming: `IR-NNN-Incident-Type.md`
 
@@ -412,7 +412,7 @@ Always use `MM-DD-YYYY` in filenames, logs, and documentation.
 ## Content Verification Pipeline
 
 ```
-detection-rules/*  +  incident-response/*
+content/detection-rules/*  +  content/incident-response/*
           │
           ▼
   verify-counts.ps1  /  generate_verified_counts.py
@@ -495,8 +495,8 @@ Fill out `.github/PULL_REQUEST_TEMPLATE.md` fully when submitting.
 
 Two sub-directories contain their own CLAUDE.md with narrower scope:
 
-- `projects/repo-history/CLAUDE.md` — SOC content library context for that subdirectory
-- `projects/migration-rh/SRC/reference/migration-patterns/CLAUDE.md` — migration project guardrails
+- `content/projects/repo-history/CLAUDE.md` — SOC content library context for that subdirectory
+- `content/projects/migration-rh/SRC/reference/migration-patterns/CLAUDE.md` — migration project guardrails
 
 When working within those directories, read the local CLAUDE.md as well.
 
@@ -512,3 +512,7 @@ When working within those directories, read the local CLAUDE.md as well.
 6. Never print, log, or commit secrets or tokens
 7. Never change a public count without running the verification pipeline first
 8. If unsure whether a change is safe, ask before proceeding
+
+
+
+

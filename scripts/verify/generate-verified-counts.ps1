@@ -32,15 +32,15 @@ This file is generated from live repository file counts.
 
 | Platform | Count | Location |
 |----------|-------|----------|
-| **Sigma** (YAML) | **$sigma** rules | detection-rules/sigma/ |
-| **Splunk** (SPL) | **$splunk** queries | detection-rules/splunk/ |
-| **Wazuh** (XML) | **$wazuhXmlFiles** files, **$wazuhRuleBlocks** rule blocks | detection-rules/wazuh/rules/ |
+| **Sigma** (YAML) | **$sigma** rules | content/detection-rules/sigma/ |
+| **Splunk** (SPL) | **$splunk** queries | content/detection-rules/splunk/ |
+| **Wazuh** (XML) | **$wazuhXmlFiles** files, **$wazuhRuleBlocks** rule blocks | content/detection-rules/wazuh/rules/ |
 
 ## Incident Response
 
 | Type | Count | Location |
 |------|-------|----------|
-| **IR Playbooks** (IR-*.md) | **$playbooks** playbooks | incident-response/playbooks/ |
+| **IR Playbooks** (IR-*.md) | **$playbooks** playbooks | content/incident-response/playbooks/ |
 
 ---
 
@@ -65,3 +65,4 @@ if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
 
 Set-Content -LiteralPath $outPath -Value $content -Encoding UTF8
 Write-Host "Wrote verified counts: $outPath"
+

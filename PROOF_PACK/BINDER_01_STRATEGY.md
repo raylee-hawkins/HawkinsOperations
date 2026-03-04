@@ -123,10 +123,10 @@ This framing — **AI accelerates investigation, analyst decides** — is the co
 
 | Claim | Backing Artifact | How to Verify |
 |-------|-----------------|---------------|
-| 103 Sigma rules, MITRE-organized | `detection-rules/sigma/` (10 tactic folders) | `ls` the directory tree |
-| 8 Splunk SPL queries | `detection-rules/splunk/` | Count files |
-| 28 Wazuh rule blocks | `detection-rules/wazuh/rules/` | Inspect XML files |
-| 10 IR playbooks | `incident-response/playbooks/` | IR-001 through IR-022 |
+| 103 Sigma rules, MITRE-organized | `content/detection-rules/sigma/` (10 tactic folders) | `ls` the directory tree |
+| 8 Splunk SPL queries | `content/detection-rules/splunk/` | Count files |
+| 28 Wazuh rule blocks | `content/detection-rules/wazuh/rules/` | Inspect XML files |
+| 10 IR playbooks | `content/incident-response/playbooks/` | IR-001 through IR-022 |
 | 1,191 lines automation code | `scripts/` (.ps1, .py, .sh) | `wc -l` recursive |
 | Counts are reproducible | `scripts/verify/verify-counts.ps1` | Run the script |
 | Live SOC investigation | `site/case-study-ir-howe01.html` | Read the case study |
@@ -182,7 +182,7 @@ Step 2: → Case Studies (site navigation)
 
 Step 3: → Resume (site navigation) → GitHub link
   → github.com/raylee-hawkins
-  Confirms: detection-rules/ repository with 103 Sigma YAML files
+  Confirms: content/detection-rules/ repository with 103 Sigma YAML files
             in MITRE tactic-organized subdirectories
 
 Step 4: → PROOF_PACK/VERIFIED_COUNTS.md (in repo)
@@ -587,3 +587,4 @@ SOC Analyst | Wazuh SIEM | MITRE ATT&CK Detection | Incident Response Documentat
 
 *End of Chunk 1 — BINDER_01_STRATEGY.md*
 *Next: Chunk 2 — BINDER_02_EXECUTION.md (targeting system, application cadence, escalation logic, weekly ops)*
+

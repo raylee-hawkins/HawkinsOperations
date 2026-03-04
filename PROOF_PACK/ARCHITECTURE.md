@@ -9,7 +9,7 @@ This document provides a high-level overview of the detection and response archi
 This repository provides detection content for **three major security platforms**, organized to demonstrate platform-specific expertise and MITRE ATT&CK coverage:
 
 ### Sigma (Universal Detection Format)
-- **Location:** `detection-rules/sigma/`
+- **Location:** `content/detection-rules/sigma/`
 - **Format:** YAML-based detection rules following Sigma specification
 - **Organization:** Structured by MITRE ATT&CK tactics
 - **Strength:** Platform-agnostic rules that can be converted to any SIEM
@@ -29,7 +29,7 @@ privilege-escalation/  → T1055, T1068, T1078, T1134
 ```
 
 ### Splunk (SPL Queries)
-- **Location:** `detection-rules/splunk/`
+- **Location:** `content/detection-rules/splunk/`
 - **Format:** Splunk Search Processing Language (.spl files)
 - **Organization:** Grouped by MITRE ATT&CK tactics with multiple queries per file
 - **Strength:** Optimized for Splunk Enterprise Security and detection efficiency
@@ -46,7 +46,7 @@ privilege-escalation/  → T1055, T1068, T1078, T1134
 - Collection/Exfiltration/Impact (Data staging, ransomware, destruction)
 
 ### Wazuh (XML Rules)
-- **Location:** `detection-rules/wazuh/rules/`
+- **Location:** `content/detection-rules/wazuh/rules/`
 - **Format:** Wazuh XML rule modules (individual files per detection)
 - **Organization:** Numbered rule modules (wazuh-051-*.xml format)
 - **Strength:** Open-source SIEM deployment with agent-based monitoring
@@ -85,7 +85,7 @@ Every IR playbook follows a standardized structure for consistency and completen
 
 ### Playbook Coverage
 
-**Location:** `incident-response/playbooks/`
+**Location:** `content/incident-response/playbooks/`
 
 **Critical Priority Scenarios:**
 - IR-001: LSASS Process Access (T1003.001)
@@ -107,7 +107,7 @@ Every IR playbook follows a standardized structure for consistency and completen
 
 ### Hunt Organization
 
-**Location:** `threat-hunting/`
+**Location:** `content/threat-hunting/`
 
 **Platform-Specific Hunts:**
 - `windows/` - Windows-focused threat hunting queries
@@ -128,7 +128,7 @@ Every IR playbook follows a standardized structure for consistency and completen
 
 **1. Development (This Repo):**
 ```
-detection-rules/wazuh/rules/*.xml
+content/detection-rules/wazuh/rules/*.xml
     ↓
 Individual rule modules stored separately
 Easy to version control, review, and document
@@ -271,4 +271,5 @@ For someone validating this portfolio:
 - ✅ Content is real and organized
 - ✅ Candidate understands production deployment
 - ✅ Professional presentation and documentation
+
 

@@ -158,7 +158,7 @@ function clearlySafe(rel) {
 function privacyReview(rel) {
   const l = rel.toLowerCase();
   const riskyPath =
-    l.includes("incident-response/") ||
+    l.includes("content/incident-response/") ||
     l.includes("proof_pack/") ||
     l.includes("resume") ||
     l.includes("export") ||
@@ -331,3 +331,4 @@ fs.writeFileSync(reportOut, report, "utf8");
 console.log(`Generated ${path.relative(root, contentOut)}`);
 console.log(`Generated ${path.relative(root, siteDataOut)}`);
 console.log(`Generated ${path.relative(root, reportOut)}`);
+

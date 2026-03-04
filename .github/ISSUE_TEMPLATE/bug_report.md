@@ -44,7 +44,7 @@ What actually happened.
 **Git Version:**
 
 **Relevant Files:**
-- File path: \`detection-rules/...\`
+- File path: \`content/detection-rules/...\`
 - Line number: (if applicable)
 
 ---
@@ -79,3 +79,4 @@ Link to any related issues or PRs.
 - [ ] I have included error messages/output
 - [ ] I have specified the affected component
 - [ ] I have provided steps to reproduce (if applicable)
+
