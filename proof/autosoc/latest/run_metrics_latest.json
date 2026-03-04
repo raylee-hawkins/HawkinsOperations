@@ -1,0 +1,20 @@
+{
+  "generated_utc": "2026-03-04T16:34:47Z",
+  "run_seconds": 45.116,
+  "steps": {
+    "tests": 0.359,
+    "poll_alerts": 0.316,
+    "triage": 0.237,
+    "triage_quality": 30.014,
+    "triage_quality_chart": 0.841,
+    "cases_processing": 5.616,
+    "reconcile": 0.55,
+    "coverage_check": 5.201
+  },
+  "cases_scanned": 23167,
+  "cases_processed": 0,
+  "mode": "live",
+  "pipeline_mode": "full",
+  "status": "SUCCESS",
+  "fail_stage": ""
+}

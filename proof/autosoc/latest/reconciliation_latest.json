@@ -1,0 +1,26 @@
+{
+  "generated_utc": "2026-03-04T16:34:42Z",
+  "repo_root": "C:\\RH\\OPS\\10_Portfolio\\HawkinsOperations",
+  "counts": {
+    "ledger_total_cases": 23167,
+    "ledger_escalated_metric": 2478,
+    "ledger_escalate_ids": 2478,
+    "ledger_escalated_status_ids": 2478,
+    "ledger_pending_escalate_ids": 0,
+    "ledger_escalated_missing_repo_path": 0,
+    "repo_incident_dirs": 2480,
+    "repo_incident_dirs_autosoc_scoped": 2478,
+    "content_incidents": 2478
+  },
+  "mismatch_count": 0,
+  "mismatches": {
+    "in_ledger_not_repo": [],
+    "in_repo_not_ledger": [],
+    "in_ledger_not_content": [],
+    "in_content_not_ledger": [],
+    "in_repo_not_content": [],
+    "in_content_not_repo": [],
+    "ledger_escalated_missing_repo_path_ids": [],
+    "ledger_pending_escalate_ids": []
+  }
+}

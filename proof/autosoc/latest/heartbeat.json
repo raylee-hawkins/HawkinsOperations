@@ -1,0 +1,64 @@
+{
+  "run_id": "autosoc-20260304T163402Z-86476",
+  "start_utc": "2026-03-04T16:34:02Z",
+  "end_utc": "2026-03-04T16:34:47Z",
+  "duration_seconds": 45.116,
+  "status": "SUCCESS",
+  "pipeline_mode": "full",
+  "fail_stage": "",
+  "mode": "live",
+  "log_path": "C:\\RH\\OPS\\50_System\\Runs\\Logs\\auto-soc-03-04-2026.log",
+  "counts": {
+    "triaged": 0,
+    "escalated": 0,
+    "auto_closed_benign": 0,
+    "auto_closed_known_fp": 0,
+    "cases_scanned": 23167,
+    "cases_processed": 0
+  },
+  "queue": {
+    "depth_start": 0,
+    "depth_end": 0
+  },
+  "reconciliation": {
+    "strict_enabled": true,
+    "status": "PASS",
+    "mismatch_count": 0,
+    "report_json": "C:\\RH\\OPS\\30_Projects\\Active\\AutoSOC\\Output\\reconciliation_latest.json"
+  },
+  "coverage": {
+    "status": "FAIL",
+    "missing_hosts": 5,
+    "present_hosts": 4,
+    "report_json": "C:\\RH\\OPS\\30_Projects\\Active\\AutoSOC\\Output\\coverage_latest.json"
+  },
+  "freshness": {
+    "status": "UNKNOWN",
+    "p95_max_seconds": 3600,
+    "oldest_max_seconds": 7200,
+    "p95_delay_seconds": "",
+    "lag_oldest_seconds": ""
+  },
+  "poller": {
+    "secret_source": "PASS_FILE",
+    "mode": "realtime",
+    "oldest_event_ts": "",
+    "lag_oldest_seconds": "",
+    "lag_newest_seconds": "",
+    "p50_delay_seconds": "",
+    "p95_delay_seconds": "",
+    "no_new_alerts": "TRUE",
+    "polled": "0",
+    "saved": "0"
+  },
+  "steps": {
+    "tests": 0.359,
+    "poll_alerts": 0.316,
+    "triage": 0.237,
+    "triage_quality": 30.014,
+    "triage_quality_chart": 0.841,
+    "cases_processing": 5.616,
+    "reconcile": 0.55,
+    "coverage_check": 5.201
+  }
+}
