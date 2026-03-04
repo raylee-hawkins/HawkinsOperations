@@ -41,25 +41,25 @@
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
-      <li><a href="/soc-lab">SOC/Lab</a></li>
-      <li><a href="/detections">Detections</a></li>
-      <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">About</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
+      <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
-  <a href="/soc-lab">SOC/Lab</a>
-  <a href="/detections">Detections</a>
-  <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">About</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/detections">Detections</a>
+  <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
+  <a href="/proof">Proof</a>
 </div>
 
 <!-- @include:nav:end -->
@@ -67,10 +67,10 @@
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:980px">
     <div class="slbl">Case Study</div>
-    <h1 class="stitle">AutoSOC closed-loop alert pipeline</h1>
+    <h1 class="stitle">AutoSOC: alert ingestion to escalation artifacts</h1>
     <p class="sdesc">
-      AutoSOC is the operational layer behind the portfolio evidence flow: poll alerts, apply policy triage, redact sensitive values,
-      assemble incident packs, and publish reviewable outputs to repository paths with traceable logs.
+      Built a SOAR-style Tier-1 triage workflow for Wazuh alerts: policy-based dispositions, mandatory redaction,
+      and incident evidence packs with reviewable GitHub escalation artifacts.
     </p>
   </div>
 </section>
@@ -78,11 +78,10 @@
 <section class="section-tight">
   <div class="ctr" style="max-width:980px">
     <div class="card">
-      <h2 class="card-ttl">1) What it is</h2>
+      <h2 class="card-ttl">A) Problem</h2>
       <div class="card-sub">
-        AutoSOC is a script-driven incident pipeline that converts noisy alert streams into consistent, reviewer-safe outputs.
-        Each run produces structured artifacts for triage, closure reporting, and handoff. The objective is repeatability:
-        same inputs, same steps, same output structure, with quality gates before publication.
+        SOC triage work is repetitive and can drift: too many noisy alerts, inconsistent evidence capture, and escalation packets
+        that depend on analyst style instead of a standard output contract.
       </div>
     </div>
   </div>
@@ -91,12 +90,25 @@
 <section>
   <div class="ctr" style="max-width:980px">
     <div class="card">
-      <h2 class="card-ttl">2) Architecture diagram</h2>
-      <div class="card-sub">Sources feed ingestion and triage gates, then move through redaction and pack assembly into repo-backed output folders.</div>
+      <h2 class="card-ttl">B) Solution</h2>
+      <div class="card-sub">
+        AutoSOC pipeline flow:
+        <code>Wazuh ingestion -> triage decisioning -> redaction gate -> evidence-pack generation -> escalation via GitHub PR artifacts</code>.
+        The pipeline enforces disposition logic and produces a consistent handoff package for every case.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">C) Architecture</h2>
+      <div class="card-sub">Data sources feed ingestion and triage gates, then move through redaction and evidence assembly into reviewable output paths.</div>
       <div style="margin-top:12px;border:1px solid var(--bdr);border-radius:12px;overflow:hidden">
         <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1" alt="AutoSOC architecture map showing sources, pipeline gates, and output controls" style="display:block;width:100%;height:auto">
       </div>
-      <div class="card-meta" style="margin-top:10px"><span class="tag">AutoSOC</span><span class="tag">Closed loop</span><span class="tag">Evidence-safe</span></div>
+      <div class="card-meta" style="margin-top:10px"><span class="tag">Wazuh source</span><span class="tag">Policy gates</span><span class="tag">Escalation outputs</span></div>
     </div>
   </div>
 </section>
@@ -104,45 +116,55 @@
 <section>
   <div class="ctr" style="max-width:980px">
     <div class="card">
-      <h2 class="card-ttl">3) Rootcheck tuning event (1,312 alerts)</h2>
+      <h2 class="card-ttl">D) Decision logic</h2>
+      <div class="card-sub">AutoSOC uses explicit dispositions to keep triage behavior deterministic and reviewable.</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        <table style="width:100%;border-collapse:collapse;font-size:.92rem">
+          <thead>
+            <tr>
+              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--bdr)">Disposition</th>
+              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--bdr)">Meaning</th>
+              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--bdr)">What happens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)"><code>AUTO_CLOSE_BENIGN</code></td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Expected activity</td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Close and log evidence summary</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)"><code>AUTO_CLOSE_KNOWN_FP</code></td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Known false positive pattern</td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Close, annotate reason, keep audit trail</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)"><code>ESCALATE</code></td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Suspicious/high-confidence case</td>
+              <td style="padding:10px;border-bottom:1px solid var(--bdr)">Generate evidence pack and escalation artifacts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ctr" style="max-width:980px">
+    <div class="card">
+      <h2 class="card-ttl">E) Example incident</h2>
       <div class="card-sub">
-        A noisy rootcheck lane produced 1,312 alerts in the review window, dominated by repeat false-positive patterns.
-        The fix path was: isolate recurring signatures, tune suppression policy at the rule layer, rerun triage, and verify
-        closure behavior through incident pack outputs. Result: reduced noise floor while preserving escalation paths for true positives.
+        <b>Alert type:</b> high-volume rootcheck alert pattern.<br>
+        <b>Checks performed:</b> known-FP policy match, repetition pattern, host context, rule history.<br>
+        <b>Redaction gate:</b> host identifiers and environment-specific values sanitized before publication.<br>
+        <b>Evidence pack output:</b> one-pager, full report, timeline CSV, queries file, closure report.<br>
+        <b>Disposition:</b> repeat benign pattern moved to <code>AUTO_CLOSE_KNOWN_FP</code> after validation and tuning.
       </div>
       <pre class="term-b" style="margin-top:10px">rootcheck_window_alerts: 1312
 dominant_pattern: repeated benign rootcheck signatures
 action: policy tuning + replay validation
-result: lower false-positive pressure with retained critical signal path</pre>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="ctr" style="max-width:980px">
-    <div class="g2">
-      <div class="card">
-        <h2 class="card-ttl">4) Output artifacts</h2>
-        <div class="card-sub">
-          Each incident run emits a standard pack:
-          <ul style="padding-left:18px;margin-top:8px">
-            <li><code>00_one_pager.md</code> summary for reviewer intake</li>
-            <li><code>01_full_report.md</code> full investigative narrative</li>
-            <li><code>02_timeline.csv</code> event chronology</li>
-            <li><code>03_queries.md</code> search and pivot commands</li>
-            <li><code>closure_report.md</code> disposition and final action</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <h2 class="card-ttl">Redacted snippet</h2>
-        <pre class="term-b">{
-  "case_id": "2026-03-03__soc__rule533__...__1772505772-31771",
-  "status": "closed",
-  "disposition": "benign",
-  "artifacts": ["00_one_pager.md", "closure_report.md", "evidence_index.md"]
-}</pre>
-      </div>
+outcome: reduced false-positive pressure while preserving escalation path</pre>
     </div>
   </div>
 </section>
@@ -150,14 +172,14 @@ result: lower false-positive pressure with retained critical signal path</pre>
 <section>
   <div class="ctr" style="max-width:980px">
     <div class="card">
-      <h2 class="card-ttl">5) Related links</h2>
+      <h2 class="card-ttl">F) Proof links</h2>
       <div class="card-sub">
         <ul style="padding-left:18px">
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/30_Projects/Active/AutoSOC" target="_blank" rel="noopener noreferrer">AutoSOC project folder</a></li>
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC runbook</a></li>
-          <li><a href="/proof">Proof Pack lane</a></li>
-          <li><a href="/march-2026-release">March 2026 release timeline</a></li>
-          <li><a href="/detections">Detections inventory</a></li>
+          <li><a href="/proof">Proof page</a> (receipt drawer for logs, packs, and release links)</li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer">Release notes (AutoSOC v1.4.0)</a></li>
+          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC operations runbook</a></li>
+          <li><a href="/march-2026-release">March release timeline</a></li>
+          <li><a href="/projects">Projects page</a></li>
         </ul>
       </div>
     </div>

@@ -8,8 +8,8 @@ Portfolio: https://hawkinsops.com
 LinkedIn: https://linkedin.com/in/raylee-hawkins
 
 SUMMARY
-- Build and validate deployable detections across Sigma, Wazuh, and Splunk with reproducible verification workflows and proof artifacts.
-- Maintain evidence-first quality controls using verified counts, CI-aligned checks, ATT&CK mapping, and lab validation.
+- Built an automated first-pass SOC triage workflow for Wazuh alerts: classify, redact, package evidence, and escalate suspicious cases.
+- Targeting SOC T1/T2 roles with strengths in triage consistency, detection quality, and evidence-based documentation.
 
 SKILLS
 - Detection: Sigma, Wazuh rule authoring, Splunk SPL
@@ -35,6 +35,11 @@ EXPERIENCE / PROJECTS
   - Built a Proxmox-based validation lab with Wazuh and Splunk components to test
     detection behavior before publishing artifacts.
   - Use lab runs to validate telemetry assumptions and improve signal quality.
+
+30-SECOND INTERVIEW TALK TRACK
+- I built a Wazuh-based SOC lab, then automated repeatable first-pass triage steps for a defined alert stream.
+- The workflow classifies alerts, redacts sensitive values, generates evidence packs, and preserves analyst escalation paths.
+- I am not replacing analysts; I can do triage work and build tooling that makes investigations more consistent.
 
 ADDITIONAL
 - Eligible to obtain clearance; willing to pursue sponsorship.

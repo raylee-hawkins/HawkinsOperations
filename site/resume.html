@@ -70,25 +70,25 @@
     <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
-      <li><a href="/soc-lab">SOC/Lab</a></li>
-      <li><a href="/detections">Detections</a></li>
-      <li><a href="/proof">Proof</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/wildcard">About</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
+      <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/proof">View Proof Pack</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
-  <a href="/soc-lab">SOC/Lab</a>
-  <a href="/detections">Detections</a>
-  <a href="/proof">Proof</a>
   <a href="/projects">Projects</a>
-  <a href="/wildcard">About</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/detections">Detections</a>
+  <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
+  <a href="/proof">Proof</a>
 </div>
 
 <!-- @include:nav:end -->
@@ -112,8 +112,8 @@
         <div class="resume-section">
           <h2>Summary</h2>
           <ul>
-            <li>Build and validate deployable detections across Sigma, Wazuh, and Splunk with reproducible verification workflows and proof artifacts.</li>
-            <li>Maintain evidence-first quality controls using verified counts, CI-aligned checks, ATT&amp;CK mapping, and lab validation.</li>
+            <li>Built an automated first-pass SOC triage workflow for Wazuh alerts: classify, redact, package evidence, and escalate suspicious cases.</li>
+            <li>Targeting SOC T1/T2 roles with strengths in triage consistency, detection quality, and evidence-based documentation.</li>
           </ul>
         </div>
         <div class="resume-section">
@@ -139,6 +139,15 @@
             <li>Maintained verification scripts and generated proof artifacts that keep published counts aligned to repository state.</li>
           </ul>
         </div>
+      </div>
+
+      <div class="resume-section">
+        <h2>30-Second Interview Talk Track</h2>
+        <ul>
+          <li>I built a Wazuh-based SOC lab, then automated repeatable first-pass triage steps for a defined alert stream.</li>
+          <li>The workflow classifies alerts, redacts sensitive values, generates evidence packs, and preserves analyst escalation paths.</li>
+          <li>I am not replacing analysts. I can do triage work and build tooling that makes investigations more consistent.</li>
+        </ul>
       </div>
 
       <div class="resume-section">
