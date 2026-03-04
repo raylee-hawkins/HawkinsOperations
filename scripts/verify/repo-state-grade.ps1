@@ -15,7 +15,7 @@ function Get-GitLines {
   return @($out)
 }
 
-$status = Get-GitLines -GitArgs @("status", "--porcelain")
+$status = @(Get-GitLines -GitArgs @("status", "--porcelain"))
 $trackedModified = 0
 $trackedAdded = 0
 $trackedDeleted = 0
@@ -57,7 +57,7 @@ $result = [ordered]@{
     tracked_added = $trackedAdded
     tracked_deleted = $trackedDeleted
     untracked = $untracked
-    total_lines = $status.Count
+    total_lines = @($status).Count
   }
 }
 
