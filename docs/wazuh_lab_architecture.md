@@ -8,7 +8,7 @@
 
 ## Flow
 
-1. Author and tune rules in `wazuh/pack/`.
+1. Author and tune rules in `content/wazuh/pack/`.
 2. Validate structure and XML integrity with `scripts/validate_wazuh_pack.ps1`.
 3. Deploy to manager with `scripts/deploy_wazuh_pack.ps1`.
 4. Verify manager health, detection behavior, and evidence output.
@@ -16,7 +16,8 @@
 
 ## Integration Notes
 
-- Sigma is maintained as portable logic under `wazuh/sigma/rules/`.
-- Mapping artifacts in `wazuh/sigma/mappings/` document conversion into Wazuh rules.
+- Sigma is maintained as portable logic under `content/wazuh/sigma/rules/`.
+- Mapping artifacts in `content/wazuh/sigma/mappings/` document conversion into Wazuh rules.
 - SPL logic can be referenced for hypothesis parity but is not directly executable in Wazuh.
+
 

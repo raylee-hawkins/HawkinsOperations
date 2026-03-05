@@ -98,7 +98,7 @@
 
   <rect x="1206" y="556" width="298" height="96" class="step"/>
   <text x="1228" y="590" class="t p">Repo-backed publication</text>
-  <text x="1228" y="620" class="t s">incident-response/incidents/YYYY/case-id</text>
+  <text x="1228" y="620" class="t s">content/incident-response/incidents/YYYY/case-id</text>
 
   <rect x="1206" y="674" width="298" height="96" class="warn"/>
   <text x="1228" y="708" class="t p">Failure handling</text>
@@ -118,3 +118,4 @@
   <rect x="500" y="824" width="1030" height="40" class="chip"/>
   <text x="526" y="850" class="t s">Scheduler cadence: every 5 min -> validate tests -> ingest -> triage -> gate -> assemble -> publish-ready output</text>
 </svg>
+

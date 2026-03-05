@@ -7,7 +7,7 @@ This directory contains curated examples of detection rules and incident respons
 ## Sigma Detection Rules
 
 ### `credential_dumping_tools.yml`
-**Source:** `detection-rules/sigma/credential-access/credential_dumping_tools.yml`
+**Source:** `content/detection-rules/sigma/credential-access/credential_dumping_tools.yml`
 
 **What it detects:** Credential dumping tools (Mimikatz, LaZagne, ProcDump)
 
@@ -27,7 +27,7 @@ This directory contains curated examples of detection rules and incident respons
 ---
 
 ### `encoded_powershell.yml`
-**Source:** `detection-rules/sigma/execution/encoded_powershell.yml`
+**Source:** `content/detection-rules/sigma/execution/encoded_powershell.yml`
 
 **What it detects:** Base64-encoded PowerShell commands
 
@@ -48,7 +48,7 @@ This directory contains curated examples of detection rules and incident respons
 ## Splunk Detection Query
 
 ### `credential_access_detections.spl`
-**Source:** `detection-rules/splunk/credential_access_detections.spl`
+**Source:** `content/detection-rules/splunk/credential_access_detections.spl`
 
 **What it detects:** Suspicious LSASS process access (Sysmon Event 10)
 
@@ -75,7 +75,7 @@ This directory contains curated examples of detection rules and incident respons
 ## Wazuh Rule Module
 
 ### `wazuh-051-multiple-auth-failures.xml`
-**Source:** `detection-rules/wazuh/rules/wazuh-051-multiple-auth-failures.xml`
+**Source:** `content/detection-rules/wazuh/rules/wazuh-051-multiple-auth-failures.xml`
 
 **What it detects:** Multiple authentication failures (brute force attempts)
 
@@ -104,7 +104,7 @@ This directory contains curated examples of detection rules and incident respons
 ## Incident Response Playbook
 
 ### `IR-001-LSASS-Access.md`
-**Source:** `incident-response/playbooks/IR-001-LSASS-Access.md`
+**Source:** `content/incident-response/playbooks/IR-001-LSASS-Access.md`
 
 **Scenario:** Suspicious LSASS process access detected
 
@@ -129,7 +129,7 @@ This directory contains curated examples of detection rules and incident respons
 - Follows industry-standard 7-step framework
 
 **Full Playbook:**
-See `incident-response/playbooks/IR-001-LSASS-Access.md` for complete procedure including Eradication, Recovery, Documentation, and Lessons Learned phases.
+See `content/incident-response/playbooks/IR-001-LSASS-Access.md` for complete procedure including Eradication, Recovery, Documentation, and Lessons Learned phases.
 
 ---
 
@@ -145,4 +145,5 @@ See `incident-response/playbooks/IR-001-LSASS-Access.md` for complete procedure 
 > "I've written SPL queries for credential access detection, like monitoring Sysmon Event 10 for LSASS access. I filter for specific GrantedAccess values that credential dumpers use, whitelist legitimate tools, and aggregate by source process to reduce false positives."
 
 **"How do you deploy Wazuh rules?":**
-> "Individual XML modules are stored in the repo at `detection-rules/wazuh/rules/`, then I use a build script (`build-wazuh-bundle.ps1` or `.sh`) to concatenate them into a single `local_rules.xml` file. That gets deployed to `/var/ossec/etc/rules/` on the Wazuh manager, then I restart the service and validate rule loading via the ossec.log. The actual files are in this repo - see `wazuh-051-multiple-auth-failures.xml` for an example."
+> "Individual XML modules are stored in the repo at `content/detection-rules/wazuh/rules/`, then I use a build script (`build-wazuh-bundle.ps1` or `.sh`) to concatenate them into a single `local_rules.xml` file. That gets deployed to `/var/ossec/etc/rules/` on the Wazuh manager, then I restart the service and validate rule loading via the ossec.log. The actual files are in this repo - see `wazuh-051-multiple-auth-failures.xml` for an example."
+

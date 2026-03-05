@@ -4,7 +4,7 @@ set -euo pipefail
 # scripts/build-wazuh-bundle.sh
 # Build a single deployable Wazuh rules file from the repo's individual XML rule files.
 #
-# Source (repo): detection-rules/wazuh/rules/*.xml
+# Source (repo): content/detection-rules/wazuh/rules/*.xml
 # Output (default): dist/wazuh/local_rules.xml
 #
 # Usage:
@@ -12,7 +12,7 @@ set -euo pipefail
 #   ./scripts/build-wazuh-bundle.sh /tmp/local_rules.xml
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SRC_DIR="${REPO_ROOT}/detection-rules/wazuh/rules"
+SRC_DIR="${REPO_ROOT}/content/detection-rules/wazuh/rules"
 OUT_FILE="${1:-${REPO_ROOT}/dist/wazuh/local_rules.xml}"
 
 if [[ ! -d "${SRC_DIR}" ]]; then
@@ -56,3 +56,4 @@ echo "Next on your Wazuh manager:"
 echo "  sudo cp \"${OUT_FILE}\" /var/ossec/etc/rules/local_rules.xml"
 echo "  sudo systemctl restart wazuh-manager"
 echo "  sudo tail -n 80 /var/ossec/logs/ossec.log | grep -i -E 'rule|local_rules'"
+

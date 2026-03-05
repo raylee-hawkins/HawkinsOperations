@@ -3,9 +3,9 @@
 ## Scope
 
 Rules-as-code deployment flow for:
-- `wazuh/pack/rules/*.xml`
-- `wazuh/pack/decoders/*.xml`
-- `wazuh/pack/lists/*`
+- `content/wazuh/pack/rules/*.xml`
+- `content/wazuh/pack/decoders/*.xml`
+- `content/wazuh/pack/lists/*`
 
 ## Process
 
@@ -33,4 +33,5 @@ If deploy causes instability or false-positive flood:
    - `systemctl restart wazuh-manager`
 4. Verify service health and alert normalization.
 5. Open follow-up issue with root cause and corrective action.
+
 

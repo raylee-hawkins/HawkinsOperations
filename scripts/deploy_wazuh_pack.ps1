@@ -1,5 +1,5 @@
 param(
-  [string]$PackRoot = "wazuh/pack"
+  [string]$PackRoot = "content/wazuh/pack"
 )
 
 Set-StrictMode -Version Latest
@@ -143,4 +143,5 @@ catch {
 finally {
   $summary | Out-File -LiteralPath $deployReport -Encoding UTF8
 }
+
 

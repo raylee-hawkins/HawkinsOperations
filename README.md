@@ -32,8 +32,8 @@ AutoSOC end-to-end pipeline validated in production-sim operation:
 |---|---|---|
 | Recruiter / Hiring Manager | [`START_HERE.md`](START_HERE.md) | Proof lane + sample artifacts in under 5 minutes |
 | Technical Reviewer | [`PROOF_PACK/VERIFIED_COUNTS.md`](PROOF_PACK/VERIFIED_COUNTS.md) | Script-generated counts, exact locations, reproducible |
-| Detection Engineer | [`detection-rules/INDEX.md`](detection-rules/INDEX.md) | 103 Sigma + 28 Wazuh + 8 Splunk, organized by MITRE tactic |
-| Incident Responder | [`incident-response/INDEX.md`](incident-response/INDEX.md) | 10 playbooks, 7-step format, consistent framework |
+| Detection Engineer | [`content/detection-rules/INDEX.md`](content/detection-rules/INDEX.md) | 103 Sigma + 28 Wazuh + 8 Splunk, organized by MITRE tactic |
+| Incident Responder | [`content/incident-response/INDEX.md`](content/incident-response/INDEX.md) | 10 playbooks, 7-step format, consistent framework |
 | AutoSOC / Pipeline Reviewer | [`docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md`](docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md) | Live pipeline architecture, scheduler config, failure playbook |
 | Portfolio Reviewer | [`PROOF_PACK/PROOF_INDEX.md`](PROOF_PACK/PROOF_INDEX.md) | Curated reviewer lane with sample artifacts |
 
@@ -47,15 +47,15 @@ Source of truth: [`PROOF_PACK/VERIFIED_COUNTS.md`](PROOF_PACK/VERIFIED_COUNTS.md
 
 | Platform | Count | Location |
 |---|---:|---|
-| Sigma (YAML) | 103 rules | `detection-rules/sigma/` |
-| Splunk (SPL) | 8 queries | `detection-rules/splunk/` |
-| Wazuh (XML) | 24 files / 28 rule blocks | `detection-rules/wazuh/rules/` |
+| Sigma (YAML) | 103 rules | `content/detection-rules/sigma/` |
+| Splunk (SPL) | 8 queries | `content/detection-rules/splunk/` |
+| Wazuh (XML) | 24 files / 28 rule blocks | `content/detection-rules/wazuh/rules/` |
 
 ### Incident response
 
 | Type | Count | Location |
 |---|---:|---|
-| IR Playbooks (`IR-*.md`) | 10 playbooks | `incident-response/playbooks/` |
+| IR Playbooks (`IR-*.md`) | 10 playbooks | `content/incident-response/playbooks/` |
 
 *Wazuh shows two counts because some XML modules contain multiple `<rule id=...>` blocks.*
 
@@ -95,18 +95,18 @@ Expected artifacts:
 
 | Area | What it contains | Why it exists |
 |---|---|---|
-| `detection-rules/` | 103 Sigma + 8 Splunk + 24 Wazuh XML, organized by MITRE tactic | Multi-platform detection library, triage-ready |
-| `incident-response/` | 10 IR playbooks + templates + AutoSOC-generated incident packs | Consistent execution model + live pipeline output |
+| `content/detection-rules/` | 103 Sigma + 8 Splunk + 24 Wazuh XML, organized by MITRE tactic | Multi-platform detection library, triage-ready |
+| `content/incident-response/` | 10 IR playbooks + templates + AutoSOC-generated incident packs | Consistent execution model + live pipeline output |
 | `PROOF_PACK/` | Verified counts, sample artifacts, evidence checklist, redaction rules | Curated reviewer lane — the front-door proof path |
 | `docs/execution/` | AutoSOC operations runbook, rootcheck closeout, lab change control | Operational context for the live pipeline |
 | `docs/` | Lab architecture, Wazuh change control, hosting docs | Implementation decisions and reviewer context |
-| `projects/lab/` | PP_SOC_Integration, detection harness, honeypot stack | Lab proof artifacts — published evidence of live operations |
+| `content/projects/lab/` | PP_SOC_Integration, detection harness, honeypot stack | Lab proof artifacts — published evidence of live operations |
 | `scripts/` | Verification pipeline, bundle builders, site data generators | Reproducibility gate — CI runs these on every push |
 | `site/` | Static portfolio site source (Cloudflare Pages → hawkinsops.com) | Recruiter-facing published content |
 | `content/` | Structured site content (JSON) | Source of truth for content-driven site listings |
-| `threat-hunting/` | Hunt matrices and hypothesis notes | Structured hunting practice documentation |
-| `lab/` | Proxmox/Wazuh infrastructure docs, VM runbooks | Live lab context for the detection environment |
-| `wazuh/` | Deployment pack: decoders, lists, suppression, active-response | What actually gets pushed to the Wazuh manager |
+| `content/threat-hunting/` | Hunt matrices and hypothesis notes | Structured hunting practice documentation |
+| `content/lab/` | Proxmox/Wazuh infrastructure docs, VM runbooks | Live lab context for the detection environment |
+| `content/wazuh/` | Deployment pack: decoders, lists, suppression, active-response | What actually gets pushed to the Wazuh manager |
 | `tools/` | Python utilities for proof pack generation and Wazuh data | Repeatable maintenance and packaging support |
 
 ---
@@ -118,9 +118,9 @@ Wazuh Manager (live alerts)
       |
       |-- AutoSOC pipeline (poll → triage → redact → pack)
       |       |
-      |       '-- incident-response/incidents/YYYY/  (repo-staged packs)
+      |       '-- content/incident-response/incidents/YYYY/  (repo-staged packs)
       |
-detection-rules/*                incident-response/playbooks/*
+content/detection-rules/*                content/incident-response/playbooks/*
       |                                 |
       |-- verify-counts.ps1 ────────────'
       |-- generate-verified-counts.ps1  ──>  PROOF_PACK/VERIFIED_COUNTS.md
@@ -168,3 +168,7 @@ No real credentials, internal IPs, or identity leakage in committed files. Use `
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+
+
+

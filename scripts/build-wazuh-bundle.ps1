@@ -1,7 +1,7 @@
 # scripts/build-wazuh-bundle.ps1
 # Build a single deployable Wazuh rules file from the repo's individual XML rule files.
 #
-# Source (repo): detection-rules/wazuh/rules/*.xml
+# Source (repo): content/detection-rules/wazuh/rules/*.xml
 # Output (default): dist/wazuh/local_rules.xml
 #
 # Usage:
@@ -15,14 +15,23 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Get repo root
 $RepoRoot = Split-Path -Parent $PSScriptRoot
-$SrcDir = Join-Path $RepoRoot "detection-rules\wazuh\rules"
+$srcCandidates = @(
+    (Join-Path $RepoRoot "content\detection-rules\wazuh\rules"),
+    (Join-Path $RepoRoot "detection-rules\wazuh\rules")
+)
+$SrcDir = $null
+foreach ($candidate in $srcCandidates) {
+    if (Test-Path -LiteralPath $candidate -PathType Container) {
+        $SrcDir = $candidate
+        break
+    }
+}
 $OutFile = Join-Path $RepoRoot $OutputFile
 
 # Validate source directory
-if (-not (Test-Path $SrcDir)) {
-    Write-Error "ERROR: Source directory not found: $SrcDir"
+if (-not $SrcDir) {
+    Write-Error ("ERROR: Source directory not found. Checked: {0}" -f ($srcCandidates -join "; "))
     exit 1
 }
 
@@ -78,3 +87,4 @@ Write-Host "  sudo cp `"$OutFile`" /var/ossec/etc/rules/local_rules.xml"
 Write-Host "  sudo systemctl restart wazuh-manager"
 Write-Host "  sudo tail -n 80 /var/ossec/logs/ossec.log | grep -i -E 'rule|local_rules'"
 Write-Host ""
+

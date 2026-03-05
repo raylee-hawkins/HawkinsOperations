@@ -17,9 +17,11 @@ Curated reviewer lane for this repository.
 2. Read `START_HERE.md`
 3. Validate counts in `PROOF_PACK/VERIFIED_COUNTS.md`
 4. Inspect sample artifacts in `PROOF_PACK/SAMPLES/`
-5. Review lab deliverables in `projects/lab/`
+5. Review lab deliverables in `content/projects/lab/`
 
 ## Additional Evidence Sets
 
 - `PROOF_PACK/EVIDENCE/openclaw_docker_vm102_2026-02-11/`
 - `PROOF_PACK/features/phase6a-infra-validation-doc/`
+
+

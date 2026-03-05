@@ -1,14 +1,14 @@
 # Verification script - counts detection and IR content from repo root.
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 
-$sigmaYml = (Get-ChildItem -Recurse -Filter *.yml -Path (Join-Path $repoRoot "detection-rules\sigma") -ErrorAction SilentlyContinue).Count
-$sigmaYaml = (Get-ChildItem -Recurse -Filter *.yaml -Path (Join-Path $repoRoot "detection-rules\sigma") -ErrorAction SilentlyContinue).Count
+$sigmaYml = (Get-ChildItem -Recurse -Filter *.yml -Path (Join-Path $repoRoot "content\detection-rules\sigma") -ErrorAction SilentlyContinue).Count
+$sigmaYaml = (Get-ChildItem -Recurse -Filter *.yaml -Path (Join-Path $repoRoot "content\detection-rules\sigma") -ErrorAction SilentlyContinue).Count
 $sigma = $sigmaYml + $sigmaYaml
-$splunk = (Get-ChildItem -Recurse -Filter *.spl -Path (Join-Path $repoRoot "detection-rules\splunk") -ErrorAction SilentlyContinue).Count
-$wazuhXmlFiles = (Get-ChildItem -Recurse -Filter *.xml -Path (Join-Path $repoRoot "detection-rules\wazuh\rules") -ErrorAction SilentlyContinue).Count
-$wazuhRuleBlocks = (Get-ChildItem -Recurse -Filter *.xml -Path (Join-Path $repoRoot "detection-rules\wazuh\rules") -ErrorAction SilentlyContinue |
+$splunk = (Get-ChildItem -Recurse -Filter *.spl -Path (Join-Path $repoRoot "content\detection-rules\splunk") -ErrorAction SilentlyContinue).Count
+$wazuhXmlFiles = (Get-ChildItem -Recurse -Filter *.xml -Path (Join-Path $repoRoot "content\detection-rules\wazuh\rules") -ErrorAction SilentlyContinue).Count
+$wazuhRuleBlocks = (Get-ChildItem -Recurse -Filter *.xml -Path (Join-Path $repoRoot "content\detection-rules\wazuh\rules") -ErrorAction SilentlyContinue |
     Select-String -Pattern "<rule id=" | Measure-Object).Count
-$playbooks = (Get-ChildItem -Recurse -Filter IR-*.md -Path (Join-Path $repoRoot "incident-response\playbooks") -ErrorAction SilentlyContinue).Count
+$playbooks = (Get-ChildItem -Recurse -Filter IR-*.md -Path (Join-Path $repoRoot "content\incident-response\playbooks") -ErrorAction SilentlyContinue).Count
 
 Write-Host "======================================"
 Write-Host "HawkinsOps Detection Content Counts"

@@ -163,21 +163,21 @@
         <div class="card-click">Expand →</div>
         <div class="card-ttl">Sigma</div>
         <div class="card-sub"><span data-verified="sigma">103</span> YAML rules organized by MITRE ATT&CK tactics.</div>
-        <div class="card-meta"><span class="tag">Verified <span data-verified="sigma">103</span></span><span class="tag">detection-rules/sigma/</span><span class="tag">YAML</span></div>
+        <div class="card-meta"><span class="tag">Verified <span data-verified="sigma">103</span></span><span class="tag">content/detection-rules/sigma/</span><span class="tag">YAML</span></div>
       </button>
 
       <button class="card" type="button" data-modal="tWazuh" data-modal-title="Wazuh detections">
         <div class="card-click">Expand →</div>
         <div class="card-ttl">Wazuh</div>
         <div class="card-sub"><span data-verified="wazuh">28</span> rule blocks (<span data-verified="wazuh_xml_files">24</span> XML files) ready for deployment.</div>
-        <div class="card-meta"><span class="tag">Verified <span data-verified="wazuh">28</span> blocks</span><span class="tag">detection-rules/wazuh/rules/</span><span class="tag">XML</span></div>
+        <div class="card-meta"><span class="tag">Verified <span data-verified="wazuh">28</span> blocks</span><span class="tag">content/detection-rules/wazuh/rules/</span><span class="tag">XML</span></div>
       </button>
 
       <button class="card" type="button" data-modal="tSplunk" data-modal-title="Splunk detections">
         <div class="card-click">Expand →</div>
         <div class="card-ttl">Splunk</div>
         <div class="card-sub"><span data-verified="splunk">8</span> SPL detections for Enterprise Security workflows.</div>
-        <div class="card-meta"><span class="tag">Verified <span data-verified="splunk">8</span></span><span class="tag">detection-rules/splunk/</span><span class="tag">SPL</span></div>
+        <div class="card-meta"><span class="tag">Verified <span data-verified="splunk">8</span></span><span class="tag">content/detection-rules/splunk/</span><span class="tag">SPL</span></div>
       </button>
     </div>
 
@@ -188,7 +188,7 @@
         <div class="card-click">Expand →</div>
         <div class="card-ttl">IR Playbooks</div>
         <div class="card-sub"><span data-verified="ir">10</span> structured playbooks with clear execution flow.</div>
-        <div class="card-meta"><span class="tag">Verified <span data-verified="ir">10</span></span><span class="tag">incident-response/playbooks/</span><span class="tag">Markdown</span></div>
+        <div class="card-meta"><span class="tag">Verified <span data-verified="ir">10</span></span><span class="tag">content/incident-response/playbooks/</span><span class="tag">Markdown</span></div>
       </button>
 
       <button class="card" type="button" data-modal="tVerify" data-modal-title="Verification workflow">
@@ -226,7 +226,7 @@
     </div>
 
     <div style="margin-top:18px">
-      <p class="lupd">Full tactic-to-rule mapping lives in <code>detection-rules/INDEX.md</code> in the repo. <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/detection-rules/INDEX.md" target="_blank" rel="noopener noreferrer">Browse on GitHub →</a></p>
+      <p class="lupd">Full tactic-to-rule mapping lives in <code>content/detection-rules/INDEX.md</code> in the repo. <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/content/detection-rules/INDEX.md" target="_blank" rel="noopener noreferrer">Browse on GitHub →</a></p>
     </div>
   </div>
 </section>
@@ -234,7 +234,7 @@
 <!-- Templates -->
 <template id="tSigma">
   <h3>Sigma (<span data-verified="sigma">103</span> rules)</h3>
-  <p><b>Where:</b> <code>detection-rules/sigma/</code> • <b>Format:</b> YAML • Organized by MITRE tactics.</p>
+  <p><b>Where:</b> <code>content/detection-rules/sigma/</code> • <b>Format:</b> YAML • Organized by MITRE tactics.</p>
   <div class="term">
     <div class="term-h">
       <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
@@ -249,7 +249,7 @@
 
 <template id="tWazuh">
   <h3>Wazuh (<span data-verified="wazuh">28</span> rule blocks, <span data-verified="wazuh_xml_files">24</span> XML files)</h3>
-  <p><b>Where:</b> <code>detection-rules/wazuh/rules/</code> • <b>Deployment:</b> bundle to <code>local_rules.xml</code>.</p>
+  <p><b>Where:</b> <code>content/detection-rules/wazuh/rules/</code> • <b>Deployment:</b> bundle to <code>local_rules.xml</code>.</p>
   <div class="term">
     <div class="term-h">
       <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
@@ -275,7 +275,7 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
 
 <template id="tSplunk">
   <h3>Splunk (<span data-verified="splunk">8</span> SPL queries)</h3>
-  <p><b>Where:</b> <code>detection-rules/splunk/</code> • <b>Format:</b> SPL.</p>
+  <p><b>Where:</b> <code>content/detection-rules/splunk/</code> • <b>Format:</b> SPL.</p>
   <div class="term">
     <div class="term-h">
       <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
@@ -288,7 +288,7 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
 
 <template id="tPlaybooks">
   <h3>Incident Response Playbooks (<span data-verified="ir">10</span>)</h3>
-  <p><b>Where:</b> <code>incident-response/playbooks/</code> • <b>Format:</b> Markdown.</p>
+  <p><b>Where:</b> <code>content/incident-response/playbooks/</code> • <b>Format:</b> Markdown.</p>
   <div class="term">
     <div class="term-h">
       <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
@@ -442,3 +442,4 @@ Select-String -Path .\detection-rules\wazuh\rules\*.xml -Pattern '&lt;rule\s+id=
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
+

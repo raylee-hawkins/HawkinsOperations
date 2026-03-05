@@ -47,7 +47,7 @@ Response playbook mappings live in `~/wazuh_response_map.json` (auto-created fro
 ### `generate_detection_report.py`
 Validates expected detections against `alerts.json` and produces a Markdown report.
 
-Reads an `expected_detections.yaml` spec (same format as `projects/lab/wazuh-detection-harness/`) and checks each test for a matching alert in the lookback window. Outputs a pass/fail table with alert ID, timestamp, and agent.
+Reads an `expected_detections.yaml` spec (same format as `content/projects/lab/wazuh-detection-harness/`) and checks each test for a matching alert in the lookback window. Outputs a pass/fail table with alert ID, timestamp, and agent.
 
 ```bash
 # Run on Wazuh manager (Linux)
@@ -55,4 +55,6 @@ python3 tools/python3/generate_detection_report.py \
   --expected /home/raylee/soc/expected_detections.yaml \
   --out /home/raylee/soc/report.md
 ```
+
+
 

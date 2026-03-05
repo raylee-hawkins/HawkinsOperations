@@ -4,10 +4,10 @@ on:
   pull_request:
     paths:
       - "site/**"
-      - "projects/lab/PP_SOC_Integration/**"
+      - "content/projects/lab/PP_SOC_Integration/**"
       - "README.md"
-      - "projects/README.md"
-      - "projects/lab/README.md"
+      - "content/projects/README.md"
+      - "content/projects/lab/README.md"
       - "scripts/verify/public-safety-scan.ps1"
       - ".github/workflows/public-safety-gate.yml"
   push:
@@ -15,10 +15,10 @@ on:
       - main
     paths:
       - "site/**"
-      - "projects/lab/PP_SOC_Integration/**"
+      - "content/projects/lab/PP_SOC_Integration/**"
       - "README.md"
-      - "projects/README.md"
-      - "projects/lab/README.md"
+      - "content/projects/README.md"
+      - "content/projects/lab/README.md"
       - "scripts/verify/public-safety-scan.ps1"
       - ".github/workflows/public-safety-gate.yml"
   workflow_dispatch:
@@ -36,3 +36,5 @@ jobs:
         shell: pwsh
         run: |
           pwsh -NoProfile -File ".\scripts\verify\public-safety-scan.ps1"
+
+

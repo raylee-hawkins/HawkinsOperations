@@ -37,8 +37,9 @@ $blockedPathPatterns = @(
   '/output/cases/',
   '/build/cases/',
   '/build/queue/',
-  '/incidents/',
-  '/incident-response/incidents/'
+  '/projects/autosoc/build/cases/',
+  '/projects/autosoc/build/queue/',
+  '/projects/autosoc/output/cases/'
 )
 
 foreach ($rel in $staged) {
@@ -70,3 +71,4 @@ if ($findings.Count -gt 0) {
 
 Write-Host "AutoSOC publish contract scan passed."
 exit 0
+
