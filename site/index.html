@@ -139,14 +139,16 @@
     </div>
 
     <div class="arch-ledger">
-      <span class="arch-ledger-label">Verified runs</span>
-      <span class="arch-ledger-item">4 cases processed</span>
+      <span class="arch-ledger-label">Verified inventory</span>
+      <span class="arch-ledger-item"><span data-verified="detections">-</span> detections</span>
       <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item">1 <code>AUTO_CLOSE_BENIGN</code></span>
+      <span class="arch-ledger-item"><span data-verified="sigma">-</span> <code>Sigma</code></span>
       <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item">1 <code>AUTO_CLOSE_KNOWN_FP</code></span>
+      <span class="arch-ledger-item"><span data-verified="wazuh">-</span> <code>Wazuh</code></span>
       <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item">2 <code>ESCALATED</code> with full evidence packs</span>
+      <span class="arch-ledger-item"><span data-verified="splunk">-</span> <code>Splunk</code></span>
+      <span class="arch-ledger-sep" aria-hidden="true">·</span>
+      <span class="arch-ledger-item"><span data-verified="ir">-</span> IR playbooks</span>
     </div>
 
     <div class="architecture-links">
@@ -218,4 +220,3 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
