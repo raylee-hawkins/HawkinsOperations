@@ -4,94 +4,60 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const srcPath = path.join(root, "PROOF_PACK", "VERIFIED_COUNTS.md");
+const srcPath = path.join(root, "PROOF_PACK", "verified_counts.json");
 const canonicalOutPath = path.join(root, "PROOF_PACK", "verified_counts.json");
 const siteOutPath = path.join(root, "site", "assets", "verified-counts.json");
+const siteCountsJsOutPath = path.join(root, "site", "data", "counts.js");
 const detectionsDataPath = path.join(root, "site", "assets", "data", "detections.json");
 const withProofPack = process.argv.includes("--with-proof-pack");
 
-function readMatch(lines, regex) {
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    const m = line.match(regex);
-    if (m) return { lineNo: i + 1, match: m };
-  }
-  return null;
-}
-
-function headingForLine(lines, lineNo) {
-  let heading = "";
-  for (let i = 0; i < lineNo; i += 1) {
-    if (lines[i].startsWith("## ")) heading = lines[i].slice(3).trim();
-  }
-  return heading;
-}
-
-function parseVerifiedCountsMarkdown(markdown) {
-  const lines = markdown.split(/\r?\n/);
-  const sigmaHit = readMatch(lines, /\|\s*\*\*Sigma\*\*.*\|\s*\*\*(\d+)\*\*\s+rules/i);
-  const splunkHit = readMatch(lines, /\|\s*\*\*Splunk\*\*.*\|\s*\*\*(\d+)\*\*\s+queries/i);
-  const wazuhHit = readMatch(
-    lines,
-    /\|\s*\*\*Wazuh\*\*.*\|\s*\*\*(\d+)\*\*\s+files,\s*\*\*(\d+)\*\*\s+rule blocks/i
-  );
-  const irHit = readMatch(lines, /\|\s*\*\*IR Playbooks\*\*.*\|\s*\*\*(\d+)\*\*\s+playbooks/i);
-
-  if (!sigmaHit || !splunkHit || !wazuhHit || !irHit) {
-    throw new Error("Could not parse one or more required count rows from PROOF_PACK/VERIFIED_COUNTS.md");
+function parseVerifiedCountsJson(rawJson) {
+  const parsed = JSON.parse(rawJson);
+  if (!parsed || typeof parsed !== "object" || !parsed.counts || typeof parsed.counts !== "object") {
+    throw new Error("Missing counts object in PROOF_PACK/verified_counts.json");
   }
 
-  const sigma = Number(sigmaHit.match[1]);
-  const splunk = Number(splunkHit.match[1]);
-  const wazuhXmlFiles = Number(wazuhHit.match[1]);
-  const wazuh = Number(wazuhHit.match[2]);
-  const ir = Number(irHit.match[1]);
-  const detections = sigma + splunk + wazuh;
-
-  const sourceRefs = {
-    sigma: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: sigmaHit.lineNo,
-      heading: headingForLine(lines, sigmaHit.lineNo)
-    },
-    splunk: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: splunkHit.lineNo,
-      heading: headingForLine(lines, splunkHit.lineNo)
-    },
-    wazuh_xml_files: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: wazuhHit.lineNo,
-      heading: headingForLine(lines, wazuhHit.lineNo)
-    },
-    wazuh: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: wazuhHit.lineNo,
-      heading: headingForLine(lines, wazuhHit.lineNo)
-    },
-    ir: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: irHit.lineNo,
-      heading: headingForLine(lines, irHit.lineNo)
-    },
-    detections: {
-      file: "PROOF_PACK/VERIFIED_COUNTS.md",
-      line: wazuhHit.lineNo,
-      heading: headingForLine(lines, wazuhHit.lineNo)
+  const requiredKeys = ["sigma", "splunk", "wazuh_xml_files", "wazuh", "ir", "detections"];
+  for (const key of requiredKeys) {
+    if (!Number.isFinite(parsed.counts[key])) {
+      throw new Error(`Missing or invalid numeric count '${key}' in PROOF_PACK/verified_counts.json`);
     }
+  }
+
+  const counts = {
+    sigma: Number(parsed.counts.sigma),
+    splunk: Number(parsed.counts.splunk),
+    wazuh_xml_files: Number(parsed.counts.wazuh_xml_files),
+    wazuh: Number(parsed.counts.wazuh),
+    ir: Number(parsed.counts.ir),
+    detections: Number(parsed.counts.detections)
   };
 
   return {
-    counts: {
-      sigma,
-      splunk,
-      wazuh_xml_files: wazuhXmlFiles,
-      wazuh,
-      ir,
-      detections
-    },
-    source_refs: sourceRefs
+    source_path: "PROOF_PACK/verified_counts.json",
+    generated_at_utc: parsed.generated_at_utc || new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
+    counts,
+    source_refs: parsed.source_refs && typeof parsed.source_refs === "object" ? parsed.source_refs : {}
   };
+}
+
+function writeSiteCountsJs(payload) {
+  const countsPayload = {
+    generated_at_utc: payload.generated_at_utc,
+    source_path: payload.source_path,
+    last_verified_utc: payload.generated_at_utc,
+    counts: payload.counts,
+    detections: payload.counts.detections,
+    sigma: payload.counts.sigma,
+    wazuh: payload.counts.wazuh,
+    splunk: payload.counts.splunk,
+    playbooks: payload.counts.ir,
+    ir: payload.counts.ir,
+    wazuh_xml_files: payload.counts.wazuh_xml_files
+  };
+  const js = `window.HAWKINSOPS_COUNTS = ${JSON.stringify(countsPayload, null, 2)};\n`;
+  fs.mkdirSync(path.dirname(siteCountsJsOutPath), { recursive: true });
+  fs.writeFileSync(siteCountsJsOutPath, js, "utf8");
 }
 
 function syncDetectionsData(counts) {
@@ -128,11 +94,11 @@ if (!fs.existsSync(srcPath)) {
 }
 
 const src = fs.readFileSync(srcPath, "utf8");
-const parsed = parseVerifiedCountsMarkdown(src);
+const parsed = parseVerifiedCountsJson(src);
 
 const payload = {
-  generated_at_utc: new Date().toISOString().replace(/\.\d{3}Z$/, "Z"),
-  source_path: "PROOF_PACK/VERIFIED_COUNTS.md",
+  generated_at_utc: parsed.generated_at_utc,
+  source_path: "PROOF_PACK/verified_counts.json",
   counts: parsed.counts,
   source_refs: parsed.source_refs
 };
@@ -140,6 +106,7 @@ const payload = {
 fs.mkdirSync(path.dirname(canonicalOutPath), { recursive: true });
 fs.mkdirSync(path.dirname(siteOutPath), { recursive: true });
 fs.writeFileSync(siteOutPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+writeSiteCountsJs(payload);
 syncDetectionsData(parsed.counts);
 
 if (withProofPack) {
@@ -147,4 +114,5 @@ if (withProofPack) {
   console.log(`Generated ${path.relative(root, canonicalOutPath)}`);
 }
 console.log(`Generated ${path.relative(root, siteOutPath)}`);
+console.log(`Generated ${path.relative(root, siteCountsJsOutPath)}`);
 console.log(`Synced ${path.relative(root, detectionsDataPath)}`);

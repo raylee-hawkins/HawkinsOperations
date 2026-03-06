@@ -77,26 +77,34 @@
     }
   });
 
+  function applyVerifiedPayload(payload) {
+    if (!payload || typeof payload !== 'object') return;
+    const counts = payload.counts && typeof payload.counts === 'object' ? payload.counts : payload;
+    $$('[data-verified]').forEach((node) => {
+      const key = node.getAttribute('data-verified');
+      const value = key ? counts[key] : null;
+      if (typeof value === 'number' && Number.isFinite(value)) {
+        node.textContent = String(value);
+      }
+    });
+    $$('[data-verified-date]').forEach((node) => {
+      const sourceDate = payload.generated_at_utc || payload.last_verified_utc;
+      if (typeof sourceDate === 'string') {
+        node.textContent = formatMmDdYyyy(sourceDate) || sourceDate;
+      }
+    });
+  }
+
   async function loadVerifiedCounts() {
+    if (window.HAWKINSOPS_COUNTS && typeof window.HAWKINSOPS_COUNTS === 'object') {
+      applyVerifiedPayload(window.HAWKINSOPS_COUNTS);
+    }
     if (typeof window.fetchJsonWithTimeout !== 'function') return;
     try {
       const payload = await window.fetchJsonWithTimeout('/assets/verified-counts.json', {
         timeoutMs: VERIFIED_TIMEOUT_MS
       });
-      if (!payload || typeof payload !== 'object' || typeof payload.counts !== 'object') return;
-      const counts = payload.counts;
-      $$('[data-verified]').forEach((node) => {
-        const key = node.getAttribute('data-verified');
-        const value = key ? counts[key] : null;
-        if (typeof value === 'number' && Number.isFinite(value)) {
-          node.textContent = String(value);
-        }
-      });
-      $$('[data-verified-date]').forEach((node) => {
-        if (typeof payload.generated_at_utc === 'string') {
-          node.textContent = formatMmDdYyyy(payload.generated_at_utc) || payload.generated_at_utc;
-        }
-      });
+      applyVerifiedPayload(payload);
     } catch {
       // keep existing values if the payload is unavailable
     }
