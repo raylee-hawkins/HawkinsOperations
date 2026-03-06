@@ -31,36 +31,139 @@
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-<!-- @include:nav:start -->
-<nav>
-  <div class="nav-i">
-    <a class="logo" href="/"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
-    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
-    <ul class="nav-l">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
-      <li><a href="/detections">Detections</a></li>
-      <li><a href="/soc-lab">Lab</a></li>
-      <li><a href="/resume">Resume</a></li>
-      <li><a href="/proof">Proof</a></li>
+<!-- NAV -->
+<!-- NAV_PARTIAL_START -->
+<style>
+  .global-nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #2b3447;
+    background: linear-gradient(180deg, #0b1020 0%, #090d18 100%);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  }
+  .global-nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .global-brand {
+    color: #dbe7ff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .global-nav-links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    flex: 1 1 auto;
+    justify-content: flex-end;
+  }
+  .global-nav-links a,
+  .global-nav-mobile a {
+    display: inline-block;
+    color: #b3c3e8;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+  .global-nav-links a:hover,
+  .global-nav-mobile a:hover {
+    color: #f5fbff;
+    border-color: #41557a;
+    background: #101a2f;
+  }
+  .global-nav-links a.active,
+  .global-nav-mobile a.active {
+    color: #f7c948;
+    border-color: #7a5f1f;
+    background: #1a2234;
+  }
+  .global-nav-toggle {
+    display: none;
+    border: 1px solid #41557a;
+    background: #101a2f;
+    color: #dbe7ff;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+  .global-nav-mobile {
+    display: none;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px 12px 16px;
+  }
+  .global-nav-mobile.open {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  @media (max-width: 860px) {
+    .global-nav-links {
+      display: none;
+    }
+    .global-nav-toggle {
+      display: inline-block;
+      margin-left: auto;
+    }
+  }
+</style>
+<div class="global-nav-wrap">
+  <nav class="global-nav" aria-label="Primary">
+    <a class="global-brand" href="index.html">HAWKINSOPS</a>
+    <ul class="global-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="case-study.html">AutoSOC</a></li>
+      <li><a href="detections.html">Detections</a></li>
+      <li><a href="soc-lab.html">SOC Lab</a></li>
+      <li><a href="proof.html">Proof</a></li>
+      <li><a href="resume.html">Resume</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
-    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
+    <button class="global-nav-toggle" type="button" aria-expanded="false" aria-controls="globalNavMobile">Menu</button>
+  </nav>
+  <div id="globalNavMobile" class="global-nav-mobile" aria-label="Mobile primary navigation">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="case-study.html">AutoSOC</a>
+  <a href="detections.html">Detections</a>
+  <a href="soc-lab.html">SOC Lab</a>
+  <a href="proof.html">Proof</a>
+  <a href="resume.html">Resume</a>
   </div>
-</nav>
-<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
-  <a href="/">Home</a>
-  <a href="/projects">Projects</a>
-  <a href="/case-study-autosoc">AutoSOC Case Study</a>
-  <a href="/detections">Detections</a>
-  <a href="/soc-lab">Lab</a>
-  <a href="/resume">Resume</a>
-  <a href="/proof">Proof</a>
 </div>
-
-<!-- @include:nav:end -->
-
+<script>
+  (function () {
+    var current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    if (current === '') current = 'index.html';
+    document.querySelectorAll('.global-nav-wrap a[href]').forEach(function (a) {
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === current) a.classList.add('active');
+    });
+    var btn = document.querySelector('.global-nav-toggle');
+    var panel = document.getElementById('globalNavMobile');
+    if (!btn || !panel) return;
+    btn.addEventListener('click', function () {
+      var open = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  })();
+</script>
+<!-- NAV_PARTIAL_END -->
 <main>
 <section style="padding-top:110px">
   <div class="ctr">
@@ -79,7 +182,7 @@
     <h2 class="stitle">AutoSOC: automated SOC triage + evidence packs</h2>
     <p class="sdesc">Primary signal project: Wazuh alerts are triaged, sensitive data is redacted, evidence packs are generated, and high-signal cases are escalated.</p>
 
-    <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
+    <a class="card lane-card" href="case-study.html" style="text-decoration:none" data-lane="fastest">
       <span class="lane-tag">FLAGSHIP</span>
       <div class="card-ttl">AutoSOC case study</div>
       <div class="card-sub">
@@ -98,13 +201,13 @@
     <h2 class="stitle">Two supporting projects</h2>
 
     <div class="g2">
-      <a class="card" href="/detections" style="text-decoration:none">
+      <a class="card" href="detections.html" style="text-decoration:none">
         <div class="card-click">Read →</div>
         <div class="card-ttl">Detections library</div>
         <div class="card-sub"><span data-verified="detections">139</span> verified detections across Sigma, Wazuh, and Splunk with tuning context and validation references.</div>
         <div class="card-meta"><span class="tag">MITRE mapped</span><span class="tag">Detection quality</span></div>
       </a>
-      <a class="card" href="/soc-lab" style="text-decoration:none">
+      <a class="card" href="soc-lab.html" style="text-decoration:none">
         <div class="card-click">Read →</div>
         <div class="card-ttl">Lab + telemetry pipeline</div>
         <div class="card-sub">SOC lab data flow and runbook coverage that feeds the AutoSOC workflow from detection through escalation output.</div>
@@ -124,25 +227,25 @@
       <summary>Open additional projects</summary>
       <div class="details-body">
         <div class="g2">
-          <a class="card" href="/case-study-sigma-library" style="text-decoration:none">
+          <a class="card" href="case-study-sigma-library.html" style="text-decoration:none">
             <div class="card-click">Read →</div>
             <div class="card-ttl">Sigma detection library</div>
             <div class="card-sub"><span data-verified="sigma">103</span> Sigma rules with ATT&amp;CK alignment and false-positive handling notes.</div>
             <div class="card-meta"><span class="tag">Detection engineering</span></div>
           </a>
-          <a class="card" href="/case-study-ir-howe01" style="text-decoration:none">
+          <a class="card" href="case-study-ir-howe01.html" style="text-decoration:none">
             <div class="card-click">Read →</div>
             <div class="card-ttl">IR alert investigation</div>
             <div class="card-sub">Structured incident analysis from alert intake through disposition and evidence capture.</div>
             <div class="card-meta"><span class="tag">Incident response</span></div>
           </a>
-          <a class="card" href="/case-study-cve-patch" style="text-decoration:none">
+          <a class="card" href="case-study-cve-patch.html" style="text-decoration:none">
             <div class="card-click">Read →</div>
             <div class="card-ttl">CVE patch workflow</div>
             <div class="card-sub">Detect -> triage -> patch -> verify with evidence-linked closure reporting.</div>
             <div class="card-meta"><span class="tag">Vulnerability response</span></div>
           </a>
-          <a class="card" href="/case-study-honeypot" style="text-decoration:none">
+          <a class="card" href="case-study-honeypot.html" style="text-decoration:none">
             <div class="card-click">Read →</div>
             <div class="card-ttl">Honeypot telemetry stack</div>
             <div class="card-sub">Cowrie + Wazuh + Grafana workflow for attacker behavior collection and analysis.</div>
@@ -181,3 +284,5 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
+
+
