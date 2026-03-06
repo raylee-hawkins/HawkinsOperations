@@ -93,51 +93,11 @@
     <div class="slbl">Infrastructure</div>
     <h2 class="stitle">The lab behind it</h2>
     <p class="lab-arch-intro">Single Proxmox host running isolated VMs. Real telemetry flows from endpoint through Wazuh into automated triage. Splunk handles investigation pivots. Everything runs on RFC1918 subnets — test traffic stays in the lab, evidence comes out.</p>
-
-    <div class="arch-diagram">
-      <div class="arch-env">
-        <div class="arch-env-label">Proxmox Hypervisor</div>
-        <div class="arch-env-nodes">
-          <div class="arch-node">
-            <div class="arch-node-head">Endpoint</div>
-            <div class="arch-node-name">Windows 11</div>
-            <div class="arch-node-detail">Sysmon · Wazuh Agent</div>
-          </div>
-          <div class="arch-arrow" aria-hidden="true">→</div>
-          <div class="arch-node">
-            <div class="arch-node-head">SIEM</div>
-            <div class="arch-node-name">Wazuh Manager</div>
-            <div class="arch-node-detail">Indexer · REST API · Custom rules</div>
-          </div>
-          <div class="arch-arrow" aria-hidden="true">→</div>
-          <div class="arch-node">
-            <div class="arch-node-head">Search</div>
-            <div class="arch-node-name">Splunk</div>
-            <div class="arch-node-detail">SPL queries · Investigation pivots</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="arch-vert">
-        <div class="arch-vert-line"></div>
-        <div class="arch-vert-label">Tailscale · port 9200</div>
-      </div>
-
-      <div class="arch-env-nodes arch-output-row">
-        <div class="arch-node arch-node--accent">
-          <div class="arch-node-head">Automation</div>
-          <div class="arch-node-name">AutoSOC Pipeline</div>
-          <div class="arch-node-detail">poll → triage → redact → pack</div>
-        </div>
-        <div class="arch-arrow" aria-hidden="true">→</div>
-        <div class="arch-node">
-          <div class="arch-node-head">Output</div>
-          <div class="arch-node-name">GitHub</div>
-          <div class="arch-node-detail">Evidence PRs · Reviewable packs</div>
-        </div>
-      </div>
+    <div class="lab-arch-visual">
+      <img src="/assets/pp_soc_integration/lab-architecture.svg"
+           alt="SOC lab architecture: Proxmox hypervisor running Windows 11 endpoint (Sysmon + Wazuh Agent), Wazuh Manager (Indexer + REST API), and Splunk, connected via Tailscale to AutoSOC pipeline and GitHub review output"
+           loading="lazy" width="1200" height="510">
     </div>
-
     <a class="lab-arch-link" href="/soc-lab">Full lab details <span>→</span></a>
   </div>
 </section>
