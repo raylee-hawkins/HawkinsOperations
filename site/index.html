@@ -108,26 +108,50 @@
 </header>
 <section class="section-tight architecture-section">
   <div class="ctr home-shell architecture-shell">
-    <div class="slbl">System Overview</div>
+    <div class="slbl">Pipeline Architecture</div>
     <h2 class="stitle">How the AutoSOC pipeline works</h2>
-    <p class="architecture-intro">The architecture is intentionally simple to audit: one alert path, one decision path, one evidence path. Reviewers can validate each stage through the case study and proof lane.</p>
+    <p class="architecture-intro">One alert path, one decision path, one evidence path. Each stage is a discrete Python script. Each output is independently auditable in the case study and proof lane.</p>
+
+    <figure class="arch-diagram">
+      <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2"
+           alt="AutoSOC system map: poll-alerts.py pulls Wazuh alerts into a queue file; triage.py classifies each alert as AUTO_CLOSE_BENIGN, AUTO_CLOSE_KNOWN_FP, or ESCALATED using policy.yaml and known_fps.yaml; redact.py strips identifiers from case data; assemble-pack.py generates a six-document evidence pack; create-pr.py opens a GitHub PR for escalated cases with full redacted artifacts"
+           loading="lazy">
+      <figcaption>System path: Wazuh alert &#8594; <code>poll-alerts.py</code> &#8594; <code>triage.py</code> (benign / known FP / escalate) &#8594; <code>redact.py</code> &#8594; <code>assemble-pack.py</code> &#8594; <code>create-pr.py</code>. Each stage maps to a named script in <code>scripts/auto-soc/</code>.</figcaption>
+    </figure>
+
     <div class="architecture-grid">
       <article class="architecture-card">
-        <div class="architecture-step">1. Alert intake + context</div>
-        <p>Wazuh alerts enter a repeatable first-pass workflow with enough context to classify noise, known false positives, and suspicious events.</p>
+        <div class="architecture-step">Step 1 — Alert Intake</div>
+        <p><code>poll-alerts.py</code> queries the Wazuh indexer REST API on a schedule and writes new alerts to a local queue file. Each record includes rule ID, severity level, description, and agent metadata consumed by the triage step.</p>
       </article>
       <article class="architecture-card">
-        <div class="architecture-step">2. Decision + evidence packaging</div>
-        <p>The triage path applies deterministic handling rules, redacts sensitive data, and outputs reviewer-safe evidence artifacts tied to each decision.</p>
+        <div class="architecture-step">Step 2 — Triage Decision</div>
+        <p><code>triage.py</code> evaluates each queued alert against <code>policy.yaml</code> and <code>known_fps.yaml</code>. Output is one of three deterministic dispositions: <code>AUTO_CLOSE_BENIGN</code>, <code>AUTO_CLOSE_KNOWN_FP</code>, or <code>ESCALATED</code>. No manual input required per alert.</p>
       </article>
       <article class="architecture-card">
-        <div class="architecture-step">3. Escalation + proof trail</div>
-        <p>Escalated cases and run outputs are published with reproducible proof references so hiring reviewers can validate claims without private lab access.</p>
+        <div class="architecture-step">Step 3 — Redaction + Packaging</div>
+        <p><code>redact.py</code> strips real IPs, hostnames, and identifiers before data leaves the private environment. <code>assemble-pack.py</code> then generates six report documents from the sanitized data: timeline, triage summary, IOC list, remediation steps, MITRE mapping, and closure report.</p>
+      </article>
+      <article class="architecture-card">
+        <div class="architecture-step">Step 4 — Escalation Output</div>
+        <p><code>create-pr.py</code> stages the complete incident pack to the repo and opens a GitHub PR. Escalated cases are publicly reviewable with full redacted evidence. <code>run-pipeline.py</code> orchestrates the sequence on a Task Scheduler trigger. Run logs are archived per execution.</p>
       </article>
     </div>
+
+    <div class="arch-ledger">
+      <span class="arch-ledger-label">Verified runs</span>
+      <span class="arch-ledger-item">4 cases processed</span>
+      <span class="arch-ledger-sep" aria-hidden="true">·</span>
+      <span class="arch-ledger-item">1 <code>AUTO_CLOSE_BENIGN</code></span>
+      <span class="arch-ledger-sep" aria-hidden="true">·</span>
+      <span class="arch-ledger-item">1 <code>AUTO_CLOSE_KNOWN_FP</code></span>
+      <span class="arch-ledger-sep" aria-hidden="true">·</span>
+      <span class="arch-ledger-item">2 <code>ESCALATED</code> with full evidence packs</span>
+    </div>
+
     <div class="architecture-links">
-      <a class="btn btn-g" href="/case-study-autosoc">Review architecture details</a>
-      <a class="btn btn-g" href="proof.html">Open proof lane</a>
+      <a class="btn btn-p" href="/case-study-autosoc">Full implementation walkthrough</a>
+      <a class="btn btn-g" href="/proof">View proof artifacts</a>
     </div>
   </div>
 </section>
