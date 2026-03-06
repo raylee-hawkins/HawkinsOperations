@@ -13,10 +13,13 @@ const targetPages = fs
   .map((entry) => path.join("site", entry.name))
   .sort();
 
-const includeDefs = {
+const includePaths = {
   nav: path.join("site", "partials", "nav.html"),
   footer: path.join("site", "partials", "footer.html")
 };
+const includeDefs = Object.fromEntries(
+  Object.entries(includePaths).filter(([, relPath]) => fs.existsSync(path.join(root, relPath)))
+);
 
 const routesPath = path.join("scripts", "config", "routes.json");
 
@@ -46,6 +49,10 @@ function markerRegex(name, kind) {
 function findBlock(html, name, relPath) {
   const startMatches = [...html.matchAll(markerRegex(name, "start"))];
   const endMatches = [...html.matchAll(markerRegex(name, "end"))];
+
+  if (startMatches.length === 0 && endMatches.length === 0) {
+    return null;
+  }
 
   if (startMatches.length !== 1 || endMatches.length !== 1) {
     fail(
@@ -115,11 +122,14 @@ function renderFooter() {
   return normalize(readUtf8(includeDefs.footer));
 }
 
-const routes = parseRoutes();
-const includes = {
-  nav: renderNav(routes),
-  footer: renderFooter()
-};
+const includes = {};
+if (includeDefs.nav) {
+  const routes = parseRoutes();
+  includes.nav = renderNav(routes);
+}
+if (includeDefs.footer) {
+  includes.footer = renderFooter();
+}
 
 const changedFiles = [];
 
@@ -131,11 +141,11 @@ targetPages.forEach((relPath) => {
   const newline = detectNewline(raw);
   let html = normalize(raw);
 
-  const navBlock = findBlock(html, "nav", relPath);
-  html = replaceBlock(html, navBlock, includes.nav);
-
-  const footerBlock = findBlock(html, "footer", relPath);
-  html = replaceBlock(html, footerBlock, includes.footer);
+  Object.entries(includes).forEach(([name, replacement]) => {
+    const block = findBlock(html, name, relPath);
+    if (!block) return;
+    html = replaceBlock(html, block, replacement);
+  });
 
   const next = html.replace(/\n/g, newline);
   if (next !== raw) {
