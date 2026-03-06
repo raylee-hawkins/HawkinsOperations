@@ -570,7 +570,7 @@ section.section-tight{padding-top:24px}
 .lane-card[data-lane="source"] .lane-tag{background:rgba(167,139,250,.10);border-color:rgba(167,139,250,.28);color:#a78bfa}
 .lane-card[data-lane="source"]:hover{border-color:rgba(167,139,250,.30)}
 
-/* ===== PHASE 3 HOMEPAGE CONVERSION ===== */
+/* ===== HOME REDESIGN ===== */
 .home-main .hero{min-height:auto;padding-top:86px;padding-bottom:34px}
 .home-main .hero-split-ctr{grid-template-columns:.96fr 1.04fr;gap:34px;align-items:center}
 .home-main .hero-panel{padding:26px 24px 20px}
@@ -578,11 +578,7 @@ section.section-tight{padding-top:24px}
 .home-main .hsub{font-size:.98rem;line-height:1.58;max-width:56ch;margin-bottom:14px}
 .home-main .hctas{gap:10px;margin-bottom:12px}
 .home-main .hero-meta{display:flex;flex-direction:column;gap:7px}
-.home-main .hero-visual-kicker{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
 .home-main .hero-visual-frame{border-radius:16px;border-color:rgba(var(--acc-rgb),.28)}
-.home-main .hero-visual-caption{margin-top:10px;font-size:.81rem;line-height:1.45;color:var(--dim);max-width:62ch}
-.home-main .hero-visual-metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.home-main .hero-chip{display:inline-flex;align-items:center;padding:5px 10px;border-radius:999px;border:1px solid rgba(var(--acc-rgb),.24);background:rgba(var(--acc-rgb),.10);font-family:var(--mono);font-size:.62rem;color:var(--acc)}
 .home-main .hero-visual-foot{margin-top:11px;padding-top:0}
 
 .home-main .section-tight{padding-top:30px;padding-bottom:54px}
@@ -594,8 +590,7 @@ section.section-tight{padding-top:24px}
   box-shadow:var(--panel-shadow);
   padding:22px;
 }
-.home-main .architecture-intro{font-size:.9rem;color:var(--dim);line-height:1.58;max-width:70ch;margin:0 0 14px}
-.home-main .architecture-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.home-main .architecture-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .home-main .architecture-card{
   border:1px solid var(--bdr);
   border-radius:12px;
@@ -611,64 +606,82 @@ section.section-tight{padding-top:24px}
   margin-bottom:8px;
 }
 .home-main .architecture-card p{font-size:.83rem;line-height:1.5;color:var(--dim)}
-.home-main .architecture-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.home-main .architecture-links .btn{padding:10px 14px;font-size:.7rem}
-.home-main .arch-diagram{
-  margin:0 0 16px;
+.home-main .architecture-card code{
+  font-family:var(--mono);
+  font-size:.82em;
+  color:var(--acc);
+  background:rgba(var(--acc-rgb),.10);
+  border-radius:4px;
+  padding:1px 4px;
+  white-space:nowrap;
+}
+
+/* Pipeline flow diagram */
+.home-main .pipe-diagram{
+  display:grid;
+  grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;
+  align-items:stretch;
+  gap:0;
+  margin:16px 0 0;
   border:1px solid var(--bdr);
   border-radius:12px;
   overflow:hidden;
   background:rgba(6,8,14,.95);
 }
-.home-main .arch-diagram img{display:block;width:100%;height:auto}
-.home-main .arch-diagram figcaption{
-  display:block;
-  padding:9px 14px;
-  font-size:.78rem;
-  line-height:1.5;
-  color:var(--dim);
-  border-top:1px solid var(--bdr);
-}
-.home-main .architecture-card code{
-  font-family:var(--mono);
-  font-size:.76em;
-  color:var(--acc);
-  background:rgba(var(--acc-rgb),.10);
-  border-radius:4px;
-  padding:1px 5px;
-  white-space:nowrap;
-}
-.home-main .arch-diagram figcaption code{
-  font-family:var(--mono);
-  font-size:.85em;
-  color:var(--acc);
-}
-.home-main .arch-ledger{
+.home-main .pipe-node{
+  padding:14px 16px;
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:5px 10px;
-  margin:14px 0 0;
-  padding:10px 13px;
-  border:1px solid var(--bdr);
-  border-radius:9px;
+  flex-direction:column;
+  gap:4px;
+}
+.home-main .pipe-node--out{
+  border-left:1px solid rgba(var(--acc-rgb),.22);
   background:rgba(var(--acc-rgb),.04);
 }
-.home-main .arch-ledger-label{
+.home-main .pipe-node-tag{
   font-family:var(--mono);
-  font-size:.61rem;
-  letter-spacing:.1em;
+  font-size:.56rem;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--acc);
-  margin-right:4px;
+  color:var(--faint);
 }
-.home-main .arch-ledger-item{font-family:var(--mono);font-size:.72rem;color:var(--dim)}
-.home-main .arch-ledger-item code{
+.home-main .pipe-node-name{
+  font-family:var(--head);
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--txt);
+  line-height:1.2;
+}
+.home-main .pipe-node-desc{
+  font-size:.74rem;
+  color:var(--dim);
+  line-height:1.4;
+  margin-top:2px;
+}
+.home-main .pipe-node-desc code{
   font-family:var(--mono);
-  font-size:.9em;
+  font-size:.88em;
   color:var(--acc);
+  background:rgba(var(--acc-rgb),.10);
+  border-radius:3px;
+  padding:1px 4px;
+  white-space:nowrap;
 }
-.home-main .arch-ledger-sep{color:var(--faint);font-size:.72rem}
+.home-main .pipe-arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 2px;
+  color:var(--faint);
+  font-family:var(--mono);
+  font-size:.8rem;
+  flex-shrink:0;
+  border-left:1px solid var(--bdr);
+  border-right:1px solid var(--bdr);
+  background:rgba(255,255,255,.02);
+  min-width:28px;
+}
+.home-main .pipe-arrow::after{content:'→'}
 
 .home-main .review-shell{
   border:1px solid var(--bdr);
@@ -723,12 +736,27 @@ section.section-tight{padding-top:24px}
   .home-main .architecture-shell{padding:18px}
   .home-main .review-shell{padding:18px}
   .home-main .review-grid .lane-card{min-height:auto}
+  .home-main .pipe-diagram{
+    grid-template-columns:1fr;
+    border-radius:12px;
+  }
+  .home-main .pipe-node{padding:12px 14px}
+  .home-main .pipe-node--out{border-left:none;border-top:1px solid rgba(var(--acc-rgb),.22)}
+  .home-main .pipe-arrow{
+    border-left:none;
+    border-right:none;
+    border-top:1px solid var(--bdr);
+    border-bottom:1px solid var(--bdr);
+    min-width:auto;
+    padding:4px 14px;
+    justify-content:flex-start;
+  }
+  .home-main .pipe-arrow::after{content:'↓'}
 }
 @media(max-width:640px){
   .home-main .hero-panel{padding:20px 16px 18px}
   .home-main .htitle{font-size:1.84rem;line-height:1.12}
   .home-main .hsub{font-size:.94rem}
-  .home-main .hero-visual-caption{font-size:.78rem}
   .home-main .architecture-card p{font-size:.8rem}
   .home-main .review-proof-line{font-size:.68rem;line-height:1.55}
 }

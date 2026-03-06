@@ -73,51 +73,62 @@
   <div class="hero-glow"></div>
   <div class="ctr hero-split-ctr">
     <div class="hero-panel">
-      <div class="htag">ENTRY-LEVEL SOC | AUTOMATION + DETECTION</div>
-      <h1 class="htitle">I built an <span class="hl">AutoSOC pipeline</span> that turns Wazuh alerts into consistent triage decisions and redacted escalation artifacts.</h1>
+      <div class="htag">Entry-Level SOC · Automation + Detection</div>
+      <h1 class="htitle">I built <span class="hl">AutoSOC</span> — automated first-pass triage for Wazuh alerts.</h1>
       <p class="hsub">
-        I automated repeatable first-pass SOC triage for Wazuh alerts: classify alerts, redact sensitive data,
-        package investigation evidence, and escalate suspicious cases with reviewable GitHub artifacts.
+        Each alert is classified against policy rules, sensitive identifiers are stripped, and escalated cases produce a complete reviewable evidence pack — opened as a GitHub PR with no manual input per alert.
       </p>
       <div class="hctas">
         <a class="btn btn-p" href="/case-study-autosoc">Read AutoSOC Case Study</a>
-        <a class="btn btn-g" href="proof.html">View Proof</a>
+        <a class="btn btn-g" href="/proof">View Proof</a>
       </div>
       <div class="hero-meta">
         <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
-        <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
+        <div class="lupd">Huntsville-adjacent, North Alabama · SOC Analyst target track</div>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-visual-kicker">AutoSOC architecture overview</div>
       <div class="hero-visual-frame">
-        <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map from ingestion through triage and escalation outputs">
-      </div>
-      <div class="hero-visual-caption">System path: alert intake -> triage decision -> redacted evidence -> escalation output.</div>
-      <div class="hero-visual-metrics">
-        <span class="hero-chip">Deterministic triage flow</span>
-        <span class="hero-chip">Review-ready artifacts</span>
-        <span class="hero-chip">Source-controlled runs</span>
+        <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map: Wazuh alert intake through triage decision, identifier redaction, and GitHub PR escalation">
       </div>
       <div class="hero-visual-foot">
         <span class="redaction-pill">Identifiers redacted in public artifacts</span>
-        <a class="lane-cta" href="/case-study-autosoc" style="text-decoration:none">Open architecture <span>-></span></a>
+        <a class="lane-cta" href="/case-study-autosoc" style="text-decoration:none">Full case study <span>→</span></a>
       </div>
     </div>
   </div>
 </header>
+
 <section class="section-tight architecture-section">
   <div class="ctr home-shell architecture-shell">
     <div class="slbl">Pipeline Architecture</div>
-    <h2 class="stitle">How the AutoSOC pipeline works</h2>
-    <p class="architecture-intro">One alert path, one decision path, one evidence path. Each stage is a discrete Python script. Each output is independently auditable in the case study and proof lane.</p>
+    <h2 class="stitle">How AutoSOC works</h2>
 
-    <figure class="arch-diagram">
-      <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2"
-           alt="AutoSOC system map: poll-alerts.py pulls Wazuh alerts into a queue file; triage.py classifies each alert as AUTO_CLOSE_BENIGN, AUTO_CLOSE_KNOWN_FP, or ESCALATED using policy.yaml and known_fps.yaml; redact.py strips identifiers from case data; assemble-pack.py generates a six-document evidence pack; create-pr.py opens a GitHub PR for escalated cases with full redacted artifacts"
-           loading="lazy">
-      <figcaption>System path: Wazuh alert &#8594; <code>poll-alerts.py</code> &#8594; <code>triage.py</code> (benign / known FP / escalate) &#8594; <code>redact.py</code> &#8594; <code>assemble-pack.py</code> &#8594; <code>create-pr.py</code>. Each stage maps to a named script in <code>scripts/auto-soc/</code>.</figcaption>
-    </figure>
+    <div class="pipe-diagram" role="img" aria-label="AutoSOC pipeline: alert intake, triage decision, evidence packaging, GitHub PR escalation">
+      <div class="pipe-node">
+        <div class="pipe-node-tag">Intake</div>
+        <div class="pipe-node-name">Alert Intake</div>
+        <div class="pipe-node-desc"><code>poll-alerts.py</code></div>
+      </div>
+      <div class="pipe-arrow" aria-hidden="true"></div>
+      <div class="pipe-node">
+        <div class="pipe-node-tag">Triage</div>
+        <div class="pipe-node-name">Decision</div>
+        <div class="pipe-node-desc"><code>triage.py</code></div>
+      </div>
+      <div class="pipe-arrow" aria-hidden="true"></div>
+      <div class="pipe-node">
+        <div class="pipe-node-tag">Package</div>
+        <div class="pipe-node-name">Evidence Pack</div>
+        <div class="pipe-node-desc"><code>redact.py</code> + <code>assemble-pack.py</code></div>
+      </div>
+      <div class="pipe-arrow" aria-hidden="true"></div>
+      <div class="pipe-node pipe-node--out">
+        <div class="pipe-node-tag">Output</div>
+        <div class="pipe-node-name">Escalation</div>
+        <div class="pipe-node-desc"><code>create-pr.py</code></div>
+      </div>
+    </div>
 
     <div class="architecture-grid">
       <article class="architecture-card">
@@ -129,31 +140,13 @@
         <p><code>triage.py</code> evaluates each queued alert against <code>policy.yaml</code> and <code>known_fps.yaml</code>. Output is one of three deterministic dispositions: <code>AUTO_CLOSE_BENIGN</code>, <code>AUTO_CLOSE_KNOWN_FP</code>, or <code>ESCALATED</code>. No manual input required per alert.</p>
       </article>
       <article class="architecture-card">
-        <div class="architecture-step">Step 3 — Redaction + Packaging</div>
-        <p><code>redact.py</code> strips real IPs, hostnames, and identifiers before data leaves the private environment. <code>assemble-pack.py</code> then generates six report documents from the sanitized data: timeline, triage summary, IOC list, remediation steps, MITRE mapping, and closure report.</p>
+        <div class="architecture-step">Step 3 — Redaction + Evidence</div>
+        <p><code>redact.py</code> strips real IPs, hostnames, and identifiers before data leaves the private environment. <code>assemble-pack.py</code> generates six report documents from the sanitized data: timeline, triage summary, IOC list, remediation steps, MITRE mapping, and closure report.</p>
       </article>
       <article class="architecture-card">
         <div class="architecture-step">Step 4 — Escalation Output</div>
-        <p><code>create-pr.py</code> stages the complete incident pack to the repo and opens a GitHub PR. Escalated cases are publicly reviewable with full redacted evidence. <code>run-pipeline.py</code> orchestrates the sequence on a Task Scheduler trigger. Run logs are archived per execution.</p>
+        <p><code>create-pr.py</code> stages the complete incident pack and opens a GitHub PR. Escalated cases are publicly reviewable with full redacted artifacts. <code>run-pipeline.py</code> orchestrates the full sequence on a Task Scheduler trigger.</p>
       </article>
-    </div>
-
-    <div class="arch-ledger">
-      <span class="arch-ledger-label">Verified inventory</span>
-      <span class="arch-ledger-item"><span data-verified="detections">-</span> detections</span>
-      <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item"><span data-verified="sigma">-</span> <code>Sigma</code></span>
-      <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item"><span data-verified="wazuh">-</span> <code>Wazuh</code></span>
-      <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item"><span data-verified="splunk">-</span> <code>Splunk</code></span>
-      <span class="arch-ledger-sep" aria-hidden="true">·</span>
-      <span class="arch-ledger-item"><span data-verified="ir">-</span> IR playbooks</span>
-    </div>
-
-    <div class="architecture-links">
-      <a class="btn btn-p" href="/case-study-autosoc">Full implementation walkthrough</a>
-      <a class="btn btn-g" href="/proof">View proof artifacts</a>
     </div>
   </div>
 </section>
@@ -162,26 +155,26 @@
   <div class="ctr home-shell">
     <div class="review-shell">
       <div class="slbl">Review First</div>
-      <h2 class="stitle">Fastest path for SOC hiring review</h2>
+      <h2 class="stitle">Fastest path for hiring review</h2>
       <p class="review-intro">Start with the case study, validate the receipts, then assess role fit.</p>
       <div class="g3 review-grid">
         <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
           <span class="lane-tag">START HERE</span>
           <div class="card-ttl">AutoSOC case study</div>
           <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
-          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
         </a>
-        <a class="card lane-card" href="proof.html" style="text-decoration:none" data-lane="systems">
+        <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="systems">
           <span class="lane-tag">RECEIPTS</span>
           <div class="card-ttl">Proof</div>
           <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
-          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
         </a>
-        <a class="card lane-card" href="resume.html" style="text-decoration:none" data-lane="source">
+        <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="source">
           <span class="lane-tag">ROLE FIT</span>
           <div class="card-ttl">Resume</div>
           <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
-          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
         </a>
       </div>
       <div class="review-proof">
