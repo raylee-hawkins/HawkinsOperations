@@ -106,24 +106,28 @@
 
     <div class="pipe-diagram" role="img" aria-label="AutoSOC pipeline: alert intake, triage decision, evidence packaging, GitHub PR escalation">
       <div class="pipe-node">
+        <div class="pipe-node-num" aria-hidden="true">01</div>
         <div class="pipe-node-tag">Intake</div>
         <div class="pipe-node-name">Alert Intake</div>
         <div class="pipe-node-desc"><code>poll-alerts.py</code></div>
       </div>
       <div class="pipe-arrow" aria-hidden="true"></div>
       <div class="pipe-node">
+        <div class="pipe-node-num" aria-hidden="true">02</div>
         <div class="pipe-node-tag">Triage</div>
         <div class="pipe-node-name">Decision</div>
         <div class="pipe-node-desc"><code>triage.py</code></div>
       </div>
       <div class="pipe-arrow" aria-hidden="true"></div>
       <div class="pipe-node">
+        <div class="pipe-node-num" aria-hidden="true">03</div>
         <div class="pipe-node-tag">Package</div>
         <div class="pipe-node-name">Evidence Pack</div>
         <div class="pipe-node-desc"><code>redact.py</code> + <code>assemble-pack.py</code></div>
       </div>
       <div class="pipe-arrow" aria-hidden="true"></div>
       <div class="pipe-node pipe-node--out">
+        <div class="pipe-node-num" aria-hidden="true">04</div>
         <div class="pipe-node-tag">Output</div>
         <div class="pipe-node-name">Escalation</div>
         <div class="pipe-node-desc"><code>create-pr.py</code></div>
