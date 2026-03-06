@@ -34,98 +34,9 @@
 <body>
 <!-- NAV -->
 <!-- NAV_PARTIAL_START -->
-<style>
-  .global-nav-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #2b3447;
-    background: linear-gradient(180deg, #0b1020 0%, #090d18 100%);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  }
-  .global-nav {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .global-brand {
-    color: #dbe7ff;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-  .global-nav-links {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 8px;
-    flex: 1 1 auto;
-    justify-content: flex-end;
-  }
-  .global-nav-links a,
-  .global-nav-mobile a {
-    display: inline-block;
-    color: #b3c3e8;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-size: 0.92rem;
-    line-height: 1.2;
-  }
-  .global-nav-links a:hover,
-  .global-nav-mobile a:hover {
-    color: #f5fbff;
-    border-color: #41557a;
-    background: #101a2f;
-  }
-  .global-nav-links a.active,
-  .global-nav-mobile a.active {
-    color: #f7c948;
-    border-color: #7a5f1f;
-    background: #1a2234;
-  }
-  .global-nav-toggle {
-    display: none;
-    border: 1px solid #41557a;
-    background: #101a2f;
-    color: #dbe7ff;
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
-  }
-  .global-nav-mobile {
-    display: none;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px 12px 16px;
-  }
-  .global-nav-mobile.open {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-  @media (max-width: 860px) {
-    .global-nav-links {
-      display: none;
-    }
-    .global-nav-toggle {
-      display: inline-block;
-      margin-left: auto;
-    }
-  }
-</style>
 <div class="global-nav-wrap">
   <nav class="global-nav" aria-label="Primary">
-    <a class="global-brand" href="index.html">HAWKINSOPS</a>
+    <a class="global-brand" href="/">HAWKINSOPS</a>
     <ul class="global-nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -165,6 +76,7 @@
   })();
 </script>
 <!-- NAV_PARTIAL_END -->
+
 <main>
 <section style="padding-top:110px">
   <div class="ctr" style="max-width:920px">
@@ -285,6 +197,7 @@ pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
+
 
 
 
