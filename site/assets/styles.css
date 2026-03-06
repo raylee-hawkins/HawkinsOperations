@@ -623,6 +623,3 @@ html[data-theme="light"] .proof-strip-inner{background:linear-gradient(180deg,rg
   .footer-grid{grid-template-columns:1fr}
   .footer-nav-group{gap:16px}
 }
-@media(max-width:640px){
-  .hero-verify-row{display:none}
-}
