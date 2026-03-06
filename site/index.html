@@ -104,14 +104,14 @@
 
 <section class="sys-proof">
   <div class="ctr">
-    <div class="slbl">Pipeline</div>
-    <h2 class="stitle">How AutoSOC works</h2>
+    <div class="slbl">Workflow</div>
+    <h2 class="stitle">AutoSOC triage flow</h2>
     <div class="sys-proof-visual">
       <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-           alt="AutoSOC pipeline: alert intake (poll-alerts.py), triage decision (triage.py), evidence pack (redact.py + assemble-pack.py), GitHub PR escalation (create-pr.py)"
-           loading="lazy" width="1200" height="280">
+           alt="AutoSOC workflow: alert intake (poll-alerts.py), triage decision (triage.py), redaction (redact.py), evidence pack (assemble-pack.py), PR escalation (create-pr.py)"
+           loading="lazy" width="1200" height="240">
     </div>
-    <p class="sys-proof-caption">poll-alerts.py queries the Wazuh indexer on schedule. triage.py dispositions each alert against policy.yaml. redact.py strips identifiers. assemble-pack.py generates the evidence pack. create-pr.py opens a GitHub PR. Orchestrated by run-pipeline.py on Task Scheduler.</p>
+    <p class="sys-proof-caption">poll-alerts.py queries the Wazuh indexer on schedule. triage.py dispositions each alert against policy.yaml. redact.py strips sensitive identifiers. assemble-pack.py generates the evidence pack. create-pr.py opens a GitHub PR for review. Five scripts, orchestrated by run-pipeline.py on Task Scheduler.</p>
   </div>
 </section>
 
