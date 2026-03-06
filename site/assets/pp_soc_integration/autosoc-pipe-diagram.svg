@@ -1,48 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" role="img" aria-label="AutoSOC pipeline: alert intake, triage decision, evidence pack, GitHub PR escalation">
-  <title>AutoSOC Pipeline Architecture</title>
-  <desc>Four-stage automated triage pipeline: Alert Intake via poll-alerts.py, Triage Decision via triage.py, Evidence Pack via redact.py and assemble-pack.py, Escalation output via create-pr.py</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" role="img" aria-label="AutoSOC workflow: alert intake, triage, redaction, evidence pack, PR escalation">
+  <title>AutoSOC Workflow</title>
+  <desc>Five-stage automated triage workflow: Alert Intake via poll-alerts.py, Triage via triage.py, Redaction via redact.py, Evidence Pack via assemble-pack.py, Escalation via create-pr.py</desc>
 
-  <!-- NODE 1 — Alert Intake -->
-  <rect x="60" y="65" width="228" height="150" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="61" y="66" width="226" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="76" y="113" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="40" font-weight="700" fill="#7ab8ff" fill-opacity="0.11" letter-spacing="-1.5">01</text>
-  <text x="76" y="135" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">INTAKE</text>
-  <text x="76" y="162" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#ccd8ee">Alert Intake</text>
-  <text x="76" y="186" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="11" fill="#3d5a78">poll-alerts.py</text>
+  <!-- Stage 01 — Intake -->
+  <rect x="28" y="55" width="184" height="130" rx="6" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
+  <text x="42" y="96" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" font-weight="700" fill="#7ab8ff" fill-opacity="0.10" letter-spacing="-1">01</text>
+  <text x="42" y="114" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#324a62" letter-spacing="2">INTAKE</text>
+  <text x="42" y="138" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="13" font-weight="600" fill="#ccd8ee">Alert Intake</text>
+  <text x="42" y="158" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78">poll-alerts.py</text>
 
-  <!-- CONNECTOR 1 -->
-  <line x1="292" y1="140" x2="337" y2="140" stroke="#1c2a38" stroke-width="1.5"/>
-  <path d="M334,135.5 L344,140 L334,144.5 L336.5,140 Z" fill="#1c2a38"/>
+  <!-- Connector 1→2 -->
+  <line x1="216" y1="120" x2="236" y2="120" stroke="#1c2a38" stroke-width="1.5"/>
+  <path d="M233,116 L241,120 L233,124 L235,120 Z" fill="#1c2a38"/>
 
-  <!-- NODE 2 — Decision -->
-  <rect x="344" y="65" width="228" height="150" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="345" y="66" width="226" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="360" y="113" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="40" font-weight="700" fill="#7ab8ff" fill-opacity="0.11" letter-spacing="-1.5">02</text>
-  <text x="360" y="135" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">TRIAGE</text>
-  <text x="360" y="162" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#ccd8ee">Decision</text>
-  <text x="360" y="186" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="11" fill="#3d5a78">triage.py</text>
+  <!-- Stage 02 — Triage -->
+  <rect x="244" y="55" width="184" height="130" rx="6" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
+  <text x="258" y="96" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" font-weight="700" fill="#7ab8ff" fill-opacity="0.10" letter-spacing="-1">02</text>
+  <text x="258" y="114" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#324a62" letter-spacing="2">TRIAGE</text>
+  <text x="258" y="138" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="13" font-weight="600" fill="#ccd8ee">Decision</text>
+  <text x="258" y="158" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78">triage.py</text>
 
-  <!-- CONNECTOR 2 -->
-  <line x1="576" y1="140" x2="621" y2="140" stroke="#1c2a38" stroke-width="1.5"/>
-  <path d="M618,135.5 L628,140 L618,144.5 L620.5,140 Z" fill="#1c2a38"/>
+  <!-- Connector 2→3 -->
+  <line x1="432" y1="120" x2="452" y2="120" stroke="#1c2a38" stroke-width="1.5"/>
+  <path d="M449,116 L457,120 L449,124 L451,120 Z" fill="#1c2a38"/>
 
-  <!-- NODE 3 — Evidence Pack -->
-  <rect x="628" y="65" width="228" height="150" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="629" y="66" width="226" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="644" y="113" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="40" font-weight="700" fill="#7ab8ff" fill-opacity="0.11" letter-spacing="-1.5">03</text>
-  <text x="644" y="135" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">PACKAGE</text>
-  <text x="644" y="162" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#ccd8ee">Evidence Pack</text>
-  <text x="644" y="186" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="10.5" fill="#3d5a78">redact + assemble-pack</text>
+  <!-- Stage 03 — Redact -->
+  <rect x="460" y="55" width="184" height="130" rx="6" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
+  <text x="474" y="96" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" font-weight="700" fill="#7ab8ff" fill-opacity="0.10" letter-spacing="-1">03</text>
+  <text x="474" y="114" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#324a62" letter-spacing="2">REDACT</text>
+  <text x="474" y="138" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="13" font-weight="600" fill="#ccd8ee">Sanitize</text>
+  <text x="474" y="158" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78">redact.py</text>
 
-  <!-- CONNECTOR 3 — brighter, signals output -->
-  <line x1="860" y1="140" x2="905" y2="140" stroke="#264870" stroke-width="1.5"/>
-  <path d="M902,135.5 L912,140 L902,144.5 L904.5,140 Z" fill="#264870"/>
+  <!-- Connector 3→4 -->
+  <line x1="648" y1="120" x2="668" y2="120" stroke="#1c2a38" stroke-width="1.5"/>
+  <path d="M665,116 L673,120 L665,124 L667,120 Z" fill="#1c2a38"/>
 
-  <!-- NODE 4 — Escalation (output) -->
-  <rect x="912" y="65" width="228" height="150" rx="8" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
-  <rect x="913" y="66" width="226" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
-  <text x="928" y="113" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="40" font-weight="700" fill="#7ab8ff" fill-opacity="0.26" letter-spacing="-1.5">04</text>
-  <text x="928" y="135" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">OUTPUT</text>
-  <text x="928" y="162" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#7ab8ff">Escalation</text>
-  <text x="928" y="186" font-family="'JetBrains Mono',Consolas,'Courier New',monospace" font-size="11" fill="#3d5a78">create-pr.py</text>
+  <!-- Stage 04 — Pack -->
+  <rect x="676" y="55" width="184" height="130" rx="6" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
+  <text x="690" y="96" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" font-weight="700" fill="#7ab8ff" fill-opacity="0.10" letter-spacing="-1">04</text>
+  <text x="690" y="114" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#324a62" letter-spacing="2">PACKAGE</text>
+  <text x="690" y="138" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="13" font-weight="600" fill="#ccd8ee">Evidence Pack</text>
+  <text x="690" y="158" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78">assemble-pack.py</text>
+
+  <!-- Connector 4→5 (brighter — signals output) -->
+  <line x1="864" y1="120" x2="884" y2="120" stroke="#264870" stroke-width="1.5"/>
+  <path d="M881,116 L889,120 L881,124 L883,120 Z" fill="#264870"/>
+
+  <!-- Stage 05 — Escalation (output accent) -->
+  <rect x="892" y="55" width="184" height="130" rx="6" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
+  <rect x="893" y="56" width="182" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
+  <text x="906" y="96" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" font-weight="700" fill="#7ab8ff" fill-opacity="0.22" letter-spacing="-1">05</text>
+  <text x="906" y="114" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#3d6494" letter-spacing="2">OUTPUT</text>
+  <text x="906" y="138" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="13" font-weight="600" fill="#7ab8ff">Escalation</text>
+  <text x="906" y="158" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78">create-pr.py</text>
 </svg>
