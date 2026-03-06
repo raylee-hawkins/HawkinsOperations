@@ -39,140 +39,36 @@
 
 </head>
 <body>
-<!-- NAV -->
-<!-- NAV_PARTIAL_START -->
-<style>
-  .global-nav-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #2b3447;
-    background: linear-gradient(180deg, #0b1020 0%, #090d18 100%);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
-  }
-  .global-nav {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .global-brand {
-    color: #dbe7ff;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-  .global-nav-links {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 8px;
-    flex: 1 1 auto;
-    justify-content: flex-end;
-  }
-  .global-nav-links a,
-  .global-nav-mobile a {
-    display: inline-block;
-    color: #b3c3e8;
-    text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-size: 0.92rem;
-    line-height: 1.2;
-  }
-  .global-nav-links a:hover,
-  .global-nav-mobile a:hover {
-    color: #f5fbff;
-    border-color: #41557a;
-    background: #101a2f;
-  }
-  .global-nav-links a.active,
-  .global-nav-mobile a.active {
-    color: #f7c948;
-    border-color: #7a5f1f;
-    background: #1a2234;
-  }
-  .global-nav-toggle {
-    display: none;
-    border: 1px solid #41557a;
-    background: #101a2f;
-    color: #dbe7ff;
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
-  }
-  .global-nav-mobile {
-    display: none;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px 12px 16px;
-  }
-  .global-nav-mobile.open {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-  @media (max-width: 860px) {
-    .global-nav-links {
-      display: none;
-    }
-    .global-nav-toggle {
-      display: inline-block;
-      margin-left: auto;
-    }
-  }
-</style>
-<div class="global-nav-wrap">
-  <nav class="global-nav" aria-label="Primary">
-    <a class="global-brand" href="index.html">HAWKINSOPS</a>
-    <ul class="global-nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="case-study.html">AutoSOC</a></li>
-      <li><a href="detections.html">Detections</a></li>
-      <li><a href="soc-lab.html">SOC Lab</a></li>
-      <li><a href="proof.html">Proof</a></li>
-      <li><a href="resume.html">Resume</a></li>
+<!-- @include:nav:start -->
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/detections">Detections</a></li>
+      <li><a href="/soc-lab">Lab</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/proof">Proof</a></li>
     </ul>
-    <button class="global-nav-toggle" type="button" aria-expanded="false" aria-controls="globalNavMobile">Menu</button>
-  </nav>
-  <div id="globalNavMobile" class="global-nav-mobile" aria-label="Mobile primary navigation">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="case-study.html">AutoSOC</a>
-  <a href="detections.html">Detections</a>
-  <a href="soc-lab.html">SOC Lab</a>
-  <a href="proof.html">Proof</a>
-  <a href="resume.html">Resume</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
+    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
+</nav>
+<div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/detections">Detections</a>
+  <a href="/soc-lab">Lab</a>
+  <a href="/resume">Resume</a>
+  <a href="/proof">Proof</a>
 </div>
-<script>
-  (function () {
-    var current = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    if (current === '') current = 'index.html';
-    document.querySelectorAll('.global-nav-wrap a[href]').forEach(function (a) {
-      var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === current) a.classList.add('active');
-    });
-    var btn = document.querySelector('.global-nav-toggle');
-    var panel = document.getElementById('globalNavMobile');
-    if (!btn || !panel) return;
-    btn.addEventListener('click', function () {
-      var open = panel.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  })();
-</script>
-<!-- NAV_PARTIAL_END -->
-<main>
+<!-- @include:nav:end -->
+
+<main class="home-main">
 <header class="hero">
   <div class="hero-glow"></div>
   <div class="ctr hero-split-ctr">
@@ -184,50 +80,90 @@
         package investigation evidence, and escalate suspicious cases with reviewable GitHub artifacts.
       </p>
       <div class="hctas">
-        <a class="btn btn-p" href="case-study.html">Read AutoSOC Case Study</a>
+        <a class="btn btn-p" href="/case-study-autosoc">Read AutoSOC Case Study</a>
         <a class="btn btn-g" href="proof.html">View Proof</a>
       </div>
-      <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
-      <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
+      <div class="hero-meta">
+        <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
+        <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
+      </div>
     </div>
     <div class="hero-visual">
+      <div class="hero-visual-kicker">AutoSOC architecture overview</div>
       <div class="hero-visual-frame">
         <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map from ingestion through triage and escalation outputs">
       </div>
+      <div class="hero-visual-caption">System path: alert intake -> triage decision -> redacted evidence -> escalation output.</div>
+      <div class="hero-visual-metrics">
+        <span class="hero-chip">Deterministic triage flow</span>
+        <span class="hero-chip">Review-ready artifacts</span>
+        <span class="hero-chip">Source-controlled runs</span>
+      </div>
       <div class="hero-visual-foot">
         <span class="redaction-pill">Identifiers redacted in public artifacts</span>
-        <a class="lane-cta" href="case-study.html" style="text-decoration:none">Open architecture <span>-></span></a>
+        <a class="lane-cta" href="/case-study-autosoc" style="text-decoration:none">Open architecture <span>-></span></a>
       </div>
     </div>
   </div>
 </header>
+<section class="section-tight architecture-section">
+  <div class="ctr home-shell architecture-shell">
+    <div class="slbl">System Overview</div>
+    <h2 class="stitle">How the AutoSOC pipeline works</h2>
+    <p class="architecture-intro">The architecture is intentionally simple to audit: one alert path, one decision path, one evidence path. Reviewers can validate each stage through the case study and proof lane.</p>
+    <div class="architecture-grid">
+      <article class="architecture-card">
+        <div class="architecture-step">1. Alert intake + context</div>
+        <p>Wazuh alerts enter a repeatable first-pass workflow with enough context to classify noise, known false positives, and suspicious events.</p>
+      </article>
+      <article class="architecture-card">
+        <div class="architecture-step">2. Decision + evidence packaging</div>
+        <p>The triage path applies deterministic handling rules, redacts sensitive data, and outputs reviewer-safe evidence artifacts tied to each decision.</p>
+      </article>
+      <article class="architecture-card">
+        <div class="architecture-step">3. Escalation + proof trail</div>
+        <p>Escalated cases and run outputs are published with reproducible proof references so hiring reviewers can validate claims without private lab access.</p>
+      </article>
+    </div>
+    <div class="architecture-links">
+      <a class="btn btn-g" href="/case-study-autosoc">Review architecture details</a>
+      <a class="btn btn-g" href="proof.html">Open proof lane</a>
+    </div>
+  </div>
+</section>
 
 <section class="section-tight">
   <div class="ctr home-shell">
-    <div class="slbl">Review First</div>
-    <h2 class="stitle">Fastest path for SOC hiring review</h2>
-    <div class="g3">
-      <a class="card lane-card" href="case-study.html" style="text-decoration:none" data-lane="fastest">
-        <span class="lane-tag">START HERE</span>
-        <div class="card-ttl">AutoSOC case study</div>
-        <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-      <a class="card lane-card" href="proof.html" style="text-decoration:none" data-lane="systems">
-        <span class="lane-tag">RECEIPTS</span>
-        <div class="card-ttl">Proof</div>
-        <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-      <a class="card lane-card" href="resume.html" style="text-decoration:none" data-lane="source">
-        <span class="lane-tag">ROLE FIT</span>
-        <div class="card-ttl">Resume</div>
-        <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
+    <div class="review-shell">
+      <div class="slbl">Review First</div>
+      <h2 class="stitle">Fastest path for SOC hiring review</h2>
+      <p class="review-intro">Start with the case study, validate the receipts, then assess role fit.</p>
+      <div class="g3 review-grid">
+        <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
+          <span class="lane-tag">START HERE</span>
+          <div class="card-ttl">AutoSOC case study</div>
+          <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+        <a class="card lane-card" href="proof.html" style="text-decoration:none" data-lane="systems">
+          <span class="lane-tag">RECEIPTS</span>
+          <div class="card-ttl">Proof</div>
+          <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+        <a class="card lane-card" href="resume.html" style="text-decoration:none" data-lane="source">
+          <span class="lane-tag">ROLE FIT</span>
+          <div class="card-ttl">Resume</div>
+          <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+      </div>
+      <div class="review-proof">
+        <div class="review-proof-label">Verified inventory</div>
+        <div class="review-proof-line"><span data-verified="detections">139</span> detections | <span data-verified="sigma">103</span> Sigma | <span data-verified="wazuh">28</span> Wazuh | <span data-verified="splunk">8</span> Splunk | <span data-verified="ir">10</span> IR playbooks</div>
+        <div class="lupd verify-date">Last verified: <span data-verified-date>02-26-2026</span></div>
+      </div>
     </div>
-    <div class="lupd">Verified inventory: <span data-verified="detections">139</span> detections | <span data-verified="sigma">103</span> Sigma | <span data-verified="wazuh">28</span> Wazuh | <span data-verified="splunk">8</span> Splunk | <span data-verified="ir">10</span> IR playbooks</div>
-    <div class="lupd verify-date">Last verified: <span data-verified-date>02-26-2026</span></div>
   </div>
 </section>
 </main>
