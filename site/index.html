@@ -172,7 +172,7 @@
   })();
 </script>
 <!-- NAV_PARTIAL_END -->
-<main>
+<main class="home-main">
 <header class="hero">
   <div class="hero-glow"></div>
   <div class="ctr hero-split-ctr">
@@ -187,10 +187,13 @@
         <a class="btn btn-p" href="case-study.html">Read AutoSOC Case Study</a>
         <a class="btn btn-g" href="proof.html">View Proof</a>
       </div>
-      <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
-      <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
+      <div class="hero-meta">
+        <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
+        <div class="lupd">Huntsville-adjacent, North Alabama • SOC Analyst target track</div>
+      </div>
     </div>
     <div class="hero-visual">
+      <div class="hero-visual-kicker">AutoSOC architecture overview</div>
       <div class="hero-visual-frame">
         <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map from ingestion through triage and escalation outputs">
       </div>
@@ -204,30 +207,36 @@
 
 <section class="section-tight">
   <div class="ctr home-shell">
-    <div class="slbl">Review First</div>
-    <h2 class="stitle">Fastest path for SOC hiring review</h2>
-    <div class="g3">
-      <a class="card lane-card" href="case-study.html" style="text-decoration:none" data-lane="fastest">
-        <span class="lane-tag">START HERE</span>
-        <div class="card-ttl">AutoSOC case study</div>
-        <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-      <a class="card lane-card" href="proof.html" style="text-decoration:none" data-lane="systems">
-        <span class="lane-tag">RECEIPTS</span>
-        <div class="card-ttl">Proof</div>
-        <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
-      <a class="card lane-card" href="resume.html" style="text-decoration:none" data-lane="source">
-        <span class="lane-tag">ROLE FIT</span>
-        <div class="card-ttl">Resume</div>
-        <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
-        <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
-      </a>
+    <div class="review-shell">
+      <div class="slbl">Review First</div>
+      <h2 class="stitle">Fastest path for SOC hiring review</h2>
+      <p class="review-intro">Start with the case study, validate the receipts, then assess role fit.</p>
+      <div class="g3 review-grid">
+        <a class="card lane-card" href="case-study.html" style="text-decoration:none" data-lane="fastest">
+          <span class="lane-tag">START HERE</span>
+          <div class="card-ttl">AutoSOC case study</div>
+          <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+        <a class="card lane-card" href="proof.html" style="text-decoration:none" data-lane="systems">
+          <span class="lane-tag">RECEIPTS</span>
+          <div class="card-ttl">Proof</div>
+          <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+        <a class="card lane-card" href="resume.html" style="text-decoration:none" data-lane="source">
+          <span class="lane-tag">ROLE FIT</span>
+          <div class="card-ttl">Resume</div>
+          <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
+          <div class="lane-cta" aria-hidden="true">Open lane <span>-></span></div>
+        </a>
+      </div>
+      <div class="review-proof">
+        <div class="review-proof-label">Verified inventory</div>
+        <div class="review-proof-line"><span data-verified="detections">139</span> detections | <span data-verified="sigma">103</span> Sigma | <span data-verified="wazuh">28</span> Wazuh | <span data-verified="splunk">8</span> Splunk | <span data-verified="ir">10</span> IR playbooks</div>
+        <div class="lupd verify-date">Last verified: <span data-verified-date>02-26-2026</span></div>
+      </div>
     </div>
-    <div class="lupd">Verified inventory: <span data-verified="detections">139</span> detections | <span data-verified="sigma">103</span> Sigma | <span data-verified="wazuh">28</span> Wazuh | <span data-verified="splunk">8</span> Splunk | <span data-verified="ir">10</span> IR playbooks</div>
-    <div class="lupd verify-date">Last verified: <span data-verified-date>02-26-2026</span></div>
   </div>
 </section>
 </main>
@@ -258,4 +267,3 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
