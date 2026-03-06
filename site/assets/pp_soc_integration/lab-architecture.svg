@@ -1,66 +1,96 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 510" role="img" aria-label="SOC lab architecture: Proxmox hypervisor with Windows endpoint, Wazuh Manager, and Splunk, connected to AutoSOC pipeline and GitHub review output">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-label="SOC lab architecture: Proxmox hypervisor hosting Windows endpoint, Wazuh Manager, and Splunk, connected to AutoSOC pipeline and GitHub output">
   <title>SOC Lab Architecture</title>
-  <desc>Proxmox hypervisor running Windows 11 endpoint (Sysmon, Wazuh Agent), Wazuh Manager (Indexer, REST API), and Splunk. Wazuh indexer connects via Tailscale port 9200 to AutoSOC automation pipeline, which outputs evidence PRs to GitHub for review.</desc>
+  <desc>Proxmox hypervisor running Windows 11 endpoint with Sysmon and Wazuh Agent, Wazuh Manager with Indexer and REST API (central hub), and Splunk for investigation. Wazuh indexer connects via Tailscale port 9200 to AutoSOC automation pipeline, which outputs evidence PRs to GitHub.</desc>
 
-  <!-- PROXMOX BOUNDARY -->
-  <rect x="40" y="25" width="1120" height="215" rx="12" fill="none" stroke="#1c2534" stroke-width="1.5" stroke-dasharray="6,4"/>
-  <rect x="72" y="13" width="196" height="24" rx="4" fill="#080c14"/>
-  <text x="84" y="30" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78" letter-spacing="2">PROXMOX HYPERVISOR</text>
+  <!-- ============================================================ -->
+  <!-- PROXMOX CONTAINER — filled panel with header                 -->
+  <!-- ============================================================ -->
+  <rect x="30" y="10" width="1140" height="260" rx="10" fill="#080c14" stroke="#1a2538" stroke-width="1.5"/>
+  <line x1="30" y1="44" x2="1170" y2="44" stroke="#1a2538" stroke-width="1"/>
+  <circle cx="52" cy="27" r="4.5" fill="#3a3a3a"/>
+  <circle cx="68" cy="27" r="4.5" fill="#3a3a3a"/>
+  <circle cx="84" cy="27" r="4.5" fill="#3a3a3a"/>
+  <text x="108" y="32" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" font-weight="600" fill="#3d5a78" letter-spacing="2">PROXMOX HYPERVISOR</text>
+  <text x="1040" y="32" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#283848" letter-spacing="0.5">RFC1918</text>
 
-  <!-- NODE 1 — Windows Endpoint -->
-  <rect x="70" y="58" width="300" height="152" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="71" y="59" width="298" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="88" y="100" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">ENDPOINT</text>
-  <text x="88" y="126" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#ccd8ee">Windows 11</text>
-  <text x="88" y="152" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Sysmon · Wazuh Agent</text>
-  <text x="88" y="174" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#283848">Telemetry source</text>
+  <!-- ============================================================ -->
+  <!-- NODE: Windows Endpoint (left, satellite)                     -->
+  <!-- ============================================================ -->
+  <rect x="56" y="64" width="264" height="184" rx="8" fill="#0b1020" stroke="#182840" stroke-width="1"/>
+  <rect x="56" y="64" width="264" height="3" rx="8" fill="#324a62"/>
+  <rect x="57" y="68" width="262" height="1" fill="#ffffff" fill-opacity="0.03"/>
+  <text x="76" y="104" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">ENDPOINT</text>
+  <text x="76" y="130" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#c0cce0">Windows 11</text>
+  <line x1="76" y1="142" x2="288" y2="142" stroke="#182840" stroke-width="1"/>
+  <text x="76" y="166" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Sysmon</text>
+  <text x="76" y="188" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Wazuh Agent</text>
+  <text x="76" y="212" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9.5" fill="#283848">Log forwarding configured</text>
 
-  <!-- CONNECTOR 1→2 -->
-  <line x1="374" y1="134" x2="444" y2="134" stroke="#1c2a38" stroke-width="1.5"/>
-  <path d="M441,129.5 L451,134 L441,138.5 L443.5,134 Z" fill="#1c2a38"/>
+  <!-- CONNECTOR: Endpoint → Wazuh (labeled) -->
+  <line x1="324" y1="156" x2="410" y2="156" stroke="#1e3048" stroke-width="2"/>
+  <path d="M407,151 L417,156 L407,161 L409.5,156 Z" fill="#1e3048"/>
+  <text x="334" y="146" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#283848" letter-spacing="0.3">logs + events</text>
 
-  <!-- NODE 2 — Wazuh Manager -->
-  <rect x="450" y="58" width="300" height="152" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="451" y="59" width="298" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="468" y="100" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">SIEM</text>
-  <text x="468" y="126" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#ccd8ee">Wazuh Manager</text>
-  <text x="468" y="152" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Indexer · REST API</text>
-  <text x="468" y="174" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#283848">Custom rules · 100000+ range</text>
+  <!-- ============================================================ -->
+  <!-- NODE: Wazuh Manager (center, hub — larger, accent bar)       -->
+  <!-- ============================================================ -->
+  <rect x="420" y="56" width="330" height="198" rx="8" fill="#0b1020" stroke="#1e3452" stroke-width="1.2"/>
+  <rect x="420" y="56" width="330" height="3.5" rx="8" fill="#7ab8ff" fill-opacity="0.6"/>
+  <rect x="421" y="60" width="328" height="1" fill="#7ab8ff" fill-opacity="0.04"/>
+  <text x="442" y="98" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">SIEM · DETECTION</text>
+  <text x="442" y="126" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="17" font-weight="600" fill="#ccd8ee">Wazuh Manager</text>
+  <line x1="442" y1="140" x2="716" y2="140" stroke="#1e3452" stroke-width="1"/>
+  <text x="442" y="164" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11.5" fill="#4a6a90">Indexer · REST API</text>
+  <text x="442" y="188" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Custom rules · 100000+ range</text>
+  <text x="442" y="212" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9.5" fill="#283848">Alert matching · FIM · Agent management</text>
 
-  <!-- CONNECTOR 2→3 -->
-  <line x1="754" y1="134" x2="824" y2="134" stroke="#1c2a38" stroke-width="1.5"/>
-  <path d="M821,129.5 L831,134 L821,138.5 L823.5,134 Z" fill="#1c2a38"/>
+  <!-- CONNECTOR: Wazuh → Splunk (labeled) -->
+  <line x1="754" y1="156" x2="840" y2="156" stroke="#1e3048" stroke-width="2"/>
+  <path d="M837,151 L847,156 L837,161 L839.5,156 Z" fill="#1e3048"/>
+  <text x="762" y="146" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="8.5" fill="#283848" letter-spacing="0.3">search feed</text>
 
-  <!-- NODE 3 — Splunk -->
-  <rect x="830" y="58" width="300" height="152" rx="8" fill="#0d1018" stroke="#1c2534" stroke-width="1"/>
-  <rect x="831" y="59" width="298" height="1" fill="#ffffff" fill-opacity="0.04"/>
-  <text x="848" y="100" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">SEARCH</text>
-  <text x="848" y="126" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#ccd8ee">Splunk</text>
-  <text x="848" y="152" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">SPL queries</text>
-  <text x="848" y="174" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#283848">Investigation pivots</text>
+  <!-- ============================================================ -->
+  <!-- NODE: Splunk (right, satellite)                              -->
+  <!-- ============================================================ -->
+  <rect x="850" y="64" width="290" height="184" rx="8" fill="#0b1020" stroke="#182840" stroke-width="1"/>
+  <rect x="850" y="64" width="290" height="3" rx="8" fill="#324a62"/>
+  <rect x="851" y="68" width="288" height="1" fill="#ffffff" fill-opacity="0.03"/>
+  <text x="872" y="104" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#324a62" letter-spacing="2.2">INVESTIGATION</text>
+  <text x="872" y="130" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#c0cce0">Splunk</text>
+  <line x1="872" y1="142" x2="1108" y2="142" stroke="#182840" stroke-width="1"/>
+  <text x="872" y="166" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">SPL queries</text>
+  <text x="872" y="188" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">ES-style pivots</text>
+  <text x="872" y="212" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9.5" fill="#283848">Search + correlation</text>
 
-  <!-- VERTICAL CONNECTOR — Wazuh down to AutoSOC -->
-  <line x1="600" y1="214" x2="600" y2="328" stroke="#264870" stroke-width="1.5"/>
-  <path d="M595.5,325 L600,335 L604.5,325 L600,327.5 Z" fill="#264870"/>
-  <text x="616" y="278" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9.5" fill="#3d5a78" letter-spacing="0.5">Tailscale · port 9200</text>
+  <!-- ============================================================ -->
+  <!-- VERTICAL CONNECTOR: Wazuh → AutoSOC (through Proxmox floor) -->
+  <!-- ============================================================ -->
+  <line x1="585" y1="272" x2="585" y2="378" stroke="#264870" stroke-width="2"/>
+  <path d="M580.5,375 L585,385 L589.5,375 L585,377.5 Z" fill="#264870"/>
+  <text x="601" y="318" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#3d5a78" letter-spacing="0.3">REST API · port 9200</text>
+  <text x="601" y="334" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#283848">Tailscale</text>
 
-  <!-- NODE 4 — AutoSOC Pipeline (accent) -->
-  <rect x="270" y="342" width="290" height="148" rx="8" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
-  <rect x="271" y="343" width="288" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
-  <text x="288" y="384" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">AUTOMATION</text>
-  <text x="288" y="410" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#7ab8ff">AutoSOC Pipeline</text>
-  <text x="288" y="436" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">poll → triage → redact → pack</text>
-  <text x="288" y="458" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#283848">Scheduled · Task Scheduler</text>
+  <!-- ============================================================ -->
+  <!-- NODE: AutoSOC Pipeline (accent, below Proxmox)               -->
+  <!-- ============================================================ -->
+  <rect x="345" y="392" width="250" height="130" rx="8" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
+  <rect x="346" y="393" width="248" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
+  <text x="366" y="428" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">AUTOMATION</text>
+  <text x="366" y="454" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#7ab8ff">AutoSOC Pipeline</text>
+  <text x="366" y="478" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10.5" fill="#3d5a78">poll → triage → redact → pack</text>
+  <text x="366" y="498" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#283848">Scheduled · Task Scheduler</text>
 
-  <!-- CONNECTOR 4→5 -->
-  <line x1="564" y1="416" x2="634" y2="416" stroke="#264870" stroke-width="1.5"/>
-  <path d="M631,411.5 L641,416 L631,420.5 L633.5,416 Z" fill="#264870"/>
+  <!-- CONNECTOR: AutoSOC → GitHub -->
+  <line x1="599" y1="457" x2="669" y2="457" stroke="#264870" stroke-width="2"/>
+  <path d="M666,452 L676,457 L666,462 L668.5,457 Z" fill="#264870"/>
 
-  <!-- NODE 5 — GitHub Review (output) -->
-  <rect x="640" y="342" width="290" height="148" rx="8" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
-  <rect x="641" y="343" width="288" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
-  <text x="658" y="384" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">OUTPUT</text>
-  <text x="658" y="410" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="15" font-weight="600" fill="#7ab8ff">GitHub Review</text>
-  <text x="658" y="436" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="11" fill="#3d5a78">Evidence PRs</text>
-  <text x="658" y="458" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10" fill="#283848">Reviewable packs · Redacted</text>
+  <!-- ============================================================ -->
+  <!-- NODE: GitHub Review (accent, output)                         -->
+  <!-- ============================================================ -->
+  <rect x="680" y="392" width="230" height="130" rx="8" fill="#0c1320" stroke="#3d6494" stroke-width="1"/>
+  <rect x="681" y="393" width="228" height="1" fill="#7ab8ff" fill-opacity="0.07"/>
+  <text x="700" y="428" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#3d6494" letter-spacing="2.2">OUTPUT</text>
+  <text x="700" y="454" font-family="'Sora','Inter','Segoe UI',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#7ab8ff">GitHub Review</text>
+  <text x="700" y="478" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="10.5" fill="#3d5a78">Evidence PRs</text>
+  <text x="700" y="498" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="9" fill="#283848">Reviewable packs · Redacted</text>
 </svg>
