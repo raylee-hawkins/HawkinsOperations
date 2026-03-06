@@ -69,102 +69,85 @@
 <!-- @include:nav:end -->
 
 <main class="home-main">
+
 <header class="hero">
-  <div class="hero-glow"></div>
-  <div class="ctr hero-split-ctr">
-    <div class="hero-panel">
-      <div class="htag">Entry-Level SOC · Automation + Detection</div>
-      <h1 class="htitle">I built <span class="hl">AutoSOC</span> — automated first-pass triage for Wazuh alerts.</h1>
-      <p class="hsub">
-        Each alert is classified against policy rules, sensitive identifiers are stripped, and escalated cases produce a complete reviewable evidence pack — opened as a GitHub PR with no manual input per alert.
-      </p>
+  <div class="ctr">
+    <div class="hero-inner">
+      <div class="htag">SOC Analyst · Detection + Automation</div>
+      <h1 class="htitle">I built <span class="hl">AutoSOC</span> — end-to-end triage automation for Wazuh alerts.</h1>
+      <p class="hsub">Alerts polled, triaged against policy, redacted, and escalated as reviewable GitHub PRs. Four scripts, zero manual steps per alert.</p>
       <div class="hctas">
-        <a class="btn btn-p" href="/case-study-autosoc">Read AutoSOC Case Study</a>
+        <a class="btn btn-p" href="/case-study-autosoc">Read the Case Study</a>
         <a class="btn btn-g" href="/proof">View Proof</a>
       </div>
       <div class="hero-meta">
         <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
-        <div class="lupd">Huntsville-adjacent, North Alabama · SOC Analyst target track</div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-visual-frame">
-        <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map: Wazuh alert intake through triage decision, identifier redaction, and GitHub PR escalation">
-      </div>
-      <div class="hero-visual-foot">
-        <span class="redaction-pill">Identifiers redacted in public artifacts</span>
-        <a class="lane-cta" href="/case-study-autosoc" style="text-decoration:none">Full case study <span>→</span></a>
+        <div class="lupd">Huntsville-adjacent, North Alabama</div>
       </div>
     </div>
   </div>
 </header>
 
-<section class="section-tight architecture-section">
-  <div class="ctr home-shell architecture-shell">
-    <div class="slbl">Pipeline Architecture</div>
-    <h2 class="stitle">How AutoSOC works</h2>
-
-    <div class="pipe-diagram-wrap">
+<section class="sys-proof">
+  <div class="ctr">
+    <div class="slbl">System</div>
+    <h2 class="stitle">How it works</h2>
+    <div class="sys-proof-visual">
       <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-           alt="AutoSOC pipeline: alert intake (poll-alerts.py) → triage decision (triage.py) → evidence pack (redact.py + assemble-pack.py) → GitHub PR escalation (create-pr.py)"
+           alt="AutoSOC pipeline: alert intake (poll-alerts.py), triage decision (triage.py), evidence pack (redact.py + assemble-pack.py), GitHub PR escalation (create-pr.py)"
            loading="lazy" width="1200" height="280">
     </div>
+    <p class="sys-proof-caption">poll-alerts.py queries the Wazuh indexer on schedule. triage.py dispositions each alert against policy.yaml. redact.py strips identifiers. assemble-pack.py generates the evidence pack. create-pr.py opens a GitHub PR. Orchestrated by run-pipeline.py on Task Scheduler.</p>
+  </div>
+</section>
 
-    <div class="architecture-grid">
-      <article class="architecture-card">
-        <div class="architecture-step">Step 1 — Alert Intake</div>
-        <p><code>poll-alerts.py</code> queries the Wazuh indexer REST API on a schedule and writes new alerts to a local queue file. Each record includes rule ID, severity level, description, and agent metadata consumed by the triage step.</p>
-      </article>
-      <article class="architecture-card">
-        <div class="architecture-step">Step 2 — Triage Decision</div>
-        <p><code>triage.py</code> evaluates each queued alert against <code>policy.yaml</code> and <code>known_fps.yaml</code>. Output is one of three deterministic dispositions: <code>AUTO_CLOSE_BENIGN</code>, <code>AUTO_CLOSE_KNOWN_FP</code>, or <code>ESCALATED</code>. No manual input required per alert.</p>
-      </article>
-      <article class="architecture-card">
-        <div class="architecture-step">Step 3 — Redaction + Evidence</div>
-        <p><code>redact.py</code> strips real IPs, hostnames, and identifiers before data leaves the private environment. <code>assemble-pack.py</code> generates six report documents from the sanitized data: timeline, triage summary, IOC list, remediation steps, MITRE mapping, and closure report.</p>
-      </article>
-      <article class="architecture-card">
-        <div class="architecture-step">Step 4 — Escalation Output</div>
-        <p><code>create-pr.py</code> stages the complete incident pack and opens a GitHub PR. Escalated cases are publicly reviewable with full redacted artifacts. <code>run-pipeline.py</code> orchestrates the full sequence on a Task Scheduler trigger.</p>
-      </article>
+<section class="who-section">
+  <div class="ctr">
+    <div class="slbl">Background</div>
+    <h2 class="stitle">Who I am</h2>
+    <div class="who-body">
+      <p>I'm Raylee Hawkins. I'm building toward a SOC Analyst role through hands-on lab work — not just certifications. My homelab runs Proxmox, Wazuh, and Grafana across multiple VMs. I write Sigma rules, build IR playbooks, and automate triage workflows.</p>
+      <p>AutoSOC is the clearest example: a pipeline that handles real Wazuh alerts end to end. This portfolio exists to prove the work, not to talk about it.</p>
     </div>
   </div>
 </section>
 
-<section class="section-tight">
-  <div class="ctr home-shell">
-    <div class="review-shell">
-      <div class="slbl">Review First</div>
-      <h2 class="stitle">Fastest path for hiring review</h2>
-      <p class="review-intro">Start with the case study, validate the receipts, then assess role fit.</p>
-      <div class="g3 review-grid">
-        <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
-          <span class="lane-tag">START HERE</span>
-          <div class="card-ttl">AutoSOC case study</div>
-          <div class="card-sub">See the problem, what I built, how decisions are made, and one real incident example.</div>
-          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
-        </a>
-        <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="systems">
-          <span class="lane-tag">RECEIPTS</span>
-          <div class="card-ttl">Proof</div>
-          <div class="card-sub">Evidence packs, run logs, release notes, and commit history in one place.</div>
-          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
-        </a>
-        <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="source">
-          <span class="lane-tag">ROLE FIT</span>
-          <div class="card-ttl">Resume</div>
-          <div class="card-sub">SOC T1/T2 focus with clear role fit, certifications in progress, and clearance-ready positioning.</div>
-          <div class="lane-cta" aria-hidden="true">Open <span>→</span></div>
-        </a>
-      </div>
-      <div class="review-proof">
-        <div class="review-proof-label">Verified inventory</div>
-        <div class="review-proof-line"><span data-verified="detections">139</span> detections | <span data-verified="sigma">103</span> Sigma | <span data-verified="wazuh">28</span> Wazuh | <span data-verified="splunk">8</span> Splunk | <span data-verified="ir">10</span> IR playbooks</div>
-        <div class="lupd verify-date">Last verified: <span data-verified-date>02-26-2026</span></div>
-      </div>
+<section class="review-section">
+  <div class="ctr">
+    <div class="slbl">Review</div>
+    <h2 class="stitle">Where to start</h2>
+    <div class="g3 review-grid">
+      <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
+        <span class="lane-tag">START HERE</span>
+        <div class="card-ttl">Case study</div>
+        <div class="card-sub">The problem, what I built, how triage decisions are made, and a real incident walkthrough.</div>
+        <div class="lane-cta" aria-hidden="true">Read <span>→</span></div>
+      </a>
+      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="systems">
+        <span class="lane-tag">RECEIPTS</span>
+        <div class="card-ttl">Proof</div>
+        <div class="card-sub">Evidence packs, pipeline run logs, release notes, and commit history.</div>
+        <div class="lane-cta" aria-hidden="true">Review <span>→</span></div>
+      </a>
+      <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="source">
+        <span class="lane-tag">ROLE FIT</span>
+        <div class="card-ttl">Resume</div>
+        <div class="card-sub">SOC T1/T2 positioning, lab experience, certifications in progress.</div>
+        <div class="lane-cta" aria-hidden="true">View <span>→</span></div>
+      </a>
     </div>
   </div>
 </section>
+
+<section class="proof-strip">
+  <div class="ctr">
+    <div class="proof-strip-inner">
+      <div class="proof-strip-counts"><span data-verified="detections">139</span> detections · <span data-verified="sigma">103</span> Sigma · <span data-verified="wazuh">28</span> Wazuh · <span data-verified="splunk">8</span> Splunk · <span data-verified="ir">10</span> IR playbooks</div>
+      <div class="proof-strip-meta">Verified <span data-verified-date>02-26-2026</span> · counts generated from source, validated in CI</div>
+    </div>
+  </div>
+</section>
+
 </main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
