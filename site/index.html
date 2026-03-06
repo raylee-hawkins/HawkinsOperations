@@ -109,6 +109,12 @@
       <div class="hero-visual-frame">
         <img src="/assets/pp_soc_integration/autosoc-system-map.svg?v=03-02-2026-2" alt="AutoSOC system map from ingestion through triage and escalation outputs">
       </div>
+      <div class="hero-visual-caption">System path: alert intake -> triage decision -> redacted evidence -> escalation output.</div>
+      <div class="hero-visual-metrics">
+        <span class="hero-chip">Deterministic triage flow</span>
+        <span class="hero-chip">Review-ready artifacts</span>
+        <span class="hero-chip">Source-controlled runs</span>
+      </div>
       <div class="hero-visual-foot">
         <span class="redaction-pill">Identifiers redacted in public artifacts</span>
         <a class="lane-cta" href="case-study.html" style="text-decoration:none">Open architecture <span>-></span></a>
@@ -116,6 +122,31 @@
     </div>
   </div>
 </header>
+<section class="section-tight architecture-section">
+  <div class="ctr home-shell architecture-shell">
+    <div class="slbl">System Overview</div>
+    <h2 class="stitle">How the AutoSOC pipeline works</h2>
+    <p class="architecture-intro">The architecture is intentionally simple to audit: one alert path, one decision path, one evidence path. Reviewers can validate each stage through the case study and proof lane.</p>
+    <div class="architecture-grid">
+      <article class="architecture-card">
+        <div class="architecture-step">1. Alert intake + context</div>
+        <p>Wazuh alerts enter a repeatable first-pass workflow with enough context to classify noise, known false positives, and suspicious events.</p>
+      </article>
+      <article class="architecture-card">
+        <div class="architecture-step">2. Decision + evidence packaging</div>
+        <p>The triage path applies deterministic handling rules, redacts sensitive data, and outputs reviewer-safe evidence artifacts tied to each decision.</p>
+      </article>
+      <article class="architecture-card">
+        <div class="architecture-step">3. Escalation + proof trail</div>
+        <p>Escalated cases and run outputs are published with reproducible proof references so hiring reviewers can validate claims without private lab access.</p>
+      </article>
+    </div>
+    <div class="architecture-links">
+      <a class="btn btn-g" href="case-study.html">Review architecture details</a>
+      <a class="btn btn-g" href="proof.html">Open proof lane</a>
+    </div>
+  </div>
+</section>
 
 <section class="section-tight">
   <div class="ctr home-shell">
