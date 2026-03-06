@@ -88,27 +88,70 @@
   </div>
 </header>
 
+<section class="lab-arch">
+  <div class="ctr">
+    <div class="slbl">Infrastructure</div>
+    <h2 class="stitle">The lab behind it</h2>
+    <p class="lab-arch-intro">Single Proxmox host running isolated VMs. Real telemetry flows from endpoint through Wazuh into automated triage. Splunk handles investigation pivots. Everything runs on RFC1918 subnets — test traffic stays in the lab, evidence comes out.</p>
+
+    <div class="arch-diagram">
+      <div class="arch-env">
+        <div class="arch-env-label">Proxmox Hypervisor</div>
+        <div class="arch-env-nodes">
+          <div class="arch-node">
+            <div class="arch-node-head">Endpoint</div>
+            <div class="arch-node-name">Windows 11</div>
+            <div class="arch-node-detail">Sysmon · Wazuh Agent</div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">→</div>
+          <div class="arch-node">
+            <div class="arch-node-head">SIEM</div>
+            <div class="arch-node-name">Wazuh Manager</div>
+            <div class="arch-node-detail">Indexer · REST API · Custom rules</div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">→</div>
+          <div class="arch-node">
+            <div class="arch-node-head">Search</div>
+            <div class="arch-node-name">Splunk</div>
+            <div class="arch-node-detail">SPL queries · Investigation pivots</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arch-vert">
+        <div class="arch-vert-line"></div>
+        <div class="arch-vert-label">Tailscale · port 9200</div>
+      </div>
+
+      <div class="arch-env-nodes arch-output-row">
+        <div class="arch-node arch-node--accent">
+          <div class="arch-node-head">Automation</div>
+          <div class="arch-node-name">AutoSOC Pipeline</div>
+          <div class="arch-node-detail">poll → triage → redact → pack</div>
+        </div>
+        <div class="arch-arrow" aria-hidden="true">→</div>
+        <div class="arch-node">
+          <div class="arch-node-head">Output</div>
+          <div class="arch-node-name">GitHub</div>
+          <div class="arch-node-detail">Evidence PRs · Reviewable packs</div>
+        </div>
+      </div>
+    </div>
+
+    <a class="lab-arch-link" href="/soc-lab">Full lab details <span>→</span></a>
+  </div>
+</section>
+
 <section class="sys-proof">
   <div class="ctr">
-    <div class="slbl">System</div>
-    <h2 class="stitle">How it works</h2>
+    <div class="slbl">Pipeline</div>
+    <h2 class="stitle">How AutoSOC works</h2>
     <div class="sys-proof-visual">
       <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
            alt="AutoSOC pipeline: alert intake (poll-alerts.py), triage decision (triage.py), evidence pack (redact.py + assemble-pack.py), GitHub PR escalation (create-pr.py)"
            loading="lazy" width="1200" height="280">
     </div>
     <p class="sys-proof-caption">poll-alerts.py queries the Wazuh indexer on schedule. triage.py dispositions each alert against policy.yaml. redact.py strips identifiers. assemble-pack.py generates the evidence pack. create-pr.py opens a GitHub PR. Orchestrated by run-pipeline.py on Task Scheduler.</p>
-  </div>
-</section>
-
-<section class="who-section">
-  <div class="ctr">
-    <div class="slbl">Background</div>
-    <h2 class="stitle">Who I am</h2>
-    <div class="who-body">
-      <p>I'm Raylee Hawkins. I'm building toward a SOC Analyst role through hands-on lab work — not just certifications. My homelab runs Proxmox, Wazuh, and Grafana across multiple VMs. I write Sigma rules, build IR playbooks, and automate triage workflows.</p>
-      <p>AutoSOC is the clearest example: a pipeline that handles real Wazuh alerts end to end. This portfolio exists to prove the work, not to talk about it.</p>
-    </div>
   </div>
 </section>
 
