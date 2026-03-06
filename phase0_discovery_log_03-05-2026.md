@@ -8,6 +8,32 @@ Repository: C:\RH\OPS\10_Portfolio\HawkinsOperations
 Get-Location
 ~~~
 
+## Phase 1 (Funnel + Global Navigation) — Deployment Notes
+
+Summary
+- Implemented global nav partial at site/nav.html.
+- Injected nav into index.html, projects.html, and case-study.html.
+- Standardized flagship route to case-study.html.
+- Normalized internal links to explicit .html for deterministic local validation.
+- Post-edit audit confirmed MISSING_COUNT: 0.
+
+Deployment Result
+- Branch website_phase1_funnel_nav merged into main.
+- main pushed to origin.
+- Production live smoke test: 17/17 routes passed.
+
+## Deferred Improvements (Post-Phase 1 Cleanup)
+
+These items were intentionally deferred during Phase 1 to keep the funnel/navigation changes deterministic and low-risk. They are minor cleanup tasks and do not affect navigation correctness or the Phase 1 smoke-test results.
+
+- Move navigation CSS from the inline <style> block in site/nav.html into site/assets/styles.css to prevent CSS duplication across pages and simplify future styling changes.
+- Change the brand link in site/nav.html from href="index.html" to href="/" once production routing behavior is confirmed on Cloudflare Pages.
+
+Merge Gate Used
+1. Live smoke test on routes:
+   /, /projects, /case-study, /proof, /resume, /detections, /soc-lab
+2. Verified nav render and active-state on desktop and mobile.
+3. Confirmed href resolution and no redirect loops.
 ~~~text
 
 Path
@@ -603,4 +629,3 @@ Get-Content -Path .\site\index.html
 </body>
 </html>
 ~~~
-
