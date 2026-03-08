@@ -6,7 +6,7 @@
 Adds a static-first visual upgrade package for HawkinsOperations. The package recommends MODERNIZE, defines three upgrade modes, provides token/CSS/Tailwind/TSX reference artifacts, and includes deterministic SVG mockups for homepage, AutoSOC project, and demo layouts.
 
 **Related Issue:**
-Closes #(issue number)
+N/A
 
 ---
 
@@ -16,7 +16,7 @@ Closes #(issue number)
 - [ ] New IR playbook
 - [x] Documentation improvement
 - [ ] Bug fix
-- [x] Script/automation enhancement
+- [ ] Script/automation enhancement
 - [x] Other (design/reference package)
 
 ---
@@ -57,15 +57,17 @@ Not applicable. This PR does not add or modify IR playbooks.
 ## Testing
 
 **I have tested this by:**
-- [ ] Running verification script (`.\scripts\verify\verify-counts.ps1`)
+- [x] Running verification script (`.\scripts\verify\verify-counts.ps1`)
 - [ ] Building Wazuh bundle (`.\scripts\build-wazuh-bundle.ps1`)
 - [x] Validating YAML/XML syntax
 - [x] Checking for sanitization issues (no real IPs, credentials, PII)
-- [x] Testing detection logic (if applicable)
+- [ ] Testing detection logic (if applicable)
 
 **Test Results:**
 ```text
 - Token JSON parses successfully.
+- verify-counts.ps1 passes.
+- drift_scan.py passes.
 - Reference TSX files are structured for copy/paste use in a stock Next.js + Tailwind app.
 - SVG mockups open as deterministic fixtures for visual review.
 - No live site routes or infra behavior changed in this package.
@@ -91,7 +93,7 @@ Not applicable. This PR does not add or modify IR playbooks.
 - [x] I have commented my code where necessary (especially detection logic)
 - [x] My changes generate no new warnings
 - [x] I have updated documentation as needed
-- [x] MITRE ATT&CK tags are accurate and complete
+- [ ] MITRE ATT&CK tags are accurate and complete
 - [x] Commit messages are clear and descriptive
 
 ---
