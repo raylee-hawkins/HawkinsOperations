@@ -202,6 +202,52 @@ img {
   padding: 40px 0 56px;
 }
 
+.m-stage {
+  position: relative;
+}
+
+.m-stage::before {
+  content: "";
+  display: block;
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto 26px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.m-stage-metrics .m-wrap,
+.m-stage-review .m-wrap,
+.m-stage-flow .m-wrap,
+.m-stage-topology .m-wrap,
+.m-stage-logic .m-wrap,
+.m-stage-outputs .m-wrap,
+.m-stage-proof .m-wrap,
+.m-stage-next .m-wrap {
+  position: relative;
+}
+
+.m-stage-topology .m-card,
+.m-stage-topology .m-evidence-note {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 82%, var(--primary-50) 18%), var(--surface));
+}
+
+.m-stage-logic .m-callout:first-child {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 84%, #dbeafe 16%), var(--surface));
+}
+
+.m-stage-outputs .m-card,
+.m-stage-outputs .m-shot-frame {
+  box-shadow: var(--shadow-lg);
+}
+
+.m-stage-proof .m-card,
+.m-stage-next .m-card {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, var(--surface-soft) 8%), var(--surface));
+}
+
 .m-hero {
   padding: 34px 0 28px;
 }
@@ -823,6 +869,13 @@ img {
   gap: 18px;
 }
 
+.m-depth-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 18px;
+  align-items: start;
+}
+
 .m-callout {
   padding: 18px;
   border: 1px solid var(--border);
@@ -885,6 +938,21 @@ img {
   margin-top: 6px;
   font-size: 0.92rem;
   color: var(--text-soft);
+}
+
+.m-output-card {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, var(--neutral-100) 12%), var(--surface));
+}
+
+.m-output-stack {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.m-output-terminal {
+  border-width: 1px;
 }
 
 .m-packet-grid {
@@ -962,6 +1030,7 @@ img {
   .m-flow-grid,
   .m-split-callout,
   .m-evidence-grid,
+  .m-depth-grid,
   .m-artifact-grid,
   .m-packet-grid,
   .m-next-grid {
@@ -1005,6 +1074,7 @@ img {
   .m-flow-grid,
   .m-split-callout,
   .m-evidence-grid,
+  .m-depth-grid,
   .m-artifact-grid,
   .m-packet-grid,
   .m-next-grid {

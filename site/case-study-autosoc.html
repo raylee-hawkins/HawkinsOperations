@@ -135,7 +135,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-overview">
   <div class="m-wrap">
     <div class="m-flow-grid">
       <article class="m-flow-card">
@@ -157,10 +157,15 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-topology">
   <div class="m-wrap">
     <div class="m-divider-title">
-      <div class="m-card-kicker">How it works</div>
+      <div class="m-card-kicker">Topology + workflow</div>
+    </div>
+    <div class="m-evidence-note" style="margin-bottom:18px;">
+      <div class="m-card-kicker">Inspection stage</div>
+      <h3>Separate environment from sequence</h3>
+      <p>The first surface explains the environment and control points. The second shows the alert-to-artifact sequence. Keeping those jobs separate makes the system feel denser and easier to inspect.</p>
     </div>
     <div class="m-evidence-grid">
       <div class="m-diagram-frame">
@@ -188,7 +193,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-logic">
   <div class="m-wrap m-split-callout">
     <article class="m-callout">
       <div class="m-card-kicker">Decision logic</div>
@@ -236,39 +241,46 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-outputs">
   <div class="m-wrap m-grid-2">
-    <article class="m-card">
+    <article class="m-card m-output-card">
       <div class="m-card-kicker">Outputs</div>
       <h2>High-volume rootcheck pattern</h2>
       <p class="m-copy"><strong>Checks performed:</strong> known-FP policy match, repetition pattern, host context, and rule history.<br><strong>Redaction gate:</strong> host identifiers and environment-specific values sanitized before publication.<br><strong>Evidence pack output:</strong> one-pager, full report, timeline CSV, queries file, and closure report.</p>
-      <div class="m-artifact-grid" aria-label="Representative AutoSOC artifact outputs">
-        <div class="m-artifact">
-          <strong>00_one_pager.md</strong>
-          <span>Label: intake summary. Purpose: orient the reviewer quickly. Pipeline relation: first output after triage and redaction.</span>
+      <div class="m-output-stack">
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Inspection stage</div>
+          <h3>Named outputs, not generic artifacts</h3>
+          <p>This is where the project becomes reviewable engineering work. The files, terminal output, and screenshot are presented as connected evidence from the same pipeline stage.</p>
         </div>
-        <div class="m-artifact">
-          <strong>01_full_report.md</strong>
-          <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: escalation package core document.</span>
+        <div class="m-artifact-grid" aria-label="Representative AutoSOC artifact outputs">
+          <div class="m-artifact">
+            <strong>00_one_pager.md</strong>
+            <span>Label: intake summary. Purpose: orient the reviewer quickly. Pipeline relation: first output after triage and redaction.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>01_full_report.md</strong>
+            <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: escalation package core document.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>02_timeline.csv</strong>
+            <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>closure_report.md</strong>
+            <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint for reviewer trust.</span>
+          </div>
         </div>
-        <div class="m-artifact">
-          <strong>02_timeline.csv</strong>
-          <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
-        </div>
-        <div class="m-artifact">
-          <strong>closure_report.md</strong>
-          <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint for reviewer trust.</span>
-        </div>
-      </div>
-      <div class="m-terminal" style="margin-top:16px;">
-        <div class="m-terminal-head">
-          <span class="m-terminal-label">Representative output</span>
-          <span class="m-frame-tag">Triage evidence</span>
-        </div>
-        <pre class="m-code">rootcheck_window_alerts: 1312
+        <div class="m-terminal m-output-terminal">
+          <div class="m-terminal-head">
+            <span class="m-terminal-label">Representative output</span>
+            <span class="m-frame-tag">Triage evidence</span>
+          </div>
+          <pre class="m-code">rootcheck_window_alerts: 1312
 dominant_pattern: repeated benign rootcheck signatures
 action: policy tuning + replay validation
 outcome: reduced false-positive pressure while preserving escalation path</pre>
+        </div>
       </div>
     </article>
 
@@ -285,7 +297,7 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-proof">
   <div class="m-wrap">
     <div class="m-card">
       <div class="m-card-kicker">Proof links</div>
@@ -312,7 +324,7 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-next">
   <div class="m-wrap">
     <div class="m-card">
       <div class="m-card-kicker">Next steps</div>

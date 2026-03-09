@@ -114,7 +114,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-metrics">
   <div class="m-wrap">
     <div class="m-kpi-grid" aria-label="Operational proof metrics">
       <article class="m-kpi">
@@ -141,7 +141,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-review">
   <div class="m-wrap">
     <div class="m-grid-3">
       <article class="m-card">
@@ -178,7 +178,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-flow">
   <div class="m-wrap">
     <div class="m-divider-title">
       <div class="m-card-kicker">Reviewer flow</div>
@@ -203,25 +203,25 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-topology">
   <div class="m-wrap">
     <div class="m-divider-title">
-      <div class="m-card-kicker">Flagship system</div>
+      <div class="m-card-kicker">Topology</div>
     </div>
-    <div class="m-card">
-      <h2>Layered automation story</h2>
-      <p class="m-copy">This section is staged the way the rest of the flagship project should read: claim first, framed system visuals second, supporting evidence third, and the next action last.</p>
-      <div class="m-evidence-grid" style="margin-top:18px;">
+    <div class="m-card m-stage-card">
+      <h2>System depth in two layers</h2>
+      <p class="m-copy">The hero shows the flagship system map. This layer separates environment context from pipeline sequence so the site reads more like an engineered walkthrough than a single polished diagram.</p>
+      <div class="m-depth-grid" style="margin-top:18px;">
         <div class="m-diagram-frame">
           <div class="m-frame-head">
-            <span class="m-frame-title">System relationships</span>
-            <span class="m-frame-tag">Architecture</span>
+            <span class="m-frame-title">Topology context</span>
+            <span class="m-frame-tag">Environment</span>
           </div>
           <div class="m-frame-body">
-            <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
-                 alt="AutoSOC architecture map showing telemetry sources, policy gates, and review outputs"
-                 width="1600" height="900" loading="lazy">
-            <p class="m-frame-caption">Purpose: explain the components and control points. Pipeline relation: where alerts enter, where policy gates apply, and where escalation artifacts are assembled.</p>
+            <img src="/assets/pp_soc_integration/lab-architecture.svg"
+                 alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and AutoSOC pipeline boundaries"
+                 width="1200" height="510" loading="lazy">
+            <p class="m-frame-caption">Purpose: show where the workflow lives. Pipeline relation: the environment that produces telemetry, pivots, and evidence surfaces used throughout the case study.</p>
           </div>
         </div>
         <div class="m-diagram-frame">
@@ -240,8 +240,8 @@
       <div class="m-grid-2" style="margin-top:18px;">
         <div class="m-evidence-note">
           <div class="m-card-kicker">Supporting evidence</div>
-          <h3>Why the split matters</h3>
-          <p>One diagram explains relationships. The other explains sequence. That separation makes the automation stack feel engineered instead of flattened into one image with too much work to do.</p>
+          <h3>Why this reads deeper</h3>
+          <p>The topology surface answers where the system lives. The workflow surface answers how it moves. That distinction adds visible system layering without inventing new features or decorative graphics.</p>
         </div>
         <div class="m-evidence-note">
           <div class="m-card-kicker">Next action</div>
@@ -254,7 +254,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-proof">
   <div class="m-wrap m-grid-2">
     <article class="m-card">
       <div class="m-card-kicker">Infrastructure</div>
@@ -275,15 +275,22 @@
       <a class="m-card-link" href="/soc-lab">Open lab details</a>
     </article>
     <article class="m-card">
-      <div class="m-card-kicker">Why this homepage changed</div>
-      <h2>Promoted MODERNIZE direction</h2>
-      <p>The production homepage now borrows the tighter MODERNIZE structure: faster first-screen comprehension, stronger CTA hierarchy, and a clearer path from what was built to how it works to proof.</p>
-      <div class="m-chip-row">
-        <span class="m-chip">Homepage -> Case Study</span>
-        <span class="m-chip">Case Study -> Demo</span>
-        <span class="m-chip">Proof -> Repo</span>
+      <div class="m-card-kicker">Review lanes</div>
+      <h2>Choose the right depth</h2>
+      <div class="m-link-list">
+        <a class="m-link-item" href="/case-study-autosoc">
+          <strong>Case study</strong>
+          <span>Flagship technical walkthrough: overview, topology, workflow, logic, outputs, proof, and next step.</span>
+        </a>
+        <a class="m-link-item" href="/proof">
+          <strong>Proof page</strong>
+          <span>Receipt drawer for artifact trees, verification commands, release-chain references, and public checks.</span>
+        </a>
+        <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">
+          <strong>Repository</strong>
+          <span>Source, docs, and history for the automation stack behind the public story.</span>
+        </a>
       </div>
-      <a class="m-card-link" href="/proof">Open the proof path</a>
     </article>
   </div>
 </section>
