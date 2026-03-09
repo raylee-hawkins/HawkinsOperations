@@ -79,10 +79,10 @@
       </div>
       <div class="m-proof-inline">
         <span>Quick scan:</span>
-        <span class="m-inline-code">overview</span>
-        <span class="m-inline-code">outputs</span>
-        <span class="m-inline-code">proof</span>
-        <span class="m-inline-code">next step</span>
+        <span class="m-inline-code">packs</span>
+        <span class="m-inline-code">run logs</span>
+        <span class="m-inline-code">release chain</span>
+        <span class="m-inline-code">git history</span>
       </div>
     </div>
   </div>
@@ -91,71 +91,17 @@
 <section class="m-section">
   <div class="m-wrap m-grid-2">
     <article class="m-card">
-      <div class="m-card-kicker">Outputs</div>
+      <div class="m-card-kicker">Evidence packs</div>
       <h2>What a reviewer can inspect</h2>
-      <div class="m-artifact-grid">
-        <div class="m-artifact">
-          <strong>00_one_pager.md</strong>
-          <span>Label: intake summary. Purpose: fast orientation. Pipeline relation: first reviewer-facing artifact after triage.</span>
-        </div>
-        <div class="m-artifact">
-          <strong>01_full_report.md</strong>
-          <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: main escalation artifact.</span>
-        </div>
-        <div class="m-artifact">
-          <strong>02_timeline.csv</strong>
-          <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
-        </div>
-        <div class="m-artifact">
-          <strong>closure_report.md</strong>
-          <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint.</span>
-        </div>
-      </div>
-      <a class="m-card-link" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/incidents/2026" target="_blank" rel="noopener noreferrer">Open incident artifact tree</a>
+      <ul class="m-list-tight">
+        <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/incidents/2026" target="_blank" rel="noopener noreferrer">Incident artifact tree (2026)</a></li>
+        <li><span class="m-inline-code">00_one_pager.md</span> analyst intake summary</li>
+        <li><span class="m-inline-code">01_full_report.md</span> full investigative narrative</li>
+        <li><span class="m-inline-code">02_timeline.csv</span> chronology output</li>
+        <li><span class="m-inline-code">closure_report.md</span> final disposition record</li>
+      </ul>
     </article>
 
-    <article class="m-shot-frame">
-      <div class="m-frame-head">
-        <span class="m-frame-title">Execution evidence</span>
-        <span class="m-frame-tag">Screenshot</span>
-      </div>
-      <div class="m-frame-body">
-        <img src="/assets/pp_soc_integration/04_nodejs_patch_terminal.png" alt="Terminal screenshot showing a redacted command-driven workflow from the AutoSOC project assets" width="1385" height="799" loading="lazy">
-        <p class="m-frame-caption">Label: execution evidence. Purpose: show a real operational surface instead of a generic mockup. Pipeline relation: complements the artifact files with a visible command-driven workflow.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="m-section">
-  <div class="m-wrap">
-    <div class="m-packet-grid">
-      <article class="m-packet-step">
-        <div class="m-packet-number">1</div>
-        <h3>Overview</h3>
-        <p class="m-packet-copy">The proof page is not separate theater. It is the receipt drawer for the same system described on the homepage and in the AutoSOC case study.</p>
-      </article>
-      <article class="m-packet-step">
-        <div class="m-packet-number">2</div>
-        <h3>Outputs</h3>
-        <p class="m-packet-copy">Named evidence-pack files make the workflow legible. The artifacts are presented as inspectable outputs, not abstract claims.</p>
-      </article>
-      <article class="m-packet-step">
-        <div class="m-packet-number">3</div>
-        <h3>Proof</h3>
-        <p class="m-packet-copy">Runbooks, release notes, verification scripts, and commit history provide a cross-check path for reviewers who want more than screenshots.</p>
-      </article>
-      <article class="m-packet-step">
-        <div class="m-packet-number">4</div>
-        <h3>Next step</h3>
-        <p class="m-packet-copy">From here, a reviewer can return to the flagship case study, inspect the repository, or validate public counts locally.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="m-section">
-  <div class="m-wrap m-grid-2">
     <article class="m-card">
       <div class="m-card-kicker">Operational trail</div>
       <h2>Why the artifacts are credible</h2>
@@ -166,7 +112,26 @@
         <li>The same repository exposes the verification scripts used to cross-check counts and drift.</li>
       </ul>
     </article>
+  </div>
+</section>
 
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-grid-2">
+      <a class="m-link-item" href="/case-study-autosoc">
+        <strong>Back to the case study</strong>
+        <span>Problem, architecture, decision table, example incident, and proof links in one flagship technical narrative.</span>
+      </a>
+      <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer">
+        <strong>Public commit history</strong>
+        <span>Commit trail for pipeline additions, tuning changes, and release documentation.</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap m-grid-2">
     <article class="m-card">
       <div class="m-card-kicker">Verification</div>
       <h2>How to validate claims quickly</h2>
@@ -207,21 +172,6 @@ python .\scripts\drift_scan.py</pre>
         </a>
       </div>
     </article>
-  </div>
-</section>
-
-<section class="m-section">
-  <div class="m-wrap">
-    <div class="m-grid-2">
-      <a class="m-link-item" href="/case-study-autosoc">
-        <strong>Back to the case study</strong>
-        <span>Problem, architecture, workflow sequence, evidence outputs, and proof links in one flagship technical narrative.</span>
-      </a>
-      <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer">
-        <strong>Public commit history</strong>
-        <span>Commit trail for pipeline additions, tuning changes, and release documentation.</span>
-      </a>
-    </div>
   </div>
 </section>
 
