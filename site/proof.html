@@ -30,6 +30,7 @@
   })();
 </script>
 <link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/modernize.css?v=03-09-2026-2">
 </head>
 <body>
 <!-- @include:nav:start -->
@@ -62,91 +63,165 @@
 
 <!-- @include:nav:end -->
 
-<main>
-<section style="padding-top:110px">
-  <div class="ctr">
-    <div class="slbl">Proof</div>
-    <h1 class="stitle">AutoSOC receipt drawer</h1>
-    <p class="sdesc">
-      This page shows proof that the workflow runs end-to-end: triage decisions, redaction, evidence packs, and escalation artifacts.
-    </p>
-    <p class="lupd">Quick scan: 1) evidence packs 2) run logs 3) release/runbook chain 4) git history highlights.</p>
+<main class="modernize-shell">
+<section class="m-section" style="padding-top:96px;">
+  <div class="m-wrap">
+    <div class="m-eyebrow">Proof</div>
+    <h1 class="m-title" style="font-size: clamp(2.2rem, 4vw, 3.7rem);">AutoSOC receipt drawer</h1>
+    <p class="m-outcome">This page is the proof surface for the reviewer flow: evidence packs, run logs, release references, and reproducible validation commands in one place.</p>
 
-    <div class="g2">
-      <div class="card">
-        <div class="card-ttl">AutoSOC evidence packs (examples)</div>
-        <div class="card-sub">
-          <ul style="padding-left:18px;margin:8px 0">
-            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/incidents/2026" target="_blank" rel="noopener noreferrer">Incident artifact tree (2026)</a></li>
-            <li><code>00_one_pager.md</code> analyst intake summary</li>
-            <li><code>01_full_report.md</code> full investigative narrative</li>
-            <li><code>02_timeline.csv</code> chronology output</li>
-            <li><code>closure_report.md</code> final disposition record</li>
-          </ul>
-        </div>
+    <div class="m-proof-strip" style="margin-top:20px;">
+      <div class="m-proof-inline">
+        <strong><span data-verified="detections">139</span> detections</strong>
+        <strong><span data-verified="sigma">103</span> Sigma</strong>
+        <strong><span data-verified="wazuh">28</span> Wazuh</strong>
+        <strong><span data-verified="ir">10</span> playbooks</strong>
       </div>
-      <div class="card">
-        <div class="card-ttl">Run logs (redacted)</div>
-        <div class="card-sub">
-          <ul style="padding-left:18px;margin:8px 0">
-            <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">Operational runbook log references</a></li>
-            <li><a href="/march-2026-release">March release execution timeline</a></li>
-            <li>Sensitive values are sanitized before publishing artifacts.</li>
-          </ul>
-        </div>
+      <div class="m-proof-inline">
+        <span>Quick scan:</span>
+        <span class="m-inline-code">overview</span>
+        <span class="m-inline-code">outputs</span>
+        <span class="m-inline-code">proof</span>
+        <span class="m-inline-code">next step</span>
       </div>
-    </div>
-
-    <div style="height:14px"></div>
-
-    <div class="g2">
-      <a class="card" href="/case-study-autosoc" style="text-decoration:none">
-        <div class="card-ttl">AutoSOC case study page</div>
-        <div class="card-sub">Problem, architecture, decision table, example incident, and proof links in one place.</div>
-        <div class="card-meta"><span class="tag">Main narrative</span></div>
-      </a>
-      <a class="card" href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer" style="text-decoration:none">
-        <div class="card-ttl">Git history highlights</div>
-        <div class="card-sub">Public commit trail that tracks pipeline additions, tuning changes, and release documentation.</div>
-        <div class="card-meta"><span class="tag">Public history</span></div>
-      </a>
     </div>
   </div>
 </section>
 
-<section class="section-tight">
-  <div class="ctr">
-    <div class="slbl">Verification</div>
-    <h2 class="stitle">How to validate claims quickly</h2>
-    <p class="sdesc">
-      Fast reviewer workflow: open release/runbook links, inspect artifact trees, then run one verification command from the public repo.
-    </p>
-
-    <div class="term">
-      <div class="term-h">
-        <div class="td td-r"></div><div class="td td-y"></div><div class="td td-g"></div>
-        <div class="term-t">Clone + verify counts (PowerShell)</div>
-        <div class="term-actions"><button class="tbtn" type="button" data-copy="cProofPS">Copy</button></div>
+<section class="m-section">
+  <div class="m-wrap m-grid-2">
+    <article class="m-card">
+      <div class="m-card-kicker">Outputs</div>
+      <h2>What a reviewer can inspect</h2>
+      <div class="m-artifact-grid">
+        <div class="m-artifact">
+          <strong>00_one_pager.md</strong>
+          <span>Label: intake summary. Purpose: fast orientation. Pipeline relation: first reviewer-facing artifact after triage.</span>
+        </div>
+        <div class="m-artifact">
+          <strong>01_full_report.md</strong>
+          <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: main escalation artifact.</span>
+        </div>
+        <div class="m-artifact">
+          <strong>02_timeline.csv</strong>
+          <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
+        </div>
+        <div class="m-artifact">
+          <strong>closure_report.md</strong>
+          <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint.</span>
+        </div>
       </div>
-      <pre id="cProofPS" class="term-b">git clone https://github.com/raylee-hawkins/HawkinsOperations
+      <a class="m-card-link" href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/incidents/2026" target="_blank" rel="noopener noreferrer">Open incident artifact tree</a>
+    </article>
+
+    <article class="m-shot-frame">
+      <div class="m-frame-head">
+        <span class="m-frame-title">Execution evidence</span>
+        <span class="m-frame-tag">Screenshot</span>
+      </div>
+      <div class="m-frame-body">
+        <img src="/assets/pp_soc_integration/04_nodejs_patch_terminal.png" alt="Terminal screenshot showing a redacted command-driven workflow from the AutoSOC project assets" width="1385" height="799" loading="lazy">
+        <p class="m-frame-caption">Label: execution evidence. Purpose: show a real operational surface instead of a generic mockup. Pipeline relation: complements the artifact files with a visible command-driven workflow.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-packet-grid">
+      <article class="m-packet-step">
+        <div class="m-packet-number">1</div>
+        <h3>Overview</h3>
+        <p class="m-packet-copy">The proof page is not separate theater. It is the receipt drawer for the same system described on the homepage and in the AutoSOC case study.</p>
+      </article>
+      <article class="m-packet-step">
+        <div class="m-packet-number">2</div>
+        <h3>Outputs</h3>
+        <p class="m-packet-copy">Named evidence-pack files make the workflow legible. The artifacts are presented as inspectable outputs, not abstract claims.</p>
+      </article>
+      <article class="m-packet-step">
+        <div class="m-packet-number">3</div>
+        <h3>Proof</h3>
+        <p class="m-packet-copy">Runbooks, release notes, verification scripts, and commit history provide a cross-check path for reviewers who want more than screenshots.</p>
+      </article>
+      <article class="m-packet-step">
+        <div class="m-packet-number">4</div>
+        <h3>Next step</h3>
+        <p class="m-packet-copy">From here, a reviewer can return to the flagship case study, inspect the repository, or validate public counts locally.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap m-grid-2">
+    <article class="m-card">
+      <div class="m-card-kicker">Operational trail</div>
+      <h2>Why the artifacts are credible</h2>
+      <ul class="m-list-tight">
+        <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">Operational runbook log references</a></li>
+        <li><a href="/march-2026-release">March release execution timeline</a></li>
+        <li>Sensitive values are sanitized before publishing artifacts.</li>
+        <li>The same repository exposes the verification scripts used to cross-check counts and drift.</li>
+      </ul>
+    </article>
+
+    <article class="m-card">
+      <div class="m-card-kicker">Verification</div>
+      <h2>How to validate claims quickly</h2>
+      <p class="m-copy">Fast reviewer workflow: inspect the artifact tree, open the release/runbook chain, then run one public verification command from the repository.</p>
+      <div class="m-terminal" style="margin-top:16px;">
+        <div class="m-terminal-head">
+          <span class="m-terminal-label">Clone + verify counts (PowerShell)</span>
+          <button class="m-copy-btn" type="button" data-copy="cProofPS">Copy</button>
+        </div>
+        <pre id="cProofPS" class="m-code">git clone https://github.com/raylee-hawkins/HawkinsOperations
 cd HawkinsOperations
 
 # Reproduce inventory counts locally
-pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
-    </div>
-
-    <details style="margin-top:14px">
-      <summary>Key verification references</summary>
-      <div class="details-body">
-        <ul style="padding-left:18px;margin:8px 0">
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer">Release notes v1.4.0</a></li>
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">AutoSOC operations runbook</a></li>
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/verify/verify-counts.ps1" target="_blank" rel="noopener noreferrer">verify-counts.ps1</a></li>
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/drift_scan.py" target="_blank" rel="noopener noreferrer">drift_scan.py</a></li>
-          <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer">Main branch commit history</a></li>
-        </ul>
+pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1
+python .\scripts\drift_scan.py</pre>
       </div>
-    </details>
+    </article>
+
+    <article class="m-card">
+      <div class="m-card-kicker">Reference chain</div>
+      <h2>Key proof links</h2>
+      <div class="m-link-list">
+        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
+          <strong>Release notes v1.4.0</strong>
+          <span>Anchors the public narrative to a specific project milestone.</span>
+        </a>
+        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
+          <strong>AutoSOC operations runbook</strong>
+          <span>Shows the process discipline behind the pipeline and artifact chain.</span>
+        </a>
+        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/verify/verify-counts.ps1" target="_blank" rel="noopener noreferrer" class="m-link-item">
+          <strong>verify-counts.ps1</strong>
+          <span>Public script that keeps claims tied to repository truth.</span>
+        </a>
+        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/drift_scan.py" target="_blank" rel="noopener noreferrer" class="m-link-item">
+          <strong>drift_scan.py</strong>
+          <span>Sanity check that guards against package drift in public-facing materials.</span>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-grid-2">
+      <a class="m-link-item" href="/case-study-autosoc">
+        <strong>Back to the case study</strong>
+        <span>Problem, architecture, workflow sequence, evidence outputs, and proof links in one flagship technical narrative.</span>
+      </a>
+      <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations/commits/main" target="_blank" rel="noopener noreferrer">
+        <strong>Public commit history</strong>
+        <span>Commit trail for pipeline additions, tuning changes, and release documentation.</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -174,7 +249,7 @@ pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1</pre>
 
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
+<script src="/data/counts.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-

@@ -36,6 +36,7 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/styles.css?v=02-24-2026-3">
+  <link rel="stylesheet" href="/assets/modernize.css?v=03-09-2026-1">
 
 </head>
 <body>
@@ -68,86 +69,222 @@
 </div>
 <!-- @include:nav:end -->
 
-<main class="home-main">
+<main class="home-main modernize-shell">
 
-<header class="hero">
-  <div class="ctr">
-    <div class="hero-inner">
-      <div class="htag">SOC Analyst · Detection + Automation</div>
-      <h1 class="htitle">I built <span class="hl">AutoSOC</span> — end-to-end triage automation for Wazuh alerts.</h1>
-      <p class="hsub">Alerts polled, triaged against policy, redacted, and escalated as reviewable GitHub PRs. Four scripts, zero manual steps per alert.</p>
-      <div class="hctas">
-        <a class="btn btn-p" href="/case-study-autosoc">Read the Case Study</a>
-        <a class="btn btn-g" href="/proof">View Proof</a>
+<section class="m-hero">
+  <div class="m-wrap m-hero-grid">
+    <div>
+      <div class="m-badge">Evidence-first SOC portfolio</div>
+      <h1 class="m-title">AutoSOC proves practical SOC engineering.</h1>
+      <p class="m-outcome">Live pipeline story, public proof, and a reviewer-safe case-study path in one screen. No scrolling required to understand the point.</p>
+      <div class="m-actions">
+        <a class="m-cta m-cta-primary" href="/case-study-autosoc">View AutoSOC</a>
+        <a class="m-cta m-cta-accent" href="/proof">Review Proof</a>
+        <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
       </div>
-      <div class="hero-meta">
-        <div class="sbadge"><span class="sdot"></span>Eligible to obtain clearance; willing to pursue sponsorship.</div>
-        <div class="lupd">Huntsville-adjacent, North Alabama</div>
+      <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
+    </div>
+    <div class="m-panel">
+      <div class="m-panel-head">LCP candidate: system map</div>
+      <div class="m-panel-body">
+        <img class="m-hero-visual"
+             src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
+             alt="AutoSOC system map showing workflow relationships, policy gates, and review outputs"
+             width="1600" height="900" loading="eager">
       </div>
     </div>
   </div>
-</header>
-
-<section class="lab-arch">
-  <div class="ctr">
-    <div class="slbl">Infrastructure</div>
-    <h2 class="stitle">The lab behind it</h2>
-    <p class="lab-arch-intro">Single Proxmox host running isolated VMs. Real telemetry flows from endpoint through Wazuh into automated triage. Splunk handles investigation pivots. Everything runs on RFC1918 subnets — test traffic stays in the lab, evidence comes out.</p>
-    <div class="lab-arch-visual">
-      <img src="/assets/pp_soc_integration/lab-architecture.svg"
-           alt="SOC lab architecture: Proxmox hypervisor running Windows 11 endpoint (Sysmon + Wazuh Agent), Wazuh Manager (Indexer + REST API), and Splunk, connected via Tailscale to AutoSOC pipeline and GitHub review output"
-           loading="lazy" width="1200" height="510">
-    </div>
-    <a class="lab-arch-link" href="/soc-lab">Full lab details <span>→</span></a>
-  </div>
 </section>
 
-<section class="sys-proof">
-  <div class="ctr">
-    <div class="slbl">Workflow</div>
-    <h2 class="stitle">AutoSOC triage flow</h2>
-    <div class="sys-proof-visual">
-      <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-           alt="AutoSOC workflow: alert intake (poll-alerts.py), triage decision (triage.py), redaction (redact.py), evidence pack (assemble-pack.py), PR escalation (create-pr.py)"
-           loading="lazy" width="1200" height="240">
-    </div>
-    <p class="sys-proof-caption">poll-alerts.py queries the Wazuh indexer on schedule. triage.py dispositions each alert against policy.yaml. redact.py strips sensitive identifiers. assemble-pack.py generates the evidence pack. create-pr.py opens a GitHub PR for review. Five scripts, orchestrated by run-pipeline.py on Task Scheduler.</p>
-  </div>
-</section>
-
-<section class="review-section">
-  <div class="ctr">
-    <div class="slbl">Review</div>
-    <h2 class="stitle">Where to start</h2>
-    <div class="g3 review-grid">
-      <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
-        <span class="lane-tag">START HERE</span>
-        <div class="card-ttl">Case study</div>
-        <div class="card-sub">The problem, what I built, how triage decisions are made, and a real incident walkthrough.</div>
-        <div class="lane-cta" aria-hidden="true">Read <span>→</span></div>
-      </a>
-      <a class="card lane-card" href="/proof" style="text-decoration:none" data-lane="systems">
-        <span class="lane-tag">RECEIPTS</span>
-        <div class="card-ttl">Proof</div>
-        <div class="card-sub">Evidence packs, pipeline run logs, release notes, and commit history.</div>
-        <div class="lane-cta" aria-hidden="true">Review <span>→</span></div>
-      </a>
-      <a class="card lane-card" href="/resume" style="text-decoration:none" data-lane="source">
-        <span class="lane-tag">ROLE FIT</span>
-        <div class="card-ttl">Resume</div>
-        <div class="card-sub">SOC T1/T2 positioning, lab experience, certifications in progress.</div>
-        <div class="lane-cta" aria-hidden="true">View <span>→</span></div>
-      </a>
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-proof-strip">
+      <div class="m-proof-inline">
+        <strong><span data-verified="detections">139</span></strong> detections
+        <strong><span data-verified="sigma">103</span></strong> Sigma
+        <strong><span data-verified="wazuh">28</span></strong> Wazuh
+        <strong><span data-verified="splunk">8</span></strong> Splunk
+        <strong><span data-verified="ir">10</span></strong> playbooks
+      </div>
+      <div class="m-proof-inline">
+        <span>Verified <span data-verified-date>02-26-2026</span></span>
+        <a class="m-preview-link" href="/case-study-autosoc">Start with the flagship case study</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="proof-strip">
-  <div class="ctr">
-    <div class="proof-strip-inner">
-      <div class="proof-strip-counts"><span data-verified="detections">139</span> detections · <span data-verified="sigma">103</span> Sigma · <span data-verified="wazuh">28</span> Wazuh · <span data-verified="splunk">8</span> Splunk · <span data-verified="ir">10</span> IR playbooks</div>
-      <div class="proof-strip-meta">Verified <span data-verified-date>02-26-2026</span> · counts generated from source, validated in CI</div>
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-kpi-grid" aria-label="Operational proof metrics">
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="detections">139</span></div>
+        <div class="m-kpi-label">Detections</div>
+        <p class="m-kpi-copy">Script-verified public count that anchors the flagship project inside a broader evidence-backed security corpus.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="sigma">103</span></div>
+        <div class="m-kpi-label">Sigma rules</div>
+        <p class="m-kpi-copy">Visible rule depth makes the homepage feel connected to real detection engineering rather than a single polished case study.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="wazuh">28</span></div>
+        <div class="m-kpi-label">Wazuh rule blocks</div>
+        <p class="m-kpi-copy">The operational story stays grounded in lab-backed alerting paths that are already represented in the public repo.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="ir">10</span></div>
+        <div class="m-kpi-label">IR playbooks</div>
+        <p class="m-kpi-copy">Playbook depth reinforces that escalation output and incident handling are part of the same operational system.</p>
+      </article>
     </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-grid-3">
+      <article class="m-card">
+        <div class="m-card-kicker">Start here</div>
+        <h2>AutoSOC case study</h2>
+        <p>The shortest path for reviewers: what was built, why it matters, and how the pipeline turns alerts into reviewable evidence.</p>
+        <div class="m-chip-row">
+          <span class="m-chip">Pipeline: live</span>
+          <span class="m-chip">Outcome: public</span>
+        </div>
+        <a class="m-card-link" href="/case-study-autosoc">Read case study</a>
+      </article>
+      <article class="m-card">
+        <div class="m-card-kicker">Repository</div>
+        <h2>Code and artifact source</h2>
+        <p>Public code, docs, release notes, and verification scripts stay close to the narrative so the system feels inspectable rather than theatrical.</p>
+        <div class="m-chip-row">
+          <span class="m-chip">Source: public</span>
+          <span class="m-chip">History: visible</span>
+        </div>
+        <a class="m-card-link" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open repository</a>
+      </article>
+      <article class="m-card">
+        <div class="m-card-kicker">Proof</div>
+        <h2>Verification and receipts</h2>
+        <p>Counts, release notes, runbooks, and artifact paths stay one click away so claims can be checked instead of trusted on faith.</p>
+        <div class="m-chip-row">
+          <span class="m-chip">Counts: script-verified</span>
+          <span class="m-chip">Artifacts: curated</span>
+        </div>
+        <a class="m-card-link" href="/proof">Review proof</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-divider-title">
+      <div class="m-card-kicker">Reviewer flow</div>
+    </div>
+    <div class="m-flow-grid">
+      <article class="m-flow-card">
+        <div class="m-flow-step">1</div>
+        <h3>Understand the build</h3>
+        <p class="m-copy">The homepage frames AutoSOC as an engineering outcome first: what it does, how it is validated, and why it belongs in a SOC portfolio.</p>
+      </article>
+      <article class="m-flow-card">
+        <div class="m-flow-step">2</div>
+        <h3>Inspect the flagship case study</h3>
+        <p class="m-copy">The AutoSOC page turns architecture, decision logic, and screenshots into one deliberate narrative instead of scattered proof fragments.</p>
+      </article>
+      <article class="m-flow-card">
+        <div class="m-flow-step">3</div>
+        <h3>Validate the proof path</h3>
+        <p class="m-copy">The proof page and repository keep artifact links, verification commands, and public history close enough to check without effort.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
+    <div class="m-divider-title">
+      <div class="m-card-kicker">Flagship system</div>
+    </div>
+    <div class="m-card">
+      <h2>Layered automation story</h2>
+      <p class="m-copy">This section is staged the way the rest of the flagship project should read: claim first, framed system visuals second, supporting evidence third, and the next action last.</p>
+      <div class="m-evidence-grid" style="margin-top:18px;">
+        <div class="m-diagram-frame">
+          <div class="m-frame-head">
+            <span class="m-frame-title">System relationships</span>
+            <span class="m-frame-tag">Architecture</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
+                 alt="AutoSOC architecture map showing telemetry sources, policy gates, and review outputs"
+                 width="1600" height="900" loading="lazy">
+            <p class="m-frame-caption">Purpose: explain the components and control points. Pipeline relation: where alerts enter, where policy gates apply, and where escalation artifacts are assembled.</p>
+          </div>
+        </div>
+        <div class="m-diagram-frame">
+          <div class="m-frame-head">
+            <span class="m-frame-title">Workflow sequence</span>
+            <span class="m-frame-tag">Pipeline</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
+                 alt="AutoSOC workflow sequence showing poll, triage, redact, pack, and escalation steps"
+                 width="1200" height="240" loading="lazy">
+            <p class="m-frame-caption">Purpose: reduce the workflow to the steps a reviewer needs to understand quickly. Pipeline relation: alert intake to review-ready output.</p>
+          </div>
+        </div>
+      </div>
+      <div class="m-grid-2" style="margin-top:18px;">
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Supporting evidence</div>
+          <h3>Why the split matters</h3>
+          <p>One diagram explains relationships. The other explains sequence. That separation makes the automation stack feel engineered instead of flattened into one image with too much work to do.</p>
+        </div>
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Next action</div>
+          <h3>Go deeper</h3>
+          <p>Open the AutoSOC case study to inspect decision logic, evidence outputs, labeled screenshots, and the proof chain that connects the workflow to public artifacts.</p>
+          <a class="m-card-link" href="/case-study-autosoc">Read the AutoSOC case study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap m-grid-2">
+    <article class="m-card">
+      <div class="m-card-kicker">Infrastructure</div>
+      <h2>The lab behind the workflow</h2>
+      <p>Single Proxmox host, isolated VMs, Wazuh for alerting, and Splunk for pivots. Test traffic stays in the lab. Evidence comes out.</p>
+      <div class="m-diagram-frame" style="margin-top: 18px;">
+        <div class="m-frame-head">
+          <span class="m-frame-title">Lab topology</span>
+          <span class="m-frame-tag">Proof surface</span>
+        </div>
+        <div class="m-frame-body">
+          <img src="/assets/pp_soc_integration/lab-architecture.svg"
+               alt="SOC lab architecture showing Proxmox, Windows 11 endpoint, Wazuh, Splunk, and AutoSOC pipeline"
+               width="1200" height="510" loading="lazy">
+          <p class="m-frame-caption">Architecture diagrams are carrying real explanatory load here: where alerts originate, where pivots happen, and where evidence is packaged for review.</p>
+        </div>
+      </div>
+      <a class="m-card-link" href="/soc-lab">Open lab details</a>
+    </article>
+    <article class="m-card">
+      <div class="m-card-kicker">Why this homepage changed</div>
+      <h2>Promoted MODERNIZE direction</h2>
+      <p>The production homepage now borrows the tighter MODERNIZE structure: faster first-screen comprehension, stronger CTA hierarchy, and a clearer path from what was built to how it works to proof.</p>
+      <div class="m-chip-row">
+        <span class="m-chip">Homepage -> Case Study</span>
+        <span class="m-chip">Case Study -> Demo</span>
+        <span class="m-chip">Proof -> Repo</span>
+      </div>
+      <a class="m-card-link" href="/proof">Open the proof path</a>
+    </article>
   </div>
 </section>
 
@@ -179,3 +316,4 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
+<!-- rebuild trigger -->
