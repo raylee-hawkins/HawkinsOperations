@@ -287,6 +287,11 @@ img {
   padding: 18px;
 }
 
+.m-panel-body > img {
+  width: 100%;
+  height: auto;
+}
+
 .m-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -422,7 +427,7 @@ img {
 }
 
 .m-kpi {
-  padding: 18px;
+  padding: 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background:
@@ -447,7 +452,8 @@ img {
 
 .m-kpi-copy {
   margin-top: 8px;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--text-soft);
 }
 
@@ -794,6 +800,17 @@ img {
   font-size: 0.94rem;
 }
 
+.m-hero .m-panel-body {
+  padding: 0;
+}
+
+.m-hero-visual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+}
+
 .m-split-callout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -938,6 +955,30 @@ img {
 
   .m-title {
     font-size: 2.15rem;
+  }
+
+  .m-actions {
+    gap: 10px;
+  }
+
+  .m-cta {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .m-proof-strip {
+    padding: 14px 16px;
+  }
+
+  .m-proof-inline {
+    gap: 8px;
+  }
+
+  .m-outcome,
+  .m-copy,
+  .m-kpi-copy,
+  .m-frame-caption {
+    font-size: 0.98rem;
   }
 
   .m-section {
