@@ -115,6 +115,33 @@
 
 <section class="m-section">
   <div class="m-wrap">
+    <div class="m-kpi-grid" aria-label="Operational proof metrics">
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="detections">139</span></div>
+        <div class="m-kpi-label">Detections</div>
+        <p class="m-kpi-copy">Script-verified public count that anchors the flagship project inside a broader evidence-backed security corpus.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="sigma">103</span></div>
+        <div class="m-kpi-label">Sigma rules</div>
+        <p class="m-kpi-copy">Visible rule depth makes the homepage feel connected to real detection engineering rather than a single polished case study.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="wazuh">28</span></div>
+        <div class="m-kpi-label">Wazuh rule blocks</div>
+        <p class="m-kpi-copy">The operational story stays grounded in lab-backed alerting paths that are already represented in the public repo.</p>
+      </article>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified="ir">10</span></div>
+        <div class="m-kpi-label">IR playbooks</div>
+        <p class="m-kpi-copy">Playbook depth reinforces that escalation output and incident handling are part of the same operational system.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
+  <div class="m-wrap">
     <div class="m-grid-3">
       <article class="m-card">
         <div class="m-card-kicker">Start here</div>
@@ -151,16 +178,46 @@
 </section>
 
 <section class="m-section">
+  <div class="m-wrap">
+    <div class="m-divider-title">
+      <div class="m-card-kicker">Reviewer flow</div>
+    </div>
+    <div class="m-flow-grid">
+      <article class="m-flow-card">
+        <div class="m-flow-step">1</div>
+        <h3>Understand the build</h3>
+        <p class="m-copy">The homepage frames AutoSOC as an engineering outcome first: what it does, how it is validated, and why it belongs in a SOC portfolio.</p>
+      </article>
+      <article class="m-flow-card">
+        <div class="m-flow-step">2</div>
+        <h3>Inspect the flagship case study</h3>
+        <p class="m-copy">The AutoSOC page turns architecture, decision logic, and screenshots into one deliberate narrative instead of scattered proof fragments.</p>
+      </article>
+      <article class="m-flow-card">
+        <div class="m-flow-step">3</div>
+        <h3>Validate the proof path</h3>
+        <p class="m-copy">The demo and proof pages keep commands, artifact links, and repository references close enough to check without effort.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="m-section">
   <div class="m-wrap m-grid-2">
     <article class="m-card">
       <div class="m-card-kicker">Infrastructure</div>
       <h2>The lab behind the workflow</h2>
       <p>Single Proxmox host, isolated VMs, Wazuh for alerting, and Splunk for pivots. Test traffic stays in the lab. Evidence comes out.</p>
-      <div class="m-panel" style="margin-top: 18px;">
-        <div class="m-panel-body">
+      <div class="m-diagram-frame" style="margin-top: 18px;">
+        <div class="m-frame-head">
+          <span class="m-frame-title">Lab topology</span>
+          <span class="m-frame-tag">Proof surface</span>
+        </div>
+        <div class="m-frame-body">
           <img src="/assets/pp_soc_integration/lab-architecture.svg"
                alt="SOC lab architecture showing Proxmox, Windows 11 endpoint, Wazuh, Splunk, and AutoSOC pipeline"
                width="1200" height="510" loading="lazy">
+          <p class="m-frame-caption">Architecture diagrams are carrying real explanatory load here: where alerts originate, where pivots happen, and where evidence is packaged for review.</p>
         </div>
       </div>
       <a class="m-card-link" href="/soc-lab">Open lab details</a>
