@@ -62,11 +62,12 @@
       <div class="m-wrap m-demo-grid" style="grid-template-columns: 5fr 7fr;">
         <article class="m-card">
           <div class="m-badge">Demo lane</div>
-          <h1 class="m-title" style="font-size: clamp(2.25rem, 4.2vw, 3.9rem);">A reviewer-safe AutoSOC demo that stays honest about what runs locally.</h1>
-          <p class="m-copy">This page is designed for hiring managers and technical reviewers who want a guided run path without exposing secrets, pretending the browser is the backend, or burying the proof in raw screenshots.</p>
+          <h1 class="m-title" style="font-size: clamp(2.05rem, 3.7vw, 3.35rem);">Run the review path without pretending the browser runs AutoSOC.</h1>
+          <p class="m-outcome">Copy local commands, inspect triage evidence, and move from workflow to proof in one pass. The point is visible before you scroll.</p>
           <div class="m-actions">
+            <a class="m-cta m-cta-accent" href="#demo-commands">Run Demo</a>
             <a class="m-cta m-cta-primary" href="/modernize/autosoc.html">Back to AutoSOC</a>
-            <a class="m-cta m-cta-accent" href="/proof">Open proof pack</a>
+            <a class="m-cta m-cta-secondary" href="/proof">Open proof pack</a>
           </div>
           <div class="m-note">FID/INP priority on this page: copy buttons, local command visibility, and image selection should all respond immediately without loading extra libraries.</div>
         </article>
@@ -98,18 +99,21 @@
 
     <section class="m-section">
       <div class="m-wrap m-grid-2">
-        <article class="m-card">
+        <article class="m-card" id="demo-commands">
           <div class="m-card-kicker">Local run commands</div>
           <h2>Copyable validation path</h2>
-          <p>These commands are intentionally local-only. They let a reviewer verify repo state and understand the workflow without pretending a browser click is running the actual pipeline.</p>
-          <div class="m-actions">
-            <button class="m-copy-btn" type="button" data-copy="modernizeDemoPs">Copy commands</button>
-          </div>
-          <pre id="modernizeDemoPs" class="m-code">git clone https://github.com/raylee-hawkins/HawkinsOperations
+          <p>These commands are intentionally local-only. They are styled like real terminal output because that is the trust cue reviewers expect when they need something executable.</p>
+          <div class="m-terminal">
+            <div class="m-terminal-head">
+              <span class="m-terminal-label">PowerShell validation path</span>
+              <button class="m-copy-btn" type="button" data-copy="modernizeDemoPs">Copy commands</button>
+            </div>
+            <pre id="modernizeDemoPs" class="m-code">git clone https://github.com/raylee-hawkins/HawkinsOperations
 cd HawkinsOperations
 pwsh -NoProfile -File .\scripts\verify\verify-counts.ps1
 python .\scripts\drift_scan.py
 # Review AutoSOC docs and proof after validation.</pre>
+          </div>
         </article>
         <article class="m-card">
           <div class="m-card-kicker">What the reviewer should check</div>
@@ -128,19 +132,22 @@ python .\scripts\drift_scan.py
       <div class="m-wrap">
         <article class="m-card">
           <div class="m-card-kicker">Walkthrough</div>
-          <h2>How the demo should feel</h2>
-          <div class="m-grid-3">
-            <div>
-              <p class="m-eyebrow">1. Orient</p>
-              <p class="m-copy">Start with the workflow and architecture so the reviewer understands the moving parts before looking at screenshots.</p>
+          <h2>Numbered demo steps</h2>
+          <div class="m-step-grid">
+            <div class="m-step">
+              <div class="m-step-number">1</div>
+              <h3>Generate the review context</h3>
+              <p class="m-copy">Start with the command block so the reviewer sees the exact validation path and understands the repo is the source of truth.</p>
             </div>
-            <div>
-              <p class="m-eyebrow">2. Validate</p>
-              <p class="m-copy">Use the local command block to confirm that verified counts and drift expectations are still true.</p>
+            <div class="m-step">
+              <div class="m-step-number">2</div>
+              <h3>Inspect AutoSOC output</h3>
+              <p class="m-copy">Open the AutoSOC case study and compare the architecture snapshot, workflow diagram, and evidence rail against the command path.</p>
             </div>
-            <div>
-              <p class="m-eyebrow">3. Inspect</p>
-              <p class="m-copy">Open the proof pack and screenshot evidence to validate the narrative against the published artifacts.</p>
+            <div class="m-step">
+              <div class="m-step-number">3</div>
+              <h3>Review proof artifacts</h3>
+              <p class="m-copy">Use the labeled gallery and proof links to verify that the narrative matches the actual screenshots and public artifacts.</p>
             </div>
           </div>
         </article>
@@ -155,19 +162,19 @@ python .\scripts\drift_scan.py
             <div class="m-gallery">
               <figure>
                 <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1" alt="AutoSOC system map screenshot" loading="eager" width="1600" height="900">
-                <figcaption>System map for the AutoSOC flow. This is the primary visual anchor for reviewers who need the full loop at a glance.</figcaption>
+                <figcaption><span class="m-gallery-label">Case queue after ingest</span>System map for the AutoSOC flow. This is the primary visual anchor for reviewers who need the full loop at a glance.</figcaption>
               </figure>
               <figure>
                 <img src="/assets/pp_soc_integration/t3-workflow.png" alt="AutoSOC workflow screenshot from the project gallery" loading="lazy" width="1334" height="750">
-                <figcaption>Workflow capture showing the operational sequence in context. Best used after the diagram, not before it.</figcaption>
+                <figcaption><span class="m-gallery-label">Triaged alert sample</span>Workflow capture showing the operational sequence in context. Best used after the diagram, not before it.</figcaption>
               </figure>
               <figure>
                 <img src="/assets/pp_soc_integration/04_nodejs_patch_terminal.png" alt="Terminal output showing a patch step in the project evidence set" loading="lazy" width="1412" height="546">
-                <figcaption>Terminal evidence keeps the canary grounded in real output instead of stylized placeholder terminals.</figcaption>
+                <figcaption><span class="m-gallery-label">Ledger reconciliation output</span>Terminal evidence keeps the canary grounded in real output instead of stylized placeholder terminals.</figcaption>
               </figure>
               <figure>
                 <img src="/assets/pp_soc_integration/t5-proxmox-redacted.png" alt="Redacted Proxmox infrastructure screenshot from the SOC lab" loading="lazy" width="1655" height="895">
-                <figcaption>Lab evidence reinforces that the workflow runs against a real environment and not only on paper.</figcaption>
+                <figcaption><span class="m-gallery-label">Coverage diagnostics</span>Lab evidence reinforces that the workflow runs against a real environment and not only on paper.</figcaption>
               </figure>
             </div>
           </div>
