@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HawkinsOps | MODERNIZE Canary</title>
+<meta name="description" content="MODERNIZE canary for HawkinsOps: a proof-first homepage refresh that improves recruiter scanability, accessibility, and layout clarity.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<link rel="canonical" href="https://hawkinsops.com/modernize/">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('rh-theme'); } catch (err) { saved = null; }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/modernize.css">
+</head>
+<body>
+<div class="modernize-shell">
+  <header class="m-nav">
+    <div class="m-nav-inner">
+      <a class="m-brand" href="/modernize/"><span>Hawkins</span>Ops</a>
+      <button id="mobBtn" class="m-mobile-toggle" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+      <ul class="m-nav-list nav-l">
+        <li><a href="/modernize/">Home</a></li>
+        <li><a href="/modernize/autosoc.html">AutoSOC</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/detections">Detections</a></li>
+        <li><a href="/proof">Proof</a></li>
+        <li><a href="/resume">Resume</a></li>
+      </ul>
+      <a class="m-cta m-cta-primary nav-cta" href="/modernize/autosoc.html">Read AutoSOC</a>
+      <button id="themeToggle" class="m-theme" type="button" aria-label="Switch theme">Theme</button>
+    </div>
+    <div id="mobMenu" class="m-mobile mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
+      <a href="/modernize/">Home</a>
+      <a href="/modernize/autosoc.html">AutoSOC</a>
+      <a href="/projects">Projects</a>
+      <a href="/detections">Detections</a>
+      <a href="/proof">Proof</a>
+      <a href="/resume">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="m-hero">
+      <div class="m-wrap m-hero-grid">
+        <div>
+          <div class="m-badge">MODERNIZE canary</div>
+          <h1 class="m-title">Practical SOC engineering that scales from lab telemetry to recruiter-readable proof.</h1>
+          <p class="m-copy">This canary upgrades HawkinsOps without abandoning the repo's evidence-first posture. AutoSOC remains the lead story, proof stays easy to find, and the design is built to extract into components later if needed.</p>
+          <div class="m-actions">
+            <a class="m-cta m-cta-primary" href="/modernize/autosoc.html">View AutoSOC</a>
+            <a class="m-cta m-cta-accent" href="/proof">Review Proof</a>
+            <a class="m-cta m-cta-secondary" href="/resume">Resume</a>
+          </div>
+          <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
+        </div>
+        <div class="m-panel">
+          <div class="m-panel-head">LCP candidate: workflow snapshot</div>
+          <div class="m-panel-body">
+            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg" alt="AutoSOC workflow diagram showing poll, triage, redact, pack, and pull request creation" width="1200" height="240" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="m-section">
+      <div class="m-wrap">
+        <div class="m-proof-strip">
+          <div><strong><span data-verified="detections">139</span></strong> detections, <strong><span data-verified="sigma">103</span></strong> Sigma, <strong><span data-verified="wazuh">28</span></strong> Wazuh, <strong><span data-verified="splunk">8</span></strong> Splunk, <strong><span data-verified="ir">10</span></strong> playbooks</div>
+          <div>Last verified <span data-verified-date>-</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="m-section">
+      <div class="m-wrap">
+        <div class="m-grid-3">
+          <article class="m-card">
+            <div class="m-card-kicker">Start here</div>
+            <h2>AutoSOC case study</h2>
+            <p>The strongest recruiter path: what was built, why it matters, and how the pipeline turns alerts into reviewable proof artifacts.</p>
+            <div class="m-chip-row">
+              <span class="m-chip">Pipeline: live</span>
+              <span class="m-chip">Proof: public</span>
+            </div>
+            <div class="m-actions">
+              <a class="m-cta m-cta-primary" href="/modernize/autosoc.html">Open case study</a>
+            </div>
+          </article>
+          <article class="m-card">
+            <div class="m-card-kicker">Receipts</div>
+            <h2>Proof pack</h2>
+            <p>Verified counts, release notes, runbooks, and curated artifacts that let a reviewer validate claims without hunting through the repo.</p>
+            <div class="m-chip-row">
+              <span class="m-chip">Counts: script-verified</span>
+              <span class="m-chip">Artifacts: curated</span>
+            </div>
+            <div class="m-actions">
+              <a class="m-cta m-cta-secondary" href="/proof">Review proof</a>
+            </div>
+          </article>
+          <article class="m-card">
+            <div class="m-card-kicker">Role fit</div>
+            <h2>Resume and lab depth</h2>
+            <p>A faster route for hiring managers who want SOC T1/T2 fit, lab credibility, and practical automation signals in one scan.</p>
+            <div class="m-chip-row">
+              <span class="m-chip">Focus: SOC</span>
+              <span class="m-chip">Tone: practical</span>
+            </div>
+            <div class="m-actions">
+              <a class="m-cta m-cta-secondary" href="/resume">Open resume</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="m-section">
+      <div class="m-wrap">
+        <div class="m-grid-2">
+          <article class="m-card">
+            <div class="m-card-kicker">Why this mode</div>
+            <h2>MODERNIZE keeps the proof-first tone</h2>
+            <p>The redesign uses better spacing, calmer surfaces, and stronger CTA hierarchy, but it avoids looking like a generic SaaS landing page. The reviewer still sees evidence first.</p>
+          </article>
+          <article class="m-card">
+            <div class="m-card-kicker">Canary strategy</div>
+            <h2>Low-risk static rollout</h2>
+            <p>This version lives at `/modernize/` so layout, copy, and accessibility can be reviewed before any production route is replaced. It is safe to iterate quickly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="m-footer">
+    <div class="m-wrap m-footer-box">
+      <p><strong>HawkinsOps</strong> • Huntsville-adjacent (North Alabama)</p>
+      <p>Canary for the MODERNIZE visual direction. Current production paths remain unchanged.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="/data/counts.js" defer></script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
