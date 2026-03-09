@@ -76,10 +76,10 @@
     <div>
       <div class="m-badge">Evidence-first SOC portfolio</div>
       <h1 class="m-title">AutoSOC proves practical SOC engineering.</h1>
-      <p class="m-outcome">Live pipeline story, public proof, and a reviewer-safe case-study path in one screen. No scrolling required to understand the point.</p>
+      <p class="m-outcome">Closed-loop alert triage, public proof, and a runnable demo path presented as one flagship engineering system.</p>
       <div class="m-actions">
-        <a class="m-cta m-cta-primary" href="/case-study-autosoc">View AutoSOC</a>
-        <a class="m-cta m-cta-accent" href="/proof">Review Proof</a>
+        <a class="m-cta m-cta-dominant" href="/modernize/demo.html">Run Demo</a>
+        <a class="m-cta m-cta-primary" href="/proof">Review Proof</a>
         <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
       </div>
       <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
@@ -91,6 +91,46 @@
              src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
              alt="AutoSOC system map showing workflow relationships, policy gates, and review outputs"
              width="1600" height="900" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section m-stage m-stage-impact">
+  <div class="m-wrap">
+    <div class="m-impact-band">
+      <div class="m-impact-copy">
+        <div class="m-card-kicker m-card-kicker-invert">Workflow + proof</div>
+        <h2>Live automation with visible consequences</h2>
+        <p>AutoSOC is running as a real system: ingest, triage, reconciliation, coverage gate, and curated publish lane. This band is here to make the workflow feel operational, not merely explained.</p>
+        <div class="m-impact-points">
+          <div class="m-impact-point">
+            <strong>Ingest -> triage -> reconcile</strong>
+            <span>Deterministic flow rather than a hand-run analyst demo.</span>
+          </div>
+          <div class="m-impact-point">
+            <strong>Coverage gate still bites</strong>
+            <span>Evidence stays honest when the system says `FAIL`, not only when it says `PASS`.</span>
+          </div>
+          <div class="m-impact-point">
+            <strong>Proof path stays one click away</strong>
+            <span>Demo, proof, and repository stay tied to the same operational story.</span>
+          </div>
+        </div>
+      </div>
+      <div class="m-impact-visual">
+        <div class="m-terminal">
+          <div class="m-terminal-head">
+            <span class="m-terminal-label">Pipeline movement</span>
+            <span class="m-frame-tag">Proof lane</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
+                 alt="AutoSOC workflow sequence showing poll, triage, redact, pack, and escalation steps"
+                 width="1200" height="240" loading="lazy">
+            <p class="m-frame-caption m-frame-caption-invert">The workflow sequence is intentionally promoted here so the first screen shows both the flagship system and the pipeline movement behind it.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -110,6 +150,41 @@
         <span>Verified <span data-verified-date>02-26-2026</span></span>
         <a class="m-preview-link" href="/case-study-autosoc">Start with the flagship case study</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section m-stage m-stage-ops">
+  <div class="m-wrap">
+    <div class="m-divider-title">
+      <div class="m-card-kicker">Operational outcomes</div>
+    </div>
+    <div class="m-ops-grid" aria-label="Canonical AutoSOC operational outcomes">
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="case_directories">25167</span></div>
+        <div class="m-ops-label">Case directories</div>
+        <p class="m-ops-copy">Canonical OPS snapshot of the current AutoSOC case corpus.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="auto_closed_benign">20942</span></div>
+        <div class="m-ops-label">Benign auto-closures</div>
+        <p class="m-ops-copy">Operational volume that shows the system is closing repetitive noise, not just producing screenshots.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="escalated">2478</span></div>
+        <div class="m-ops-label">Escalations</div>
+        <p class="m-ops-copy">Cases preserved for deeper investigation and public proof continuity.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value" data-ops-status="reconciliation">PASS</div>
+        <div class="m-ops-label">Reconciliation</div>
+        <p class="m-ops-copy">Mismatch count is zero in the canonical March 4, 2026 OPS progress snapshot.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="coverage_ratio">6/8</span></div>
+        <div class="m-ops-label">Coverage</div>
+        <p class="m-ops-copy">Coverage gate currently fails at 6 of 8 required hosts, which is useful proof that the reporting is honest.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -320,6 +395,7 @@
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/data/counts.js" defer></script>
+<script src="/data/ops-metrics.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
