@@ -369,6 +369,66 @@ img {
   font-size: 0.9rem;
 }
 
+.m-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.m-copy-btn:hover {
+  border-color: var(--primary-700);
+  color: var(--primary-700);
+}
+
+.m-list,
+.m-checklist {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-soft);
+}
+
+.m-list li,
+.m-checklist li {
+  margin: 10px 0;
+}
+
+.m-note {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--accent-500);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: color-mix(in srgb, var(--accent-500) 10%, var(--surface));
+  color: var(--text);
+}
+
+.m-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.m-gallery figure {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.m-gallery figcaption {
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
 .m-footer {
   padding: 34px 0 60px;
 }
@@ -393,7 +453,8 @@ img {
   .m-demo-grid,
   .m-grid-3,
   .m-grid-2,
-  .m-stat-grid {
+  .m-stat-grid,
+  .m-gallery {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -419,7 +480,8 @@ img {
   .m-demo-grid,
   .m-grid-3,
   .m-grid-2,
-  .m-stat-grid {
+  .m-stat-grid,
+  .m-gallery {
     grid-template-columns: 1fr;
   }
 
