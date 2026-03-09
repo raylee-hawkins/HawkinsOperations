@@ -76,16 +76,16 @@
     <div>
       <div class="m-badge">Evidence-first SOC portfolio</div>
       <h1 class="m-title">AutoSOC proves practical SOC engineering.</h1>
-      <p class="m-outcome">Live pipeline story, public proof, and a reviewer-safe demo path in one screen. No scrolling required to understand the point.</p>
+      <p class="m-outcome">Live pipeline story, public proof, and a reviewer-safe case-study path in one screen. No scrolling required to understand the point.</p>
       <div class="m-actions">
-        <a class="m-cta m-cta-accent" href="/modernize/demo.html">Run Demo</a>
         <a class="m-cta m-cta-primary" href="/case-study-autosoc">View AutoSOC</a>
-        <a class="m-cta m-cta-secondary" href="/proof">Review Proof</a>
+        <a class="m-cta m-cta-accent" href="/proof">Review Proof</a>
+        <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
       </div>
       <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
     </div>
     <div class="m-panel">
-      <div class="m-panel-head">LCP candidate: workflow snapshot</div>
+      <div class="m-panel-head">LCP candidate: system map</div>
       <div class="m-panel-body">
         <img class="m-hero-visual"
              src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
@@ -108,13 +108,13 @@
       </div>
       <div class="m-proof-inline">
         <span>Verified <span data-verified-date>02-26-2026</span></span>
-        <a class="m-preview-link" href="/modernize/">Experimental: MODERNIZE UI preview</a>
+        <a class="m-preview-link" href="/case-study-autosoc">Start with the flagship case study</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-metrics">
   <div class="m-wrap">
     <div class="m-kpi-grid" aria-label="Operational proof metrics">
       <article class="m-kpi">
@@ -141,7 +141,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-review">
   <div class="m-wrap">
     <div class="m-grid-3">
       <article class="m-card">
@@ -155,14 +155,14 @@
         <a class="m-card-link" href="/case-study-autosoc">Read case study</a>
       </article>
       <article class="m-card">
-        <div class="m-card-kicker">Demo</div>
-        <h2>Reviewer-safe run path</h2>
-        <p>Local commands, labeled artifacts, and a clear sequence from workflow to proof. No fake backend button, no hand-wavy demo theater.</p>
+        <div class="m-card-kicker">Repository</div>
+        <h2>Code and artifact source</h2>
+        <p>Public code, docs, release notes, and verification scripts stay close to the narrative so the system feels inspectable rather than theatrical.</p>
         <div class="m-chip-row">
-          <span class="m-chip">Commands: local-only</span>
-          <span class="m-chip">Artifacts: labeled</span>
+          <span class="m-chip">Source: public</span>
+          <span class="m-chip">History: visible</span>
         </div>
-        <a class="m-card-link" href="/modernize/demo.html">Open demo</a>
+        <a class="m-card-link" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open repository</a>
       </article>
       <article class="m-card">
         <div class="m-card-kicker">Proof</div>
@@ -178,7 +178,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-flow">
   <div class="m-wrap">
     <div class="m-divider-title">
       <div class="m-card-kicker">Reviewer flow</div>
@@ -197,13 +197,64 @@
       <article class="m-flow-card">
         <div class="m-flow-step">3</div>
         <h3>Validate the proof path</h3>
-        <p class="m-copy">The demo and proof pages keep commands, artifact links, and repository references close enough to check without effort.</p>
+        <p class="m-copy">The proof page and repository keep artifact links, verification commands, and public history close enough to check without effort.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-topology">
+  <div class="m-wrap">
+    <div class="m-divider-title">
+      <div class="m-card-kicker">Topology</div>
+    </div>
+    <div class="m-card m-stage-card">
+      <h2>System depth in two layers</h2>
+      <p class="m-copy">The hero shows the flagship system map. This layer separates environment context from pipeline sequence so the site reads more like an engineered walkthrough than a single polished diagram.</p>
+      <div class="m-depth-grid" style="margin-top:18px;">
+        <div class="m-diagram-frame">
+          <div class="m-frame-head">
+            <span class="m-frame-title">Topology context</span>
+            <span class="m-frame-tag">Environment</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/lab-architecture.svg"
+                 alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and AutoSOC pipeline boundaries"
+                 width="1200" height="510" loading="lazy">
+            <p class="m-frame-caption">Purpose: show where the workflow lives. Pipeline relation: the environment that produces telemetry, pivots, and evidence surfaces used throughout the case study.</p>
+          </div>
+        </div>
+        <div class="m-diagram-frame">
+          <div class="m-frame-head">
+            <span class="m-frame-title">Workflow sequence</span>
+            <span class="m-frame-tag">Pipeline</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
+                 alt="AutoSOC workflow sequence showing poll, triage, redact, pack, and escalation steps"
+                 width="1200" height="240" loading="lazy">
+            <p class="m-frame-caption">Purpose: reduce the workflow to the steps a reviewer needs to understand quickly. Pipeline relation: alert intake to review-ready output.</p>
+          </div>
+        </div>
+      </div>
+      <div class="m-grid-2" style="margin-top:18px;">
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Supporting evidence</div>
+          <h3>Why this reads deeper</h3>
+          <p>The topology surface answers where the system lives. The workflow surface answers how it moves. That distinction adds visible system layering without inventing new features or decorative graphics.</p>
+        </div>
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Next action</div>
+          <h3>Go deeper</h3>
+          <p>Open the AutoSOC case study to inspect decision logic, evidence outputs, labeled screenshots, and the proof chain that connects the workflow to public artifacts.</p>
+          <a class="m-card-link" href="/case-study-autosoc">Read the AutoSOC case study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section m-stage m-stage-proof">
   <div class="m-wrap m-grid-2">
     <article class="m-card">
       <div class="m-card-kicker">Infrastructure</div>
@@ -224,15 +275,22 @@
       <a class="m-card-link" href="/soc-lab">Open lab details</a>
     </article>
     <article class="m-card">
-      <div class="m-card-kicker">Why this homepage changed</div>
-      <h2>Promoted MODERNIZE direction</h2>
-      <p>The production homepage now borrows the tighter MODERNIZE structure: faster first-screen comprehension, stronger CTA hierarchy, and a clearer path from what was built to how it works to proof.</p>
-      <div class="m-chip-row">
-        <span class="m-chip">Homepage -> Case Study</span>
-        <span class="m-chip">Case Study -> Demo</span>
-        <span class="m-chip">Demo -> Proof</span>
+      <div class="m-card-kicker">Review lanes</div>
+      <h2>Choose the right depth</h2>
+      <div class="m-link-list">
+        <a class="m-link-item" href="/case-study-autosoc">
+          <strong>Case study</strong>
+          <span>Flagship technical walkthrough: overview, topology, workflow, logic, outputs, proof, and next step.</span>
+        </a>
+        <a class="m-link-item" href="/proof">
+          <strong>Proof page</strong>
+          <span>Receipt drawer for artifact trees, verification commands, release-chain references, and public checks.</span>
+        </a>
+        <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">
+          <strong>Repository</strong>
+          <span>Source, docs, and history for the automation stack behind the public story.</span>
+        </a>
       </div>
-      <a class="m-card-link" href="/modernize/">Compare the full canary</a>
     </article>
   </div>
 </section>

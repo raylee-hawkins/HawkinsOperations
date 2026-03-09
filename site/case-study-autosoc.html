@@ -72,9 +72,9 @@
       <h1 class="m-title" style="font-size: clamp(2.3rem, 4vw, 3.9rem);">AutoSOC: alert ingestion to escalation artifacts</h1>
       <p class="m-outcome">A SOAR-style Tier-1 triage workflow for Wazuh alerts with policy-based dispositions, mandatory redaction, and evidence packs that end as reviewable GitHub escalation artifacts.</p>
       <div class="m-actions">
-        <a class="m-cta m-cta-primary" href="/modernize/demo.html">Run demo path</a>
-        <a class="m-cta m-cta-accent" href="/proof">Review proof</a>
-        <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open repo</a>
+        <a class="m-cta m-cta-primary" href="/proof">Review proof</a>
+        <a class="m-cta m-cta-accent" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open repo</a>
+        <a class="m-cta m-cta-secondary" href="/projects">Browse projects</a>
       </div>
 
       <div class="m-kpi-grid" aria-label="AutoSOC proof metrics">
@@ -105,19 +105,19 @@
       <section class="m-rail-section">
         <div class="m-card-kicker">Reviewer path</div>
         <h2>Keep proof in view</h2>
-        <p class="m-subtitle">This rail keeps the flagship path short: understand the workflow, inspect the demo lane, then verify the receipts.</p>
+        <p class="m-subtitle">This rail keeps the flagship path short: understand the workflow, inspect the evidence outputs, then verify the receipts.</p>
         <div class="m-link-list">
           <a href="/proof" class="m-link-item">
             <strong>Proof page</strong>
             <span>Receipt drawer for logs, packs, and verification commands.</span>
           </a>
-          <a href="/modernize/demo.html" class="m-link-item">
-            <strong>Demo lane</strong>
-            <span>Local-only commands, labeled screenshots, and runnable reviewer flow.</span>
-          </a>
           <a href="/march-2026-release" class="m-link-item">
             <strong>Release timeline</strong>
             <span>Execution chain that connects the case study to documented releases.</span>
+          </a>
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" class="m-link-item">
+            <strong>Public repository</strong>
+            <span>Source and history for the automation stack behind this page.</span>
           </a>
         </div>
       </section>
@@ -135,7 +135,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-overview">
   <div class="m-wrap">
     <div class="m-flow-grid">
       <article class="m-flow-card">
@@ -157,10 +157,15 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-topology">
   <div class="m-wrap">
     <div class="m-divider-title">
-      <div class="m-card-kicker">How it works</div>
+      <div class="m-card-kicker">Topology + workflow</div>
+    </div>
+    <div class="m-evidence-note" style="margin-bottom:18px;">
+      <div class="m-card-kicker">Inspection stage</div>
+      <h3>Separate environment from sequence</h3>
+      <p>The first surface explains the environment and control points. The second shows the alert-to-artifact sequence. Keeping those jobs separate makes the system feel denser and easier to inspect.</p>
     </div>
     <div class="m-evidence-grid">
       <div class="m-diagram-frame">
@@ -188,7 +193,7 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-logic">
   <div class="m-wrap m-split-callout">
     <article class="m-callout">
       <div class="m-card-kicker">Decision logic</div>
@@ -236,39 +241,46 @@
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-outputs">
   <div class="m-wrap m-grid-2">
-    <article class="m-card">
-      <div class="m-card-kicker">Example incident</div>
+    <article class="m-card m-output-card">
+      <div class="m-card-kicker">Outputs</div>
       <h2>High-volume rootcheck pattern</h2>
       <p class="m-copy"><strong>Checks performed:</strong> known-FP policy match, repetition pattern, host context, and rule history.<br><strong>Redaction gate:</strong> host identifiers and environment-specific values sanitized before publication.<br><strong>Evidence pack output:</strong> one-pager, full report, timeline CSV, queries file, and closure report.</p>
-      <div class="m-artifact-grid" aria-label="Representative AutoSOC artifact outputs">
-        <div class="m-artifact">
-          <strong>00_one_pager.md</strong>
-          <span>Analyst intake summary for fast reviewer orientation.</span>
+      <div class="m-output-stack">
+        <div class="m-evidence-note">
+          <div class="m-card-kicker">Inspection stage</div>
+          <h3>Named outputs, not generic artifacts</h3>
+          <p>This is where the project becomes reviewable engineering work. The files, terminal output, and screenshot are presented as connected evidence from the same pipeline stage.</p>
         </div>
-        <div class="m-artifact">
-          <strong>01_full_report.md</strong>
-          <span>Full investigative narrative with context preserved.</span>
+        <div class="m-artifact-grid" aria-label="Representative AutoSOC artifact outputs">
+          <div class="m-artifact">
+            <strong>00_one_pager.md</strong>
+            <span>Label: intake summary. Purpose: orient the reviewer quickly. Pipeline relation: first output after triage and redaction.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>01_full_report.md</strong>
+            <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: escalation package core document.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>02_timeline.csv</strong>
+            <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
+          </div>
+          <div class="m-artifact">
+            <strong>closure_report.md</strong>
+            <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint for reviewer trust.</span>
+          </div>
         </div>
-        <div class="m-artifact">
-          <strong>02_timeline.csv</strong>
-          <span>Chronology output that supports reconstruction and handoff.</span>
-        </div>
-        <div class="m-artifact">
-          <strong>closure_report.md</strong>
-          <span>Final disposition record for auditability and proof continuity.</span>
-        </div>
-      </div>
-      <div class="m-terminal" style="margin-top:16px;">
-        <div class="m-terminal-head">
-          <span class="m-terminal-label">Representative output</span>
-          <span class="m-frame-tag">Triage evidence</span>
-        </div>
-        <pre class="m-code">rootcheck_window_alerts: 1312
+        <div class="m-terminal m-output-terminal">
+          <div class="m-terminal-head">
+            <span class="m-terminal-label">Representative output</span>
+            <span class="m-frame-tag">Triage evidence</span>
+          </div>
+          <pre class="m-code">rootcheck_window_alerts: 1312
 dominant_pattern: repeated benign rootcheck signatures
 action: policy tuning + replay validation
 outcome: reduced false-positive pressure while preserving escalation path</pre>
+        </div>
       </div>
     </article>
 
@@ -279,13 +291,13 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
       </div>
       <div class="m-frame-body">
         <img src="/assets/pp_soc_integration/t3-workflow.png" alt="AutoSOC workflow screenshot from the project gallery" width="1334" height="750" loading="lazy">
-        <p class="m-frame-caption">The screenshot is framed as operational evidence rather than gallery filler. It gives the reviewer a visual counterpart to the architecture map and the representative terminal output.</p>
+        <p class="m-frame-caption">Label: workflow evidence capture. Purpose: give the reviewer a visual counterpart to the architecture and terminal output. Pipeline relation: demonstrates the operational surface that produces the named artifacts.</p>
       </div>
     </article>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-proof">
   <div class="m-wrap">
     <div class="m-card">
       <div class="m-card-kicker">Proof links</div>
@@ -312,16 +324,12 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
   </div>
 </section>
 
-<section class="m-section">
+<section class="m-section m-stage m-stage-next">
   <div class="m-wrap">
     <div class="m-card">
       <div class="m-card-kicker">Next steps</div>
       <h2>What the reviewer should do next</h2>
       <div class="m-next-grid">
-        <a href="/modernize/demo.html" class="m-link-item">
-          <strong>Run the demo path</strong>
-          <span>Move from architecture and decision logic to the local-only validation flow.</span>
-        </a>
         <a href="/proof" class="m-link-item">
           <strong>Open the proof page</strong>
           <span>Check the receipt drawer, verification commands, and artifact references directly.</span>
@@ -329,6 +337,10 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
         <a href="/projects" class="m-link-item">
           <strong>Return to projects</strong>
           <span>Use AutoSOC as the flagship entry point, then compare it against the rest of the portfolio.</span>
+        </a>
+        <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" class="m-link-item">
+          <strong>Inspect the repository</strong>
+          <span>Trace the public code, docs, and commit history behind the workflow.</span>
         </a>
       </div>
     </div>
