@@ -324,6 +324,25 @@ img {
   margin-top: 18px;
 }
 
+.m-hero-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.m-hero-signal {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 82%, var(--primary-50) 18%);
+  border: 1px solid color-mix(in srgb, var(--primary-700) 18%, var(--border));
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
 .m-card,
 .m-panel,
 .m-stat,
@@ -924,6 +943,30 @@ img {
   color: var(--primary-300);
 }
 
+.m-ops-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.m-ops-header h2 {
+  margin: 8px 0 6px;
+}
+
+.m-ops-status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-50) 80%, var(--surface) 20%), var(--surface));
+  border: 1px solid color-mix(in srgb, var(--primary-700) 22%, var(--border));
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--primary-700);
+}
+
 .m-impact-band h2,
 .m-impact-band p {
   color: #f8fafc;
@@ -1025,6 +1068,19 @@ img {
   border-radius: var(--radius-lg);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
+}
+
+.m-stage-workflow .m-stage-surface,
+.m-stage-overview .m-flow-card,
+.m-stage-topology .m-stage-surface,
+.m-stage-outputs .m-output-card,
+.m-stage-outputs .m-shot-frame {
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+}
+
+.m-stage-workflow .m-stage-surface:first-child {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 80%, #dbeafe 20%), var(--surface));
 }
 
 .m-callout h3 {
@@ -1171,6 +1227,15 @@ img {
   grid-column: 1 / -1;
 }
 
+.m-lab-intro {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, var(--primary-50) 12%), var(--surface));
+}
+
 .lane-card {
   border-color: color-mix(in srgb, var(--primary-700) 16%, var(--bdr, rgba(17, 24, 39, 0.08)));
   background:
@@ -1256,6 +1321,11 @@ img {
   .m-next-grid,
   .m-lab-wall {
     grid-template-columns: 1fr;
+  }
+
+  .m-ops-header {
+    flex-direction: column;
+    align-items: start;
   }
 
   .m-title {
