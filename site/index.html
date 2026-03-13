@@ -48,20 +48,20 @@
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
+      <li><a href="/case-study-autosoc">TriageLoop Case Study</a></li>
       <li><a href="/detections">Detections</a></li>
       <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read TriageLoop</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
   <a href="/projects">Projects</a>
-  <a href="/case-study-autosoc">AutoSOC Case Study</a>
+  <a href="/case-study-autosoc">TriageLoop Case Study</a>
   <a href="/detections">Detections</a>
   <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
@@ -75,22 +75,67 @@
   <div class="m-wrap m-hero-grid">
     <div>
       <div class="m-badge">Evidence-first SOC portfolio</div>
-      <h1 class="m-title">AutoSOC proves practical SOC engineering.</h1>
-      <p class="m-outcome">Live pipeline story, public proof, and a reviewer-safe case-study path in one screen. No scrolling required to understand the point.</p>
+      <h1 class="m-title">TriageLoop proves practical SOC engineering.</h1>
+      <p class="m-outcome">Closed-loop alert triage, public proof, and a runnable demo path presented as one flagship engineering system with visible operational consequence.</p>
       <div class="m-actions">
-        <a class="m-cta m-cta-primary" href="/case-study-autosoc">View AutoSOC</a>
-        <a class="m-cta m-cta-accent" href="/proof">Review Proof</a>
+        <a class="m-cta m-cta-dominant" href="/modernize/demo.html">Run Demo</a>
+        <a class="m-cta m-cta-primary" href="/proof">Review Proof</a>
         <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
+      </div>
+      <div class="m-hero-signals">
+        <span class="m-hero-signal">Closed-loop triage</span>
+        <span class="m-hero-signal">Mandatory redaction gate</span>
+        <span class="m-hero-signal">Escalation packs</span>
       </div>
       <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
     </div>
     <div class="m-panel">
-      <div class="m-panel-head">LCP candidate: system map</div>
+      <div class="m-panel-head">Flagship system surface</div>
       <div class="m-panel-body">
         <img class="m-hero-visual"
              src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
-             alt="AutoSOC system map showing workflow relationships, policy gates, and review outputs"
+             alt="TriageLoop system map showing workflow relationships, policy gates, and review outputs"
              width="1600" height="900" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section m-stage m-stage-impact">
+  <div class="m-wrap">
+    <div class="m-impact-band">
+      <div class="m-impact-copy">
+        <div class="m-card-kicker m-card-kicker-invert">Workflow + proof</div>
+        <h2>Live automation with visible consequences</h2>
+        <p>TriageLoop is running as a real system: ingest, triage, reconciliation, coverage gate, and curated publish lane. This band is here to make the workflow feel operational, not merely explained.</p>
+        <div class="m-impact-points">
+          <div class="m-impact-point">
+            <strong>Ingest -> triage -> reconcile</strong>
+            <span>Deterministic flow rather than a hand-run analyst demo.</span>
+          </div>
+          <div class="m-impact-point">
+            <strong>Coverage gate still bites</strong>
+            <span>Evidence stays honest when the system says `FAIL`, not only when it says `PASS`.</span>
+          </div>
+          <div class="m-impact-point">
+            <strong>Proof path stays one click away</strong>
+            <span>Demo, proof, and repository stay tied to the same operational story.</span>
+          </div>
+        </div>
+      </div>
+      <div class="m-impact-visual">
+        <div class="m-terminal">
+          <div class="m-terminal-head">
+            <span class="m-terminal-label">Pipeline movement</span>
+            <span class="m-frame-tag">Proof lane</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
+                 alt="TriageLoop workflow sequence showing poll, triage, redact, pack, and escalation steps"
+                 width="1200" height="240" loading="lazy">
+            <p class="m-frame-caption m-frame-caption-invert">The workflow sequence is intentionally promoted here so the first screen shows both the flagship system and the pipeline movement behind it.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -108,8 +153,48 @@
       </div>
       <div class="m-proof-inline">
         <span>Verified <span data-verified-date>02-26-2026</span></span>
-        <a class="m-preview-link" href="/case-study-autosoc">Start with the flagship case study</a>
+        <a class="m-preview-link" href="/case-study-autosoc">Start with the TriageLoop case study</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="m-section m-stage m-stage-ops">
+  <div class="m-wrap">
+    <div class="m-ops-header">
+      <div>
+        <div class="m-card-kicker">Operational outcomes</div>
+        <h2>TriageLoop is carrying live system load</h2>
+        <p class="m-copy">This band exists to prove operational consequence, not just rule-library depth. The numbers below come from the canonical March 4, 2026 OPS snapshot.</p>
+      </div>
+      <div class="m-ops-status-pill">Canonical snapshot: 03-04-2026</div>
+    </div>
+    <div class="m-ops-grid" aria-label="Canonical TriageLoop operational outcomes">
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="case_directories">25167</span></div>
+        <div class="m-ops-label">Case directories</div>
+        <p class="m-ops-copy">Canonical OPS snapshot of the current TriageLoop case corpus.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="auto_closed_benign">20942</span></div>
+        <div class="m-ops-label">Benign auto-closures</div>
+        <p class="m-ops-copy">Operational volume that shows the system is closing repetitive noise, not just producing screenshots.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="escalated">2478</span></div>
+        <div class="m-ops-label">Escalations</div>
+        <p class="m-ops-copy">Cases preserved for deeper investigation and public proof continuity.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value" data-ops-status="reconciliation">PASS</div>
+        <div class="m-ops-label">Reconciliation</div>
+        <p class="m-ops-copy">Mismatch count is zero in the canonical March 4, 2026 OPS progress snapshot.</p>
+      </article>
+      <article class="m-ops-card">
+        <div class="m-ops-value"><span data-ops="coverage_ratio">6/8</span></div>
+        <div class="m-ops-label">Coverage</div>
+        <p class="m-ops-copy">Coverage gate currently fails at 6 of 8 required hosts, which is useful proof that the reporting is honest.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -146,7 +231,7 @@
     <div class="m-grid-3">
       <article class="m-card">
         <div class="m-card-kicker">Start here</div>
-        <h2>AutoSOC case study</h2>
+        <h2>TriageLoop case study</h2>
         <p>The shortest path for reviewers: what was built, why it matters, and how the pipeline turns alerts into reviewable evidence.</p>
         <div class="m-chip-row">
           <span class="m-chip">Pipeline: live</span>
@@ -187,12 +272,12 @@
       <article class="m-flow-card">
         <div class="m-flow-step">1</div>
         <h3>Understand the build</h3>
-        <p class="m-copy">The homepage frames AutoSOC as an engineering outcome first: what it does, how it is validated, and why it belongs in a SOC portfolio.</p>
+        <p class="m-copy">The homepage frames TriageLoop as an engineering outcome first: what it does, how it is validated, and why it belongs in a SOC portfolio.</p>
       </article>
       <article class="m-flow-card">
         <div class="m-flow-step">2</div>
         <h3>Inspect the flagship case study</h3>
-        <p class="m-copy">The AutoSOC page turns architecture, decision logic, and screenshots into one deliberate narrative instead of scattered proof fragments.</p>
+        <p class="m-copy">The TriageLoop page turns architecture, decision logic, and screenshots into one deliberate narrative instead of scattered proof fragments.</p>
       </article>
       <article class="m-flow-card">
         <div class="m-flow-step">3</div>
@@ -219,7 +304,7 @@
           </div>
           <div class="m-frame-body">
             <img src="/assets/pp_soc_integration/lab-architecture.svg"
-                 alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and AutoSOC pipeline boundaries"
+                 alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and TriageLoop pipeline boundaries"
                  width="1200" height="510" loading="lazy">
             <p class="m-frame-caption">Purpose: show where the workflow lives. Pipeline relation: the environment that produces telemetry, pivots, and evidence surfaces used throughout the case study.</p>
           </div>
@@ -231,7 +316,7 @@
           </div>
           <div class="m-frame-body">
             <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-                 alt="AutoSOC workflow sequence showing poll, triage, redact, pack, and escalation steps"
+                 alt="TriageLoop workflow sequence showing poll, triage, redact, pack, and escalation steps"
                  width="1200" height="240" loading="lazy">
             <p class="m-frame-caption">Purpose: reduce the workflow to the steps a reviewer needs to understand quickly. Pipeline relation: alert intake to review-ready output.</p>
           </div>
@@ -246,8 +331,8 @@
         <div class="m-evidence-note">
           <div class="m-card-kicker">Next action</div>
           <h3>Go deeper</h3>
-          <p>Open the AutoSOC case study to inspect decision logic, evidence outputs, labeled screenshots, and the proof chain that connects the workflow to public artifacts.</p>
-          <a class="m-card-link" href="/case-study-autosoc">Read the AutoSOC case study</a>
+          <p>Open the TriageLoop case study to inspect decision logic, evidence outputs, labeled screenshots, and the proof chain that connects the workflow to public artifacts.</p>
+          <a class="m-card-link" href="/case-study-autosoc">Read the TriageLoop case study</a>
         </div>
       </div>
     </div>
@@ -267,7 +352,7 @@
         </div>
         <div class="m-frame-body">
           <img src="/assets/pp_soc_integration/lab-architecture.svg"
-               alt="SOC lab architecture showing Proxmox, Windows 11 endpoint, Wazuh, Splunk, and AutoSOC pipeline"
+               alt="SOC lab architecture showing Proxmox, Windows 11 endpoint, Wazuh, Splunk, and TriageLoop pipeline"
                width="1200" height="510" loading="lazy">
           <p class="m-frame-caption">Architecture diagrams are carrying real explanatory load here: where alerts originate, where pivots happen, and where evidence is packaged for review.</p>
         </div>
@@ -320,6 +405,7 @@
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/data/counts.js" defer></script>
+<script src="/data/ops-metrics.js" defer></script>
 <script src="/assets/app.js" defer></script>
 </body>
 </html>

@@ -95,6 +95,33 @@
     });
   }
 
+  function formatMetricValue(value) {
+    if (typeof value === 'number' && Number.isFinite(value)) {
+      return new Intl.NumberFormat('en-US').format(value);
+    }
+    return value;
+  }
+
+  function applyOpsMetricsPayload(payload) {
+    if (!payload || typeof payload !== 'object') return;
+    var metrics = payload.metrics && typeof payload.metrics === 'object' ? payload.metrics : payload;
+    $$('[data-ops]').forEach(function (node) {
+      var key = node.getAttribute('data-ops');
+      var value = key ? metrics[key] : null;
+      if ((typeof value === 'number' && Number.isFinite(value)) || (typeof value === 'string' && value.trim())) {
+        node.textContent = String(formatMetricValue(value));
+      }
+    });
+    $$('[data-ops-status]').forEach(function (node) {
+      var key = node.getAttribute('data-ops-status');
+      var value = key ? metrics[key] : null;
+      if (typeof value === 'string' && value.trim()) {
+        node.textContent = value;
+        node.setAttribute('data-status', value.toLowerCase());
+      }
+    });
+  }
+
   async function loadVerifiedCounts() {
     if (window.HAWKINSOPS_COUNTS && typeof window.HAWKINSOPS_COUNTS === 'object') {
       applyVerifiedPayload(window.HAWKINSOPS_COUNTS);
@@ -107,6 +134,12 @@
       applyVerifiedPayload(payload);
     } catch {
       // keep existing values if the payload is unavailable
+    }
+  }
+
+  function loadOpsMetrics() {
+    if (window.HAWKINSOPS_OPS_METRICS && typeof window.HAWKINSOPS_OPS_METRICS === 'object') {
+      applyOpsMetricsPayload(window.HAWKINSOPS_OPS_METRICS);
     }
   }
 
@@ -278,6 +311,7 @@
   }
 
   loadVerifiedCounts();
+  loadOpsMetrics();
   hydrateLabScreenshots();
 
   // DEV-only overflow detector: local hosts only.
