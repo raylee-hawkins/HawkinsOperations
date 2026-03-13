@@ -100,11 +100,11 @@
           <div class="m-kpi-label">Playbook coverage</div>
           <p class="m-kpi-copy">Escalation outputs are backed by documented IR procedures instead of undocumented analyst habit.</p>
         </article>
-        <article class="m-kpi">
-          <div class="m-kpi-value"><span data-verified-date>02-26-2026</span></div>
+      <article class="m-kpi">
+        <div class="m-kpi-value"><span data-verified-date>02-26-2026</span></div>
           <div class="m-kpi-label">Last verified</div>
         <p class="m-kpi-copy">Counts and proof links stay tied to the same repository verification model used elsewhere on the site.</p>
-        </article>
+      </article>
       </div>
     </div>
 
@@ -139,6 +139,17 @@
         </ul>
       </section>
     </aside>
+  </div>
+</section>
+
+<section class="m-section m-stage">
+  <div class="m-wrap">
+    <div class="m-evidence-note m-stage-surface">
+      <div class="m-card-kicker">Reliability / recovery</div>
+      <h3>Operational recovery is part of the project signal</h3>
+      <p>This workflow was also used to diagnose and recover a live ingestion outage. The investigation separated infrastructure reachability from application logic, restored polling, then fixed a reconciliation-path bug uncovered during retest. Final validation returned the pipeline to <span class="m-inline-code">SUCCESS</span> with strict reconciliation back to <span class="m-inline-code">MISMATCH_COUNT=0</span>.</p>
+      <p><a href="/proof" class="m-cta m-cta-secondary">Review proof path</a></p>
+    </div>
   </div>
 </section>
 

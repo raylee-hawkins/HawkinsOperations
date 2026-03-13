@@ -19,6 +19,7 @@ SOC Analyst (T1/T2) candidate focused on detection engineering and security auto
 ### HawkinsOperations (Primary Portfolio Repo)
 - Built and maintain a detection and response library with verified inventory sourced from `PROOF_PACK/VERIFIED_COUNTS.md` via generated site data.
 - Implemented proof-first validation workflow (scripts + documentation + CI alignment) so reviewers can reproduce claims directly from repo artifacts.
+- Diagnosed and restored an AutoSOC ingestion outage by separating infrastructure reachability from application logic, then fixed reconciliation-path validation to return the pipeline to successful end-to-end operation.
 
 ### SOC Triage Simulator
 - Built an interactive triage workflow artifact to practice investigation steps, evidence review, and analyst decision flow.
