@@ -8,6 +8,7 @@
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
   const html = document.documentElement;
   const VERIFIED_TIMEOUT_MS = 1500;
+  const OPS_TIMEOUT_MS = 1500;
   const isLocalDebugHost = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname);
 
   // Theme toggle (saved preference, otherwise system preference)
@@ -137,9 +138,18 @@
     }
   }
 
-  function loadOpsMetrics() {
+  async function loadOpsMetrics() {
     if (window.HAWKINSOPS_OPS_METRICS && typeof window.HAWKINSOPS_OPS_METRICS === 'object') {
       applyOpsMetricsPayload(window.HAWKINSOPS_OPS_METRICS);
+    }
+    if (typeof window.fetchJsonWithTimeout !== 'function') return;
+    try {
+      const payload = await window.fetchJsonWithTimeout('/assets/data/ops-metrics.json', {
+        timeoutMs: OPS_TIMEOUT_MS
+      });
+      applyOpsMetricsPayload(payload);
+    } catch {
+      // keep existing values if the payload is unavailable
     }
   }
 
