@@ -1,0 +1,35 @@
+{
+  "running_totals": {
+    "total_cases": 34206,
+    "auto_closed_benign": 0,
+    "known_fp": 4,
+    "escalated": 0,
+    "review": 5162,
+    "staged_pending": 10
+  },
+  "host_coverage": "8/8",
+  "reconciliation_mismatch": 0,
+  "heartbeat": "SUCCESS",
+  "last_updated": "2026-03-15T09:34:40Z",
+  "stress_test_window": {
+    "profile": "phase1_draft",
+    "baseline_window": "latest_successful_heartbeat_run",
+    "queue_backlog_target": 10000,
+    "latency_targets_ms": {
+      "per_event_under_load": 200,
+      "with_backlog": 500
+    },
+    "simulated_rule_pressure": {
+      "rule_60227_pct_increase": 200,
+      "rule_92151_pct_increase": 100,
+      "sysmon_module_load_noise_pct_increase": 300
+    }
+  },
+  "detection_inventory": {
+    "sigma": 103,
+    "wazuh_files": 24,
+    "wazuh_rule_blocks": 28,
+    "splunk": 8,
+    "ir_playbooks": 10
+  }
+}

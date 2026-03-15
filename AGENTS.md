@@ -26,6 +26,22 @@ Treat every file as if a hiring manager will read it.
 4. Confirm .gitignore covers Evidence-Raw/ and .obsidian/
 5. Get Raylee approval — never push without confirmation
 
+## PHASE 1 PREFLIGHT CHECKS
+
+Before opening or updating a rebrand staging PR, run all of the following:
+
+1. `python -m unittest`
+2. `python3 scripts/validate_metrics.py`
+3. `scripts/check-md-links.sh`
+
+If any preflight fails, stop and document the failure in a GitHub issue before asking for Phase 2 approval.
+
+## PUBLIC REPO SAFETY
+
+- Do not edit binary files unless the task explicitly requires it.
+- Never add secrets, tokens, credentials, raw internal identifiers, or private host data.
+- Required approver for rebrand and public proof changes: `raylee`
+
 ## COMMIT FORMAT
 
 Add: what you added
@@ -103,6 +119,5 @@ Evidence-Raw/ content of any kind
 Real IPs, hostnames, credentials, or internal identifiers
 Machine config files
 .obsidian/ folder
-
 
 
