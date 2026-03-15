@@ -277,7 +277,7 @@
         </div>
         <aside class="sf-card" style="padding: 24px;" aria-label="Current verified system state">
           <h2>Current verified state</h2>
-          <p class="sf-body">Latest canonical metrics reflect the successful Phase 1 contract run and are exposed directly on the public proof surface.</p>
+          <p class="sf-body">Latest canonical metrics are synchronized from the publish-safe AutoSOC outputs and exposed directly on the public proof surface.</p>
           <ul class="sf-status-list">
             <li><strong><span data-ops-status="heartbeat">SUCCESS</span></strong> heartbeat on the latest run</li>
             <li><strong><span data-ops-status="reconciliation">PASS</span></strong> reconciliation with mismatch count <span data-ops="reconciliation_mismatch">0</span></li>
@@ -294,22 +294,22 @@
       <div class="sf-metrics" role="status" aria-live="polite" aria-label="Current SignalFoundry outcomes">
         <article class="sf-card sf-metric" aria-label="Total case volume">
           <span class="sf-metric-label">Case Volume</span>
-          <span class="sf-metric-value"><span data-ops="total_cases">34206</span></span>
-          <p class="sf-metric-note">Current canonical total cases from the latest successful metrics contract.</p>
+          <span class="sf-metric-value"><span data-ops="total_cases">0</span></span>
+          <p class="sf-metric-note">Current cumulative total cases from the synchronized public metrics contract.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Auto close rate">
           <span class="sf-metric-label">Auto-Close Rate</span>
-          <span class="sf-metric-value"><span data-ops="auto_close_rate">4.0%</span></span>
-          <p class="sf-metric-note">Known false-positive closures in the latest run expressed as a current-run rate.</p>
+          <span class="sf-metric-value"><span data-ops="auto_close_rate">-</span></span>
+          <p class="sf-metric-note">Cumulative auto-close rate derived from benign and known-false-positive closures.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Escalations in latest run">
           <span class="sf-metric-label">Escalations</span>
-          <span class="sf-metric-value"><span data-ops="escalated_current_run">0</span></span>
-          <p class="sf-metric-note">Escalations published in the latest successful heartbeat run.</p>
+          <span class="sf-metric-value"><span data-ops="escalated">0</span></span>
+          <p class="sf-metric-note">Published escalations currently tracked in the reconciled public system state.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Coverage status">
           <span class="sf-metric-label">Coverage Status</span>
-          <span class="sf-metric-value"><span data-ops="coverage_ratio">8/8</span></span>
+          <span class="sf-metric-value"><span data-ops="coverage_ratio">-</span></span>
           <p class="sf-metric-note">Coverage gate passed across all required hosts in the current contract.</p>
         </article>
       </div>

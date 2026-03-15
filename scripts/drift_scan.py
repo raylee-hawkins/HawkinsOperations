@@ -63,6 +63,26 @@ def load_json_counts(path: Path) -> Dict[str, int]:
     return {k: int(v) for k, v in counts.items() if isinstance(v, int)}
 
 
+def load_ops_metrics_json(path: Path) -> Dict[str, object]:
+    data = json.loads(path.read_text(encoding="utf-8"))
+    metrics = data.get("metrics")
+    if not isinstance(metrics, dict):
+        raise ValueError(f"'metrics' object not found in {path}")
+    return metrics
+
+
+def load_ops_metrics_js(path: Path) -> Dict[str, object]:
+    raw = path.read_text(encoding="utf-8").strip()
+    prefix = "window.HAWKINSOPS_OPS_METRICS = "
+    if not raw.startswith(prefix) or not raw.endswith(";"):
+        raise ValueError(f"Unexpected ops metrics JS wrapper in {path}")
+    payload = json.loads(raw[len(prefix):-1])
+    metrics = payload.get("metrics")
+    if not isinstance(metrics, dict):
+        raise ValueError(f"'metrics' object not found in {path}")
+    return metrics
+
+
 def compare_counts(expected: Dict[str, int], actual: Dict[str, int], label: str) -> List[str]:
     errors: List[str] = []
     for key in ("detections", "sigma", "splunk", "wazuh", "wazuh_xml_files", "ir"):
@@ -140,6 +160,67 @@ def scan_data_verified_fallbacks(site_root: Path, truth: Dict[str, int]) -> List
     return errors
 
 
+def compare_ops_metrics(expected: Dict[str, object], actual: Dict[str, object], label: str) -> List[str]:
+    errors: List[str] = []
+    keys = (
+        "total_cases",
+        "auto_close_rate",
+        "escalated",
+        "review",
+        "staged_pending",
+        "known_fp",
+        "auto_closed_benign",
+        "reconciliation",
+        "reconciliation_mismatch",
+        "heartbeat",
+        "coverage_ratio",
+        "coverage_status",
+        "last_updated",
+    )
+    for key in keys:
+        if key not in actual:
+            errors.append(f"{label}: missing ops metric '{key}'")
+            continue
+        if str(actual[key]) != str(expected[key]):
+            errors.append(
+                f"{label}: ops metric '{key}' mismatch (expected {expected[key]!r}, got {actual[key]!r})"
+            )
+    return errors
+
+
+def scan_data_ops_fallbacks(site_root: Path, truth: Dict[str, object]) -> List[str]:
+    html_files = sorted(p for p in site_root.rglob("*.html") if p.is_file())
+    errors: List[str] = []
+    value_re = re.compile(r'data-ops="([a-z_]+)">\s*([^<]+?)\s*<', re.IGNORECASE)
+    status_re = re.compile(r'data-ops-status="([a-z_]+)">\s*([^<]+?)\s*<', re.IGNORECASE)
+    allowed_placeholders = {"0", "-", "—", "PASS", "FAIL", "UNKNOWN"}
+
+    for path in html_files:
+        lines = path.read_text(encoding="utf-8").splitlines()
+        for lineno, line in enumerate(lines, start=1):
+            for regex in (value_re, status_re):
+                for match in regex.finditer(line):
+                    key = match.group(1)
+                    fallback = match.group(2).strip()
+                    if key not in truth:
+                        errors.append(f"{path}:{lineno}: unknown data-ops key '{key}'")
+                        continue
+                    expected = str(truth[key])
+                    if fallback in allowed_placeholders:
+                        if fallback in {"PASS", "FAIL", "UNKNOWN"} and fallback != expected:
+                            errors.append(
+                                f"{path}:{lineno}: data-ops '{key}' fallback mismatch "
+                                f"(expected {expected}, got {fallback})"
+                            )
+                        continue
+                    if fallback != expected:
+                        errors.append(
+                            f"{path}:{lineno}: data-ops '{key}' fallback mismatch "
+                            f"(expected {expected}, got {fallback})"
+                        )
+    return errors
+
+
 def run_generator() -> None:
     subprocess.run(
         [sys.executable, "scripts/generate_verified_counts.py"],
@@ -174,6 +255,16 @@ def main() -> int:
         default="site",
         help="Site root path.",
     )
+    parser.add_argument(
+        "--site-ops-json",
+        default="site/assets/data/ops-metrics.json",
+        help="Site-consumed ops metrics JSON path.",
+    )
+    parser.add_argument(
+        "--site-ops-js",
+        default="site/data/ops-metrics.js",
+        help="Site-consumed ops metrics JS path.",
+    )
     args = parser.parse_args()
 
     if args.refresh:
@@ -194,6 +285,18 @@ def main() -> int:
         errors.append(f"Missing site JSON: {site_path}")
     else:
         errors.extend(compare_counts(expected, load_json_counts(site_path), str(site_path)))
+
+    site_ops_json_path = Path(args.site_ops_json)
+    site_ops_js_path = Path(args.site_ops_js)
+    if not site_ops_json_path.exists():
+        errors.append(f"Missing site ops JSON: {site_ops_json_path}")
+    else:
+        expected_ops = load_ops_metrics_json(site_ops_json_path)
+        if not site_ops_js_path.exists():
+            errors.append(f"Missing site ops JS: {site_ops_js_path}")
+        else:
+            errors.extend(compare_ops_metrics(expected_ops, load_ops_metrics_js(site_ops_js_path), str(site_ops_js_path)))
+        errors.extend(scan_data_ops_fallbacks(Path(args.site_root), expected_ops))
 
     hardcoded = scan_hardcoded_claim_numbers(Path(args.site_root), expected)
     for path, lineno, line in hardcoded:

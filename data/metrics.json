@@ -1,16 +1,16 @@
 {
   "running_totals": {
-    "total_cases": 33459,
+    "total_cases": 35571,
     "auto_closed_benign": 20942,
-    "known_fp": 4867,
+    "known_fp": 6548,
     "escalated": 2478,
-    "review": 5162,
-    "staged_pending": 10
+    "review": 5585,
+    "staged_pending": 18
   },
   "host_coverage": "8/8",
   "reconciliation_mismatch": 0,
   "heartbeat": "SUCCESS",
-  "last_updated": "2026-03-15T09:34:40Z",
+  "last_updated": "2026-03-15T13:24:39Z",
   "stress_test_window": {
     "profile": "phase1_draft",
     "baseline_window": "latest_successful_heartbeat_run",
