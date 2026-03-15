@@ -628,3 +628,18 @@ html[data-theme="light"] .proof-strip-inner{background:linear-gradient(180deg,rg
   .footer-grid{grid-template-columns:1fr}
   .footer-nav-group{gap:16px}
 }
+
+/* Morning-pass override: force dark palette for any 'light' theme and hide theme toggle */
+html[data-theme="light"] {
+  /* reuse the dark palette tokens used elsewhere */
+  --bg:#000000;--bg1:#0a0a0a;--bg2:#111111;--bg3:#191919;
+  --bdr:rgba(255,255,255,.11);--bdr2:rgba(255,255,255,.17);
+  --txt:#f7f9ff;--dim:#d7e0f4;--faint:#9eb4d8;
+  --link:var(--acc2);--link-hover:var(--acc);
+  --nav-bg:rgba(5,5,5,.88);
+  --heading:var(--acc);
+  --hero-mark:rgba(240,246,255,.28);
+  --hero-mark-opacity:.5;
+}
+/* Hide theme toggle so users can't present mixed themes in review */
+.theme-btn { display: none !important; }
