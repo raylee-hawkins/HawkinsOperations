@@ -8,15 +8,15 @@ This file is generated from live repository file counts.
 
 | Platform | Count | Location |
 |----------|-------|----------|
-| **Sigma** (YAML) | **103** rules | content/detection-rules/sigma/ |
-| **Splunk** (SPL) | **8** queries | content/detection-rules/splunk/ |
-| **Wazuh** (XML) | **24** files, **28** rule blocks | content/detection-rules/wazuh/rules/ |
+| **Sigma** (YAML) | **0** rules | content/detection-rules/sigma/ |
+| **Splunk** (SPL) | **0** queries | content/detection-rules/splunk/ |
+| **Wazuh** (XML) | **0** files, **0** rule blocks | content/detection-rules/wazuh/rules/ |
 
 ## Incident Response
 
 | Type | Count | Location |
 |------|-------|----------|
-| **IR Playbooks** (IR-*.md) | **10** playbooks | content/incident-response/playbooks/ |
+| **IR Playbooks** (IR-*.md) | **0** playbooks | content/incident-response/playbooks/ |
 
 ---
 
@@ -32,4 +32,3 @@ This file is generated from live repository file counts.
 ---
 
 _Regenerate this file after detection or playbook content changes._
-
