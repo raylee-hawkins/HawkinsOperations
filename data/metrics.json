@@ -1,9 +1,9 @@
 {
   "running_totals": {
-    "total_cases": 34206,
-    "auto_closed_benign": 0,
-    "known_fp": 4,
-    "escalated": 0,
+    "total_cases": 33459,
+    "auto_closed_benign": 20942,
+    "known_fp": 4867,
+    "escalated": 2478,
     "review": 5162,
     "staged_pending": 10
   },
