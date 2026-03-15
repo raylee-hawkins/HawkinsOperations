@@ -1,6 +1,6 @@
 {
   "generated_at_utc": "2026-02-26T15:32:56+00:00",
-  "source_path": "PROOF_PACK/verified_counts.json",
+  "source_path": "proof/verified-counts.md",
   "counts": {
     "sigma": 103,
     "splunk": 8,
@@ -11,32 +11,32 @@
   },
   "source_refs": {
     "sigma": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 11,
       "heading": "Detection Rules"
     },
     "splunk": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 12,
       "heading": "Detection Rules"
     },
     "wazuh_xml_files": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 13,
       "heading": "Detection Rules"
     },
     "wazuh": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 13,
       "heading": "Detection Rules"
     },
     "ir": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 19,
       "heading": "Incident Response"
     },
     "detections": {
-      "file": "PROOF_PACK/VERIFIED_COUNTS.md",
+      "file": "proof/verified-counts.md",
       "line": 13,
       "heading": "Detection Rules"
     }

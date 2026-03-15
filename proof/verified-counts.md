@@ -1,6 +1,6 @@
 # Verified Detection Counts
 
-This file is generated from live repository rule sources and proof artifacts.
+This public proof file mirrors the current verified repository inventory.
 
 ---
 
@@ -24,18 +24,11 @@ This file is generated from live repository rule sources and proof artifacts.
 
     pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
     pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
-    python .\scripts\generate-technique-map.py --enrich
 
 ## Build Artifact Command
 
     pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
 
-## Count Source Notes
-
-- Sigma and Wazuh counts above align to `PROOF_PACK/technique_map.csv`, which is generated directly from `content/detection-rules/sigma/` and `content/detection-rules/wazuh/rules/`.
-- Detection inventory counts should never be derived from `heartbeat.json`; heartbeat artifacts describe pipeline health and case-processing volume, not rule inventory.
-- Splunk and IR playbook counts remain repository file counts from the verification workflow.
-
 ---
 
-_Regenerate this file after detection or playbook content changes._
+Internal source-of-truth remains the verified counts generation workflow; this mirror is the public reviewer-facing proof lane.

@@ -14,7 +14,7 @@
         },
         {
           "label": "Verification Source",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/proof/verified-counts.md"
         }
       ]
     },
@@ -74,4 +74,3 @@
     }
   ]
 }
-

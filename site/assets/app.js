@@ -141,6 +141,12 @@
     if (window.HAWKINSOPS_OPS_METRICS && typeof window.HAWKINSOPS_OPS_METRICS === 'object') {
       applyOpsMetricsPayload(window.HAWKINSOPS_OPS_METRICS);
     }
+    if (typeof window.fetchJsonWithTimeout !== 'function') return;
+    window.fetchJsonWithTimeout('/assets/data/ops-metrics.json', {
+      timeoutMs: VERIFIED_TIMEOUT_MS
+    }).then(function (payload) {
+      if (payload) applyOpsMetricsPayload(payload);
+    });
   }
 
   async function imageExists(src) {

@@ -1,4 +1,4 @@
-window.HAWKINSOPS_OPS_METRICS = {
+{
   "generated_at_utc": "2026-03-15T07:18:33Z",
   "source_note": "Canonical SignalFoundry public metrics payload derived from the current publish-safe AutoSOC ledger, heartbeat, coverage, and reconciliation state.",
   "source_scope": "current_live_state",
@@ -28,4 +28,4 @@ window.HAWKINSOPS_OPS_METRICS = {
     "latest_run_id": "autosoc-20260315T064401Z-23708",
     "latest_run_generated_utc": "2026-03-15T06:44:41Z"
   }
-};
+}

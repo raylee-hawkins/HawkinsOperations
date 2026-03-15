@@ -1,20 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | Proof | AutoSOC Evidence and Verification</title>
-<meta name="description" content="AutoSOC proof page: evidence packs, run logs, release/runbook chain, and reproducible verification commands.">
+<title>SignalFoundry — Proof &amp; Verified Metrics</title>
+<meta name="description" content="SignalFoundry proof page: verified metrics, evidence packs, run logs, release chains, and reproducible verification commands.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/proof">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HawkinsOps | Proof">
-<meta property="og:description" content="AutoSOC evidence packs, run logs, release references, and verification workflow.">
+<meta property="og:title" content="SignalFoundry — Proof &amp; Verified Metrics">
+<meta property="og:description" content="SignalFoundry evidence packs, verified metrics, release references, and verification workflow.">
 <meta property="og:url" content="https://hawkinsops.com/proof">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HawkinsOps | Proof">
-<meta name="twitter:description" content="AutoSOC evidence packs, run logs, release references, and verification workflow.">
+<meta name="twitter:title" content="SignalFoundry — Proof &amp; Verified Metrics">
+<meta name="twitter:description" content="SignalFoundry evidence packs, verified metrics, release references, and verification workflow.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/t5-proxmox-redacted.png?v=02-20-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -67,8 +67,8 @@
 <section class="m-section" style="padding-top:96px;">
   <div class="m-wrap">
     <div class="m-eyebrow">Proof</div>
-    <h1 class="m-title" style="font-size: clamp(2.2rem, 4vw, 3.7rem);">AutoSOC receipt drawer</h1>
-    <p class="m-outcome">This page is the proof surface for the reviewer flow: evidence packs, run logs, release references, and reproducible validation commands in one place.</p>
+    <h1 class="m-title" style="font-size: clamp(2.2rem, 4vw, 3.7rem);">SignalFoundry — Proof &amp; Verified Metrics</h1>
+    <p class="m-outcome">SignalFoundry, built under HawkinsOps and currently powered by the AutoSOC engine, uses this proof surface to connect verified inventory counts, current public metrics, and reviewer-facing evidence in one place.</p>
 
     <div class="m-proof-strip" style="margin-top:20px;">
       <div class="m-proof-inline">
@@ -78,7 +78,7 @@
         <strong><span data-verified="ir">10</span> playbooks</strong>
       </div>
       <div class="m-proof-inline">
-        <span>Quick scan:</span>
+        <span>Counts from proof lane:</span>
         <span class="m-inline-code">packs</span>
         <span class="m-inline-code">run logs</span>
         <span class="m-inline-code">release chain</span>
@@ -107,7 +107,7 @@
       <h2>Why the artifacts are credible</h2>
       <ul class="m-list-tight">
         <li><a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer">Operational runbook log references</a></li>
-        <li><a href="/march-2026-release">March release execution timeline</a></li>
+        <li><a href="/march-2026-release">SignalFoundry release execution timeline</a></li>
         <li>Sensitive values are sanitized before publishing artifacts.</li>
         <li>The same repository exposes the verification scripts used to cross-check counts and drift.</li>
       </ul>
@@ -135,7 +135,7 @@
     <article class="m-card">
       <div class="m-card-kicker">Verification</div>
       <h2>How to validate claims quickly</h2>
-      <p class="m-copy">Fast reviewer workflow: inspect the artifact tree, open the release/runbook chain, then run one public verification command from the repository.</p>
+      <p class="m-copy">Fast reviewer workflow: inspect the artifact tree, open the release and runbook chain, then run the public verification commands from the repository. Counts come from the proof lane; current SignalFoundry health comes from the public metrics payload while the AutoSOC engine remains the implementation layer.</p>
       <div class="m-terminal" style="margin-top:16px;">
         <div class="m-terminal-head">
           <span class="m-terminal-label">Clone + verify counts (PowerShell)</span>
@@ -159,8 +159,8 @@ python .\scripts\drift_scan.py</pre>
           <span>Anchors the public narrative to a specific project milestone.</span>
         </a>
         <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
-          <strong>AutoSOC operations runbook</strong>
-          <span>Shows the process discipline behind the pipeline and artifact chain.</span>
+          <strong>AutoSOC engine operations runbook</strong>
+          <span>Shows the implementation discipline behind the engine and artifact chain.</span>
         </a>
         <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/scripts/verify/verify-counts.ps1" target="_blank" rel="noopener noreferrer" class="m-link-item">
           <strong>verify-counts.ps1</strong>

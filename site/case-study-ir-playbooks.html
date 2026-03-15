@@ -209,7 +209,7 @@ Get-ADUser -Filter * -Properties * |
 (Get-ChildItem .\incident-response\playbooks -Filter *.md).Count
 
 # Expected: 10
-# Source of truth: PROOF_PACK/VERIFIED_COUNTS.md</pre>
+# Public counts surface: proof/verified-counts.md</pre>
           <p style="margin-top:10px">The count is not self-reported. It's generated from file system state by <code>scripts/verify/verify-counts.ps1</code> on every commit.</p>
         </div>
       </div>
@@ -266,4 +266,3 @@ Get-ADUser -Filter * -Properties * |
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-

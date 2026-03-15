@@ -1,6 +1,6 @@
 window.HAWKINSOPS_COUNTS = {
   "generated_at_utc": "2026-02-26T15:32:56+00:00",
-  "source_path": "PROOF_PACK/verified_counts.json",
+  "source_path": "proof/verified-counts.md",
   "last_verified_utc": "2026-02-26T15:32:56+00:00",
   "counts": {
     "sigma": 103,

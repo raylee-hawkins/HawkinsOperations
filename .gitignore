@@ -18,12 +18,14 @@ HawkinsOperations_BACKUP_before_v1.0.1/
 
 # Local tool configuration
 .claude/
+.playwright-cli/
 /site/assets/visual-enhance.css
 
 # Build artifacts
 dist/
 
 # Output directories and artifacts (NEVER commit)
+output/
 OUTPUTS/
 **/OUTPUTS/
 run_*/
@@ -98,8 +100,10 @@ incident-response/incidents/2026/2026-03-*
 # Curated publish lane (allowed)
 !proof/autosoc/**
 
-# AutoSOC generated publish mirrors (local-only; canonical lane is proof/autosoc/latest)
+# AutoSOC generated publish mirrors (local-only; canonical public metrics source is content/metrics/autosoc_latest.json)
 content/metrics/**
+!content/metrics/
+!content/metrics/autosoc_latest.json
 content/incidents.json
 docs/execution/coverage_latest.md
 docs/execution/reconciliation_latest.md
@@ -108,6 +112,9 @@ PR_BODY_AUTOSOC_*.md
 
 # Local evidence drafting artifacts
 PROOF_PACK/**/*.docx
+
+# Local diagram scratch lane
+site/assets/diagrams/
 
 # Runs contract tooling safety (do not commit local run exhaust)
 Runs/**/Logs/

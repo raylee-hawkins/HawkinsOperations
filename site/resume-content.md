@@ -17,7 +17,7 @@ SOC Analyst (T1/T2) candidate focused on detection engineering and security auto
 
 ## Projects
 ### HawkinsOperations (Primary Portfolio Repo)
-- Built and maintain a detection and response library with verified inventory sourced from `PROOF_PACK/VERIFIED_COUNTS.md` via generated site data.
+- Built and maintain a detection and response library with verified inventory surfaced through `proof/verified-counts.md` and generated site data.
 - Implemented proof-first validation workflow (scripts + documentation + CI alignment) so reviewers can reproduce claims directly from repo artifacts.
 - Diagnosed and restored an AutoSOC ingestion outage by separating infrastructure reachability from application logic, then fixed reconciliation-path validation to return the pipeline to successful end-to-end operation.
 

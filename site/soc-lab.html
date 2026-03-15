@@ -41,20 +41,20 @@
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/case-study-autosoc">TriageLoop Case Study</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Case Study</a></li>
       <li><a href="/detections">Detections</a></li>
       <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read TriageLoop</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read AutoSOC</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
   <a href="/projects">Projects</a>
-  <a href="/case-study-autosoc">TriageLoop Case Study</a>
+  <a href="/case-study-autosoc">AutoSOC Case Study</a>
   <a href="/detections">Detections</a>
   <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
@@ -75,7 +75,7 @@
     <div class="g2">
       <a class="card lane-card" href="/case-study-autosoc" style="text-decoration:none" data-lane="fastest">
         <span class="lane-tag">FEATURED</span>
-        <div class="card-ttl">TriageLoop flagship case study</div>
+        <div class="card-ttl">AutoSOC flagship case study</div>
         <div class="card-sub">Walk the alert-ingest to escalation path, inspect outputs, and follow the proof chain without leaving the production site.</div>
         <div class="lane-cta" aria-hidden="true">Read case study <span>→</span></div>
       </a>
@@ -152,7 +152,7 @@
       <p class="m-copy">These are embedded because the lab should feel inspectable, not described from a distance. Each surface is tied to the environment, alerting path, or evidence workflow that supports the rest of the site.</p>
       <div class="m-lab-intro">
         <div class="m-card-kicker">Inspection order</div>
-        <p class="m-copy">Environment first, then alert surface, then virtualization context, then command-driven evidence. That order makes the lab read like system support for TriageLoop rather than a detached screenshot pile.</p>
+        <p class="m-copy">Environment first, then alert surface, then virtualization context, then command-driven evidence. That order makes the lab read like system support for AutoSOC rather than a detached screenshot pile.</p>
       </div>
       <div class="m-lab-wall">
         <figure class="m-shot-frame">
@@ -161,7 +161,7 @@
             <span class="m-frame-tag">Environment</span>
           </div>
           <div class="m-frame-body">
-            <img src="/assets/pp_soc_integration/lab-architecture.svg" alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and TriageLoop pipeline boundaries" width="1200" height="510" loading="lazy">
+            <img src="/assets/pp_soc_integration/lab-architecture.svg" alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and AutoSOC pipeline boundaries" width="1200" height="510" loading="lazy">
             <p class="m-frame-caption">Purpose: show the actual topology behind the detections and escalation workflow.</p>
           </div>
         </figure>
@@ -269,18 +269,18 @@
     <h2 class="stitle">What's captured and where it lives</h2>
     <p class="sdesc">
       Every detection run produces at least one artifact: a screenshot, log snippet, or verification output.
-      Artifacts are sanitized and stored in <code>PROOF_PACK/</code> alongside counts and evidence checklists.
+      Artifacts are sanitized and surfaced through the public proof lane alongside counts and evidence checklists.
     </p>
     <div class="g2">
       <div class="card">
         <div class="card-ttl">Proxmox + alert evidence</div>
         <div class="card-sub">Redacted Proxmox node screenshots showing VM layout. Wazuh alert screenshots showing rule ID, severity level, and triggering event. No hostnames or IPs in public artifacts.</div>
-        <div class="card-meta"><span class="tag">Redacted</span><span class="tag">PROOF_PACK/</span><span class="tag">Available on request</span></div>
+        <div class="card-meta"><span class="tag">Redacted</span><span class="tag">proof/</span><span class="tag">Available on request</span></div>
       </div>
       <div class="card">
         <div class="card-ttl">Verified counts output</div>
-        <div class="card-sub">CI generates <code>PROOF_PACK/VERIFIED_COUNTS.md</code> on every push. Counts are reproducible by running the verify script against the public repo. No hand-waving required.</div>
-        <div class="card-meta"><span class="tag">CI-generated</span><span class="tag">Reproducible</span><span class="tag">PROOF_PACK/VERIFIED_COUNTS.md</span></div>
+        <div class="card-sub">The verification workflow publishes <code>proof/verified-counts.md</code>. Counts are reproducible by running the verify script against the public repo.</div>
+        <div class="card-meta"><span class="tag">CI-generated</span><span class="tag">Reproducible</span><span class="tag">proof/verified-counts.md</span></div>
       </div>
     </div>
 

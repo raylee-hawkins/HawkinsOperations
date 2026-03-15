@@ -115,7 +115,7 @@
             <li>Pivot on process trees and parent-child relationships for high-level alerts.</li>
             <li>Correlate with known-good baselines; apply suppression for confirmed noise patterns.</li>
             <li>For any critical or high alert: apply the documented SOC analyst decision flow — classify → pivot → validate source → document findings or escalate suppression.</li>
-            <li>Capture alert evidence artifacts per <code>PROOF_PACK/EVIDENCE_CHECKLIST.md</code> policy (redacted where internal identifiers are present).</li>
+            <li>Capture alert evidence artifacts per the public evidence checklist policy, with redaction where internal identifiers are present.</li>
           </ol>
         </div>
       </div>
@@ -160,7 +160,7 @@
           <li>Single-node Wazuh manager — home lab, not clustered. No high-availability or cross-site correlation.</li>
           <li>Splunk not connected to live telemetry during this phase. SPL detections are authored and verified against static log samples only.</li>
           <li>15,052 alerts/24h includes untuned noise — suppression tuning is ongoing work, not a completed deliverable.</li>
-          <li>Screenshots contain internal hostnames and identifiers; all are redacted per <code>PROOF_PACK/EVIDENCE_CHECKLIST.md</code>.</li>
+          <li>Screenshots contain internal hostnames and identifiers; all are redacted per the public evidence checklist.</li>
           <li>No correlation engine across data sources — ATT&amp;CK lateral movement coverage relies on per-host telemetry only at this stage.</li>
         </ul>
       </div>
@@ -212,6 +212,5 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-
 
 

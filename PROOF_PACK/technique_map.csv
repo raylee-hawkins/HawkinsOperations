@@ -1,0 +1,132 @@
+rule_id,rule_title,mitre_technique_id,mitre_technique_name,mitre_tactic,source_file,platform
+100052,Critical system file modified - Possible system compromise,T1078,Valid Accounts,,content/detection-rules/wazuh/rules/wazuh-052-file-integrity-critical-system.xml,
+100053,Rootkit or backdoor detected on system,T1014,Rootkit,,content/detection-rules/wazuh/rules/wazuh-053-rootkit-detection.xml,
+100055,Malware detected by VirusTotal - Multiple AV engines flagged file,T1204,User Execution,,content/detection-rules/wazuh/rules/wazuh-055-malware-detection-virustotal.xml,
+100056,Anomalous process detected - Unusual execution pattern,T1059,Command and Scripting Interpreter,,content/detection-rules/wazuh/rules/wazuh-056-process-anomaly-detection.xml,
+100060,Privileged account used during off-hours - Possible unauthorized access,T1078.002,Valid Accounts: Domain Accounts,,content/detection-rules/wazuh/rules/wazuh-060-unauthorized-privileged-account-use.xml,
+100062,Ransomware activity detected - Mass file encryption in progress,T1486,Data Encrypted for Impact,,content/detection-rules/wazuh/rules/wazuh-062-file-encryption-ransomware.xml,
+100064,Impossible travel detected - User logged in from distant location too quickly,T1078,Valid Accounts,,content/detection-rules/wazuh/rules/wazuh-064-impossible-travel-detection.xml,
+100065,AWS S3 bucket made publicly accessible - Potential data exposure,T1530,Data from Cloud Storage Object,,content/detection-rules/wazuh/rules/wazuh-065-aws-s3-bucket-public-exposure.xml,Aws
+100066,Privileged account password changed via sudo - Verify authorization,T1098,Account Manipulation,,content/detection-rules/wazuh/rules/wazuh-066-linux-suspicious-sudo-password-change.xml,Linux
+100074,Container escape attempt detected - Privileged container or namespace manipulation,T1611,Escape to Host,Privilege Escalation,content/detection-rules/wazuh/rules/wazuh-074-container-escape-attempt.xml,Linux; Container
+100061,Port scan detected - Multiple connection attempts from same source,T1046,Network Service Discovery,Reconnaissance,content/detection-rules/wazuh/rules/wazuh-061-port-scan-detection.xml,Network
+100063,Large outbound data transfer detected - Possible data exfiltration,T1041,Exfiltration Over C2 Channel,Exfiltration,content/detection-rules/wazuh/rules/wazuh-063-data-exfiltration-detection.xml,Network
+100067,DNS tunneling detected - Abnormally long or frequent DNS queries,T1071.004,Application Layer Protocol: DNS,Command And Control,content/detection-rules/wazuh/rules/wazuh-067-dns-tunneling-detection.xml,Network
+100054,Possible SQL injection or XSS attack detected,T1190,Exploit Public-Facing Application,,content/detection-rules/wazuh/rules/wazuh-054-web-attack-sql-injection.xml,Web
+100057,Windows Defender has been disabled - Possible defense evasion,T1562.001,Impair Defenses: Disable or Modify Tools,Defense Evasion,content/detection-rules/wazuh/rules/wazuh-057-windows-defender-disabled.xml,Windows
+100058,PowerShell downloading content from external source,T1059.001,PowerShell,Command And Control,content/detection-rules/wazuh/rules/wazuh-058-suspicious-powershell-download.xml,Windows
+100059,New Windows service installed on system,T1543.003,Create or Modify System Process: Windows Service,Persistence,content/detection-rules/wazuh/rules/wazuh-059-new-service-creation.xml,Windows
+100059001,Suspicious Windows service created - Unusual executable path,T1543.003,Create or Modify System Process: Windows Service,Persistence,content/detection-rules/wazuh/rules/wazuh-059-new-service-creation.xml,Windows
+100068,Scheduled task created via XML import - Review task contents,T1053.005,Scheduled Task/Job,Persistence,content/detection-rules/wazuh/rules/wazuh-068-suspicious-scheduled-task-xml.xml,Windows
+100068001,Suspicious scheduled task created via XML from unusual location,T1053.005,Scheduled Task/Job,Persistence,content/detection-rules/wazuh/rules/wazuh-068-suspicious-scheduled-task-xml.xml,Windows
+100069,PsExec service detected - Possible lateral movement,T1570,Lateral Tool Transfer,Lateral Movement,content/detection-rules/wazuh/rules/wazuh-069-lateral-movement-psexec.xml,Windows
+100069001,Multiple PsExec service installations across hosts - Active lateral movement,T1570,Lateral Tool Transfer,Lateral Movement,content/detection-rules/wazuh/rules/wazuh-069-lateral-movement-psexec.xml,Windows
+100070,Registry autorun key modified - Possible persistence mechanism,T1547.001,Boot or Logon Autostart Execution: Registry Run Keys,,content/detection-rules/wazuh/rules/wazuh-070-registry-autorun-modification.xml,Windows
+100070001,Suspicious registry autorun key - Points to unusual location or script,T1547.001,Boot or Logon Autostart Execution: Registry Run Keys,,content/detection-rules/wazuh/rules/wazuh-070-registry-autorun-modification.xml,Windows
+100071,Suspicious process spawned from WMI - Possible remote execution,T1047,Windows Management Instrumentation,,content/detection-rules/wazuh/rules/wazuh-071-suspicious-wmi-process-creation.xml,Windows
+100072,Kerberoasting detected - Multiple TGS requests with RC4 encryption,T1558.003,Steal or Forge Kerberos Tickets: Kerberoasting,Credential Access,content/detection-rules/wazuh/rules/wazuh-072-kerberoasting-detection.xml,Windows
+100075,LSASS memory dump detected using comsvcs.dll - Credential theft attempt,T1003.001,OS Credential Dumping: LSASS Memory,Credential Access,content/detection-rules/wazuh/rules/wazuh-075-credential-dumping-comsvcs.xml,Windows
+100073,Multiple administrative share access attempts - Possible lateral movement,T1021.002,Remote Services: SMB/Windows Admin Shares,Lateral Movement,content/detection-rules/wazuh/rules/wazuh-073-suspicious-network-share-access.xml,Windows; Network
+2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d,Linux Command History Access,T1552.003,Shell History,Collection; Credential Access,content/detection-rules/sigma/collection/linux_history_access.yml,linux
+2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,SSH Private Key Access,T1552.004,Private Keys,Credential Access,content/detection-rules/sigma/credential-access/credential_access_ssh_keys.yml,linux
+8e5f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b,Linux Password File Access,T1003.008,/etc/passwd and /etc/shadow,Credential Access,content/detection-rules/sigma/credential-access/passwd_shadow_access.yml,linux
+7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f,Linux Log File Deletion,T1070.002,Clear Linux or Mac System Logs,Defense Evasion,content/detection-rules/sigma/defense-evasion/indicator_removal_linux.yml,linux
+1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,Linux Network Discovery,T1016,System Network Configuration Discovery,Discovery,content/detection-rules/sigma/discovery/linux_network_discovery.yml,linux
+0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e,Suspicious Bash Command Execution,T1059.004,Unix Shell,Execution,content/detection-rules/sigma/execution/linux_bash_suspicious.yml,linux
+2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b,Linux SCP Data Exfiltration,T1048.002,Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,Exfiltration,content/detection-rules/sigma/exfiltration/linux_scp_exfil.yml,linux
+4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b,Linux Data Destruction Commands,T1485,Data Destruction,Impact,content/detection-rules/sigma/impact/linux_data_destruction.yml,linux
+1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b,Suspicious SSH Connection,T1021.004,SSH,Lateral Movement,content/detection-rules/sigma/lateral-movement/ssh_lateral_movement.yml,linux
+0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a,Linux Shell Profile Modification,T1546.004,Unix Shell Configuration Modification,Persistence; Privilege Escalation,content/detection-rules/sigma/persistence/linux_bashrc_modification.yml,linux
+8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e,Linux Cron Job Persistence,T1053.003,Cron,Persistence; Execution,content/detection-rules/sigma/persistence/linux_cron_persistence.yml,linux
+9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f,Suspicious Systemd Service Creation,T1543.002,Systemd Service,Persistence,content/detection-rules/sigma/persistence/linux_systemd_service.yml,linux
+0b1c2d3e-4f5a-6b7c-8d9e-0f1a2b3c4d5e,Suspicious Kernel Module Load,T1547.006,Kernel Modules and Extensions,Persistence; Privilege Escalation,content/detection-rules/sigma/privilege-escalation/kernel_module_load.yml,linux
+6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a,Suspicious Sudo Command Execution,T1548.003,Sudo and Sudo Caching,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/sudo_abuse.yml,linux
+7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b,Suspicious SUID Binary Execution,T1548.001,Setuid and Setgid,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/suid_binary_execution.yml,linux
+8c9d0e1f-2a3b-4c5d-6e7f-8a9b0c1d2e3f,Archive Collection Preparation,T1560,Archive Collected Data,Collection,content/detection-rules/sigma/collection/archive_collected_data.yml,windows
+6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d,Audio Capture Detection,T1123,Audio Capture,Collection,content/detection-rules/sigma/collection/audio_capture.yml,windows
+4e5f6a7b-8c9d-0e1f-2a3b-4c5d6e7f8a9b,Clipboard Data Collection,T1115,Clipboard Data,Collection,content/detection-rules/sigma/collection/clipboard_capture.yml,windows
+9d0e1f2a-3b4c-5d6e-7f8a-9b0c1d2e3f4a,Data Staging for Exfiltration,T1074,Data Staged,Collection,content/detection-rules/sigma/collection/data_staged.yml,windows
+7b8c9d0e-1f2a-3b4c-5d6e-7f8a9b0c1d2e,Email Collection Activity,T1114,Email Collection,Collection,content/detection-rules/sigma/collection/email_collection.yml,windows
+0e1f2a3b-4c5d-6e7f-8a9b-0c1d2e3f4a5b,Keylogging Activity Detection,T1056.001,Keylogging,Collection; Credential Access,content/detection-rules/sigma/collection/keylogging.yml,windows
+5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c,Screen Capture Activity,T1113,Screen Capture,Collection,content/detection-rules/sigma/collection/screen_capture.yml,windows
+3b4c5d6e-7f8a-9b0c-1d2e-3f4a5b6c7d8e,Sensitive File Access,T1005,Data from Local System,Collection,content/detection-rules/sigma/collection/sensitive_file_access.yml,windows
+1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c,Video Capture Detection,T1125,Video Capture,Collection,content/detection-rules/sigma/collection/video_capture.yml,windows
+9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c,Browser Credential Store Access,T1555.003,Credentials from Web Browsers,Credential Access,content/detection-rules/sigma/credential-access/browser_credential_theft.yml,windows
+7d4e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a,DCSync Attack Detection,T1003.006,DCSync,Credential Access,content/detection-rules/sigma/credential-access/dcsync_attack.yml,windows
+6c3d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f,Kerberoasting Attack Detection,T1558.003,Kerberoasting,Credential Access,content/detection-rules/sigma/credential-access/kerberoasting.yml,windows
+32d0d3e2-adf8-4cbe-9d6a-1d65f3f4f4e1,Suspicious LSASS Process Access,T1003.001; T1003,LSASS Memory; OS Credential Dumping,Credential Access,content/detection-rules/sigma/credential-access/lsass_access_suspicious.yml,windows
+a49fa4d5-8b89-4f0d-8c7d-01e5a5e5d3c1,LSASS Memory Dump via Comsvcs.dll,T1003.001; T1218.011,LSASS Memory; Rundll32,Credential Access; Defense Evasion,content/detection-rules/sigma/credential-access/lsass_dump_comsvcs.yml,windows
+5b2c6d7e-8f9a-4b0c-1d2e-3f4a5b6c7d8e,NTDS.dit Credential Extraction,T1003.003,NTDS,Credential Access,content/detection-rules/sigma/credential-access/ntds_dump.yml,windows
+1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,PowerShell Credential Prompt,T1056.002,GUI Input Capture,Credential Access; Collection,content/detection-rules/sigma/credential-access/powershell_credential_prompt.yml,windows
+4a1e8d9f-2b3c-4d5e-6f7a-8b9c0d1e2f3a,SAM Registry Hive Dump to Disk,T1003.002,Security Account Manager,Credential Access,content/detection-rules/sigma/credential-access/sam_registry_dump.yml,windows
+1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d,AMSI Bypass Attempt,T1562.001,Disable or Modify Tools,Defense Evasion; Execution,content/detection-rules/sigma/defense-evasion/amsi_bypass.yml,windows
+4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c,Windows Event Log Cleared,T1070.001,Clear Windows Event Logs,Defense Evasion,content/detection-rules/sigma/defense-evasion/clear_windows_event_logs.yml,windows
+2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,Windows Firewall Disabled,T1562.004,Disable or Modify System Firewall,Defense Evasion,content/detection-rules/sigma/defense-evasion/disable_firewall.yml,windows
+5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d,Windows Defender Disabled,T1562.001,Disable or Modify Tools,Defense Evasion,content/detection-rules/sigma/defense-evasion/disable_windows_defender.yml,windows
+0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c,Suspicious DLL Side-Loading,T1574.002,DLL Side-Loading,Defense Evasion; Persistence; Privilege Escalation,content/detection-rules/sigma/defense-evasion/dll_sideloading.yml,windows
+9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b,Masquerading as Windows Process,T1036,Masquerading,Defense Evasion,content/detection-rules/sigma/defense-evasion/masquerading.yml,windows
+8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a,Process Injection Detected,T1055,Process Injection,Defense Evasion; Privilege Escalation,content/detection-rules/sigma/defense-evasion/process_injection.yml,windows
+3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,Potential Rootkit Behavior,T1014,Rootkit,Defense Evasion,content/detection-rules/sigma/defense-evasion/rootkit_behavior.yml,windows
+6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e,File Timestamp Manipulation,T1070.006,Timestomp,Defense Evasion,content/detection-rules/sigma/defense-evasion/timestomping.yml,windows
+2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e,Active Directory Enumeration,T1087.002,Domain Account,Discovery,content/detection-rules/sigma/discovery/ad_enumeration.yml,windows
+3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,Cloud Service Discovery,T1580,Cloud Infrastructure Discovery,Discovery,content/detection-rules/sigma/discovery/cloud_service_enumeration.yml,windows
+8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a,Domain Trust Discovery,T1482,Domain Trust Discovery,Discovery,content/detection-rules/sigma/discovery/domain_trust_discovery.yml,windows
+9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b,Suspicious File and Directory Discovery,T1083,File and Directory Discovery,Discovery,content/detection-rules/sigma/discovery/file_directory_discovery.yml,windows
+4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c,Network Reconnaissance Commands,T1018,Remote System Discovery,Discovery,content/detection-rules/sigma/discovery/network_reconnaissance.yml,windows
+0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c,Network Share Discovery,T1135,Network Share Discovery,Discovery,content/detection-rules/sigma/discovery/network_share_discovery.yml,windows
+6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e,Process Discovery Commands,T1057,Process Discovery,Discovery,content/detection-rules/sigma/discovery/process_enumeration.yml,windows
+7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f,System Information Discovery,T1082,System Information Discovery,Discovery,content/detection-rules/sigma/discovery/system_information_discovery.yml,windows
+5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d,Whoami Command Execution,T1033,System Owner/User Discovery,Discovery,content/detection-rules/sigma/discovery/whoami_execution.yml,windows
+3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b,AT Command Scheduled Task,T1053.002,At,Execution; Persistence,content/detection-rules/sigma/execution/at_command.yml,windows
+8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c,Suspicious CMD Command Execution,T1059.003,Windows Command Shell,Execution,content/detection-rules/sigma/execution/cmd_suspicious_commands.yml,windows
+1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f,Office Macro Execution,T1204.002,Malicious File,Execution,content/detection-rules/sigma/execution/macro_execution.yml,windows
+7e8f9a0b-1c2d-3e4f-5a6b-7c8d9e0f1a2b,Suspicious MSHTA Execution,T1218.005,Mshta,Execution; Defense Evasion,content/detection-rules/sigma/execution/mshta_suspicious_execution.yml,windows
+4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e,Suspicious PowerShell Command Execution,T1059.001,PowerShell,Execution,content/detection-rules/sigma/execution/powershell_suspicious_commands.yml,windows
+9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d,Suspicious Regsvr32 Execution,T1218.010,Regsvr32,Execution; Defense Evasion,content/detection-rules/sigma/execution/regsvr32_suspicious.yml,windows
+2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a,Suspicious Scheduled Task Execution,T1053.005,Scheduled Task,Execution; Persistence,content/detection-rules/sigma/execution/scheduled_task_execution.yml,windows
+6d7e8f9a-0b1c-2d3e-4f5a-6b7c8d9e0f1a,Suspicious Script Execution via WScript/CScript,T1059.005,Visual Basic,Execution,content/detection-rules/sigma/execution/wscript_cscript_suspicious.yml,windows
+3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c,Cloud Sync Client Abuse,T1567.002,Exfiltration to Cloud Storage,Exfiltration,content/detection-rules/sigma/exfiltration/cloud_sync_abuse.yml,windows
+5d6e7f8a-9b0c-1d2e-3f4a-5b6c7d8e9f0a,DNS Tunneling Detection,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,Exfiltration; Command And Control,content/detection-rules/sigma/exfiltration/dns_tunneling.yml,windows
+9b0c1d2e-3f4a-5b6c-7d8e-9f0a1b2c3d4e,Email-Based Data Exfiltration,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,Exfiltration,content/detection-rules/sigma/exfiltration/email_exfiltration.yml,windows
+7f8a9b0c-1d2e-3f4a-5b6c-7d8e9f0a1b2c,Exfiltration Over Command and Control,T1041,Exfiltration Over C2 Channel,Exfiltration,content/detection-rules/sigma/exfiltration/exfil_over_c2.yml,windows
+4c5d6e7f-8a9b-0c1d-2e3f-4a5b6c7d8e9f,Data Exfiltration to Web Service,T1567,Exfiltration Over Web Service,Exfiltration,content/detection-rules/sigma/exfiltration/exfil_over_web_service.yml,windows
+6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b,FTP Exfiltration Detection,T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,Exfiltration,content/detection-rules/sigma/exfiltration/ftp_exfiltration.yml,windows
+8a9b0c1d-2e3f-4a5b-6c7d-8e9f0a1b2c3d,Exfiltration to Removable Media,T1052.001,Exfiltration over USB,Exfiltration,content/detection-rules/sigma/exfiltration/removable_media_exfil.yml,windows
+1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a,Scheduled Data Transfer,T1029,Scheduled Transfer,Exfiltration,content/detection-rules/sigma/exfiltration/scheduled_transfer.yml,windows
+0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f,SMB Data Exfiltration,T1048.002,Exfiltration Over Asymmetric Encrypted Non-C2 Protocol,Exfiltration,content/detection-rules/sigma/exfiltration/smb_exfiltration.yml,windows
+2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f,Account Manipulation for Impact,T1531,Account Access Removal,Impact,content/detection-rules/sigma/impact/account_manipulation.yml,windows
+0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d,Boot Configuration Modification,T1490,Inhibit System Recovery,Impact,content/detection-rules/sigma/impact/bcdedit_boot_config.yml,windows
+7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a,Data Destruction Activity,T1485,Data Destruction,Impact,content/detection-rules/sigma/impact/data_destruction.yml,windows
+6a7b8c9d-0e1f-2a3b-4c5d-6e7f8a9b0c1d,Database Destruction Activity,T1485,Data Destruction,Impact,content/detection-rules/sigma/impact/database_destruction.yml,windows
+8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b,Web Defacement Detection,T1491.001,Internal Defacement,Impact,content/detection-rules/sigma/impact/defacement.yml,windows
+9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c,Disk Wipe Activity,T1561,Disk Wipe,Impact,content/detection-rules/sigma/impact/disk_wipe.yml,windows
+5f6a7b8c-9d0e-1f2a-3b4c-5d6e7f8a9b0c,Firmware Corruption Attempt,T1495,Firmware Corruption,Impact; Persistence,content/detection-rules/sigma/impact/firmware_corruption.yml,windows
+1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e,Network Denial of Service,T1498,Network Denial of Service,Impact,content/detection-rules/sigma/impact/network_dos.yml,windows
+4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d,Ransomware File Encryption Activity,T1486,Data Encrypted for Impact,Impact,content/detection-rules/sigma/impact/ransomware_activity.yml,windows
+3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a,Resource Hijacking - Cryptomining,T1496,Resource Hijacking,Impact,content/detection-rules/sigma/impact/resource_hijacking.yml,windows
+6c7d8e9f-0a1b-2c3d-4e5f-6a7b8c9d0e1f,Critical Service Stop,T1489,Service Stop,Impact,content/detection-rules/sigma/impact/service_stop.yml,windows
+5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e,Volume Shadow Copy Deletion,T1490,Inhibit System Recovery,Impact,content/detection-rules/sigma/impact/vssadmin_delete_shadows.yml,windows
+0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a,DCOM Lateral Movement,T1021.003,Distributed Component Object Model,Lateral Movement,content/detection-rules/sigma/lateral-movement/dcom_lateral_movement.yml,windows
+9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f,Pass-the-Hash Attack Detection,T1550.002,Pass the Hash,Lateral Movement,content/detection-rules/sigma/lateral-movement/pass_the_hash.yml,windows
+4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a,PsExec Service Installation,T1021.002,SMB/Windows Admin Shares,Lateral Movement; Execution,content/detection-rules/sigma/lateral-movement/psexec_execution.yml,windows
+5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b,Suspicious RDP Logon,T1021.001,Remote Desktop Protocol,Lateral Movement,content/detection-rules/sigma/lateral-movement/remote_desktop_logon.yml,windows
+3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d,Remote File Copy via SMB,T1570,Lateral Tool Transfer,Lateral Movement,content/detection-rules/sigma/lateral-movement/remote_file_copy.yml,windows
+8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e,Remote Service Creation,T1021.002,SMB/Windows Admin Shares,Lateral Movement; Persistence,content/detection-rules/sigma/lateral-movement/remote_service_creation.yml,windows
+7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d,Windows Admin Share Access,T1021.002,SMB/Windows Admin Shares,Lateral Movement,content/detection-rules/sigma/lateral-movement/windows_admin_shares.yml,windows
+2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c,Windows Remote Management Lateral Movement,T1021.006,Windows Remote Management,Lateral Movement; Execution,content/detection-rules/sigma/lateral-movement/winrm_lateral_movement.yml,windows
+6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c,WMI Remote Process Execution,T1047,Windows Management Instrumentation,Lateral Movement; Execution,content/detection-rules/sigma/lateral-movement/wmi_lateral_movement.yml,windows
+1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b,BITS Job Persistence,T1197,BITS Jobs,Persistence; Defense Evasion,content/detection-rules/sigma/persistence/bits_job_persistence.yml,windows
+6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c,Suspicious Windows Service Creation,T1543.003,Windows Service,Persistence; Privilege Escalation,content/detection-rules/sigma/persistence/new_service_creation.yml,windows
+2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c,Office Application Add-in Persistence,T1137,Office Application Startup,Persistence,content/detection-rules/sigma/persistence/office_addins.yml,windows
+4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a,Registry Run Key Persistence,T1547.001,Registry Run Keys / Startup Folder,Persistence,content/detection-rules/sigma/persistence/registry_run_keys.yml,windows
+3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f,Suspicious Scheduled Task Creation,T1053.005,Scheduled Task,Persistence; Execution,content/detection-rules/sigma/persistence/scheduled_task_creation.yml,windows
+3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d,Screensaver Registry Modification,T1546.002,Screensaver,Persistence; Privilege Escalation,content/detection-rules/sigma/persistence/screensaver_persistence.yml,windows
+7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d,Startup Folder File Creation,T1547.001,Registry Run Keys / Startup Folder,Persistence,content/detection-rules/sigma/persistence/startup_folder_modification.yml,windows
+5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b,WMI Event Subscription Persistence,T1546.003,Windows Management Instrumentation Event Subscription,Persistence,content/detection-rules/sigma/persistence/wmi_event_subscription.yml,windows
+9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d,AlwaysInstallElevated Registry Modification,T1548.002,Bypass User Account Control,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/always_install_elevated.yml,windows
+3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b,UAC Bypass via Event Viewer,T1548.002,Bypass User Account Control,Privilege Escalation; Defense Evasion,content/detection-rules/sigma/privilege-escalation/eventvwr_uac_bypass.yml,windows
+8f9a0b1c-2d3e-4f5a-6b7c-8d9e0f1a2b3c,Named Pipe Impersonation,T1134.001,Token Impersonation/Theft,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/named_pipe_impersonation.yml,windows
+1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f,Print Spooler Privilege Escalation,T1068,Exploitation for Privilege Escalation,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/printspooler_privilege_escalation.yml,windows
+2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a,RunAs Command Execution,T1134,Access Token Manipulation,Privilege Escalation,content/detection-rules/sigma/privilege-escalation/runas_execution.yml,windows
+5c6d7e8f-9a0b-1c2d-3e4f-5a6b7c8d9e0f,Token Manipulation Detection,T1134,Access Token Manipulation,Privilege Escalation; Defense Evasion,content/detection-rules/sigma/privilege-escalation/token_manipulation.yml,windows
+4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e,UAC Bypass via Fodhelper,T1548.002,Bypass User Account Control,Privilege Escalation; Defense Evasion,content/detection-rules/sigma/privilege-escalation/uac_bypass_fodhelper.yml,windows

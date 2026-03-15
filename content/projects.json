@@ -1,42 +1,46 @@
 {
   "projects": [
     {
-      "id": "wazuh-validation",
-      "title": "Wazuh Detection Validation",
-      "summary": "Rule engineering and validation workflow with reproducible counts and deployable bundles.",
-      "type": "detection",
+      "id": "autosoc",
+      "title": "AutoSOC",
+      "summary": "Automated Wazuh alert triage pipeline with deterministic dispositions, redaction, reconciliation, coverage checks, and staged escalation outputs.",
+      "type": "soc-automation",
       "status": "active",
-      "tags": ["wazuh", "sigma", "splunk", "verification"],
-      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/detection-rules",
-      "page_url": "/security.html",
+      "tags": ["autosoc", "wazuh", "triage", "automation", "reporting"],
+      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/scripts/auto-soc",
+      "page_url": "/case-study-autosoc",
       "evidence": [
         {
-          "label": "Verified Counts",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md"
+          "label": "Case Study",
+          "url": "https://hawkinsops.com/case-study-autosoc"
         },
         {
-          "label": "Wazuh Rules",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/detection-rules/wazuh/rules"
+          "label": "Pipeline Code",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/scripts/auto-soc"
+        },
+        {
+          "label": "Proof Lane",
+          "url": "https://hawkinsops.com/proof"
         }
       ]
     },
     {
-      "id": "triage-simulator",
-      "title": "SOC Triage Simulator",
-      "summary": "Scenario-driven triage flow emphasizing context pivots, escalation criteria, and closure notes.",
-      "type": "soc",
+      "id": "wazuh-validation",
+      "title": "Wazuh Detection Validation",
+      "summary": "Rule engineering and validation workflow with reproducible counts, deployable bundles, and public proof surfaces.",
+      "type": "detection",
       "status": "active",
-      "tags": ["soc", "triage", "workflow"],
-      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/site/triage.html",
-      "page_url": "/triage.html",
+      "tags": ["wazuh", "sigma", "splunk", "verification"],
+      "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/detection-rules",
+      "page_url": "/detections",
       "evidence": [
         {
-          "label": "Triage Page",
-          "url": "https://hawkinsops.com/triage"
+          "label": "Verified Counts",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/blob/main/proof/verified-counts.md"
         },
         {
-          "label": "Incident Example",
-          "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/incidents"
+          "label": "Wazuh Rules",
+          "url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/detection-rules/wazuh/rules"
         }
       ]
     },
@@ -48,7 +52,7 @@
       "status": "active",
       "tags": ["ir", "playbooks", "documentation"],
       "repo_url": "https://github.com/raylee-hawkins/HawkinsOperations/tree/main/content/incident-response/playbooks",
-      "page_url": "/security.html",
+      "page_url": "/detections",
       "evidence": [
         {
           "label": "Playbooks Folder",
@@ -102,6 +106,4 @@
     }
   ]
 }
-
-
 

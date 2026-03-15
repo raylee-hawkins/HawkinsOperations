@@ -18,5 +18,4 @@ pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
 pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile ".\PROOF_PACK\VERIFIED_COUNTS.md"
 ```
 
-`PROOF_PACK/VERIFIED_COUNTS.md` is generated from live file counts.
-
+`proof/verified-counts.md` is the public proof mirror for the live verified file counts.

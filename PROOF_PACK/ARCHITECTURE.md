@@ -172,6 +172,12 @@ Test alert generation
 - Proves rules aren't just theoretical YAML
 - Provides verifiable artifact counts
 
+### AutoSOC Override Layer
+
+The AutoSOC engine adds a config-driven `rule_overrides` layer in `C:\RH\OPS\30_Projects\Active\AutoSOC\Build\Config\policy.yaml` ahead of the main disposition logic. This override table intercepts alerts before the broader benign/review/escalate thresholds and applies narrow known-false-positive patterns that are too environment-specific to encode cleanly as Wazuh-level rules. The current override categories are workstation external-device churn (`60227` printer, monitor, Bluetooth, mobile-device enumeration), Windows key-storage open-key failures (`60104`), workstation DistributedCOM app-launch noise for LinkedIn and HP printer Windows apps (`61102`), and routine Linux package-management churn for `dpkg` install and half-configured events (`2902` and `2904`).
+
+The same policy surface also carries narrowly scoped Sysmon suppressions for workstation PowerShell 7 module-load noise (`92151`) and benign VaultCli module loads by known Windows components such as `backgroundTaskHost.exe`, `taskhostw.exe`, `svchost.exe`, `RuntimeBroker.exe`, and `MoUsoCoreWorker.exe` (`92153`). These controls live in policy rather than the detector layer so the public rule corpus stays portable while the running pipeline can still suppress lab-specific noise precisely.
+
 ---
 
 ## Verification Architecture
@@ -271,5 +277,4 @@ For someone validating this portfolio:
 - ✅ Content is real and organized
 - ✅ Candidate understands production deployment
 - ✅ Professional presentation and documentation
-
 

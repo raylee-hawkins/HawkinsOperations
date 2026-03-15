@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | TriageLoop Case Study</title>
-<meta name="description" content="TriageLoop pipeline case study: architecture, workflow, decision logic, and repo-backed incident pack outputs with reproducible proof links.">
+<title>HawkinsOps | SignalFoundry Case Study</title>
+<meta name="description" content="SignalFoundry case study: AI-augmented security triage, deterministic dispositions, redaction, reconciliation, coverage checks, and live recovery proof powered by the AutoSOC engine.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/case-study-autosoc">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TriageLoop Case Study | Closed-Loop Alert Pipeline">
-<meta property="og:description" content="What TriageLoop is, how the pipeline is wired, and how its outputs connect to proof lanes.">
+<meta property="og:title" content="SignalFoundry Case Study | Security Triage and Evidence Pipeline">
+<meta property="og:description" content="One-page breakdown of the problem, architecture, triage logic, metrics, and recovery path behind SignalFoundry and the AutoSOC engine.">
 <meta property="og:url" content="https://hawkinsops.com/case-study-autosoc">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TriageLoop Case Study | Closed-Loop Alert Pipeline">
-<meta name="twitter:description" content="Architecture, workflow, and repo-backed incident pack outputs for TriageLoop.">
+<meta name="twitter:title" content="SignalFoundry Case Study | Security Triage and Evidence Pipeline">
+<meta name="twitter:description" content="Automated SOC triage, measurable outputs, and outage recovery documented on one page.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -43,339 +43,268 @@
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/case-study-autosoc">TriageLoop Case Study</a></li>
+      <li><a href="/case-study-autosoc">SignalFoundry Case Study</a></li>
       <li><a href="/detections">Detections</a></li>
       <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read TriageLoop</a>
+    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read SignalFoundry</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
   <a href="/projects">Projects</a>
-  <a href="/case-study-autosoc">TriageLoop Case Study</a>
+  <a href="/case-study-autosoc">SignalFoundry Case Study</a>
   <a href="/detections">Detections</a>
   <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
   <a href="/proof">Proof</a>
 </div>
-
 <!-- @include:nav:end -->
 <main class="modernize-shell">
-<section class="m-section" style="padding-top:96px;">
-  <div class="m-wrap m-rail-layout">
-    <div>
-      <div class="m-eyebrow">Flagship case study</div>
-      <h1 class="m-title" style="font-size: clamp(2.3rem, 4vw, 3.9rem);">TriageLoop: alert ingestion to escalation artifacts</h1>
-      <p class="m-outcome">A SOAR-style Tier-1 triage workflow for Wazuh alerts with policy-based dispositions, mandatory redaction, and evidence packs that end as reviewable GitHub escalation artifacts.</p>
-      <div class="m-actions">
-        <a class="m-cta m-cta-dominant" href="/modernize/demo.html">Run Demo</a>
-        <a class="m-cta m-cta-primary" href="/proof">Review Proof</a>
-        <a class="m-cta m-cta-accent" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
-        <a class="m-cta m-cta-secondary" href="/projects">Browse projects</a>
-      </div>
-      <div class="m-hero-signals">
-        <span class="m-hero-signal">Overview</span>
-        <span class="m-hero-signal">Workflow</span>
-        <span class="m-hero-signal">Outputs</span>
-        <span class="m-hero-signal">Proof</span>
-      </div>
-
-      <div class="m-kpi-grid" aria-label="TriageLoop proof metrics">
-        <article class="m-kpi">
-          <div class="m-kpi-value"><span data-verified="detections">139</span></div>
-          <div class="m-kpi-label">Detection context</div>
-          <p class="m-kpi-copy">The case study sits inside a broader, script-verified public detection corpus rather than an isolated project page.</p>
-        </article>
-        <article class="m-kpi">
-          <div class="m-kpi-value"><span data-verified="wazuh">28</span></div>
-          <div class="m-kpi-label">Wazuh rule blocks</div>
-          <p class="m-kpi-copy">Rules and lab paths are tied to the same operational story, which keeps the automation grounded.</p>
-        </article>
-        <article class="m-kpi">
-          <div class="m-kpi-value"><span data-verified="ir">10</span></div>
-          <div class="m-kpi-label">Playbook coverage</div>
-          <p class="m-kpi-copy">Escalation outputs are backed by documented IR procedures instead of undocumented analyst habit.</p>
-        </article>
-      <article class="m-kpi">
-        <div class="m-kpi-value"><span data-verified-date>02-26-2026</span></div>
-          <div class="m-kpi-label">Last verified</div>
-        <p class="m-kpi-copy">Counts and proof links stay tied to the same repository verification model used elsewhere on the site.</p>
-      </article>
-      </div>
-    </div>
-
-    <aside class="m-rail">
-      <section class="m-rail-section">
-        <div class="m-card-kicker">Reviewer path</div>
-        <h2>Keep proof in view</h2>
-        <p class="m-subtitle">This rail keeps the flagship path short: understand the workflow, inspect the evidence outputs, then verify the receipts.</p>
-        <div class="m-link-list">
-          <a href="/proof" class="m-link-item">
-            <strong>Proof page</strong>
-            <span>Receipt drawer for logs, packs, and verification commands.</span>
-          </a>
-          <a href="/march-2026-release" class="m-link-item">
-            <strong>Release timeline</strong>
-            <span>Execution chain that connects the case study to documented releases.</span>
-          </a>
-          <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" class="m-link-item">
-            <strong>Public repository</strong>
-            <span>Source and history for the automation stack behind this page.</span>
-          </a>
+  <section class="m-section" style="padding-top:96px;">
+    <div class="m-wrap m-rail-layout">
+      <div>
+        <div class="m-eyebrow">Flagship case study</div>
+        <h1 class="m-title" style="font-size: clamp(2.4rem, 4vw, 4rem);">SignalFoundry case study: security triage and evidence pipeline</h1>
+        <p class="m-outcome">SignalFoundry is an AI-augmented security triage and evidence pipeline. The AutoSOC engine is the current Wazuh-based implementation that polls alerts, applies deterministic dispositions, redacts sensitive fields, validates reconciliation and host coverage, and stages analyst-reviewable escalations.</p>
+        <div class="m-actions">
+          <a class="m-cta m-cta-dominant" href="/proof">Review Proof</a>
+          <a class="m-cta m-cta-primary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
+          <a class="m-cta m-cta-secondary" href="/soc-lab">Inspect Lab</a>
         </div>
-      </section>
-
-      <section class="m-rail-section">
-        <div class="m-card-kicker">Core outcome</div>
-        <h2>Why it matters</h2>
-        <ul class="m-list-tight">
-          <li>Reduces repetitive triage drift with explicit disposition logic.</li>
-          <li>Enforces sanitization before anything becomes public proof.</li>
-          <li>Produces a consistent escalation packet for review and handoff.</li>
-        </ul>
-      </section>
-    </aside>
-  </div>
-</section>
-
-<section class="m-section m-stage">
-  <div class="m-wrap">
-    <div class="m-evidence-note m-stage-surface">
-      <div class="m-card-kicker">Reliability / recovery</div>
-      <h3>Operational recovery is part of the project signal</h3>
-      <p>This workflow was also used to diagnose and recover a live ingestion outage. The investigation separated infrastructure reachability from application logic, restored polling, then fixed a reconciliation-path bug uncovered during retest. Final validation returned the pipeline to <span class="m-inline-code">SUCCESS</span> with strict reconciliation back to <span class="m-inline-code">MISMATCH_COUNT=0</span>.</p>
-      <p><a href="/proof" class="m-cta m-cta-secondary">Review proof path</a></p>
+        <div class="m-kpi-grid" aria-label="AutoSOC operational metrics">
+          <article class="m-kpi">
+            <div class="m-kpi-value">28,716</div>
+            <div class="m-kpi-label">Total cases in ledger</div>
+            <p class="m-kpi-copy">Current live-state corpus from the canonical public metrics payload generated on 03-14-2026 UTC.</p>
+          </article>
+          <article class="m-kpi">
+            <div class="m-kpi-value">25,118</div>
+            <div class="m-kpi-label">Auto-closed</div>
+            <p class="m-kpi-copy">20,942 benign closures plus 4,176 known-false-positive closures handled without analyst escalation.</p>
+          </article>
+          <article class="m-kpi">
+            <div class="m-kpi-value">2,478</div>
+            <div class="m-kpi-label">Escalated</div>
+            <p class="m-kpi-copy">Suspicious or policy-sensitive cases preserved as reviewable outputs instead of being collapsed into noise.</p>
+          </article>
+          <article class="m-kpi">
+            <div class="m-kpi-value">PASS</div>
+            <div class="m-kpi-label">Health gates</div>
+            <p class="m-kpi-copy">Reconciliation PASS, required-host coverage PASS, heartbeat SUCCESS, freshness PASS, mismatch count 0.</p>
+          </article>
+        </div>
+      </div>
+      <aside class="m-rail">
+        <section class="m-rail-section">
+          <div class="m-card-kicker">What this proves</div>
+          <h2>Operational security engineering</h2>
+          <ul class="m-list-tight">
+            <li>Built a measurable triage pipeline instead of isolated scripts.</li>
+            <li>Converted recurring false-positive noise into explicit suppression logic.</li>
+            <li>Used hard gates for reconciliation, heartbeat, freshness, and coverage.</li>
+            <li>Recovered the system after a live pipeline failure and revalidated the output path.</li>
+          </ul>
+        </section>
+        <section class="m-rail-section">
+          <div class="m-card-kicker">Reviewer path</div>
+          <h2>Shortest useful path</h2>
+          <div class="m-link-list">
+            <a href="/proof" class="m-link-item">
+              <strong>Proof lane</strong>
+              <span>Public counts, metrics, and redacted artifact references.</span>
+            </a>
+            <a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/scripts/auto-soc" target="_blank" rel="noopener noreferrer" class="m-link-item">
+              <strong>Pipeline code</strong>
+              <span>Automation modules behind polling, triage, redaction, and validation.</span>
+            </a>
+            <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_PIPELINE_RECOVERY_CASE_STUDY_03-13-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
+              <strong>Recovery case study</strong>
+              <span>Documented outage recovery and validation trail from 03-13-2026.</span>
+            </a>
+          </div>
+        </section>
+      </aside>
     </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-overview">
-  <div class="m-wrap">
-    <div class="m-flow-grid">
+  </section>
+  <section class="m-section m-stage">
+    <div class="m-wrap m-flow-grid">
       <article class="m-flow-card">
         <div class="m-flow-step">1</div>
         <h3>Problem</h3>
-        <p class="m-copy">SOC triage gets noisy fast. Without a standard output contract, evidence quality drifts with analyst style and alert fatigue.</p>
+        <p class="m-copy">SOC alert queues are dominated by repetitive noise, inconsistent triage decisions, and evidence that is hard to validate after the fact.</p>
       </article>
       <article class="m-flow-card">
         <div class="m-flow-step">2</div>
-        <h3>System response</h3>
-        <p class="m-copy">TriageLoop applies disposition logic, runs a mandatory redaction gate, and packages the result as reviewable evidence.</p>
+        <h3>Goal</h3>
+        <p class="m-copy">Build a repeatable pipeline that can classify recurring alert patterns, preserve suspicious cases, and expose its own operational health.</p>
       </article>
       <article class="m-flow-card">
         <div class="m-flow-step">3</div>
-        <h3>Proof output</h3>
-        <p class="m-copy">The project is presented as a working engineering loop: workflow, artifacts, release trail, and verification path stay connected.</p>
+        <h3>Result</h3>
+        <p class="m-copy">AutoSOC now produces consistent dispositions, redacted outputs, escalation artifacts, and explicit PASS or FAIL state for the pipeline itself.</p>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="m-section m-stage m-stage-topology">
-  <div class="m-wrap">
-    <div class="m-divider-title">
-      <div class="m-card-kicker">Topology / architecture</div>
-    </div>
-    <div class="m-evidence-note" style="margin-bottom:18px;">
-      <div class="m-card-kicker">Inspection stage</div>
-      <h3>Start with the system map</h3>
-      <p>This stage exists to explain the environment and control points before the page asks the reviewer to think about movement, logic, or outputs.</p>
-    </div>
-    <div class="m-diagram-frame m-stage-surface">
-      <div class="m-frame-head">
-        <span class="m-frame-title">System relationships</span>
-        <span class="m-frame-tag">Architecture</span>
+  <section class="m-section m-stage">
+    <div class="m-wrap">
+      <div class="m-divider-title">
+        <div class="m-card-kicker">Architecture</div>
       </div>
-      <div class="m-frame-body">
-        <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1" alt="TriageLoop architecture map showing sources, pipeline gates, and output controls" width="1600" height="900" loading="eager">
-        <p class="m-frame-caption">This view explains the environment and control points: where alerts enter, where policy gates apply, and where reviewable outputs are assembled.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-workflow">
-  <div class="m-wrap">
-    <div class="m-divider-title">
-      <div class="m-card-kicker">Workflow</div>
-    </div>
-    <div class="m-grid-2 m-stage-stagegrid">
-      <div class="m-diagram-frame m-stage-surface">
-        <div class="m-frame-head">
-          <span class="m-frame-title">Workflow sequence</span>
-          <span class="m-frame-tag">Pipeline</span>
-        </div>
-        <div class="m-frame-body">
-          <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg" alt="TriageLoop workflow diagram showing poll, triage, redact, pack, and pull request creation" width="1200" height="240" loading="lazy">
-          <p class="m-frame-caption">This narrower view reduces the workflow to the steps a reviewer needs to understand quickly: ingest, decide, redact, package, and escalate.</p>
-        </div>
-      </div>
-      <div class="m-evidence-note m-stage-surface">
-        <div class="m-card-kicker">Inspection stage</div>
-        <h3>Then inspect movement</h3>
-        <p>This is the point where the page stops describing architecture and starts showing how alerts move through reviewable pipeline states. That separation is what turns the page into a packet instead of a document.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-logic">
-  <div class="m-wrap m-split-callout">
-    <article class="m-callout">
-      <div class="m-card-kicker">Decision logic</div>
-      <h3>Deterministic dispositions</h3>
-      <p class="m-subtitle">TriageLoop uses explicit dispositions to keep triage behavior reviewable and reproducible.</p>
-      <div style="overflow-x:auto;margin-top:14px">
-        <table style="width:100%;border-collapse:collapse;font-size:.94rem">
-          <thead>
-            <tr>
-              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">Disposition</th>
-              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">Meaning</th>
-              <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">System action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">AUTO_CLOSE_BENIGN</span></td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Expected activity</td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Close and log evidence summary</td>
-            </tr>
-            <tr>
-              <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">AUTO_CLOSE_KNOWN_FP</span></td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Known false positive pattern</td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Close, annotate reason, keep audit trail</td>
-            </tr>
-            <tr>
-              <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">ESCALATE</span></td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Suspicious or high-confidence case</td>
-              <td style="padding:10px;border-bottom:1px solid var(--border)">Generate evidence pack and escalation artifacts</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
-
-    <article class="m-callout">
-      <div class="m-card-kicker">Operational value</div>
-      <h3>What the workflow fixes</h3>
-      <ul class="m-list-tight">
-        <li>Standardizes evidence collection so handoff quality does not depend on analyst style.</li>
-        <li>Keeps redaction as a mandatory gate before any artifact becomes public.</li>
-        <li>Preserves the escalation path even while reducing false-positive pressure.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-outputs">
-  <div class="m-wrap m-grid-2">
-    <article class="m-card m-output-card">
-      <div class="m-card-kicker">Outputs</div>
-      <h2>High-volume rootcheck pattern</h2>
-      <p class="m-copy"><strong>Checks performed:</strong> known-FP policy match, repetition pattern, host context, and rule history.<br><strong>Redaction gate:</strong> host identifiers and environment-specific values sanitized before publication.<br><strong>Evidence pack output:</strong> one-pager, full report, timeline CSV, queries file, and closure report.</p>
-      <div class="m-output-stack">
-        <div class="m-evidence-note">
-          <div class="m-card-kicker">Inspection stage</div>
-          <h3>Named outputs, not generic artifacts</h3>
-          <p>This is where the project becomes reviewable engineering work. The files, terminal output, and screenshot are presented as connected evidence from the same pipeline stage.</p>
-        </div>
-        <div class="m-artifact-grid" aria-label="Representative TriageLoop artifact outputs">
-          <div class="m-artifact">
-            <strong>00_one_pager.md</strong>
-            <span>Label: intake summary. Purpose: orient the reviewer quickly. Pipeline relation: first output after triage and redaction.</span>
-          </div>
-          <div class="m-artifact">
-            <strong>01_full_report.md</strong>
-            <span>Label: investigative narrative. Purpose: preserve context and rationale. Pipeline relation: escalation package core document.</span>
-          </div>
-          <div class="m-artifact">
-            <strong>02_timeline.csv</strong>
-            <span>Label: chronology output. Purpose: support reconstruction and handoff. Pipeline relation: machine-readable evidence layer.</span>
-          </div>
-          <div class="m-artifact">
-            <strong>closure_report.md</strong>
-            <span>Label: final disposition. Purpose: preserve auditability. Pipeline relation: workflow endpoint for reviewer trust.</span>
-          </div>
-        </div>
-        <div class="m-terminal m-output-terminal">
-          <div class="m-terminal-head">
-            <span class="m-terminal-label">Representative output</span>
-            <span class="m-frame-tag">Triage evidence</span>
-          </div>
-          <pre class="m-code">rootcheck_window_alerts: 1312
-dominant_pattern: repeated benign rootcheck signatures
-action: policy tuning + replay validation
-outcome: reduced false-positive pressure while preserving escalation path</pre>
-        </div>
-      </div>
-    </article>
-
-    <article class="m-shot-frame">
-      <div class="m-frame-head">
-        <span class="m-frame-title">Evidence capture</span>
-        <span class="m-frame-tag">Screenshot</span>
-      </div>
-      <div class="m-frame-body">
-        <img src="/assets/pp_soc_integration/t3-workflow.png" alt="TriageLoop workflow screenshot from the project gallery" width="1334" height="750" loading="lazy">
-        <p class="m-frame-caption">Label: workflow evidence capture. Purpose: give the reviewer a visual counterpart to the architecture and terminal output. Pipeline relation: demonstrates the operational surface that produces the named artifacts.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-proof">
-  <div class="m-wrap">
-    <div class="m-card">
-      <div class="m-card-kicker">Proof links</div>
-      <h2>Validate the case study</h2>
       <div class="m-grid-2">
-        <a href="/proof" class="m-link-item">
-          <strong>Proof page</strong>
-          <span>Receipt drawer for logs, packs, release links, and reproducible verification commands.</span>
-        </a>
-        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/RELEASE_NOTES_v1.4.0.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
-          <strong>Release notes</strong>
-          <span>Operational change log for the project milestone referenced throughout this page.</span>
-        </a>
-        <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
-          <strong>Operations runbook</strong>
-          <span>Execution reference that anchors the workflow in repeatable operational practice.</span>
-        </a>
-        <a href="/march-2026-release" class="m-link-item">
-          <strong>March release timeline</strong>
-          <span>Bridge between project narrative and release execution history.</span>
-        </a>
+        <div class="m-diagram-frame m-stage-surface">
+          <div class="m-frame-head">
+            <span class="m-frame-title">System map</span>
+            <span class="m-frame-tag">Wazuh + AutoSOC</span>
+          </div>
+          <div class="m-frame-body">
+            <img src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1" alt="AutoSOC architecture map showing Wazuh, pipeline stages, validation gates, and output lanes" width="1600" height="900" loading="eager">
+            <p class="m-frame-caption">Telemetry enters through Wazuh, moves through AutoSOC triage and validation gates, then exits as either closure history or staged escalation output.</p>
+          </div>
+        </div>
+        <article class="m-callout">
+          <div class="m-card-kicker">Stack</div>
+          <h3>Core components</h3>
+          <ul class="m-list-tight">
+            <li>Proxmox lab with Wazuh, pfSense, endpoints, Grafana, and supporting services.</li>
+            <li>Python and PowerShell automation in the public <span class="m-inline-code">scripts/auto-soc/</span> lane.</li>
+            <li>Sigma, Wazuh, and Splunk content tied to the same evidence model.</li>
+            <li>Public proof lane plus site data generated from verified inventory and canonical metrics.</li>
+          </ul>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="m-section m-stage m-stage-next">
-  <div class="m-wrap">
-    <div class="m-card">
-      <div class="m-card-kicker">Next steps</div>
-      <h2>What the reviewer should do next</h2>
-      <div class="m-next-grid">
-        <a href="/proof" class="m-link-item">
-          <strong>Open the proof page</strong>
-          <span>Check the receipt drawer, verification commands, and artifact references directly.</span>
-        </a>
-        <a href="/projects" class="m-link-item">
-          <strong>Return to projects</strong>
-          <span>Use TriageLoop as the flagship entry point, then compare it against the rest of the portfolio.</span>
-        </a>
-        <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" class="m-link-item">
-          <strong>Inspect the repository</strong>
-          <span>Trace the public code, docs, and commit history behind the workflow.</span>
-        </a>
+  <section class="m-section m-stage">
+    <div class="m-wrap m-split-callout">
+      <article class="m-callout">
+        <div class="m-card-kicker">Pipeline logic</div>
+        <h3>How decisions are made</h3>
+        <ol class="m-list-tight">
+          <li>Poll alerts and normalize the case inputs.</li>
+          <li>Evaluate alert context against deterministic policy rules.</li>
+          <li>Apply suppression logic for recurring benign or known-false-positive patterns.</li>
+          <li>Redact sensitive fields before any public-facing artifact is produced.</li>
+          <li>Validate reconciliation, freshness, heartbeat, and host coverage.</li>
+          <li>Emit a final disposition and, when needed, stage escalation output for review.</li>
+        </ol>
+      </article>
+      <article class="m-callout">
+        <div class="m-card-kicker">Dispositions</div>
+        <h3>Output classes</h3>
+        <div style="overflow-x:auto;margin-top:14px">
+          <table style="width:100%;border-collapse:collapse;font-size:.94rem">
+            <thead>
+              <tr>
+                <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">Disposition</th>
+                <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">When it is used</th>
+                <th style="text-align:left;padding:10px;border-bottom:1px solid var(--border)">System action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">AUTO_CLOSE_BENIGN</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Expected activity with sufficient context</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Close and preserve audit history</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">AUTO_CLOSE_KNOWN_FP</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Recurring false-positive pattern already studied</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Close, annotate, and retain suppression rationale</td>
+              </tr>
+              <tr>
+                <td style="padding:10px;border-bottom:1px solid var(--border)"><span class="m-inline-code">ESCALATE</span></td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Suspicious or policy-sensitive case</td>
+                <td style="padding:10px;border-bottom:1px solid var(--border)">Stage evidence pack and analyst-reviewable escalation artifact</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="m-section m-stage">
+    <div class="m-wrap m-grid-2">
+      <article class="m-card">
+        <div class="m-card-kicker">Operational metrics</div>
+        <h2>Current live state</h2>
+        <ul class="m-list-tight">
+          <li>Total cases in ledger: <strong>28,716</strong></li>
+          <li>Auto-closed benign: <strong>20,942</strong></li>
+          <li>Auto-closed known false positive: <strong>4,176</strong></li>
+          <li>Escalated: <strong>2,478</strong></li>
+          <li>Coverage: <strong>PASS</strong></li>
+          <li>Heartbeat: <strong>SUCCESS</strong></li>
+          <li>Freshness: <strong>PASS</strong></li>
+          <li>Reconciliation mismatches: <strong>0</strong></li>
+        </ul>
+      </article>
+      <article class="m-card">
+        <div class="m-card-kicker">Why the numbers matter</div>
+        <h2>Evidence of tuning, not alert spam</h2>
+        <ul class="m-list-tight">
+          <li>High auto-close volume is split between benign activity and known false positives rather than one undifferentiated bucket.</li>
+          <li>Escalations remain preserved as a separate path instead of disappearing inside aggressive suppression.</li>
+          <li>Pipeline health is exposed as explicit gates, so volume numbers are not presented without reliability context.</li>
+          <li>The same site also exposes a separate verified detection inventory of <span data-verified="detections">139</span> public detections and <span data-verified="ir">10</span> IR playbooks.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="m-section m-stage">
+    <div class="m-wrap m-grid-2">
+      <article class="m-card">
+        <div class="m-card-kicker">Failure and recovery</div>
+        <h2>Pipeline coverage loss on 03-13-2026</h2>
+        <p class="m-copy"><strong>Symptoms:</strong> coverage checks failed, alerts stopped arriving, and the pipeline lost confidence in its monitored host set.</p>
+        <p class="m-copy"><strong>Root cause chain:</strong> agent connectivity and evidence-pull recovery were followed by a reconciliation-path bug uncovered during retest.</p>
+        <p class="m-copy"><strong>Fix:</strong> restore the ingest path, correct the reconciliation-path logic, rerun validation, and confirm the system returned to <span class="m-inline-code">heartbeat=SUCCESS</span>, <span class="m-inline-code">reconciliation=PASS</span>, <span class="m-inline-code">freshness=PASS</span>, and required-host coverage PASS.</p>
+      </article>
+      <article class="m-card">
+        <div class="m-card-kicker">Lessons</div>
+        <h2>What this surfaced</h2>
+        <ul class="m-list-tight">
+          <li>Security automation needs observability on the pipeline itself, not just the alerts it processes.</li>
+          <li>Reconciliation is a control, not a reporting extra.</li>
+          <li>False-positive tuning only matters if escalation integrity stays intact.</li>
+          <li>Failure handling is part of the engineering signal for SOC automation work.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="m-section m-stage m-stage-proof">
+    <div class="m-wrap">
+      <div class="m-card">
+        <div class="m-card-kicker">Supporting evidence</div>
+        <h2>Follow the proof chain</h2>
+        <div class="m-grid-2">
+          <a href="/proof" class="m-link-item">
+            <strong>Proof page</strong>
+            <span>Public counts, metrics, and artifact references for fast reviewer verification.</span>
+          </a>
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations/tree/main/scripts/auto-soc" target="_blank" rel="noopener noreferrer" class="m-link-item">
+            <strong>Pipeline code</strong>
+            <span>Public automation modules behind triage, redaction, packing, and validation.</span>
+          </a>
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_OPERATIONS_RUNBOOK_03-02-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
+            <strong>Operations runbook</strong>
+            <span>Documented operator flow and expected AutoSOC execution path.</span>
+          </a>
+          <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/docs/execution/AUTOSOC_PIPELINE_INCIDENT_DEBUG_03-13-2026.md" target="_blank" rel="noopener noreferrer" class="m-link-item">
+            <strong>Incident debug trail</strong>
+            <span>Root-cause isolation and recovery validation for the March 13 outage.</span>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -397,7 +326,6 @@ outcome: reduced false-positive pressure while preserving escalation path</pre>
     </div>
   </div>
 </footer>
-
 <!-- @include:footer:end -->
 <script src="/assets/fetch-utils.js" defer></script>
 <script src="/data/counts.js" defer></script>
