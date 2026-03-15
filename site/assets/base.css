@@ -1,0 +1,72 @@
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(11, 95, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, var(--bg) 0%, #f9fbff 100%);
+}
+
+main {
+  display: block;
+}
+
+.sf-shell {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3) var(--space-6);
+}
+
+.sf-section {
+  padding: 32px 0;
+}
+
+@media (min-width: 768px) {
+  .sf-section {
+    padding: 48px 0;
+  }
+}
+
+.sf-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eaf0ff;
+  color: #1648b3;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sf-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.sf-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.sf-focus-ring:focus,
+.sf-focus-ring:focus-visible,
+a:focus,
+a:focus-visible,
+button:focus,
+button:focus-visible {
+  outline: 3px solid #003fc7;
+  outline-offset: 3px;
+}

@@ -11,7 +11,7 @@ This repository is a professional security operations portfolio. We are committe
 **Positive contributions include:**
 - Providing constructive feedback on detection rules, playbooks, or documentation
 - Suggesting improvements to detection logic or incident response procedures
-- Reporting security issues responsibly (see [SECURITY.md](SECURITY.md))
+- Reporting security issues responsibly (see [SECURITY.md](../SECURITY.md))
 - Helping improve documentation clarity
 - Sharing knowledge and expertise in security operations
 - Being respectful of differing viewpoints and experiences
@@ -38,9 +38,9 @@ This Code of Conduct applies to all project spaces, including:
 
 Given this is a security operations portfolio:
 
-1. **Responsible Disclosure:** Report security vulnerabilities privately via [SECURITY.md](SECURITY.md)
+1. **Responsible Disclosure:** Report security vulnerabilities privately via [SECURITY.md](../SECURITY.md)
 2. **No Weaponization:** Detection rules should focus on defensive use cases
-3. **Sanitization Required:** All contributions must follow [PROOF_PACK/EVIDENCE_CHECKLIST.md](PROOF_PACK/EVIDENCE_CHECKLIST.md)
+3. **Sanitization Required:** All contributions must follow [PROOF_PACK/EVIDENCE_CHECKLIST.md](../PROOF_PACK/EVIDENCE_CHECKLIST.md)
 4. **No Real Data:** Never include real IPs, hostnames, credentials, or PII
 
 ## Enforcement
