@@ -78,13 +78,13 @@ Paste verification output or test results here
 - [ ] No credentials or API keys
 - [ ] No email addresses or PII
 - [ ] No internal company names
-- [ ] Followed [PROOF_PACK/EVIDENCE_CHECKLIST.md](PROOF_PACK/EVIDENCE_CHECKLIST.md)
+- [ ] Followed [PROOF_PACK/EVIDENCE_CHECKLIST.md](../PROOF_PACK/EVIDENCE_CHECKLIST.md)
 
 ---
 
 ## Quality Checklist
 
-- [ ] Code follows the style guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)
+- [ ] Code follows the style guidelines in [CONTRIBUTING.md](../CONTRIBUTING.md)
 - [ ] I have performed a self-review of my changes
 - [ ] I have commented my code where necessary (especially detection logic)
 - [ ] My changes generate no new warnings

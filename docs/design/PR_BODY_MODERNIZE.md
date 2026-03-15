@@ -82,13 +82,13 @@ Not applicable. This PR does not add or modify IR playbooks.
 - [x] No credentials or API keys
 - [x] No email addresses or PII
 - [x] No internal company names
-- [x] Followed [PROOF_PACK/EVIDENCE_CHECKLIST.md](PROOF_PACK/EVIDENCE_CHECKLIST.md)
+- [x] Followed [PROOF_PACK/EVIDENCE_CHECKLIST.md](../../PROOF_PACK/EVIDENCE_CHECKLIST.md)
 
 ---
 
 ## Quality Checklist
 
-- [x] Code follows the style guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)
+- [x] Code follows the style guidelines in [CONTRIBUTING.md](../../CONTRIBUTING.md)
 - [x] I have performed a self-review of my changes
 - [x] I have commented my code where necessary (especially detection logic)
 - [x] My changes generate no new warnings

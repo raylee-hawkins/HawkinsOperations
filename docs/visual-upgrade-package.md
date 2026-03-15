@@ -539,7 +539,7 @@ Mockup files:
 
 ## 3. Figma Tokens JSON
 
-Recommended mode token file: [tokens/modernize-tokens.json](/C:/RH/OPS/10_Portfolio/HawkinsOperations/tokens/modernize-tokens.json)
+Recommended mode token file: [tokens/modernize-tokens.json](../tokens/modernize-tokens.json)
 
 ```json
 {
@@ -629,9 +629,9 @@ Recommended mode token file: [tokens/modernize-tokens.json](/C:/RH/OPS/10_Portfo
 
 ## 4. Concrete Code Snippets
 
-- Tailwind config: [docs/design/reference/tailwind.config.js](/C:/RH/OPS/10_Portfolio/HawkinsOperations/docs/design/reference/tailwind.config.js)
-- Tokens CSS: [docs/design/reference/tokens.css](/C:/RH/OPS/10_Portfolio/HawkinsOperations/docs/design/reference/tokens.css)
-- Hero example: [docs/design/reference/components/Hero.tsx](/C:/RH/OPS/10_Portfolio/HawkinsOperations/docs/design/reference/components/Hero.tsx)
+- Tailwind config: [docs/design/reference/tailwind.config.js](./design/reference/tailwind.config.js)
+- Tokens CSS: [docs/design/reference/tokens.css](./design/reference/tokens.css)
+- Hero example: [docs/design/reference/components/Hero.tsx](./design/reference/components/Hero.tsx)
 - Dark-mode overrides live in `tokens.css`
 
 Inline SVG example from the mockup set:
@@ -662,13 +662,13 @@ Write-Host 'Branch:' $b
 
 ## 5. PR Body
 
-Ready-to-paste recommended mode PR body: [docs/design/PR_BODY_MODERNIZE.md](/C:/RH/OPS/10_Portfolio/HawkinsOperations/docs/design/PR_BODY_MODERNIZE.md)
+Ready-to-paste recommended mode PR body: [docs/design/PR_BODY_MODERNIZE.md](./design/PR_BODY_MODERNIZE.md)
 
-Note: `./.codex/COMMIT_TEMPLATE.md` and `./.codex/PR_TEMPLATE.md` were not present during repo inspection, so this package uses [.github/PULL_REQUEST_TEMPLATE.md](/C:/RH/OPS/10_Portfolio/HawkinsOperations/.github/PULL_REQUEST_TEMPLATE.md) as the structural fallback.
+Note: `./.codex/COMMIT_TEMPLATE.md` and `./.codex/PR_TEMPLATE.md` were not present during repo inspection, so this package uses [.github/PULL_REQUEST_TEMPLATE.md](../.github/PULL_REQUEST_TEMPLATE.md) as the structural fallback.
 
 ## 6. Tasks Backlog Table
 
-See [docs/design/TASKS_MODERNIZE.md](/C:/RH/OPS/10_Portfolio/HawkinsOperations/docs/design/TASKS_MODERNIZE.md).
+See [docs/design/TASKS_MODERNIZE.md](./design/TASKS_MODERNIZE.md).
 
 ## 7. Quick Test Plan
 
