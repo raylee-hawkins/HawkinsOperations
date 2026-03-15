@@ -24,20 +24,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <script>
-  (function () {
-    var saved = null;
-    try {
-      saved = localStorage.getItem('rh-theme');
-    } catch (err) {
-      saved = null;
-    }
-    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-  })();
+  document.documentElement.setAttribute('data-theme', 'dark');
 </script>
 <link rel="stylesheet" href="/assets/styles.css?v=02-24-2026-3">
 <link rel="stylesheet" href="/assets/design-tokens.css?v=03-15-2026-1">
 <link rel="stylesheet" href="/assets/base.css?v=03-15-2026-1">
+<link rel="stylesheet" href="/assets/coherence.css?v=03-15-2026-1">
 <style>
   .sf-home {
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -246,7 +238,6 @@
       <li><a href="/resume">Resume</a></li>
     </ul>
     <a class="btn btn-p nav-cta" href="/proof">Review Proof</a>
-    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">

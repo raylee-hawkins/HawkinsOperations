@@ -1,0 +1,68 @@
+/* coherence.css — Visual bridge for site-wide consistency
+   Loaded LAST on all pages to unify legacy (.card, .slbl, .stitle) and
+   modernize (.m-card, .m-eyebrow) systems into one recruiter-facing surface.
+   Uses modernize token names as the canonical token family.
+   v1 — 03-15-2026 */
+
+/* ── Force modernize tokens dark for light-mode visitors ─────────── */
+html[data-theme="light"] {
+  --surface: #111827;
+  --surface-soft: #18212f;
+  --text: #f8fafc;
+  --text-soft: #d4d4d8;
+  --border: rgba(255, 255, 255, 0.12);
+  --primary-50: rgba(15, 118, 110, 0.12);
+  --primary-300: #5eead4;
+  --primary-700: #0f766e;
+  --neutral-900: #111827;
+}
+
+/* ── Legacy card → modernize surface alignment ──────────────────── */
+.card {
+  background: linear-gradient(160deg, #111827 0%, #0d1420 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.08);
+}
+
+.card:hover {
+  border-color: rgba(122, 184, 255, 0.28);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* ── Lane card accents: blue/cyan, not green ────────────────────── */
+.lane-card[data-lane="fastest"] .lane-tag {
+  background: rgba(122, 184, 255, 0.10);
+  border-color: rgba(122, 184, 255, 0.28);
+  color: #7ab8ff;
+}
+
+.lane-card[data-lane="fastest"]:hover {
+  border-color: rgba(122, 184, 255, 0.30);
+}
+
+/* ── Grid gap alignment (12 → 18 to match modernize) ───────────── */
+.g2, .g3 { gap: 18px; }
+.g-auto  { gap: 14px; }
+
+/* ── Footer visual consistency ──────────────────────────────────── */
+footer {
+  padding: 40px 0 56px;
+}
+
+footer .ctr p {
+  font-size: 0.95rem;
+}
+
+/* ── Resume sheet → dark surface alignment ──────────────────────── */
+.resume-sheet {
+  background: linear-gradient(160deg, #111827 0%, #0d1420 100%);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ── Theme toggle hidden (belt + suspenders with morning-pass) ─── */
+.theme-btn,
+#themeToggle {
+  display: none !important;
+}

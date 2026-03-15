@@ -22,15 +22,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <script>
-  (function () {
-    var saved = null;
-    try { saved = localStorage.getItem('rh-theme'); } catch (e) {}
-    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-  })();
+  document.documentElement.setAttribute('data-theme', 'dark');
 </script>
 <link rel="stylesheet" href="/assets/styles.css">
 <link rel="stylesheet" href="/assets/modernize.css?v=03-09-2026-4">
+<link rel="stylesheet" href="/assets/coherence.css?v=03-15-2026-1">
 </head>
 <body>
 <!-- @include:nav:start -->
@@ -47,7 +43,6 @@
       <li><a href="/resume">Resume</a></li>
     </ul>
     <a class="btn btn-p nav-cta" href="/proof">Review Proof</a>
-    <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
