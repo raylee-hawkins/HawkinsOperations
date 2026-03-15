@@ -1,23 +1,23 @@
 window.HAWKINSOPS_OPS_METRICS = {
-  generated_at_utc: "2026-03-15T09:34:40Z",
-  source_note: "Canonical SignalFoundry metrics generated from data/metrics.json.",
-  metrics: {
-    total_cases: 33459,
-    auto_close_rate: "77.14%",
-    escalated: 2478,
-    review: 5162,
-    staged_pending: 10,
-    known_fp: 4867,
-    auto_closed_benign: 20942,
-    reconciliation: "PASS",
-    reconciliation_mismatch: 0,
-    heartbeat: "SUCCESS",
-    coverage_ratio: "8/8",
-    coverage_status: "PASS",
-    last_updated: "03-15-2026",
-    sigma: 103,
-    splunk: 8,
-    wazuh: 28,
-    ir: 10
+  "generated_at_utc": "2026-03-15T09:34:40Z",
+  "source_note": "Canonical SignalFoundry metrics generated from data/metrics.json.",
+  "metrics": {
+    "total_cases": 34206,
+    "auto_close_rate": "0.01%",
+    "escalated": 0,
+    "review": 5162,
+    "staged_pending": 10,
+    "known_fp": 4,
+    "auto_closed_benign": 0,
+    "reconciliation": "PASS",
+    "reconciliation_mismatch": 0,
+    "heartbeat": "SUCCESS",
+    "coverage_ratio": "8/8",
+    "coverage_status": "PASS",
+    "last_updated": "03-15-2026",
+    "sigma": 103,
+    "splunk": 8,
+    "wazuh": 28,
+    "ir": 10
   }
 };
