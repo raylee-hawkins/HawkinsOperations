@@ -28,10 +28,17 @@ html[data-theme="dark"] {
   --accent: #5fb3ff;
   --muted: #9eb4d8;
   --surface: #111827;
+  --surface-soft: #18212f;
   --text: #f8fafc;
+  --text-soft: #d4d4d8;
   --border: rgba(255, 255, 255, 0.12);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
   --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.30);
+
+  /* Unify radius tokens — design-tokens (8px) vs modernize (4px) → 12px everywhere */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 12px;
 
   /* modernize.css primary palette: teal → blue/cyan */
   --primary-50: rgba(122, 184, 255, 0.08);
@@ -54,6 +61,9 @@ html[data-theme="light"] {
   --border: rgba(255, 255, 255, 0.12);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
   --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.30);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 12px;
   --neutral-900: #111827;
   --primary-50: rgba(122, 184, 255, 0.08);
   --primary-100: rgba(122, 184, 255, 0.12);
@@ -90,9 +100,72 @@ body {
 }
 
 .sf-card {
-  background: linear-gradient(160deg, #111827 0%, #0d1420 100%);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+/* Homepage shell: match modernize .m-wrap width */
+.sf-shell {
+  max-width: 1200px;
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 0 0 64px;
+}
+
+/* Homepage section spacing: match .m-section */
+.sf-section {
+  padding: 40px 0 56px;
+}
+
+/* Homepage headings: match modernize heading rhythm */
+.sf-home h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 10px 0 10px;
+}
+
+@media (min-width: 1024px) {
+  .sf-home h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Homepage metric cards: match .m-card padding */
+.sf-metric {
+  padding: 22px;
+}
+
+/* Homepage pipeline box: match card surface */
+.sf-pipeline {
+  background: var(--surface);
+  border-color: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* Homepage buttons: match modernize link accent */
+.sf-button-primary {
+  background: #3b8fd9;
+  border-color: #3b8fd9;
+}
+
+.sf-button-secondary {
+  border-color: #3b8fd9;
+  color: #3b8fd9;
+}
+
+.sf-button-secondary:hover {
+  background: rgba(122, 184, 255, 0.08);
+}
+
+/* Homepage proof links: match .m-card-link color */
+.sf-proof-link strong {
+  color: var(--text);
+}
+
+.sf-proof-link:hover {
+  border-color: rgba(122, 184, 255, 0.28);
 }
 
 
@@ -146,6 +219,12 @@ body {
    Already overridden by §2 body rule with !important.
    This section covers the .modernize-shell teal tint if any.
    ═══════════════════════════════════════════════════════════════════ */
+
+/* .m-card surface: match .sf-card and .card gradient for uniformity */
+.m-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+}
 
 /* modernize.css badge/step/flow accent pills: teal → blue */
 .m-badge {
