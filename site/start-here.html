@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>SignalFoundry | Start Here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Fast reviewer path for SignalFoundry: proof, verified counts, case study, and reproduction commands.">
+<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/design-tokens.css?v=03-15-2026-1">
+<link rel="stylesheet" href="/assets/base.css?v=03-15-2026-1">
+</head>
+<body>
+<nav>
+  <div class="nav-i">
+    <a class="logo" href="/"><span class="logo-monogram" aria-hidden="true">RH</span><b>Hawkins</b>Ops</a>
+    <button id="mobBtn" class="mob-btn" type="button" aria-expanded="false" aria-controls="mobMenu" aria-label="Toggle site navigation">Menu</button>
+    <ul class="nav-l">
+      <li><a href="/">Home</a></li>
+      <li><a href="/start-here.html">Start Here</a></li>
+      <li><a href="/proof">Proof</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Engine</a></li>
+    </ul>
+  </div>
+</nav>
+<main class="sf-shell">
+  <section class="sf-section">
+    <div class="sf-eyebrow">Reviewer Path</div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);margin:12px 0 16px;">Start here if you need to validate SignalFoundry fast.</h1>
+    <p style="max-width:64ch;color:var(--muted);">This page is the shortest public path through the system story: what exists, what is verified, where the implementation lives, and how to reproduce the counts.</p>
+  </section>
+  <section class="sf-section sf-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+    <article class="sf-card" style="padding:24px;">
+      <h2>1. Proof surface</h2>
+      <p>Open the proof page for the curated artifact path and verification entry points.</p>
+      <p style="margin-top:16px;"><a class="sf-focus-ring" href="/proof">Open proof</a></p>
+    </article>
+    <article class="sf-card" style="padding:24px;">
+      <h2>2. Verified counts</h2>
+      <p>Repository inventory for Sigma, Wazuh, Splunk, and IR playbooks.</p>
+      <p style="margin-top:16px;"><a class="sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer">Open VERIFIED_COUNTS.md</a></p>
+    </article>
+    <article class="sf-card" style="padding:24px;">
+      <h2>3. Implementation</h2>
+      <p>The AutoSOC engine case study explains the current implementation behind SignalFoundry.</p>
+      <p style="margin-top:16px;"><a class="sf-focus-ring" href="/case-study-autosoc">Open engine case study</a></p>
+    </article>
+  </section>
+  <section class="sf-section">
+    <div class="sf-card" style="padding:24px;">
+      <h2>Reproduce locally</h2>
+      <pre style="overflow:auto;background:#0f172a;color:#f8fafc;padding:16px;border-radius:8px;">pwsh -NoProfile -File ".\scripts\verify\verify-counts.ps1"
+node .\scripts\generate-site-data.js
+python .\scripts\drift_scan.py
+python .\scripts\validate_metrics.py</pre>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="ctr">
+    <p><b>HawkinsOps</b> • Eligible to obtain clearance; willing to pursue sponsorship.</p>
+  </div>
+</footer>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
