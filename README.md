@@ -79,6 +79,7 @@ pwsh -NoProfile -File ".\scripts\verify\generate-verified-counts.ps1" -OutFile "
 python .\scripts\drift_scan.py --refresh
 pwsh -NoProfile -File ".\scripts\build-wazuh-bundle.ps1"
 node .\scripts\generate-site-data.js
+pwsh -NoProfile -File ".\scripts\sync-metrics-from-pipeline.ps1" -Execute
 node .\scripts\generate-site-content.js
 node .\scripts\generate-media-manifest.js
 node .\scripts\verify\hosting-cloudflare-only.js
@@ -133,6 +134,10 @@ content/projects.json + content/detections.json
 PROOF_PACK/VERIFIED_COUNTS.md
       |-- generate-site-data.js     ──>  site/assets/data/verified-counts.json
       '-- drift_scan.py             ──>  fail on markdown/json/site count drift
+AutoSOC Output/*.json
+      |-- sync-metrics-from-pipeline.ps1 ──>  data/metrics.json
+      |-- generate-site-data.js           ──>  site/assets/data/ops-metrics.json
+      '-- validate_metrics.py             ──>  fail on bad public metrics contract
 ```
 
 ---
@@ -168,7 +173,6 @@ No real credentials, internal IPs, or identity leakage in committed files. Use `
 ## License
 
 MIT. See [LICENSE](LICENSE).
-
 
 
 
