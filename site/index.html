@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 <title>Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio</title>
-<meta name="description" content="Evidence-first cybersecurity portfolio built around SignalFoundry, a live SOC triage and evidence pipeline with verified public metrics and reproducible proof artifacts.">
+<meta name="description" content="Evidence-first cybersecurity portfolio built around SignalFoundry, an auto-updating SOC triage and evidence pipeline with verified public metrics and reproducible proof artifacts.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio">
-<meta property="og:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — a live SOC triage and evidence pipeline with verified public metrics.">
+<meta property="og:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — an auto-updating SOC triage and evidence pipeline with verified public metrics.">
 <meta property="og:url" content="https://hawkinsops.com/">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio">
-<meta name="twitter:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — a live SOC triage and evidence pipeline with verified public metrics.">
+<meta name="twitter:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — an auto-updating SOC triage and evidence pipeline with verified public metrics.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -331,8 +331,8 @@
         <span class="sf-role-tag">Detection Engineering</span>
         <span class="sf-role-tag">Security Automation</span>
       </div>
-      <p class="sf-body" style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">Evidence-first cybersecurity portfolio built around a live SOC automation system.</p>
-      <p class="sf-body">This site documents how I build, validate, and operate security triage automation. The flagship system — SignalFoundry — processes real alert volume through a deterministic pipeline with public proof artifacts, coverage gates, and reproducible verification.</p>
+      <p class="sf-body" style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">Evidence-first cybersecurity portfolio built around an auto-updating SOC automation system.</p>
+      <p class="sf-body">Every count, metric, and status on this site is generated from repository artifacts and verified by CI. The flagship system — SignalFoundry — ingests real Wazuh alerts, applies policy-driven triage, and publishes redacted proof artifacts gated by coverage and reconciliation checks.</p>
       <div class="sf-actions">
         <a class="sf-button sf-button-primary sf-focus-ring" href="/case-study-autosoc">Read Case Study</a>
         <a class="sf-button sf-button-secondary sf-focus-ring" href="/proof">Review Proof</a>
@@ -350,7 +350,7 @@
         <div class="sf-card" style="padding: 24px;">
           <h2 id="flagship-title">SignalFoundry</h2>
           <p class="sf-body" style="margin-bottom: 12px;">A SOC triage and evidence pipeline that ingests Wazuh alerts, applies policy-driven classification, enforces mandatory redaction, and produces review-ready escalation packs — all gated by reconciliation checks and coverage requirements before anything is published.</p>
-          <p class="sf-body" style="margin-bottom: 16px;">This is not a lab exercise or a script collection. It runs against real alert volume, maintains ledger integrity, and publishes its own proof artifacts.</p>
+          <p class="sf-body" style="margin-bottom: 16px;">The system runs against real alert volume from a multi-host Wazuh deployment, maintains ledger integrity across runs, and publishes its own proof artifacts to this repository.</p>
           <div class="sf-pipeline" aria-label="SignalFoundry pipeline diagram">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 230" role="img" aria-label="SignalFoundry workflow: ingest, triage, redact, pack, reconcile, gate, publish">
               <title>SignalFoundry Workflow</title>
@@ -409,26 +409,26 @@
 
       <!-- Group A: Current System Health -->
       <div class="sf-section-label">Current System Health</div>
-      <h2 id="health-title">Latest pipeline state</h2>
-      <p class="sf-body" style="margin-bottom: 20px;">Live operational signals from the most recent successful contract run.</p>
+      <h2 id="health-title">Most recent pipeline state</h2>
+      <p class="sf-body" style="margin-bottom: 20px;">Current operational signals from the most recent successful contract run.</p>
       <div class="sf-metrics" role="status" aria-live="polite" aria-label="Current system health metrics">
         <article class="sf-card sf-metric" aria-label="Heartbeat status">
-          <span class="sf-metric-label">Heartbeat</span>
+          <span class="sf-metric-label">Heartbeat Status</span>
           <span class="sf-metric-value"><span data-ops-status="heartbeat">SUCCESS</span></span>
           <p class="sf-metric-note">Status of the latest pipeline run.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Coverage gate status">
-          <span class="sf-metric-label">Coverage Gate</span>
+          <span class="sf-metric-label">Coverage Gate Status</span>
           <span class="sf-metric-value"><span data-ops="coverage_ratio">8/8</span></span>
           <p class="sf-metric-note">Required hosts reporting in the current contract.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Reconciliation status">
-          <span class="sf-metric-label">Reconciliation</span>
+          <span class="sf-metric-label">Reconciliation Status</span>
           <span class="sf-metric-value"><span data-ops-status="reconciliation">PASS</span></span>
           <p class="sf-metric-note">Ledger integrity check. Mismatch count: <span data-ops="reconciliation_mismatch">0</span>.</p>
         </article>
-        <article class="sf-card sf-metric" aria-label="Last updated date">
-          <span class="sf-metric-label">Last Contract</span>
+        <article class="sf-card sf-metric" aria-label="Last successful contract date">
+          <span class="sf-metric-label">Last Successful Contract</span>
           <span class="sf-metric-value"><span data-ops="last_updated">03-15-2026</span></span>
           <p class="sf-metric-note">Date of the last successful metrics contract.</p>
         </article>
@@ -440,24 +440,24 @@
       <p class="sf-body" style="margin-bottom: 20px;">Cumulative totals across all published contract runs.</p>
       <div class="sf-metrics" aria-label="Lifetime proof inventory">
         <article class="sf-card sf-metric" aria-label="Lifetime cases processed">
-          <span class="sf-metric-label">Total Cases Processed</span>
+          <span class="sf-metric-label">Lifetime Cases Processed</span>
           <span class="sf-metric-value"><span data-ops="total_cases">33459</span></span>
           <p class="sf-metric-note">Ledger-verified total across all runs.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Benign auto-closed">
-          <span class="sf-metric-label">Benign Auto-Closed</span>
+          <span class="sf-metric-label">Benign Cases Auto-Closed</span>
           <span class="sf-metric-value"><span data-ops="auto_closed_benign">20942</span></span>
           <p class="sf-metric-note">Cases closed by policy as benign.</p>
         </article>
         <article class="sf-card sf-metric" aria-label="Known FPs suppressed">
-          <span class="sf-metric-label">Known FPs Suppressed</span>
+          <span class="sf-metric-label">Known False Positives Suppressed</span>
           <span class="sf-metric-value"><span data-ops="known_fp">4867</span></span>
           <p class="sf-metric-note">Cases matched to known false-positive signatures.</p>
         </article>
-        <article class="sf-card sf-metric" aria-label="Escalations produced">
-          <span class="sf-metric-label">Escalations Produced</span>
+        <article class="sf-card sf-metric" aria-label="Published escalation artifacts">
+          <span class="sf-metric-label">Published Escalation Artifacts</span>
           <span class="sf-metric-value"><span data-ops="escalated">2478</span></span>
-          <p class="sf-metric-note">Cases packaged with evidence for analyst review.</p>
+          <p class="sf-metric-note">Cases packaged with evidence and committed to the proof repository.</p>
         </article>
       </div>
     </section>
