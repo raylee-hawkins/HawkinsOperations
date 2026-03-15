@@ -1,43 +1,235 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>HawkinsOps | Raylee Hawkins | Home</title>
-<meta name="description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
+<title>SignalFoundry | AI-augmented security triage and evidence pipeline</title>
+<meta name="description" content="SignalFoundry reduces alert fatigue with deterministic triage, auditable quality gates, and review-ready evidence packs backed by verified public metrics.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HawkinsOps | Raylee Hawkins | Home">
-<meta property="og:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
+<meta property="og:title" content="SignalFoundry | AI-augmented security triage and evidence pipeline">
+<meta property="og:description" content="SignalFoundry is the flagship security triage and evidence pipeline built under HawkinsOps with deterministic decisions, human oversight, and public proof.">
 <meta property="og:url" content="https://hawkinsops.com/">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="HawkinsOps | Raylee Hawkins | Home">
-<meta name="twitter:description" content="Evidence-first SOC portfolio with verified, reproducible security artifacts. Public counts align to PROOF_PACK/VERIFIED_COUNTS.md.">
+<meta name="twitter:title" content="SignalFoundry | AI-augmented security triage and evidence pipeline">
+<meta name="twitter:description" content="Deterministic triage, auditable gates, and verified public metrics for a live security automation system.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-    (function () {
-      var saved = null;
-      try {
-        saved = localStorage.getItem('rh-theme');
-      } catch (err) {
-        saved = null;
-      }
-      var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
-    })();
-  </script>
-  <link rel="stylesheet" href="/assets/styles.css?v=02-24-2026-3">
-  <link rel="stylesheet" href="/assets/modernize.css?v=03-09-2026-1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var saved = null;
+    try {
+      saved = localStorage.getItem('rh-theme');
+    } catch (err) {
+      saved = null;
+    }
+    var sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (sysDark ? 'dark' : 'light'));
+  })();
+</script>
+<link rel="stylesheet" href="/assets/styles.css?v=02-24-2026-3">
+<link rel="stylesheet" href="/assets/design-tokens.css?v=03-15-2026-1">
+<link rel="stylesheet" href="/assets/base.css?v=03-15-2026-1">
+<style>
+  .sf-home {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+  }
 
+  .sf-home h1,
+  .sf-home h2 {
+    margin: 0 0 var(--space-2);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .sf-home h1 {
+    font-size: 2rem;
+    max-width: 16ch;
+  }
+
+  .sf-home h2 {
+    font-size: 1.45rem;
+  }
+
+  @media (min-width: 1024px) {
+    .sf-home h1 {
+      font-size: 2.6rem;
+    }
+
+    .sf-home h2 {
+      font-size: 1.6rem;
+    }
+  }
+
+  .sf-home p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .sf-hero {
+    padding-top: 40px;
+  }
+
+  .sf-hero-grid,
+  .sf-proof-grid,
+  .sf-cta-grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .sf-trust {
+    margin-top: var(--space-2);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .sf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: var(--space-3);
+  }
+
+  .sf-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .sf-button-primary {
+    background: var(--brand);
+    color: #fff;
+  }
+
+  .sf-button-secondary {
+    background: transparent;
+    border-color: var(--brand);
+    color: var(--brand);
+  }
+
+  .sf-body {
+    max-width: 62ch;
+  }
+
+  .sf-status-list {
+    margin: var(--space-3) 0 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+  }
+
+  .sf-status-list li + li {
+    margin-top: 8px;
+  }
+
+  .sf-metrics {
+    display: grid;
+    gap: 16px;
+  }
+
+  .sf-metric {
+    padding: 20px;
+  }
+
+  .sf-metric-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .sf-metric-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  .sf-metric-note {
+    margin-top: 8px;
+    font-size: 0.92rem;
+  }
+
+  .sf-pipeline {
+    overflow-x: auto;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, #0e1524 0%, #131d30 100%);
+  }
+
+  .sf-pipeline svg {
+    display: block;
+    width: 100%;
+    min-width: 760px;
+    height: auto;
+  }
+
+  .sf-proof-list {
+    display: grid;
+    gap: 16px;
+  }
+
+  .sf-proof-link {
+    display: block;
+    padding: 18px;
+    text-decoration: none;
+  }
+
+  .sf-proof-link strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .sf-proof-link span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .sf-footer-line {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  @media (min-width: 768px) {
+    .sf-hero-grid,
+    .sf-proof-grid,
+    .sf-cta-grid {
+      grid-template-columns: 1.15fr 1fr;
+      align-items: start;
+    }
+
+    .sf-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sf-metrics {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+</style>
 </head>
 <body>
 <!-- @include:nav:start -->
@@ -48,20 +240,20 @@
     <ul class="nav-l">
       <li><a href="/">Home</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/case-study-autosoc">TriageLoop Case Study</a></li>
+      <li><a href="/case-study-autosoc">AutoSOC Engine</a></li>
       <li><a href="/detections">Detections</a></li>
       <li><a href="/soc-lab">Lab</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="/proof">Proof</a></li>
     </ul>
-    <a class="btn btn-p nav-cta" href="/case-study-autosoc">Read TriageLoop</a>
+    <a class="btn btn-p nav-cta" href="/proof">Review Proof</a>
     <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch to light mode">Light</button>
   </div>
 </nav>
 <div id="mobMenu" class="mob-menu" data-open="false" role="navigation" aria-label="Mobile site navigation">
   <a href="/">Home</a>
   <a href="/projects">Projects</a>
-  <a href="/case-study-autosoc">TriageLoop Case Study</a>
+  <a href="/case-study-autosoc">AutoSOC Engine</a>
   <a href="/detections">Detections</a>
   <a href="/soc-lab">Lab</a>
   <a href="/resume">Resume</a>
@@ -69,317 +261,148 @@
 </div>
 <!-- @include:nav:end -->
 
-<main class="home-main modernize-shell">
-
-<section class="m-hero">
-  <div class="m-wrap m-hero-grid">
-    <div>
-      <div class="m-badge">Evidence-first SOC portfolio</div>
-      <h1 class="m-title">TriageLoop proves practical SOC engineering.</h1>
-      <p class="m-outcome">Closed-loop alert triage, public proof, and a runnable demo path presented as one flagship engineering system with visible operational consequence.</p>
-      <div class="m-actions">
-        <a class="m-cta m-cta-dominant" href="/modernize/demo.html">Run Demo</a>
-        <a class="m-cta m-cta-primary" href="/proof">Review Proof</a>
-        <a class="m-cta m-cta-secondary" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
-      </div>
-      <div class="m-hero-signals">
-        <span class="m-hero-signal">Closed-loop triage</span>
-        <span class="m-hero-signal">Mandatory redaction gate</span>
-        <span class="m-hero-signal">Escalation packs</span>
-      </div>
-      <p class="m-meta">Eligible to obtain clearance; willing to pursue sponsorship.</p>
-    </div>
-    <div class="m-panel">
-      <div class="m-panel-head">Flagship system surface</div>
-      <div class="m-panel-body">
-        <img class="m-hero-visual"
-             src="/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1"
-             alt="TriageLoop system map showing workflow relationships, policy gates, and review outputs"
-             width="1600" height="900" loading="eager">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-impact">
-  <div class="m-wrap">
-    <div class="m-impact-band">
-      <div class="m-impact-copy">
-        <div class="m-card-kicker m-card-kicker-invert">Workflow + proof</div>
-        <h2>Live automation with visible consequences</h2>
-        <p>TriageLoop is running as a real system: ingest, triage, reconciliation, coverage gate, and curated publish lane. This band is here to make the workflow feel operational, not merely explained.</p>
-        <div class="m-impact-points">
-          <div class="m-impact-point">
-            <strong>Ingest -> triage -> reconcile</strong>
-            <span>Deterministic flow rather than a hand-run analyst demo.</span>
-          </div>
-          <div class="m-impact-point">
-            <strong>Coverage gate still bites</strong>
-            <span>Evidence stays honest when the system says `FAIL`, not only when it says `PASS`.</span>
-          </div>
-          <div class="m-impact-point">
-            <strong>Proof path stays one click away</strong>
-            <span>Demo, proof, and repository stay tied to the same operational story.</span>
+<main class="sf-home">
+  <div class="sf-shell">
+    <section id="hero" class="sf-section sf-hero" aria-labelledby="hero-title">
+      <div class="sf-hero-grid">
+        <div class="sf-card" style="padding: 24px;">
+          <div class="sf-eyebrow">Flagship System</div>
+          <h1 id="hero-title">SignalFoundry is an AI-augmented security triage and evidence pipeline built for deterministic outcomes and public proof.</h1>
+          <p class="sf-body">SignalFoundry reduces alert fatigue by routing alert intake through policy-driven triage, redaction, reconciliation, quality gates, and review-ready packaging. HawkinsOps is the umbrella brand; the AutoSOC engine is the current implementation layer behind that system.</p>
+          <p class="sf-trust">Deterministic decisions, human oversight, mandatory redaction, and a public proof path.</p>
+          <div class="sf-actions">
+            <a class="sf-button sf-button-primary sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
+            <a class="sf-button sf-button-secondary sf-focus-ring" href="/proof">Start Here for Recruiters</a>
           </div>
         </div>
+        <aside class="sf-card" style="padding: 24px;" aria-label="Current verified system state">
+          <h2>Current verified state</h2>
+          <p class="sf-body">Latest canonical metrics reflect the successful Phase 1 contract run and are exposed directly on the public proof surface.</p>
+          <ul class="sf-status-list">
+            <li><strong><span data-ops-status="heartbeat">SUCCESS</span></strong> heartbeat on the latest run</li>
+            <li><strong><span data-ops-status="reconciliation">PASS</span></strong> reconciliation with mismatch count <span data-ops="reconciliation_mismatch">0</span></li>
+            <li><strong><span data-ops="coverage_ratio">8/8</span></strong> required hosts covered</li>
+            <li>Last updated <strong><span data-ops="last_updated">03-15-2026</span></strong></li>
+          </ul>
+        </aside>
       </div>
-      <div class="m-impact-visual">
-        <div class="m-terminal">
-          <div class="m-terminal-head">
-            <span class="m-terminal-label">Pipeline movement</span>
-            <span class="m-frame-tag">Proof lane</span>
-          </div>
-          <div class="m-frame-body">
-            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-                 alt="TriageLoop workflow sequence showing poll, triage, redact, pack, and escalation steps"
-                 width="1200" height="240" loading="lazy">
-            <p class="m-frame-caption m-frame-caption-invert">The workflow sequence is intentionally promoted here so the first screen shows both the flagship system and the pipeline movement behind it.</p>
-          </div>
-        </div>
+    </section>
+
+    <section id="outcomes" class="sf-section" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title">Outcomes</h2>
+      <p class="sf-body">The homepage now separates current system health from proof inventory and keeps the key operational contract visible without forcing a reviewer into the case study first.</p>
+      <div class="sf-metrics" role="status" aria-live="polite" aria-label="Current SignalFoundry outcomes">
+        <article class="sf-card sf-metric" aria-label="Total case volume">
+          <span class="sf-metric-label">Case Volume</span>
+          <span class="sf-metric-value"><span data-ops="total_cases">34206</span></span>
+          <p class="sf-metric-note">Current canonical total cases from the latest successful metrics contract.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Auto close rate">
+          <span class="sf-metric-label">Auto-Close Rate</span>
+          <span class="sf-metric-value"><span data-ops="auto_close_rate">4.0%</span></span>
+          <p class="sf-metric-note">Known false-positive closures in the latest run expressed as a current-run rate.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Escalations in latest run">
+          <span class="sf-metric-label">Escalations</span>
+          <span class="sf-metric-value"><span data-ops="escalated_current_run">0</span></span>
+          <p class="sf-metric-note">Escalations published in the latest successful heartbeat run.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Coverage status">
+          <span class="sf-metric-label">Coverage Status</span>
+          <span class="sf-metric-value"><span data-ops="coverage_ratio">8/8</span></span>
+          <p class="sf-metric-note">Coverage gate passed across all required hosts in the current contract.</p>
+        </article>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="m-section">
-  <div class="m-wrap">
-    <div class="m-proof-strip">
-      <div class="m-proof-inline">
-        <strong><span data-verified="detections">139</span></strong> detections
-        <strong><span data-verified="sigma">103</span></strong> Sigma
-        <strong><span data-verified="wazuh">28</span></strong> Wazuh
-        <strong><span data-verified="splunk">8</span></strong> Splunk
-        <strong><span data-verified="ir">10</span></strong> playbooks
-      </div>
-      <div class="m-proof-inline">
-        <span>Verified <span data-verified-date>02-26-2026</span></span>
-        <a class="m-preview-link" href="/case-study-autosoc">Start with the TriageLoop case study</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-ops">
-  <div class="m-wrap">
-    <div class="m-ops-header">
-      <div>
-        <div class="m-card-kicker">Operational outcomes</div>
-        <h2>TriageLoop is carrying live system load</h2>
-        <p class="m-copy">This band exists to prove operational consequence, not just rule-library depth. The numbers below come from the canonical March 4, 2026 OPS snapshot.</p>
-      </div>
-      <div class="m-ops-status-pill">Canonical snapshot: 03-04-2026</div>
-    </div>
-    <div class="m-ops-grid" aria-label="Canonical TriageLoop operational outcomes">
-      <article class="m-ops-card">
-        <div class="m-ops-value"><span data-ops="case_directories">25167</span></div>
-        <div class="m-ops-label">Case directories</div>
-        <p class="m-ops-copy">Canonical OPS snapshot of the current TriageLoop case corpus.</p>
-      </article>
-      <article class="m-ops-card">
-        <div class="m-ops-value"><span data-ops="auto_closed_benign">20942</span></div>
-        <div class="m-ops-label">Benign auto-closures</div>
-        <p class="m-ops-copy">Operational volume that shows the system is closing repetitive noise, not just producing screenshots.</p>
-      </article>
-      <article class="m-ops-card">
-        <div class="m-ops-value"><span data-ops="escalated">2478</span></div>
-        <div class="m-ops-label">Escalations</div>
-        <p class="m-ops-copy">Cases preserved for deeper investigation and public proof continuity.</p>
-      </article>
-      <article class="m-ops-card">
-        <div class="m-ops-value" data-ops-status="reconciliation">PASS</div>
-        <div class="m-ops-label">Reconciliation</div>
-        <p class="m-ops-copy">Mismatch count is zero in the canonical March 4, 2026 OPS progress snapshot.</p>
-      </article>
-      <article class="m-ops-card">
-        <div class="m-ops-value"><span data-ops="coverage_ratio">6/8</span></div>
-        <div class="m-ops-label">Coverage</div>
-        <p class="m-ops-copy">Coverage gate currently fails at 6 of 8 required hosts, which is useful proof that the reporting is honest.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-metrics">
-  <div class="m-wrap">
-    <div class="m-kpi-grid" aria-label="Operational proof metrics">
-      <article class="m-kpi">
-        <div class="m-kpi-value"><span data-verified="detections">139</span></div>
-        <div class="m-kpi-label">Detections</div>
-        <p class="m-kpi-copy">Script-verified public count that anchors the flagship project inside a broader evidence-backed security corpus.</p>
-      </article>
-      <article class="m-kpi">
-        <div class="m-kpi-value"><span data-verified="sigma">103</span></div>
-        <div class="m-kpi-label">Sigma rules</div>
-        <p class="m-kpi-copy">Visible rule depth makes the homepage feel connected to real detection engineering rather than a single polished case study.</p>
-      </article>
-      <article class="m-kpi">
-        <div class="m-kpi-value"><span data-verified="wazuh">28</span></div>
-        <div class="m-kpi-label">Wazuh rule blocks</div>
-        <p class="m-kpi-copy">The operational story stays grounded in lab-backed alerting paths that are already represented in the public repo.</p>
-      </article>
-      <article class="m-kpi">
-        <div class="m-kpi-value"><span data-verified="ir">10</span></div>
-        <div class="m-kpi-label">IR playbooks</div>
-        <p class="m-kpi-copy">Playbook depth reinforces that escalation output and incident handling are part of the same operational system.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-review">
-  <div class="m-wrap">
-    <div class="m-grid-3">
-      <article class="m-card">
-        <div class="m-card-kicker">Start here</div>
-        <h2>TriageLoop case study</h2>
-        <p>The shortest path for reviewers: what was built, why it matters, and how the pipeline turns alerts into reviewable evidence.</p>
-        <div class="m-chip-row">
-          <span class="m-chip">Pipeline: live</span>
-          <span class="m-chip">Outcome: public</span>
-        </div>
-        <a class="m-card-link" href="/case-study-autosoc">Read case study</a>
-      </article>
-      <article class="m-card">
-        <div class="m-card-kicker">Repository</div>
-        <h2>Code and artifact source</h2>
-        <p>Public code, docs, release notes, and verification scripts stay close to the narrative so the system feels inspectable rather than theatrical.</p>
-        <div class="m-chip-row">
-          <span class="m-chip">Source: public</span>
-          <span class="m-chip">History: visible</span>
-        </div>
-        <a class="m-card-link" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open repository</a>
-      </article>
-      <article class="m-card">
-        <div class="m-card-kicker">Proof</div>
-        <h2>Verification and receipts</h2>
-        <p>Counts, release notes, runbooks, and artifact paths stay one click away so claims can be checked instead of trusted on faith.</p>
-        <div class="m-chip-row">
-          <span class="m-chip">Counts: script-verified</span>
-          <span class="m-chip">Artifacts: curated</span>
-        </div>
-        <a class="m-card-link" href="/proof">Review proof</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-flow">
-  <div class="m-wrap">
-    <div class="m-divider-title">
-      <div class="m-card-kicker">Reviewer flow</div>
-    </div>
-    <div class="m-flow-grid">
-      <article class="m-flow-card">
-        <div class="m-flow-step">1</div>
-        <h3>Understand the build</h3>
-        <p class="m-copy">The homepage frames TriageLoop as an engineering outcome first: what it does, how it is validated, and why it belongs in a SOC portfolio.</p>
-      </article>
-      <article class="m-flow-card">
-        <div class="m-flow-step">2</div>
-        <h3>Inspect the flagship case study</h3>
-        <p class="m-copy">The TriageLoop page turns architecture, decision logic, and screenshots into one deliberate narrative instead of scattered proof fragments.</p>
-      </article>
-      <article class="m-flow-card">
-        <div class="m-flow-step">3</div>
-        <h3>Validate the proof path</h3>
-        <p class="m-copy">The proof page and repository keep artifact links, verification commands, and public history close enough to check without effort.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="m-section m-stage m-stage-topology">
-  <div class="m-wrap">
-    <div class="m-divider-title">
-      <div class="m-card-kicker">Topology</div>
-    </div>
-    <div class="m-card m-stage-card">
-      <h2>System depth in two layers</h2>
-      <p class="m-copy">The hero shows the flagship system map. This layer separates environment context from pipeline sequence so the site reads more like an engineered walkthrough than a single polished diagram.</p>
-      <div class="m-depth-grid" style="margin-top:18px;">
-        <div class="m-diagram-frame">
-          <div class="m-frame-head">
-            <span class="m-frame-title">Topology context</span>
-            <span class="m-frame-tag">Environment</span>
-          </div>
-          <div class="m-frame-body">
-            <img src="/assets/pp_soc_integration/lab-architecture.svg"
-                 alt="SOC lab topology showing Proxmox, Windows endpoint, Wazuh, Splunk, and TriageLoop pipeline boundaries"
-                 width="1200" height="510" loading="lazy">
-            <p class="m-frame-caption">Purpose: show where the workflow lives. Pipeline relation: the environment that produces telemetry, pivots, and evidence surfaces used throughout the case study.</p>
+    <section id="how" class="sf-section" aria-labelledby="how-title">
+      <div class="sf-proof-grid">
+        <div class="sf-card" style="padding: 24px;">
+          <h2 id="how-title">How it works</h2>
+          <p class="sf-body" style="margin-bottom: 16px;">The workflow is a controlled sequence: ingest, triage, redact, pack, reconcile, gate, publish.</p>
+          <div class="sf-pipeline" aria-label="SignalFoundry pipeline diagram">
+            <!-- Reused from the existing pipeline SVG in /assets/pp_soc_integration/autosoc-pipe-diagram.svg and extended to show reconciliation and quality gates. -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 230" role="img" aria-label="SignalFoundry workflow: ingest, triage, redact, pack, reconcile, gate, publish">
+              <title>SignalFoundry Workflow</title>
+              <desc>Seven-stage pipeline showing ingest, triage, redact, pack, reconcile, gate, and publish.</desc>
+              <defs>
+                <style>
+                  .box { fill:#0d1018; stroke:#30425f; stroke-width:1.2; }
+                  .box-accent { fill:#0d1522; stroke:#4a7fd8; stroke-width:1.2; }
+                  .num { fill:#9ec2ff; fill-opacity:0.18; font:700 28px Inter,Segoe UI,Arial,sans-serif; }
+                  .kicker { fill:#5a7298; font:700 8px Inter,Segoe UI,Arial,sans-serif; letter-spacing:1.8px; text-transform:uppercase; }
+                  .label { fill:#e5edff; font:600 12px Inter,Segoe UI,Arial,sans-serif; }
+                  .meta { fill:#8ea4c7; font:500 9px Inter,Segoe UI,Arial,sans-serif; }
+                  .line { stroke:#3d5273; stroke-width:1.4; }
+                  .arrow { fill:#3d5273; }
+                  .accent { fill:#71c7b8; font:600 12px Inter,Segoe UI,Arial,sans-serif; }
+                </style>
+              </defs>
+              <rect class="box" x="18" y="52" width="156" height="124" rx="8"/><text class="num" x="30" y="86">01</text><text class="kicker" x="30" y="102">INGEST</text><text class="label" x="30" y="126">Alert Intake</text><text class="meta" x="30" y="146">poll-alerts.py</text>
+              <line class="line" x1="176" y1="114" x2="192" y2="114"/><path class="arrow" d="M189 110 L197 114 L189 118 Z"/>
+              <rect class="box" x="200" y="52" width="156" height="124" rx="8"/><text class="num" x="212" y="86">02</text><text class="kicker" x="212" y="102">TRIAGE</text><text class="label" x="212" y="126">Decision</text><text class="meta" x="212" y="146">triage.py</text>
+              <line class="line" x1="358" y1="114" x2="374" y2="114"/><path class="arrow" d="M371 110 L379 114 L371 118 Z"/>
+              <rect class="box" x="382" y="52" width="156" height="124" rx="8"/><text class="num" x="394" y="86">03</text><text class="kicker" x="394" y="102">REDACT</text><text class="label" x="394" y="126">Sanitize</text><text class="meta" x="394" y="146">redact.py</text>
+              <line class="line" x1="540" y1="114" x2="556" y2="114"/><path class="arrow" d="M553 110 L561 114 L553 118 Z"/>
+              <rect class="box" x="564" y="52" width="156" height="124" rx="8"/><text class="num" x="576" y="86">04</text><text class="kicker" x="576" y="102">PACK</text><text class="label" x="576" y="126">Evidence Pack</text><text class="meta" x="576" y="146">assemble-pack.py</text>
+              <line class="line" x1="722" y1="114" x2="738" y2="114"/><path class="arrow" d="M735 110 L743 114 L735 118 Z"/>
+              <rect class="box" x="746" y="52" width="156" height="124" rx="8"/><text class="num" x="758" y="86">05</text><text class="kicker" x="758" y="102">RECONCILE</text><text class="label" x="758" y="126">Ledger Check</text><text class="meta" x="758" y="146">reconciliation</text>
+              <line class="line" x1="904" y1="114" x2="920" y2="114"/><path class="arrow" d="M917 110 L925 114 L917 118 Z"/>
+              <rect class="box" x="928" y="52" width="156" height="124" rx="8"/><text class="num" x="940" y="86">06</text><text class="kicker" x="940" y="102">GATE</text><text class="label" x="940" y="126">Coverage + Quality</text><text class="meta" x="940" y="146">coverage + heartbeat</text>
+              <line class="line" x1="1086" y1="114" x2="1102" y2="114"/><path class="arrow" d="M1099 110 L1107 114 L1099 118 Z"/>
+              <rect class="box-accent" x="1110" y="52" width="132" height="124" rx="8"/><text class="num" x="1122" y="86">07</text><text class="kicker" x="1122" y="102">PUBLISH</text><text class="accent" x="1122" y="126">Proof Output</text><text class="meta" x="1122" y="146">repo + proof pack</text>
+            </svg>
           </div>
         </div>
-        <div class="m-diagram-frame">
-          <div class="m-frame-head">
-            <span class="m-frame-title">Workflow sequence</span>
-            <span class="m-frame-tag">Pipeline</span>
-          </div>
-          <div class="m-frame-body">
-            <img src="/assets/pp_soc_integration/autosoc-pipe-diagram.svg"
-                 alt="TriageLoop workflow sequence showing poll, triage, redact, pack, and escalation steps"
-                 width="1200" height="240" loading="lazy">
-            <p class="m-frame-caption">Purpose: reduce the workflow to the steps a reviewer needs to understand quickly. Pipeline relation: alert intake to review-ready output.</p>
-          </div>
-        </div>
+        <aside class="sf-card" style="padding: 24px;">
+          <h2>Detection inventory</h2>
+          <p class="sf-body">Inventory counts remain a proof concern, not a heartbeat concern.</p>
+          <ul class="sf-status-list">
+            <li><strong><span data-verified="sigma">103</span></strong> Sigma rules</li>
+            <li><strong><span data-verified="wazuh">28</span></strong> Wazuh rule blocks across 24 files</li>
+            <li><strong><span data-verified="splunk">8</span></strong> Splunk queries</li>
+            <li><strong><span data-verified="ir">10</span></strong> IR playbooks</li>
+          </ul>
+        </aside>
       </div>
-      <div class="m-grid-2" style="margin-top:18px;">
-        <div class="m-evidence-note">
-          <div class="m-card-kicker">Supporting evidence</div>
-          <h3>Why this reads deeper</h3>
-          <p>The topology surface answers where the system lives. The workflow surface answers how it moves. That distinction adds visible system layering without inventing new features or decorative graphics.</p>
-        </div>
-        <div class="m-evidence-note">
-          <div class="m-card-kicker">Next action</div>
-          <h3>Go deeper</h3>
-          <p>Open the TriageLoop case study to inspect decision logic, evidence outputs, labeled screenshots, and the proof chain that connects the workflow to public artifacts.</p>
-          <a class="m-card-link" href="/case-study-autosoc">Read the TriageLoop case study</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="m-section m-stage m-stage-proof">
-  <div class="m-wrap m-grid-2">
-    <article class="m-card">
-      <div class="m-card-kicker">Infrastructure</div>
-      <h2>The lab behind the workflow</h2>
-      <p>Single Proxmox host, isolated VMs, Wazuh for alerting, and Splunk for pivots. Test traffic stays in the lab. Evidence comes out.</p>
-      <div class="m-diagram-frame" style="margin-top: 18px;">
-        <div class="m-frame-head">
-          <span class="m-frame-title">Lab topology</span>
-          <span class="m-frame-tag">Proof surface</span>
-        </div>
-        <div class="m-frame-body">
-          <img src="/assets/pp_soc_integration/lab-architecture.svg"
-               alt="SOC lab architecture showing Proxmox, Windows 11 endpoint, Wazuh, Splunk, and TriageLoop pipeline"
-               width="1200" height="510" loading="lazy">
-          <p class="m-frame-caption">Architecture diagrams are carrying real explanatory load here: where alerts originate, where pivots happen, and where evidence is packaged for review.</p>
-        </div>
-      </div>
-      <a class="m-card-link" href="/soc-lab">Open lab details</a>
-    </article>
-    <article class="m-card">
-      <div class="m-card-kicker">Review lanes</div>
-      <h2>Choose the right depth</h2>
-      <div class="m-link-list">
-        <a class="m-link-item" href="/case-study-autosoc">
-          <strong>Case study</strong>
-          <span>Flagship technical walkthrough: overview, topology, workflow, logic, outputs, proof, and next step.</span>
+    <section id="proofs" class="sf-section" aria-labelledby="proofs-title">
+      <h2 id="proofs-title">Why trust it</h2>
+      <p class="sf-body" style="margin-bottom: 16px;">These links are the shortest path from homepage claims to public proof artifacts.</p>
+      <div class="sf-proof-list">
+        <a class="sf-card sf-proof-link sf-focus-ring" href="/proof">
+          <strong>Proof Surface</strong>
+          <span>This proves the public evidence trail, validation commands, and reviewer-facing artifact path.</span>
         </a>
-        <a class="m-link-item" href="/proof">
-          <strong>Proof page</strong>
-          <span>Receipt drawer for artifact trees, verification commands, release-chain references, and public checks.</span>
+        <a class="sf-card sf-proof-link sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer">
+          <strong>VERIFIED_COUNTS.md</strong>
+          <span>This proves the current repository inventory for <span data-verified="sigma">103</span> Sigma rules, <span data-verified="splunk">8</span> Splunk queries, 24 Wazuh files with <span data-verified="wazuh">28</span> rule blocks, and <span data-verified="ir">10</span> IR playbooks.</span>
         </a>
-        <a class="m-link-item" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">
-          <strong>Repository</strong>
-          <span>Source, docs, and history for the automation stack behind the public story.</span>
+        <a class="sf-card sf-proof-link sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/technique_map.csv" target="_blank" rel="noopener noreferrer">
+          <strong>technique_map.csv</strong>
+          <span>This proves the MITRE ATT&amp;CK mapping extracted from the repo rule sources and enriched from the ATT&amp;CK bundle.</span>
         </a>
       </div>
-    </article>
-  </div>
-</section>
+    </section>
 
+    <section id="cta" class="sf-section" aria-labelledby="cta-title">
+      <div class="sf-cta-grid">
+        <div class="sf-card" style="padding: 24px;">
+          <h2 id="cta-title">Review the system directly</h2>
+          <p class="sf-body">Start with the repo if you want implementation detail, or use the proof page for a guided validation path.</p>
+          <div class="sf-actions">
+            <a class="sf-button sf-button-primary sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
+            <a class="sf-button sf-button-secondary sf-focus-ring" href="/proof">Start Here for Recruiters</a>
+          </div>
+        </div>
+        <div class="sf-card" style="padding: 24px;">
+          <h2>Current implementation</h2>
+          <p class="sf-body">SignalFoundry is the public system framing. The AutoSOC engine remains the current implementation layer for rule tuning, reconciliation, evidence packaging, and run-state verification.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -399,6 +422,7 @@
       <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
       <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
     </div>
+    <p class="sf-footer-line">Eligible to obtain clearance; willing to pursue sponsorship.</p>
   </div>
 </footer>
 
@@ -409,4 +433,3 @@
 <script src="/assets/app.js" defer></script>
 </body>
 </html>
-<!-- rebuild trigger -->
