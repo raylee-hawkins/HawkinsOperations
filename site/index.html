@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>SignalFoundry | AI-augmented security triage and evidence pipeline</title>
-<meta name="description" content="SignalFoundry reduces alert fatigue with deterministic triage, auditable quality gates, and review-ready evidence packs backed by verified public metrics.">
+<title>Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio</title>
+<meta name="description" content="Evidence-first cybersecurity portfolio built around SignalFoundry, a live SOC triage and evidence pipeline with verified public metrics and reproducible proof artifacts.">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07070b">
 <link rel="canonical" href="https://hawkinsops.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="SignalFoundry | AI-augmented security triage and evidence pipeline">
-<meta property="og:description" content="SignalFoundry is the flagship security triage and evidence pipeline built under HawkinsOps with deterministic decisions, human oversight, and public proof.">
+<meta property="og:title" content="Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio">
+<meta property="og:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — a live SOC triage and evidence pipeline with verified public metrics.">
 <meta property="og:url" content="https://hawkinsops.com/">
 <meta property="og:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <meta property="og:image:width" content="1600">
 <meta property="og:image:height" content="900">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SignalFoundry | AI-augmented security triage and evidence pipeline">
-<meta name="twitter:description" content="Deterministic triage, auditable gates, and verified public metrics for a live security automation system.">
+<meta name="twitter:title" content="Raylee Hawkins | SOC Analyst &amp; Detection Engineering Portfolio">
+<meta name="twitter:description" content="Evidence-first cybersecurity portfolio built around SignalFoundry — a live SOC triage and evidence pipeline with verified public metrics.">
 <meta name="twitter:image" content="https://hawkinsops.com/assets/pp_soc_integration/autosoc-system-map.png?v=03-03-2026-1">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -38,7 +38,8 @@
   }
 
   .sf-home h1,
-  .sf-home h2 {
+  .sf-home h2,
+  .sf-home h3 {
     margin: 0 0 var(--space-2);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -47,20 +48,22 @@
 
   .sf-home h1 {
     font-size: 2rem;
-    max-width: 16ch;
   }
 
   .sf-home h2 {
-    font-size: 1.45rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: 10px 0 10px;
+  }
+
+  .sf-home h3 {
+    font-size: 1.1rem;
+    margin: 0 0 6px;
   }
 
   @media (min-width: 1024px) {
     .sf-home h1 {
       font-size: 2.6rem;
-    }
-
-    .sf-home h2 {
-      font-size: 1.6rem;
     }
   }
 
@@ -78,6 +81,25 @@
   .sf-cta-grid {
     display: grid;
     gap: var(--space-3);
+  }
+
+  .sf-role-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .sf-role-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(122, 184, 255, 0.10);
+    color: #7ab8ff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
 
   .sf-trust {
@@ -136,15 +158,16 @@
   }
 
   .sf-metric {
-    padding: 20px;
+    padding: 22px;
   }
 
   .sf-metric-label {
     display: block;
     margin-bottom: 8px;
     color: var(--muted);
-    font-size: 0.88rem;
-    letter-spacing: 0.04em;
+    font-size: 0.82rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
@@ -158,7 +181,7 @@
 
   .sf-metric-note {
     margin-top: 8px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .sf-pipeline {
@@ -174,11 +197,6 @@
     width: 100%;
     min-width: 760px;
     height: auto;
-  }
-
-  .sf-proof-list {
-    display: grid;
-    gap: 16px;
   }
 
   .sf-proof-link {
@@ -199,9 +217,48 @@
     font-size: 0.95rem;
   }
 
+  .sf-section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3b8fd9;
+    margin-bottom: 6px;
+  }
+
+  .sf-route-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sf-route-card {
+    display: block;
+    padding: 22px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .sf-route-card:hover {
+    border-color: rgba(122, 184, 255, 0.28);
+  }
+
+  .sf-route-card h3 {
+    color: var(--text);
+  }
+
+  .sf-route-card p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
   .sf-footer-line {
     color: var(--muted);
     font-size: 0.95rem;
+  }
+
+  .sf-philosophy {
+    max-width: 72ch;
   }
 
   @media (min-width: 768px) {
@@ -215,11 +272,21 @@
     .sf-metrics {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .sf-route-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (min-width: 1024px) {
     .sf-metrics {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sf-route-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -253,66 +320,38 @@
 
 <main class="sf-home">
   <div class="sf-shell">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 1: HERO — Candidate first
+         ═══════════════════════════════════════════════════════════════ -->
     <section id="hero" class="sf-section sf-hero" aria-labelledby="hero-title">
-      <div class="sf-hero-grid">
-        <div class="sf-card" style="padding: 24px;">
-          <div class="sf-eyebrow">Flagship System</div>
-          <h1 id="hero-title">SignalFoundry is the flagship security triage and evidence pipeline built under HawkinsOps.</h1>
-          <p class="sf-body">SignalFoundry reduces alert fatigue by routing alert intake through policy-driven triage, redaction, reconciliation, quality gates, and review-ready packaging. HawkinsOps is the umbrella brand; the AutoSOC engine is the current implementation layer behind that system.</p>
-          <p class="sf-trust">Deterministic decisions, human oversight, mandatory redaction, and a public proof path.</p>
-          <div class="sf-actions">
-            <a class="sf-button sf-button-primary sf-focus-ring" href="/proof">Review Proof</a>
-            <a class="sf-button sf-button-secondary sf-focus-ring" href="/case-study-autosoc">Read Case Study</a>
-            <a class="sf-button sf-button-secondary sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
-          </div>
-        </div>
-        <aside class="sf-card" style="padding: 24px;" aria-label="Current verified system state">
-          <h2>Current verified state</h2>
-          <p class="sf-body">Canonical SignalFoundry metrics: 03-15-2026. Exposed directly on the public proof surface.</p>
-          <ul class="sf-status-list">
-            <li><strong><span data-ops-status="heartbeat">SUCCESS</span></strong> heartbeat on the latest run</li>
-            <li><strong><span data-ops-status="reconciliation">PASS</span></strong> reconciliation with mismatch count <span data-ops="reconciliation_mismatch">0</span></li>
-            <li><strong><span data-ops="coverage_ratio">8/8</span></strong> required hosts covered</li>
-            <li>Last updated <strong><span data-ops="last_updated">03-15-2026</span></strong></li>
-          </ul>
-        </aside>
+      <h1 id="hero-title">Raylee Hawkins</h1>
+      <div class="sf-role-line">
+        <span class="sf-role-tag">SOC Analyst</span>
+        <span class="sf-role-tag">Detection Engineering</span>
+        <span class="sf-role-tag">Security Automation</span>
+      </div>
+      <p class="sf-body" style="font-size: 1.1rem; color: var(--text); margin-bottom: 12px;">Evidence-first cybersecurity portfolio built around a live SOC automation system.</p>
+      <p class="sf-body">This site documents how I build, validate, and operate security triage automation. The flagship system — SignalFoundry — processes real alert volume through a deterministic pipeline with public proof artifacts, coverage gates, and reproducible verification.</p>
+      <div class="sf-actions">
+        <a class="sf-button sf-button-primary sf-focus-ring" href="/case-study-autosoc">Read Case Study</a>
+        <a class="sf-button sf-button-secondary sf-focus-ring" href="/proof">Review Proof</a>
+        <a class="sf-button sf-button-secondary sf-focus-ring" href="/resume">Resume</a>
+        <a class="sf-button sf-button-secondary sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </section>
 
-    <section id="outcomes" class="sf-section" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title">Outcomes</h2>
-      <p class="sf-body">The homepage now separates current system health from proof inventory and keeps the key operational contract visible without forcing a reviewer into the case study first.</p>
-      <div class="sf-metrics" role="status" aria-live="polite" aria-label="Current SignalFoundry outcomes">
-        <article class="sf-card sf-metric" aria-label="Total case volume">
-          <span class="sf-metric-label">Case Volume</span>
-          <span class="sf-metric-value"><span data-ops="total_cases">33459</span></span>
-          <p class="sf-metric-note">Current canonical total cases from the latest successful metrics contract.</p>
-        </article>
-        <article class="sf-card sf-metric" aria-label="Auto close rate">
-          <span class="sf-metric-label">Auto-Close Rate</span>
-          <span class="sf-metric-value"><span data-ops="auto_close_rate">77.14%</span></span>
-          <p class="sf-metric-note">Known false-positive closures in the latest run expressed as a current-run rate.</p>
-        </article>
-        <article class="sf-card sf-metric" aria-label="Escalations in latest run">
-          <span class="sf-metric-label">Escalations</span>
-          <span class="sf-metric-value"><span data-ops="escalated">2478</span></span>
-          <p class="sf-metric-note">Total escalations across the canonical metrics contract.</p>
-        </article>
-        <article class="sf-card sf-metric" aria-label="Coverage status">
-          <span class="sf-metric-label">Coverage Status</span>
-          <span class="sf-metric-value"><span data-ops="coverage_ratio">8/8</span></span>
-          <p class="sf-metric-note">Coverage gate passed across all required hosts in the current contract.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="how" class="sf-section" aria-labelledby="how-title">
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 2: FLAGSHIP SYSTEM — What I built
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="flagship" class="sf-section" aria-labelledby="flagship-title">
+      <div class="sf-section-label">Flagship System</div>
       <div class="sf-proof-grid">
         <div class="sf-card" style="padding: 24px;">
-          <h2 id="how-title">How it works</h2>
-          <p class="sf-body" style="margin-bottom: 16px;">The workflow is a controlled sequence: ingest, triage, redact, pack, reconcile, gate, publish.</p>
+          <h2 id="flagship-title">SignalFoundry</h2>
+          <p class="sf-body" style="margin-bottom: 12px;">A SOC triage and evidence pipeline that ingests Wazuh alerts, applies policy-driven classification, enforces mandatory redaction, and produces review-ready escalation packs — all gated by reconciliation checks and coverage requirements before anything is published.</p>
+          <p class="sf-body" style="margin-bottom: 16px;">This is not a lab exercise or a script collection. It runs against real alert volume, maintains ledger integrity, and publishes its own proof artifacts.</p>
           <div class="sf-pipeline" aria-label="SignalFoundry pipeline diagram">
-            <!-- Reused from the existing pipeline SVG in /assets/pp_soc_integration/autosoc-pipe-diagram.svg and extended to show reconciliation and quality gates. -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 230" role="img" aria-label="SignalFoundry workflow: ingest, triage, redact, pack, reconcile, gate, publish">
               <title>SignalFoundry Workflow</title>
               <desc>Seven-stage pipeline showing ingest, triage, redact, pack, reconcile, gate, and publish.</desc>
@@ -344,55 +383,133 @@
               <rect class="box-accent" x="1110" y="52" width="132" height="124" rx="8"/><text class="num" x="1122" y="86">07</text><text class="kicker" x="1122" y="102">PUBLISH</text><text class="accent" x="1122" y="126">Proof Output</text><text class="meta" x="1122" y="146">repo + proof pack</text>
             </svg>
           </div>
+          <div class="sf-actions" style="margin-top: 16px;">
+            <a class="sf-button sf-button-primary sf-focus-ring" href="/case-study-autosoc">Full Case Study</a>
+            <a class="sf-button sf-button-secondary sf-focus-ring" href="/proof">Proof Artifacts</a>
+          </div>
         </div>
-        <aside class="sf-card" style="padding: 24px;">
+        <aside class="sf-card" style="padding: 24px;" aria-label="Detection inventory">
           <h2>Detection inventory</h2>
-          <p class="sf-body">Inventory counts remain a proof concern, not a heartbeat concern.</p>
+          <p class="sf-body">Published detection content verified against the repository. Counts are generated, not hand-edited.</p>
           <ul class="sf-status-list">
-            <li><strong><span data-verified="sigma">103</span></strong> Sigma rules</li>
-            <li><strong><span data-verified="wazuh">28</span></strong> Wazuh rule blocks across 24 files</li>
-            <li><strong><span data-verified="splunk">8</span></strong> Splunk queries</li>
-            <li><strong><span data-verified="ir">10</span></strong> IR playbooks</li>
+            <li><strong><span data-verified="sigma">103</span></strong> Sigma rules across 10 ATT&amp;CK tactics</li>
+            <li><strong><span data-verified="wazuh">28</span></strong> Wazuh rule blocks across 24 XML files</li>
+            <li><strong><span data-verified="splunk">8</span></strong> Splunk SPL queries</li>
+            <li><strong><span data-verified="ir">10</span></strong> IR playbooks (7-step structured format)</li>
           </ul>
+          <p class="sf-body" style="margin-top: 16px; font-size: 0.88rem;">Source: <a href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer" style="color: #3b8fd9;">VERIFIED_COUNTS.md</a></p>
         </aside>
       </div>
     </section>
 
-    <section id="proofs" class="sf-section" aria-labelledby="proofs-title">
-      <h2 id="proofs-title">Why trust it</h2>
-      <p class="sf-body" style="margin-bottom: 16px;">These links are the shortest path from homepage claims to public proof artifacts.</p>
-      <div class="sf-proof-list">
-        <a class="sf-card sf-proof-link sf-focus-ring" href="/proof">
-          <strong>Proof Surface</strong>
-          <span>This proves the public evidence trail, validation commands, and reviewer-facing artifact path.</span>
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 3: AUTOMATED PROOF SNAPSHOT
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="proof-snapshot" class="sf-section" aria-labelledby="health-title">
+
+      <!-- Group A: Current System Health -->
+      <div class="sf-section-label">Current System Health</div>
+      <h2 id="health-title">Latest pipeline state</h2>
+      <p class="sf-body" style="margin-bottom: 20px;">Live operational signals from the most recent successful contract run.</p>
+      <div class="sf-metrics" role="status" aria-live="polite" aria-label="Current system health metrics">
+        <article class="sf-card sf-metric" aria-label="Heartbeat status">
+          <span class="sf-metric-label">Heartbeat</span>
+          <span class="sf-metric-value"><span data-ops-status="heartbeat">SUCCESS</span></span>
+          <p class="sf-metric-note">Status of the latest pipeline run.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Coverage gate status">
+          <span class="sf-metric-label">Coverage Gate</span>
+          <span class="sf-metric-value"><span data-ops="coverage_ratio">8/8</span></span>
+          <p class="sf-metric-note">Required hosts reporting in the current contract.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Reconciliation status">
+          <span class="sf-metric-label">Reconciliation</span>
+          <span class="sf-metric-value"><span data-ops-status="reconciliation">PASS</span></span>
+          <p class="sf-metric-note">Ledger integrity check. Mismatch count: <span data-ops="reconciliation_mismatch">0</span>.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Last updated date">
+          <span class="sf-metric-label">Last Contract</span>
+          <span class="sf-metric-value"><span data-ops="last_updated">03-15-2026</span></span>
+          <p class="sf-metric-note">Date of the last successful metrics contract.</p>
+        </article>
+      </div>
+
+      <!-- Group B: Proof Inventory -->
+      <div class="sf-section-label" style="margin-top: 40px;">Proof Inventory</div>
+      <h2>Lifetime pipeline output</h2>
+      <p class="sf-body" style="margin-bottom: 20px;">Cumulative totals across all published contract runs.</p>
+      <div class="sf-metrics" aria-label="Lifetime proof inventory">
+        <article class="sf-card sf-metric" aria-label="Lifetime cases processed">
+          <span class="sf-metric-label">Total Cases Processed</span>
+          <span class="sf-metric-value"><span data-ops="total_cases">33459</span></span>
+          <p class="sf-metric-note">Ledger-verified total across all runs.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Benign auto-closed">
+          <span class="sf-metric-label">Benign Auto-Closed</span>
+          <span class="sf-metric-value"><span data-ops="auto_closed_benign">20942</span></span>
+          <p class="sf-metric-note">Cases closed by policy as benign.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Known FPs suppressed">
+          <span class="sf-metric-label">Known FPs Suppressed</span>
+          <span class="sf-metric-value"><span data-ops="known_fp">4867</span></span>
+          <p class="sf-metric-note">Cases matched to known false-positive signatures.</p>
+        </article>
+        <article class="sf-card sf-metric" aria-label="Escalations produced">
+          <span class="sf-metric-label">Escalations Produced</span>
+          <span class="sf-metric-value"><span data-ops="escalated">2478</span></span>
+          <p class="sf-metric-note">Cases packaged with evidence for analyst review.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 4: REVIEWER ROUTES
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="routes" class="sf-section" aria-labelledby="routes-title">
+      <div class="sf-section-label">Where to go next</div>
+      <h2 id="routes-title">Reviewer paths</h2>
+      <p class="sf-body" style="margin-bottom: 20px;">Choose the entry point that fits your review goal.</p>
+      <div class="sf-route-grid">
+        <a class="sf-card sf-route-card sf-focus-ring" href="/start-here">
+          <h3>Start Here</h3>
+          <p>3-minute guided path through the strongest proof artifacts. Best first stop for any reviewer.</p>
         </a>
-        <a class="sf-card sf-proof-link sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/VERIFIED_COUNTS.md" target="_blank" rel="noopener noreferrer">
-          <strong>VERIFIED_COUNTS.md</strong>
-          <span>This proves the current repository inventory for <span data-verified="sigma">103</span> Sigma rules, <span data-verified="splunk">8</span> Splunk queries, 24 Wazuh files with <span data-verified="wazuh">28</span> rule blocks, and <span data-verified="ir">10</span> IR playbooks.</span>
+        <a class="sf-card sf-route-card sf-focus-ring" href="/case-study-autosoc">
+          <h3>AutoSOC Case Study</h3>
+          <p>Full walkthrough of the SignalFoundry pipeline: architecture, decision logic, outputs, and recovery.</p>
         </a>
-        <a class="sf-card sf-proof-link sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations/blob/main/PROOF_PACK/technique_map.csv" target="_blank" rel="noopener noreferrer">
-          <strong>technique_map.csv</strong>
-          <span>This proves the MITRE ATT&amp;CK mapping extracted from the repo rule sources and enriched from the ATT&amp;CK bundle.</span>
+        <a class="sf-card sf-route-card sf-focus-ring" href="/proof">
+          <h3>Proof Pack</h3>
+          <p>Public evidence trail with verification commands and links to the canonical proof artifacts.</p>
+        </a>
+        <a class="sf-card sf-route-card sf-focus-ring" href="/detections">
+          <h3>Detection Library</h3>
+          <p>Browse <span data-verified="sigma">103</span> Sigma rules, <span data-verified="wazuh">28</span> Wazuh rules, <span data-verified="splunk">8</span> Splunk queries, and <span data-verified="ir">10</span> IR playbooks.</p>
+        </a>
+        <a class="sf-card sf-route-card sf-focus-ring" href="/soc-lab">
+          <h3>SOC Lab</h3>
+          <p>Proxmox-based validation environment with Wazuh, Splunk, and repeatable detection test runs.</p>
+        </a>
+        <a class="sf-card sf-route-card sf-focus-ring" href="/resume">
+          <h3>Resume</h3>
+          <p>SOC analyst resume with work history, skills, and certifications. PDF and ATS text available.</p>
         </a>
       </div>
     </section>
 
-    <section id="cta" class="sf-section" aria-labelledby="cta-title">
-      <div class="sf-cta-grid">
-        <div class="sf-card" style="padding: 24px;">
-          <h2 id="cta-title">Review the system directly</h2>
-          <p class="sf-body">Start with the repo if you want implementation detail, or use the proof page for a guided validation path.</p>
-          <div class="sf-actions">
-            <a class="sf-button sf-button-primary sf-focus-ring" href="/proof">Review Proof</a>
-            <a class="sf-button sf-button-secondary sf-focus-ring" href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer">Open Repo</a>
-          </div>
-        </div>
-        <div class="sf-card" style="padding: 24px;">
-          <h2>Current implementation</h2>
-          <p class="sf-body">SignalFoundry is the public system framing. The AutoSOC engine remains the current implementation layer for rule tuning, reconciliation, evidence packaging, and run-state verification.</p>
-        </div>
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECTION 5: WHY THIS PORTFOLIO EXISTS
+         ═══════════════════════════════════════════════════════════════ -->
+    <section id="about" class="sf-section" aria-labelledby="about-title">
+      <div class="sf-section-label">About this portfolio</div>
+      <h2 id="about-title">Why this site exists</h2>
+      <div class="sf-philosophy">
+        <p class="sf-body" style="margin-bottom: 12px;">This portfolio documents how I build, validate, and recover security automation systems under real operating conditions — not just what I claim to know, but what I can prove I have built and operated.</p>
+        <p class="sf-body" style="margin-bottom: 12px;">The site separates current system health from proof inventory so reviewers can assess both: is the system running, and how much evidence has it actually produced? Every count on this page is generated from repository artifacts and verified by CI.</p>
+        <p class="sf-body">Detection engineering, SOC triage, and security automation are what I do. The proof is public.</p>
       </div>
     </section>
+
   </div>
 </main>
 <div id="modalBg" class="modal-backdrop" aria-hidden="true">
@@ -407,8 +524,9 @@
 <!-- @include:footer:start -->
 <footer>
   <div class="ctr">
-    <p><b>HawkinsOps</b> • Huntsville-adjacent (North Alabama)</p>
+    <p><b>Raylee Hawkins</b> &middot; North Alabama (Huntsville-adjacent)</p>
     <div class="fl">
+      <a href="/resume">Resume</a>
       <a href="https://github.com/raylee-hawkins/HawkinsOperations" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository (opens in a new tab)">GitHub</a>
       <a href="https://linkedin.com/in/raylee-hawkins" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">LinkedIn</a>
       <a href="mailto:raylee@hawkinsops.com" aria-label="Email Raylee Hawkins">raylee@hawkinsops.com</a>
